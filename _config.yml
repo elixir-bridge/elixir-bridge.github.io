@@ -1,28 +1,89 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing these this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# External gems
+# See http://ixti.net/software/2013/01/28/using-jekyll-plugins-on-github-pages.html for making `jekyll archives` work.
+gems: # Sorry, not GitHub pages friendly!
+  - jekyll-sitemap
+
+exclude:
+  - "/vendor/"
 
 # Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Elixir Bridge
+title: ElixirBridge
+subtitle: "A place to learn Elixir"
 email: info@elixirbridge.org
-description: > # this means to ignore newlines until "baseurl:"
+name: ElixirBridge
+description: >
   We empower people with technology through teaching and facilitating access,
   enlarging the community of people who give back and teach others.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://elixirbridge.org" # the base hostname & protocol for your site
-twitter_username: elixirbridge
-github_username:  elixirbridge
+# Base URL of site (i.e. /blog). It should always start with a slash,
+# and never end with a slash. Set it to a blank value if hosting at the
+# root of your server.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "elixirbridge.org" # the base hostname & protocol for your site
+cover: "/assets/header_image.jpg"
+logo: "/assets/logo.png"
 
 # Build settings
 markdown: kramdown
-theme: minima
+paginate: 5
+paginate_path: "/page:num/"
+inter_post_navigation: false
+highlightjs_theme: "monokai_sublime"
+
+# Archive settings (see https://github.com/jekyll/jekyll-archives/)
+
+# Google analytics
+# ga_tracking_id: "UA-XXXX-1"
+
+# Category descriptions (for archive pages)
+# descriptions:
+#   - cat: jekyll
+#     desc: "Posts describing Jekyll setup techniques."
+#
+#   - cat: dummy
+#     desc: "Just some placeholder posts, lorem ipsum and the rest."
+
+# Social icons and sharing options
+#
+# Social settings are used in two places:
+# * In the footer, as links to your personal profiles
+# * After each blog post for sharing widgets
+#
+# Example:
+#
+# social:
+#   - name: Twitter                         # Name of the service
+#     icon: twitter                         # Font Awesome icon to use (minus fa- prefix)
+#     username: "@TheBenCentra"             # (User) Name to display in the footer link
+#     url: https://twitter.com/TheBenCentra # URL of your profile (leave blank to not display in footer)
+#     desc: Follow me on Twitter            # Description to display as link title, etc
+#     share: true                           # Include in the "Share" section of posts
+social:
+  - name: Twitter
+    icon: twitter
+    username: elixirbridge
+    url: https://twitter.com/elixirbridge
+    desc: Twitter
+    share: true
+
+
+  - name: GitHub
+    icon: github
+    username: elixirbridge
+    url: https://github.com/elixir-bridge
+    desc: GitHub
+    share: false
+
+# Social sharing protocols
+# These are for automatically generating sharing metadata for FB and Twitter
+# OS Protocol is for sharing the source of your site, if you're interested. For more, see osprotocol.com
+protocols:
+    fb_image: "/assets/logo.png"
+    fb_image_width: 612
+    fb_image_height: 605
+    fb_image_type: "image/png"
+
+    twitter_image: "/assets/logo.png"
+
+    os_repo: "https://github.com/RichardLitt/wordhoardpress.com"
+    os_rcs_type: "git"
+    os_src: "git@github.com:RichardLitt/wordhoardpress.com.git"
