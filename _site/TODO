@@ -1,0 +1,33 @@
+- Why Program
+   - money
+   - everything is a computer now
+   - job security (until the robots take over)
+   - Fun!
+   - Powerful- can use it anywhere
+   - Hobbies
+- Why Elixir
+  - Fast
+  - Works well with modern computers (uses all the cores)
+  - Easy to write (relatively), Approachable
+  - Welcoming community
+  - Job security (until a new fad comes along)
+  - Functional (we'll get to this later)
+
+
+- Index.html - Matt
+- Installing -
+- Elixir Language - Ben
+- Getting Started - Kathy
+
+- Add The Project To A Git Repo
+- Running Your Application Locally
+- Creating A Migration
+- CRUD With Scaffolding
+- Setting The Default Page
+- Voting On Topics
+- Hooking Up Votes And Topics
+- Allow People To Vote
+- Redirect To The Topics List After Creating A New Topic
+- Make The Topic Title A Link
+- Clean Up Links On The Topics List
+- Credits And Next Steps
