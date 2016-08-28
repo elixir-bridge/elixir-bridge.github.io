@@ -550,4 +550,27 @@ $ elixir test.exs
 
 ## Modules
 
-// TODO:
+In Phoenix, we'll be building Elixir modules to group functions together. We'll use `modules` to define controller/actions for every action in our Phoenix server. 
+
+We've already seen this in action when using previous modules, such as the `String` and `Float` modules. We can create custom modules as well using the `defmodule` macro. For instance, let's say we want to create a `Students` module. We can define it like so:
+
+```
+iex> defmodule Students do
+     end
+```
+
+The `Students` module isn't very interesting _yet_. We can define functions inside a module using the `def` keyword. For instance, let's say we want to define a `count/0` function which lists the number of students:
+
+```
+iex> defmodule Students do
+        def count() do
+          31
+        end
+     end
+```
+
+We can then call the `Students.count/0` function just like we are calling any other module:
+
+```
+iex> Students.count() # 31
+```
