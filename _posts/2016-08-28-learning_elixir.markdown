@@ -23,6 +23,8 @@ Before we move on any further, let's open the Interactive EliXir REPL. After ins
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
 
+To exit the `iex` prompt, press `Ctrl+c` twice. 
+
 ### Notation
 
 In this section, we'll be using a few notations it's good to know about before we start. 
@@ -303,7 +305,159 @@ iex> 1 == 1.0 # true
 iex> 1 === 1.0 # false
 ```
 
+## Variables
+
+In Elixir, we'll use variables all over the place. In Elixir, we can create variables simply by setting the _name_ of a variable equal to it's value using the `=` operator:
+
+```
+iex> a = 1 # 1
+iex> list = [1, 2, 3]
+iex> tuple = {:ok, "Hello"}
+```
+
 ## Pattern matching
+
+One of the more powerful ideas in Erlang (and therefore Elixir) is using destructuring and pattern matching. To handle these concepts, Elixir allows us to break up lists by their placement. For instance:
+
+```
+iex> [a, b, c] = [1, 2, 3]
+iex> a # 1
+iex> c # 3
+```
+
+We'll also use the head and tail operators to get a list's head and tail elements in a destructured way:
+
+```
+iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
+iex> head # 1
+iex> tail # [2, 3]
+iex> ## We can also preprend values using this destructuring
+iex> [1 | [2, 3]] # [1, 2, 3]
+```
+
+Lists aren't the only data structure that allows us to pattern match. We can pattern match on tuples as well. For instance:
+
+```
+iex> {a, b, c} = {:hello, "world", 42}
+iex> a # :hello
+iex> c # 42
+```
+
+> This works as the tuples are the same size. We'll get a `MatchError` if the size of the tuples are different
+>
+> ```
+> {a, b, c} = {:ok, "hello"} # MatchError
+> ```
+
+We'll also use pattern matching to match on specific values of a tuple. This is incredibly useful for checking results of functions, for instance.
+
+```
+iex> {:ok, msg} = {:ok, "Hello world"}
+iex> msg # "Hello world"
+```
+
+If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common usecase is if we want to only get the head of a list. 
+
+```
+iex> [head | _] = [1, 2, 3]
+iex> head # 1
+```
+
+## Control structures
+
+We often want to run a check on a particular state of a variable. 
+
+### `case`
+
+The `case` function allows us to compare a value against several patters until we find one that matches. For instance:
+
+```
+iex> case {1, 2, 3} do
+    {4, 5, 6} ->
+        "Does not match"
+    {1, x, 3} ->
+        "This caluse does match and sets x to 2"
+    _ ->
+        "Matches any value not previously matched"
+    end
+```
+
+We can also use _guards_ to check against extra conditions in a `case` statement. This is useful for setting _extra_ conditions not previously covered in the match statement:
+
+```
+iex> case {1, 2, 3} do
+    {1, x, 3} when x > 0 ->
+        "Matches"
+    _ -> 
+        "Matches if the guard condition is false"
+    end
+```
+
+We can use lots of different operators in the guard clauses above. The documentation at [http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses](http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses) is pretty complete and covers all of the operators we have available to us.
+
+If there are no matching clauses in a `case` statement, an error will be raised:
+
+```
+iex> case :ok do
+      :error -> "Does not match"
+    end
+```
+
+### `cond`
+
+The `cond` function allows us to check against the conditions which evaluate to true rather than just different values. It's similar to the `case` statement, but evaluates functions and uses it's result to pattern match:
+
+```
+iex> cond do
+      2 + 2 == 5 ->
+        "This is not true"
+      2 * 2 == 3 ->
+        "This is not true"
+      1 + 1 == 2 ->
+        "This does match"
+    end
+```
+
+### `if` and `unless`
+
+We can check a single value by using the `if` and `unless`. 
+
+```
+iex> if true do
+      "This is true"
+     end
+iex> unless true do
+      "This won't be seen"
+     end
+```
+
+We can also use `else` in our `if` and `unless` blocks as well:
+
+```
+iex> if false do
+        "This won't be seen"
+     else
+        "This will be seen"
+     end
+```
+
+### `do/end` blocks
+
+We've seen the `do/end` blocks in our previous operators. They allow us to define the start and end block to be executed if a condition has been met. For instance:
+
+```
+iex> if true do
+        a = 1 + 2
+        a + 10
+     end
+iex> # And the equivalent using :
+iex> if true, do: (
+        a = 1 + 2
+        a + 10 
+     )
+```
+
+## Dictionaries, err... keyword lists
 
 // TODO:
 
