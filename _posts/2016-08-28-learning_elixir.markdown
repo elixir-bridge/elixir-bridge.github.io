@@ -170,6 +170,12 @@ iex> String.length("hello world") # 11
 iex> String.upcase("hello world") # HELLO WORLD
 ```
 
+We can concatenate strings using the `<>` operator. For instance:
+
+```
+iex> "Hello" <> "World" # "HelloWorld"
+```
+
 More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).
 
 ## Anonymous functions
@@ -206,6 +212,7 @@ We have a bunch of built-in methods we can use to interact with and manipulate l
 ```
 iex> length [1, 2, 3] # 3
 iex> [1] ++ [2] # [1, 2]
+iex> [1, 2, 3] -- [2] # [1, 3]
 ```
 
 Common functions we'll use whenever we write Elixir code are checking for the head (`hd/1`) and tails of a list (`tl/1`). When we talk about the head of the list, we're looking for the first element of the list. For instance:
@@ -259,7 +266,46 @@ iex> put_elem({:ok, "hello"}, 1, "world")
 
 ## Operators
 
-Elixir has
+Elixir has a lot of built-in operators. We've already seen a few, such as addition (`+`), division (`/`), and `++`/`--` (list manipulation):
+
+```
+iex> [1, 2, 3] ++ [4, 5, 6] # [1, 2, 3, 4, 5, 6]
+iex> [1, 2, 3] -- [2] # [1, 3]
+iex> "Hello" <> "World" # HelloWorld
+```
+
+We can also check for boolean operators, such as using `and`, `or`, and `not`. We need to use a boolean as the first argument of these operators. For instance:
+
+```
+iex> true and true # true
+iex> false or is_atom(:example) # true
+```
+
+The `or` and `and` operators are called _short-circut_ operators as they execute the left-side first and if it is enough, the right-hand side will not be executed. 
+
+```
+iex> false and raise("Error") # false
+iex> true or raise("Error")
+```
+
+We can use the `||`, `&&`, and `!` operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`. 
+
+```
+iex> 1 || true # 1
+iex> nil && 13 # nil
+iex> !1 # false
+```
+
+We can check equality using the `==`, `!=`, `===`, `!==`, `<=`, `>=`, `<`, and `>` comparison operators. The `==` operator and `===` have different levels of strict-ness, where the `==` operator is less restrictive:
+
+```
+iex> 1 == 1.0 # true
+iex> 1 === 1.0 # false
+```
+
+## Pattern matching
+
+// TODO:
 
 ## Executing scripts
 
