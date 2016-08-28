@@ -538,5 +538,16 @@ Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.h
 
 ## Executing scripts
 
-// TODO: 
+So far we've used on the `iex` tool to execute Elixir functionality in real-time. This is not always convenient, especially when we start writing bigger and bigger functions. 
 
+Rather than typing in the REPL, we can write to a file with our elixir code and execute it using the `elixir` command-line function:
+
+```
+$ echo "IO.puts \"Hello world\"" > test.exs
+$ elixir test.exs
+"Hello world"
+```
+
+## Modules
+
+// TODO:
