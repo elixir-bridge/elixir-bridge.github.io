@@ -652,3 +652,18 @@ end
 ```
 
 Running this in the console and we'll see that we get `true` when we pass in the string of `"zero"`.
+
+## Recursion
+
+We can use the concept of guards with pattern matching to implement somewhat complex functions as simple ones. For instance, let's say we have a function where we want to implement the [Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number) sequence in elixir. The simplest way for handling fibonacci functions is to use recusion, for instance:
+
+```
+defmodule Math do
+  def fibonacci(x) when x <= 1, do: x
+  def fibonacci(x), do: fibonacci(x - 1) + fibonacci(x - 2)
+end
+```
+
+Although this might look complex from the outset, it's a fairly succinct method for defining such a complex algorithm. 
+
+Erlang (and elixir) implement recursive functions efficiently, so we can rely on recursive statements as a safe, fast method for dealing with recursive functions. 
