@@ -62,7 +62,7 @@ A number type comprises the Integer and the Float types. Just like how it sounds
 
 In our `eix` command prompt, these are all integers:
 
-```
+```elixir
 iex> 1
 iex> 200000
 iex> 0xA
@@ -76,7 +76,7 @@ Notice that we can create not only base-10 numbers, but octal, hex, and even bin
 
 We can check if a value is an integer by using the function `is_integer/1`. For instance:
 
-```
+```elixir
 iex> is_integer(1) # true
 iex> is_integer(3.14) # false
 ```
@@ -85,7 +85,7 @@ iex> is_integer(3.14) # false
 
 Creating/using floats is equally as easy. The difference between a float and an integer is indicated by it's precision. They require a dot followed by at _least_ one digit. These are all floats:
 
-```
+```elixir
 iex> 1.0
 iex> 2000.8
 iex> 1.0e-10
@@ -95,7 +95,7 @@ We can check if a value is a float by using the `is_float/1` function.
 
 The built-in number types have functions we can perform on them as well, such as addition, division, mixing precision, and more. 
 
-```
+```elixir
 iex> 1 + 1 # 2
 iex> div(10, 2)
 iex> rem(10, 3)
@@ -111,7 +111,7 @@ Try some other commands out to see what else you can do.
 
 We can also call functions on these results as well. For instance:
 
-```
+```elixir
 iex> is_integer(1 + 1) # true
 iex> is_float(div(10, 2)) # false
 iex> is_boolean(10 / 2) # false
@@ -122,14 +122,14 @@ iex> is_boolean(10 / 2 == 5) # true
 
 Booleans are `true` and `false` types. We can use these types to check truth conditions. 
 
-```
+```elixir
 iex> true ## true
 iex> true == false
 ```
 
 It's possible to check if a variable is a boolean by using the `is_boolean/1` function:
 
-```
+```elixir
 iex> is_boolean(true) # true
 iex> is_boolean(1) # false
 ```
@@ -140,7 +140,7 @@ We'll use atoms a lot in Elixir. They are their own constant values. If you're f
 
 For instance, these are all atoms:
 
-```
+```elixir
 iex> :hello
 iex> :world
 iex> true
@@ -148,7 +148,7 @@ iex> true
 
 Atoms have their own value in Elixir. We've actually already seen an atomic value in the booleans. Booleans are actually atoms themselves. We can check if a particular value is an atom by using the `is_atom/1` function:
 
-```
+```elixir
 iex> is_atom(:hello) # true
 iex> is_atom(2.0) # false
 iex> is_atom(true) # true
@@ -158,7 +158,7 @@ iex> is_atom(true) # true
 
 Strings in Elixir are similar to other languages which are values between _double quotes_ (`"`) and are UTF-8 encoded. For instance, these are all strings:
 
-```
+```elixir
 iex> "hello world"
 iex> "hello\nworld\n"
 ```
@@ -167,14 +167,14 @@ We can print strings by using the `IO` module (which we'll look at in a few) by 
 
 Just like integers, the `String` module has a lot of functions built-in to the standard library we can use out of the box. 
 
-```
+```elixir
 iex> String.length("hello world") # 11
 iex> String.upcase("hello world") # HELLO WORLD
 ```
 
 We can concatenate strings using the `<>` operator. For instance:
 
-```
+```elixir
 iex> "Hello" <> "World" # "HelloWorld"
 ```
 
@@ -186,7 +186,7 @@ In Elixir, we can create functions which are treated just like any other type in
 
 For instance, all of these are functions in Elixir:
 
-```
+```elixir
 iex> add = fn a, b -> a + b end
 iex> is_function(add) # true
 iex> b = (fn a -> a + 2 end)
@@ -194,7 +194,7 @@ iex> b = (fn a -> a + 2 end)
 
 In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the function name. For example, to call the `add/2` function, we'll need to type:
 
-```
+```elixir
 iex> add.(2 2) # 4
 ```
 
@@ -204,14 +204,14 @@ Lists in Elixir are created by surrounding a list of values with brackets `[`. L
 
 For instance, these are all _valid_ lists:
 
-```
+```elixir
 iex> [1, 2, 3]
 iex> [:hello, "world"]
 ```
 
 We have a bunch of built-in methods we can use to interact with and manipulate lists in Elixir. 
 
-```
+```elixir
 iex> length [1, 2, 3] # 3
 iex> [1] ++ [2] # [1, 2]
 iex> [1, 2, 3] -- [2] # [1, 3]
@@ -219,13 +219,13 @@ iex> [1, 2, 3] -- [2] # [1, 3]
 
 Common functions we'll use whenever we write Elixir code are checking for the head (`hd/1`) and tails of a list (`tl/1`). When we talk about the head of the list, we're looking for the first element of the list. For instance:
 
-```
+```elixir
 iex> hd([1, 2, 3]) # 1
 ```
 
 The tail is everything _but_ the head of the list:
 
-```
+```elixir
 iex> tl([1, 2, 3]) # [2, 3]
 ```
 
@@ -237,26 +237,26 @@ Tuples in Elixir are used to store elements contiguously in memory, which means 
 
 Tuples are created by using the curly brackets with elements separated by commas. These are all tuples in Elixir:
 
-```
+```elixir
 iex> {:ok, "hello"}
 iex> {1, 2, :true}
 ```
 
 Because these are created and stored in one block in memory, we can use the indicies to indicate which value we want to pull out of a tuple. For instance, we can get the `:ok` value in the first tuple by looking for the first element:
 
-```
+```elixir
 iex> elem({:ok, "hello"}, 0) # :ok
 ```
 
 We can check the size of a tuple using the `tuple_size/1` function:
 
-```
+```elixir
 iex> tuple_size({:ok, "hello"}) # 2
 ```
 
 And we can replace elements in a tuple by using the `put_elem/3` function, which takes the tuple, the argument, and the value:
 
-```
+```elixir
 iex> put_elem({:ok, "hello"}, 1, "world")
 ```
 
@@ -270,7 +270,7 @@ iex> put_elem({:ok, "hello"}, 1, "world")
 
 Elixir has a lot of built-in operators. We've already seen a few, such as addition (`+`), division (`/`), and `++`/`--` (list manipulation):
 
-```
+```elixir
 iex> [1, 2, 3] ++ [4, 5, 6] # [1, 2, 3, 4, 5, 6]
 iex> [1, 2, 3] -- [2] # [1, 3]
 iex> "Hello" <> "World" # HelloWorld
@@ -278,21 +278,21 @@ iex> "Hello" <> "World" # HelloWorld
 
 We can also check for boolean operators, such as using `and`, `or`, and `not`. We need to use a boolean as the first argument of these operators. For instance:
 
-```
+```elixir
 iex> true and true # true
 iex> false or is_atom(:example) # true
 ```
 
 The `or` and `and` operators are called _short-circut_ operators as they execute the left-side first and if it is enough, the right-hand side will not be executed. 
 
-```
+```elixir
 iex> false and raise("Error") # false
 iex> true or raise("Error")
 ```
 
 We can use the `||`, `&&`, and `!` operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`. 
 
-```
+```elixir
 iex> 1 || true # 1
 iex> nil && 13 # nil
 iex> !1 # false
@@ -300,7 +300,7 @@ iex> !1 # false
 
 We can check equality using the `==`, `!=`, `===`, `!==`, `<=`, `>=`, `<`, and `>` comparison operators. The `==` operator and `===` have different levels of strict-ness, where the `==` operator is less restrictive:
 
-```
+```elixir
 iex> 1 == 1.0 # true
 iex> 1 === 1.0 # false
 ```
@@ -309,7 +309,7 @@ iex> 1 === 1.0 # false
 
 In Elixir, we'll use variables all over the place. In Elixir, we can create variables simply by setting the _name_ of a variable equal to it's value using the `=` operator:
 
-```
+```elixir
 iex> a = 1 # 1
 iex> list = [1, 2, 3]
 iex> tuple = {:ok, "Hello"}
@@ -319,7 +319,7 @@ iex> tuple = {:ok, "Hello"}
 
 One of the more powerful ideas in Erlang (and therefore Elixir) is using destructuring and pattern matching. To handle these concepts, Elixir allows us to break up lists by their placement. For instance:
 
-```
+```elixir
 iex> [a, b, c] = [1, 2, 3]
 iex> a # 1
 iex> c # 3
@@ -327,7 +327,7 @@ iex> c # 3
 
 We'll also use the head and tail operators to get a list's head and tail elements in a destructured way:
 
-```
+```elixir
 iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
 iex> head # 1
 iex> tail # [2, 3]
@@ -337,7 +337,7 @@ iex> [1 | [2, 3]] # [1, 2, 3]
 
 Lists aren't the only data structure that allows us to pattern match. We can pattern match on tuples as well. For instance:
 
-```
+```elixir
 iex> {a, b, c} = {:hello, "world", 42}
 iex> a # :hello
 iex> c # 42
@@ -345,20 +345,20 @@ iex> c # 42
 
 > This works as the tuples are the same size. We'll get a `MatchError` if the size of the tuples are different
 >
-> ```
+> ```elixir
 > {a, b, c} = {:ok, "hello"} # MatchError
 > ```
 
 We'll also use pattern matching to match on specific values of a tuple. This is incredibly useful for checking results of functions, for instance.
 
-```
+```elixir
 iex> {:ok, msg} = {:ok, "Hello world"}
 iex> msg # "Hello world"
 ```
 
 If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common usecase is if we want to only get the head of a list. 
 
-```
+```elixir
 iex> [head | _] = [1, 2, 3]
 iex> head # 1
 ```
@@ -371,7 +371,7 @@ We often want to run a check on a particular state of a variable.
 
 The `case` function allows us to compare a value against several patters until we find one that matches. For instance:
 
-```
+```elixir
 iex> case {1, 2, 3} do
     {4, 5, 6} ->
         "Does not match"
@@ -384,7 +384,7 @@ iex> case {1, 2, 3} do
 
 We can also use _guards_ to check against extra conditions in a `case` statement. This is useful for setting _extra_ conditions not previously covered in the match statement:
 
-```
+```elixir
 iex> case {1, 2, 3} do
     {1, x, 3} when x > 0 ->
         "Matches"
@@ -397,7 +397,7 @@ We can use lots of different operators in the guard clauses above. The documenta
 
 If there are no matching clauses in a `case` statement, an error will be raised:
 
-```
+```elixir
 iex> case :ok do
       :error -> "Does not match"
     end
@@ -407,7 +407,7 @@ iex> case :ok do
 
 The `cond` function allows us to check against the conditions which evaluate to true rather than just different values. It's similar to the `case` statement, but evaluates functions and uses it's result to pattern match:
 
-```
+```elixir
 iex> cond do
       2 + 2 == 5 ->
         "This is not true"
@@ -422,7 +422,7 @@ iex> cond do
 
 We can check a single value by using the `if` and `unless`. 
 
-```
+```elixir
 iex> if true do
       "This is true"
      end
@@ -433,7 +433,7 @@ iex> unless true do
 
 We can also use `else` in our `if` and `unless` blocks as well:
 
-```
+```elixir
 iex> if false do
         "This won't be seen"
      else
@@ -445,7 +445,7 @@ iex> if false do
 
 We've seen the `do/end` blocks in our previous operators. They allow us to define the start and end block to be executed if a condition has been met. For instance:
 
-```
+```elixir
 iex> if true do
         a = 1 + 2
         a + 10
@@ -465,7 +465,7 @@ We'll often want to set up a 2-item tuple as a representation of a `key-value` d
 
 For instance, if we want to set up a key-value mapping, we set them as a list of tuples from the first item to the second. For instance:
 
-```
+```elixir
 iex> list = [{:a, 1}, {:b, 2}]
 iex> list[:a] # 1
 iex> list[:c] # nil
@@ -473,7 +473,7 @@ iex> list[:c] # nil
 
 We can concatenate the dictionary using the key-value syntax woth `++`. For instance:
 
-```
+```elixir
 iex> list = [{:a, 1}, {:b, 2}]
 iex> list[:a] # 1
 iex> list[:c] # nil
@@ -490,7 +490,7 @@ Keyword lists are just lists which means that this isn't really a fantastic data
 
 Maps in Elixir provides a quick key-value store called a map. Maps can be created by using the `%{}` syntax:
 
-```
+```elixir
 iex> map = %{:a => 1, 2 => :b}
 iex> map[:a] # 1
 iex> map[2] # :b
@@ -504,7 +504,7 @@ Maps do not contain ordering and can allow _any_ value to be set as the key.
 
 Elixir provides a way for us to hold variables inside of maps. We'll use this all over the place in Phoenix, where we'll have variables that represent data structures in our database. For instance, we can create a list of users that is a key-value map to another nested map:
 
-```
+```elixir
 iex> users = [
   john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
   mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
@@ -513,13 +513,13 @@ iex> users = [
 
 We can then get variables using the `[]` and `.` syntax:
 
-```
+```elixir
 iex> users[:john].age # 27
 ```
 
 We can then manipulate variables by using the `put_in/2` function to create a new value:
 
-```
+```elixir
 iex> users = put_in users[:john].age, 31
 iex> users # 
 john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
@@ -528,7 +528,7 @@ mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
 
 It's _also_ possible to define how to manipulate the value using the `update_in/2` function. 
 
-```
+```elixir
 iex> users = update_in users[:mary].languages, &List.delete(&1, "Clojure")
 [john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},
  mary: %{age: 29, languages: ["Elixir", "F#"], name: "Mary"}]
@@ -542,7 +542,7 @@ So far we've used on the `iex` tool to execute Elixir functionality in real-time
 
 Rather than typing in the REPL, we can write to a file with our elixir code and execute it using the `elixir` command-line function:
 
-```
+```elixir
 $ echo "IO.puts \"Hello world\"" > test.exs
 $ elixir test.exs
 "Hello world"
@@ -554,14 +554,14 @@ In Phoenix, we'll be building Elixir modules to group functions together. We'll 
 
 We've already seen this in action when using previous modules, such as the `String` and `Float` modules. We can create custom modules as well using the `defmodule` macro. For instance, let's say we want to create a `Students` module. We can define it like so:
 
-```
+```elixir
 iex> defmodule Students do
      end
 ```
 
 The `Students` module isn't very interesting _yet_. We can define functions inside a module using the `def` keyword. For instance, let's say we want to define a `count/0` function which lists the number of students:
 
-```
+```elixir
 iex> defmodule Students do
         def count() do
           31
@@ -571,19 +571,19 @@ iex> defmodule Students do
 
 We can then call the `Students.count/0` function just like we are calling any other module:
 
-```
+```elixir
 iex> Students.count() # 31
 ```
 
 We can compile our modules using the `elixirc` command (the `c` can be thought as compiler). 
 
-```
+```elixir
 elixirc students.ex
 ```
 
 Now if we run the `iex` in this same directory, elixir will automatically pull in the compiled `.beam` file into the environment and we can use it directly:
 
-```
+```elixir
 iex> Students.count() # 31
 ```
 
@@ -597,7 +597,7 @@ We've looked at pattern matching with elixir earlier. We can use pattern matchin
 
 We _always_ will return true when the number passed in through a function is 0, so we can write our function like so:
 
-```
+```elixir
 defmodule Math do
   def zero?(0) do
     true
@@ -607,7 +607,7 @@ end
 
 Alternatively, more succinctly, we can write this function in the list format to make it smaller:
 
-```
+```elixir
 defmodule Math do
   def zero?(0), do: true
 end
@@ -619,7 +619,7 @@ If we run this function in our REPL, we'll see that we can call the `Math.zero?(
 
 It explodes with an error because elixir cannot find a function to run that matches the case where the argument is non-zero. We can write this function by defining a function version with an argument:
 
-```
+```elixir
 defmodule Math do
   def zero?(0), do: true
   def zero?(_) do
@@ -638,7 +638,7 @@ What happens if our requirements change and we want to _also_ say that the strin
 
 Not necessarily, we can use the concept of _guards_ to add additional functionality to the pattern matching provided by default through Elixir. A _guard_ comes right after the function definition. For instance, to implement our previous function with a guard to match if the argument is a string of "zero", we can add the guard like so:
 
-```
+```elixir
 defmodule Math do
   def zero?(0), do: true
   def zero?(x) when x == "zero" do
@@ -657,7 +657,7 @@ Running this in the console and we'll see that we get `true` when we pass in the
 
 We can use the concept of guards with pattern matching to implement somewhat complex functions as simple ones. For instance, let's say we have a function where we want to implement the [Fibonacci](https://en.wikipedia.org/wiki/Fibonacci_number) sequence in elixir. The simplest way for handling fibonacci functions is to use recusion, for instance:
 
-```
+```elixir
 defmodule Math do
   def fibonacci(x) when x <= 1, do: x
   def fibonacci(x), do: fibonacci(x - 1) + fibonacci(x - 2)
