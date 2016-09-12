@@ -19,7 +19,7 @@ We can use the REPL (Read-Eval-Print Loop) command-line tool to write and run si
 
 Before we move on any further, let's open the Interactive EliXir REPL. After installing Elixir, we'll have at least three new commands. One of these commands is the `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt. 
 
-![eix prompt](/assets/learning_elixir/iex.png)
+![eix prompt](/assets/learning_elixir/iex-cli.png)
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
 
