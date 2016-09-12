@@ -8,6 +8,7 @@ date: 2016-08-21 12:28:28 -0700
 
 #### Mac or Linux
 Type this in the terminal:
+
 ```
 cd ~
 ```
@@ -17,6 +18,7 @@ cd ~
 ### Step 2: Create an Elixirbridge directory
 
 To keep things organized, we'll want all of the elixirbridge files in their own directory. Type this in the terminal:
+
 ```
 mkdir elixirbridge
 ```
@@ -27,6 +29,7 @@ We've made a folder called elixirbridge.
 ### Step 3:
 Change to your new elixirbridge directory
 Type this in the terminal:
+
 ```
 cd elixirbridge
 ```
@@ -70,7 +73,7 @@ Type the following into your terminal:
 
 ```
 mix deps.get
-`
+```
 
 Step 6: Install nm and node
 
@@ -81,6 +84,7 @@ npm install && node node_modules/brunch/bin/brunch build
 #### Create the database
 
 Type this in a terminal:
+
 ```
 mix ecto.create
 ```
@@ -115,13 +119,8 @@ If your prompt doesn't already show you that you are in your test_app folder typ
 cd test_app
 ```
 
-Type this in the terminal:
-
-```
-
 Next lets create a database.
-
-type in
+Type this in the terminal:
 
 ```
 $ mix ecto.create
@@ -205,12 +204,12 @@ scope "/", ElixirBlog do
     resources "/drinks", DrinkController
   end
 
+```
 
 now type this into the terminal
 
 ```
 mix ecto.migrate
-
 ```
 Now lets start start our server up again
 
@@ -225,7 +224,7 @@ localhost:4000
 
 You should see a page that looks something like this
 
-![test app image](/assets/test-app-index.png)
+!['test app image'](/assets/test-app-index.png)
 
 
 Wait till your server has loaded like before.
@@ -382,7 +381,7 @@ config :test_app, TestApp.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
   secret_key_base: System.get_env("SECRET_KEY_BASE")
-  ```
+```
 
 Don't forget to save the file.
 
@@ -400,19 +399,10 @@ config :hello_phoenix, HelloPhoenix.Repo,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
+```
 
 right under this section
 
-```
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-
-```
-
-The top of the 'config/prod.exs' file should now look like
 
 ```
 config :test_app, TestApp.Endpoint,
@@ -420,27 +410,42 @@ config :test_app, TestApp.Endpoint,
   url: [host: "example.com", port: 80],
   cache_static_manifest: "priv/static/manifest.json"
   secret_key_base: System.get_env("SECRET_KEY_BASE")
+```
+
+The top of the 'config/prod.exs' file should now look like --
+
+```
+config :test_app, TestApp.Endpoint,
+  http: [port: {:system, "PORT"}],
+  url: [host: "example.com", port: 80],
+  cache_static_manifest: "priv/static/manifest.json"
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+```
 
 
 # Configure your database
+
+```
 config :hello_phoenix, HelloPhoenix.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
-  ```
+```
 
 Next Find the line in the `prod.exs` file that says the following
 
 ```
-url: [host: "example.com", port: 80],
+url: [host: "example.com", port: 80]
 ```
 (It should be in the first section of this file we changed).
 
 Replace that line with the following two lines
 
-```url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
-force_ssl: [rewrite_on: [:x_forwarded_proto]],```
+```
+url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
+force_ssl: [rewrite_on: [:x_forwarded_proto]],
+```
 
 Make sure that you replace the part of the host url that says `name-of-your-app` with the app name that you copied and saved from an earlier step.
 
@@ -452,6 +457,31 @@ import_config "prod.secret.exs"
 ```
 
 Our config/prod.exs should now look like this -
+
+```
+use Mix.Config
+
+config :test_app, TestApp.Endpoint,
+  http: [port: {:system, "PORT"}],
+  url: [scheme: "https", host: "stormy-stream-65433.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/manifest.json",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Do not print debug messages in production
+config :logger, level: :info
+
+
+# Configure your database
+config :test_app, TestApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: System.get_env("NEW_DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true,
+  database: System.get_env("DATABASE"),
+  username: System.get_env("USERNAME"),
+  password: System.get_env("PASSWORD")
+```
 
 The last thing we need to do is decrease teh timeout for websocket Transport.
 
@@ -481,50 +511,27 @@ Then type:
 ```
 touch Procfile.txt
 
-end
+```
 
 Open the Procfile in your text editor and paste in the following:
 
 ```
-web: MIX_ENV=prod mix phoenix.server
+web: elixir -S mix phoenix.server
 ```
 
-Next go to your app on heroku
-
-[https://dashboard.heroku.com/apps](https://dashboard.heroku.com/apps)
-
-Click on your app
-
-Click on Find Add-ons
-
-In the search bar type
-
-Heroky Postresql
-
-Select the `Heroku Postgres :: Database`
-option
-
-Click Provision
-
-Next: go back to your terminal
-
-Type the following in your terminal:
+Next type the following into your terminal (do one line at a time)
 
 ```
-Expected Result:
+$ heroku create --buildpack=https://github.com/HashNuke/heroku-buildpack-elixir.git
+
+$ heroku addons:create heroku-postgresql:dev
+```
+
+next type the following in your terminal:
 
 ```
-Creating heroku-postgresql:hobby-dev on ⬢ stormy-stream-65433... free
-Created postgresql-convex-53624 as HEROKU_POSTGRESQL_NAVY_URL
-Database has been created and is available
- ! This database is empty. If upgrading, you can transfer
- ! data from another database with pg:copy
-Use heroku addons:docs heroku-postgresql to view documentation
-```
-Next we want to update the number of available connections. The Heroku hobby-dev database allows for 20 connectiosn so we want our number to be slightly lower to account for migrations and mix tasks.
-
-
-Type the following in your terminal:
+$ heroku config:set MIX_ENV=prod
+``
 
 ```
 heroku config:set POOL_SIZE=18
@@ -578,15 +585,116 @@ If you need to make any of your config variables available at compile time, you 
 
 Create a file elixir_buildpack.config in your application's root directory and add a line like: config_vars_to_export=(MY_VAR) [See more](https://github.com/HashNuke/heroku-buildpack-elixir#specifying-config-vars-to-export-at-compile-time)
 
-### Depploy Time!!!
+Next open up your 'Prod.exs file'
 
+There should be a section towards the bottom of the file that looks like this
+
+```
+# Configure your database
+config :test_app, TestApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: System.get_env("NEW_DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true,
+  database: System.get_env("DATABASE"),
+  username: System.get_env("USERNAME"),
+  password: System.get_env("PASSWORD")
+```
+
+make sure that the name after 'config' is the name of your app,
+
+it should look like this
+
+```
+config :your-app-name, YourAppName.repo
+```
+
+### Deploy Time!!!
+
+Go to heroku.com
+
+Click on your app
+
+You should see something like this
+
+```
+![heroku app interface](/assets/heroku-app-interface.png)
+```
+
+Click on settings
+
+You should see something that looks like this
+
+```
+![heroku config vars](/assets/reveal-heroku-config-vars.png)
+```
+Click on the button that says **Reveal Config Vars**
+
+Make sure you have the following environment variables set.
+Note - they may not be set in this same order
+
+```
+DATABASE_URL: heroku-sets-this-for=you
+DATABASE: heroku-sets-this-for=you
+MIX_ENV: prod  **you need to set this one**
+PASSWORD: heroku-sets-this-for=you
+POOL_SIZE: 18
+SECRET_KEY_BASE:
+USER_NAME:
+```
+
+Now in the empty row at the bottom of the page
+
+![empty-herokfu-config-var](assets/empty-heroku-config-var.png)
+
+in teh first empty field create a new variabel called
+
+'NEW_DATABASE_URL'
+
+Then take a look at your database url, but clicking on the pencil icon next to it. copy the portion after the at sign. It should look something like
+
+```
+postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
+```
+
+Copy the portion after the @ sign and paste it as the value for the NEW_DATABASE_URL
+
+
+You should have teh following variables now defined
+
+```
+DATABASE_URL:
+DATABASE:
+MIX_ENV:
+PASSWORD:
+POOL_SIZE:
+SECRET_KEY_BASE:
+USER_NAME:
+NEW_DATABSE_URL
+```
+
+Then OPen up your 'Prod.exs file' - and change the value of the host name so it is using the NEW_DATABASE_URL -
+
+It should look like this
+
+```
+# Configure your database
+config :test_app, TestApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: System.get_env("NEW_DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true,
+  database: System.get_env("DATABASE"),
+  username: System.get_env("USERNAME"),
+  password: System.get_env("PASSWORD")
+```
 Let's commit all our changes. Copy each of the lines below into your terminal one at a time. Do not do this all at once.
 
 ```
 $ git add config/prod.exs
 $ git add Procfile
 $ git add web/channels/user_socket.ex
-$ git commit -m "Use production config from Heroku ENV variables and decrease socket timeout"
+$ git commit -m "Use production config from Heroku ENV variables and deploy environment"
 ```
 
 And now DEPLOY!!
@@ -596,6 +704,45 @@ Type this into your terminal:
 ```
 $ git push heroku master
 ```
+
+You will see a bunch of stuff and at the end you will see
+
+```
+remote:
+remote: Verifying deploy.... done.
+To https://git.heroku.com/stormy-stream-65433.git
+   ae7601a..e5c410b  master -> master
+Annas-MacBook-Pro-3:test_app an$ heroku logs -a stormy-stream-65433
+```
+
+You do not see the 'Verifying deploy...done', ask a TA for help.
+
+
+next type the following into your terminal
+
+```
+npm install brunch
+```
+
+then type
+
+`node_modules/brunch/bin/brunch  build --production`
+
+finally type
+
+```
+heroku run "mix ecto.migrate"
+```
+
+YAY all done!
+
+Type
+
+```
+heroku open
+```
+to see your app.
+
 
 
 TODO
