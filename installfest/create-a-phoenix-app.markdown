@@ -726,9 +726,14 @@ npm install brunch
 
 then type
 
-`node_modules/brunch/bin/brunch  build --production`
+```
+node_modules/brunch/bin/brunch  build --production
+
+```
 
 finally type
+
+
 
 ```
 heroku run "mix ecto.migrate"
