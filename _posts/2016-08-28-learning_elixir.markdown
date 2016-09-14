@@ -667,3 +667,19 @@ end
 Although this might look complex from the outset, it's a fairly succinct method for defining such a complex algorithm. 
 
 Erlang (and elixir) implement recursive functions efficiently, so we can rely on recursive statements as a safe, fast method for dealing with recursive functions. 
+
+## Pipe operator
+
+One operator that we'll see often is the pipe operator `|>`. The `|>` pipe operator looks scary but really just passes the result of one function on to the next function. Conceptually, it's like running the function:
+
+```
+f(d(b(:atom)))
+```
+
+The equivalent version using pipes is
+
+```
+b(:atom) |> d() |> f()
+```
+
+The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type. 
