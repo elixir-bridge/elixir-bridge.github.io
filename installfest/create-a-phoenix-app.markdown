@@ -10,7 +10,7 @@ date: 2016-08-21 12:28:28 -0700
 Type this in the terminal:
 
 ```
-cd ~
+$ cd ~
 ```
 
 `cd ~` sets our home directory to our current directory.
@@ -20,7 +20,7 @@ cd ~
 To keep things organized, we'll want all of the elixirbridge files in their own directory. Type this in the terminal:
 
 ```
-mkdir elixirbridge
+$ mkdir elixirbridge
 ```
 `mkdir` stands for make directory (folder).
 
@@ -31,40 +31,46 @@ Change to your new elixirbridge directory
 Type this in the terminal:
 
 ```
-cd elixirbridge
+$ cd elixirbridge
 ```
 ### Step 4: Create a new Phoenix app
 Type this in the terminal:
 
 ```
-mix phoenix.new test_app
+$ mix phoenix.new test_app
 ```
 
-The command's output is a list of the files it creates, which will be fairly long. We'll go into detail about what these files are later. Then it will as you to fetch and install dependencies, type `Y` to do this. If there's an error at this point, grab a volunteer to help you.
+
+The command's output is a list of the files it creates, which will be fairly long. We'll go into detail about what these files are later. 
+
+![phoenix app output](/assets/phoenix-new-app-output.png)
+
+
+Then it will ask you to fetch and install dependencies, type `Y` to do this. If there's an error at this point, grab a volunteer to help you.
 
 Change into the project directory:
 
 ```
-cd test_app
+$ cd test_app
 ```
 
 Now type this into the terminal:
 
 ```
-which node
+$ which node
 ```
 
 You should see something like this in your terminal:
 
 ```
-/usr/local/bin/npm
+$ /usr/local/bin/npm
 ```
 
 If you do see this, move on to the next step.
 Otherwise type the following into your terminal:
 
 ```
-brew install node
+$ brew install node
 ```
 
 Step 5: Get Dependencies
@@ -72,13 +78,13 @@ Step 5: Get Dependencies
 Type the following into your terminal:
 
 ```
-mix deps.get
+$ mix deps.get
 ```
 
 Step 6: Install nm and node
 
 ```
-npm install && node node_modules/brunch/bin/brunch build
+$ npm install && node node_modules/brunch/bin/brunch build
 ```
 
 #### Create the database
@@ -86,12 +92,12 @@ npm install && node node_modules/brunch/bin/brunch build
 Type this in a terminal:
 
 ```
-mix ecto.create
+$ mix ecto.create
 ```
 
 Then, type this in a terminal:
 ```
-mix phoenix.server
+$ mix phoenix.server
 ```
 
 If phoenix server starts up with no errors, you're golden! It'll look something like this:
@@ -103,41 +109,22 @@ If phoenix server starts up with no errors, you're golden! It'll look something 
 
 In your browser, open [localhost:4000](http://localhost:4000). You should see a page Like this:
 
-(TODO: insert screenshot here)
 ![](/assets/welcome-to-phoenix.png)
+
+
+Hit `Ctrl c` twice to stop the server
 
 
 #### Step 7 : Generate a database model
 
-Phoenix gives us a phoenix.gen.html task similar to Rails’ rails generate scaffold
+Phoenix gives us a phoenix.gen.html task similar to Rails `rails generate scaffold`
 
 
 
-If your prompt doesn't already show you that you are in your test_app folder type
-
-```
-cd test_app
-```
-
-Next lets create a database.
-Type this in the terminal:
+Now that the database has been created with `mix ecto.create`, type this into the terminal:
 
 ```
-$ mix ecto.create
-```
-
-You should see something like this -
-```
-Compiled ...
-...
-Generated blog.app
-The database for Blog.Repo has been created.
-```
-
-Now that the database has been created, type this into the terminal:
-
-```
-$ mix phoenix.gen.html Drink drinks title:string temperature:string
+$ mix phoenix.gen.html Drink drinks name:string temperature:string
 ```
 
 You should see output similar to this:
@@ -211,7 +198,12 @@ now type this into the terminal
 ```
 mix ecto.migrate
 ```
-Now lets start start our server up again
+
+You will see something similar to the following on your screen
+
+![phoenix datbase migration output](/assets/phoenix-db-migration-output.png)
+
+Now lets start our server up again
 
 Type the following into the terminal
 
@@ -283,7 +275,9 @@ With Git, there are usually many ways to do very similar things.
 
 Type this in the terminal:
 
+```
 git commit -m "initial commit"
+```
 
 Expected result:
 
@@ -360,103 +354,51 @@ The Problem is Heroku uses environment variables to pass sensitive information t
 Open `config/prod.exs`
 
  At the bottom of this section
+ 
+ delete the contents of that file. 
+ 
+ Then paste in the following
 
 ```
+use Mix.Config
+
 config :test_app, TestApp.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
-```
-add
-
-```
-secret_key_base: System.get_env("SECRET_KEY_BASE")
-```
-
-Now the Section should look like this
-
-```
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
+  url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Do not print debug messages in production
+config :logger, level: :info
+```
+
+Make sure that you change the following line to include the name of your app 
+
+```
+url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443]
 ```
 
 Don't forget to save the file.
+
 
 
 Now we will add the production database configuration to our 'config/prod.exs' file
 
 Open the file.
 
-Paste the following
+Paste the following at the bottom of the file.
 
 ```
 # Configure your database
-config :hello_phoenix, HelloPhoenix.Repo,
+config :test_app, TestApp.Repo,
   adapter: Ecto.Adapters.Postgres,
   url: System.get_env("DATABASE_URL"),
   pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
   ssl: true
-```
-
-right under this section
-
-
-```
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
 ```
 
 The top of the 'config/prod.exs' file should now look like --
-
-```
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/manifest.json"
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-```
-
-
-# Configure your database
-
-```
-config :hello_phoenix, HelloPhoenix.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
-```
-
-Next Find the line in the `prod.exs` file that says the following
-
-```
-url: [host: "example.com", port: 80]
-```
-(It should be in the first section of this file we changed).
-
-Replace that line with the following two lines
-
-```
-url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
-force_ssl: [rewrite_on: [:x_forwarded_proto]],
-```
-
-Make sure that you replace the part of the host url that says `name-of-your-app` with the app name that you copied and saved from an earlier step.
-
-
-Since our configuration is now handling Heroku's environement variables, we can delete the following line from `prod.exs':
-
-```
-import_config "prod.secret.exs"
-```
-
-Our config/prod.exs should now look like this -
 
 ```
 use Mix.Config
@@ -483,7 +425,47 @@ config :test_app, TestApp.Repo,
   password: System.get_env("PASSWORD")
 ```
 
-The last thing we need to do is decrease teh timeout for websocket Transport.
+Next Find the line in the `prod.exs` file that says the following
+
+```
+url: [host: "example.com", port: 80]
+```
+(It should be in the first section of this file we changed).
+
+Replace that line with the following two lines
+
+```
+url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
+```
+
+Make sure that you replace the part of the host url that says `name-of-your-app` with the app name that you copied and saved from an earlier step.
+
+```
+use Mix.Config
+
+config :test_app, TestApp.Endpoint,
+  http: [port: {:system, "PORT"}],
+  url: [scheme: "https", host: "stormy-stream-65433.herokuapp.com", port: 443],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
+  cache_static_manifest: "priv/static/manifest.json",
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Do not print debug messages in production
+config :logger, level: :info
+
+
+# Configure your database
+config :test_app, TestApp.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  hostname: System.get_env("NEW_DATABASE_URL"),
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
+  ssl: true,
+  database: System.get_env("DATABASE"),
+  username: System.get_env("USERNAME"),
+  password: System.get_env("PASSWORD")
+```
+
+The last thing we need to do is decrease the timeout for websocket Transport.
 
 Open `web/channels/user_socket.ex`
 
@@ -522,8 +504,6 @@ web: elixir -S mix phoenix.server
 Next type the following into your terminal (do one line at a time)
 
 ```
-$ heroku create --buildpack=https://github.com/HashNuke/heroku-buildpack-elixir.git
-
 $ heroku addons:create heroku-postgresql:dev
 ```
 
@@ -531,7 +511,7 @@ next type the following in your terminal:
 
 ```
 $ heroku config:set MIX_ENV=prod
-``
+```
 
 ```
 heroku config:set POOL_SIZE=18
@@ -562,7 +542,7 @@ Expected Result:
 Something like below, but your string will be different so don't expect the output to be the same.
 
 ```
-xvafzY4y01jYuzLm3ecJqo008dVnU3CN4f+MamNd1Zue4pXvfvUjbiXT8akaIF53
+sadshfsldfhdfskdfhasjdhf121223jfjksasdfs
 ```
 
 Copy the string that is in your terminal.
@@ -617,17 +597,14 @@ Click on your app
 
 You should see something like this
 
-```
 ![heroku app interface](/assets/heroku-app-interface.png)
-```
 
 Click on settings
 
 You should see something that looks like this
 
-```
 ![heroku config vars](/assets/reveal-heroku-config-vars.png)
-```
+
 Click on the button that says **Reveal Config Vars**
 
 Make sure you have the following environment variables set.
@@ -645,13 +622,13 @@ USER_NAME:
 
 Now in the empty row at the bottom of the page
 
-![empty-herokfu-config-var](assets/empty-heroku-config-var.png)
+![empty heroku config var](/assets/empty-heroku-config-var1.png)
 
-in teh first empty field create a new variabel called
+in the first empty field create a new variabel called
 
 'NEW_DATABASE_URL'
 
-Then take a look at your database url, but clicking on the pencil icon next to it. copy the portion after the at sign. It should look something like
+Then take a look at your database url, but clicking on the pencil icon next to it. It should look something like
 
 ```
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
@@ -673,7 +650,7 @@ USER_NAME:
 NEW_DATABSE_URL
 ```
 
-Then OPen up your 'Prod.exs file' - and change the value of the host name so it is using the NEW_DATABASE_URL -
+Then Open up your 'Prod.exs file' - and change the value of the host name so it is using the NEW_DATABASE_URL -
 
 It should look like this
 
