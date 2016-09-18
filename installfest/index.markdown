@@ -13,14 +13,14 @@ This is a step by step guide for installing Elixir, Phoenix, and other tools for
 * Your laptop. You need to have a working wifi connection, a browser and an email account you can readily access.
 * If you have a choice between a Mac and a Windows laptop, please bring the Mac.
 Linux is an acceptable alternative, but the Installfest is only tested on Ubuntu.
-*Power cord for your laptop
-*If you already have accounts on Heroku or GitHub, make sure you know your username and password.
+* Power cord for your laptop!
+* If you already have accounts on Heroku or GitHub, make sure you know your username and password.
 
 ### Step 2: Don't Panic!
 
 Even if you get stuck, please go through the rest of the instructions and download all the things you'll need. Bandwidth will be at a premium during the workshop, so it will help immensely to have everything on your laptop already.
 
-There are a lot of steps, and the instructions may seem like they're in a foreign language, but: don't panic! By the end of the workshop, you'll know what everything is and how to use it.
+There are a lot of steps, and the instructions may seem like they're in a foreign language, but don't panic! By the end of the workshop, you'll know what everything is and how to use it.
 
 ### Step 3: Read This Overview
 
@@ -32,14 +32,12 @@ Here's a list of tools you'll be installing. As you go through the workshop, we'
 * **GitHub.** (optional)
 * **Heroku.** An application server, which hosts your application during development. This allows you to get your application online and interact with it from any browser, instead of just on your local machine.
 * **Atom.** To write programs in Elixir, you need a text editor to create, edit and save Elixir files.
-* To write programs in Elixir, you need a text editor to create, edit and save Elixir files.
-
 
 You will also create an account on Heroku, an application hosting platform.
 
 If you already have an account on Heroku, make sure you know your username and password.
 
-If you've already installed the above tools and are confident they are setup correctly, skip ahead to the Get a Sticker step.
+If you've already installed the above tools and are confident they are set up correctly, skip ahead to the Get a Sticker step.
 
 Next Step:
 
@@ -83,7 +81,11 @@ Option 1: Install XCode Command Line Tools using software update
 
 You can install these tools by trying to run a command that requires them.
 
-#### Step 1.1: Run the xcode-select command
+#### Step 1.1: Open the Terminal
+
+Open your Applications folder, then look for the Utilities folder and open it. Open the Terminal application. We'll be using Terminal a lot so you may want to add it to your dock. You can also launch Terminal using Spotlight search and searching for “terminal”.
+
+#### Step 1.2: Run the xcode-select command
 
 Type this in the terminal:
 
@@ -91,7 +93,7 @@ Type this in the terminal:
 xcode-select --install
 ```
 
-#### Step 1.2: Install the tools
+#### Step 1.3: Install the tools
 
 Click on the "Install" button. When the download finishes, go back and run the test to make sure it works.
 
@@ -124,7 +126,7 @@ brew -v
 Approximate expected result:
 
 ```
-Homebrew 0.9.5
+Homebrew 0.9.9
 ```
 
 #### Step 4: Install Git
@@ -183,7 +185,7 @@ Type this in the terminal:
 `sudo port install elixir`
 
 
-##### Step 6: Install Hex
+#### Step 6: Install Hex
 
 Type this in the terminal:
 
@@ -191,7 +193,7 @@ Type this in the terminal:
 mix local.hex
 ```
 
-### Step 7: Install Phoenix
+#### Step 7: Install Phoenix
 
 Type this in the terminal:
 
