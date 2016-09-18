@@ -8,6 +8,7 @@ date: 2016-08-21 12:28:28 -0700
 
 #### Mac or Linux
 Type this in the terminal:
+
 ```
 cd ~
 ```
@@ -20,16 +21,20 @@ To keep things organized, we'll want all of the elixirbridge files in their own 
 ```
 mkdir elixirbridge
 ```
+
 `mkdir` stands for make directory (folder).
 
 We've made a folder called elixirbridge.
 
 ### Step 3:
 Change to your new elixirbridge directory
+
 Type this in the terminal:
+
 ```
 cd elixirbridge
 ```
+
 ### Step 4: Create a new Phoenix app
 Type this in the terminal:
 
@@ -54,7 +59,7 @@ which node
 You should see something like this in your terminal:
 
 ```
-/usr/local/bin/npm
+/usr/local/bin/node
 ```
 
 If you do see this, move on to the next step.
@@ -64,7 +69,7 @@ Otherwise type the following into your terminal:
 brew install node
 ```
 
-Step 5:
+### Step 5:
 
 Type the following into your terminal:
 
@@ -72,13 +77,13 @@ Type the following into your terminal:
 mix deps.get
 ```
 
-Step 6:
+### Step 6:
 
 ```
 npm install && node node_modules/brunch/bin/brunch build
 ```
 
-#### Create the database
+### Step 7: Create the database
 
 Type this in a terminal:
 ```
@@ -99,15 +104,13 @@ If phoenix server starts up with no errors, you're golden! It'll look something 
 
 In your browser, open [localhost:4000](http://localhost:4000). You should see a page Like this:
 
-(TODO: insert screenshot here)
-![](/assets/welcome-to-phoenix.png)
+![Welcome to Phoenix](/assets/welcome-to-phoenix.png)
 
 
-#### Step 7: Generate a database model
-
-Phoenix gives us a phoenix.gen.html task similar to Rails’ rails generate scaffold
+It works! Go back to your Terminal window and type Control-c to stop the server for now.
 
 
+### Step 8: Generate a database model
 
 If your prompt doesn't already show you that you are in your test_app folder type
 
@@ -115,30 +118,8 @@ If your prompt doesn't already show you that you are in your test_app folder typ
 cd test_app
 ```
 
-Type this in the terminal:
-
 ```
-
-Next lets create a database.
-
-type in
-
-```
-$ mix ecto.create
-```
-
-You should see something like this -
-```
-Compiled ...
-...
-Generated blog.app
-The database for Blog.Repo has been created.
-```
-
-Now that the database has been created, type this into the terminal:
-
-```
-$ mix phoenix.gen.html Drink drinks title:string temperature:string
+mix phoenix.gen.html Drink drinks title:string temperature:string
 ```
 
 You should see output similar to this:
@@ -162,12 +143,12 @@ Add the resource to your browser scope in web/router.ex:
 
 Remember to update your repository by running migrations:
 
-    $ mix ecto.migrate
+    mix ecto.migrate
 ```
 
 Now let's follow the instructions at the end of that output.
 
-We'll add routes. Open up a file named 'web/router.ex'
+We'll add routes. Launch Atom and open up a file named 'web/router.ex'
 
 Around line 19 (this will vary depending on your editor)
 
@@ -194,39 +175,20 @@ scope "/", TestApp do
   end
 ```
 
-
-so that section should now look like this
-
-```
-scope "/", ElixirBlog do
-    pipe_through :browser # Use the default browser stack
-    get "/", DrinkController, :index
-
-    resources "/drinks", DrinkController
-  end
-
-
-now type this into the terminal
+Now type this into the terminal
 
 ```
 mix ecto.migrate
 
 ```
-Now lets start start our server up again
+
+Lets start start our server up again
 
 Type the following into the terminal
 
 ```
-$ mix phoenix.server
+mix phoenix.server
 ```
-
-Then go to your browsers and type in
-localhost:4000
-
-You should see a page that looks something like this
-
-![test app image](/assets/test-app-index.png)
-
 
 Wait till your server has loaded like before.
 
@@ -235,13 +197,10 @@ Then in the browser url bar type in:
 http://localhost:4000/drinks
 ```
 
-1) Click on new drink
-
-2) Enter Cappuccino for the name
-
-3) Enter 135 for the temperature.
-
-4) Click on "Create Drink".
+1. Click on new drink
+2. Enter Cappuccino for the name
+3. Enter 135 for the temperature.
+4. Click on "Create Drink".
 
 You should see the following text at the top of the page
 
