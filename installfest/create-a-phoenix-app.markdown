@@ -562,7 +562,6 @@ SECRET_KEY_BASE: your-secret-key
 ```
 
 If you need to make any of your config variables available at compile time, you will need to explicitly define which ones in a configuration file.
-
 Create a file elixir_buildpack.config in your application's root directory and add a line like: config_vars_to_export=(MY_VAR) [See more](https://github.com/HashNuke/heroku-buildpack-elixir#specifying-config-vars-to-export-at-compile-time)
 
 Next open up your 'Prod.exs file'
@@ -595,11 +594,32 @@ Go to heroku.com
 
 Click on your app
 
-You should see something like this
+Click on Resources
+
+You should see something like 
+
+![heroku dashboard](/assets/heroku-dashboard-resources.png)
+
+At the serach bar near the bottom of the page type in `postgres`
+
+You should see the following pop up
+
+![heroku resources](/assets/heroku-postgres-snapshot.png)
+
+
+Select the option for `Heroku Postgres`
+
+You will see the following window pop up
+
+![heroku provision postgres](/assets/provision-heroku-postgres.png)
+
+Click on `Provision`
+
+
+Then Click on settings
+
 
 ![heroku app interface](/assets/heroku-app-interface.png)
-
-Click on settings
 
 You should see something that looks like this
 
@@ -634,7 +654,42 @@ Then take a look at your database url, but clicking on the pencil icon next to i
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
-Copy the portion after the @ sign and paste it as the value for the NEW_DATABASE_URL
+Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL
+
+so it will be something like `abedsd.amazonaws.com.
+
+Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url. 
+
+for example this database url look like so
+
+```
+postgres://abscdefg:123456.compute-1.amazonaws.com:5432/d51oep5q7b7bbi
+```
+It has the following format
+
+```
+postgres://username:password.compute-1.amazonaws.com:5432/databse
+```
+
+Copy the username portion of the url and paste is at teh left value in your config variables. 
+
+Then Click Add.
+
+It should look like this 
+
+![heroku-database-username](/assets/heroku-db-username.png)
+
+Do the same for password. Create a Variable called password. and then cpy the password from the correct portion of the database url
+```
+postgres://username:password.compute-1.amazonaws.com:5432/databse
+```
+
+Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
+
+
+Your config should look something like this 
+![heroku config](/assets/heroku-config1.png)
+
 
 
 You should have teh following variables now defined
@@ -669,7 +724,7 @@ Let's commit all our changes. Copy each of the lines below into your terminal on
 
 ```
 $ git add config/prod.exs
-$ git add Procfile
+$ git add Procfile.txt
 $ git add web/channels/user_socket.ex
 $ git commit -m "Use production config from Heroku ENV variables and deploy environment"
 ```
@@ -725,9 +780,4 @@ heroku open
 ```
 to see your app.
 
-
-
-TODO
-explain mix
-explain ecto
 
