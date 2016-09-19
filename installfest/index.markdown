@@ -221,12 +221,20 @@ mix local.phoenix     # Updates Phoenix locally
 mix phoenix.new       # Creates a new Phoenix v1.2.1 application
 ```
 
+### Step 8: Install Git
+
 TODO: Configure Git Section
-TODO: Install postgres
 
+### Step 9: Install Postgres
 
+    brew install postgresql
 
+Open a new Terminal window and launch Postgres:
 
+    postgres -D /usr/local/var/postgres
 
+When you close this window, Postgres will quit.
 
+Now return to your original Terminal window and type:
 
+    createuser --createdb postgres
