@@ -6,23 +6,23 @@ date: 2016-08-15 00:13:42 -0600
 
 This is a step by step guide for installing Elixir, Phoenix, and other tools for developing your first application. If you want to contribute, please see our [Contributing Guide](INSERT GUIDE THERE TODO).
 
-### Step 1: Prepare for the Installfest
+## Step 1: Prepare for the Installfest
 
 **You must bring:**
 
 * Your laptop. You need to have a working wifi connection, a browser and an email account you can readily access.
 * If you have a choice between a Mac and a Windows laptop, please bring the Mac.
 Linux is an acceptable alternative, but the Installfest is only tested on Ubuntu.
-*Power cord for your laptop
-*If you already have accounts on Heroku or GitHub, make sure you know your username and password.
+* Power cord for your laptop
+* If you already have accounts on Heroku or GitHub, make sure you know your username and password.
 
-### Step 2: Don't Panic!
+## Step 2: Don't Panic!
 
 Even if you get stuck, please go through the rest of the instructions and download all the things you'll need. Bandwidth will be at a premium during the workshop, so it will help immensely to have everything on your laptop already.
 
-There are a lot of steps, and the instructions may seem like they're in a foreign language, but: don't panic! By the end of the workshop, you'll know what everything is and how to use it.
+There are a lot of steps, and the instructions may seem like they're in a foreign language, but don't panic! By the end of the workshop, you'll know what everything is and how to use it.
 
-### Step 3: Read This Overview
+## Step 3: Read This Overview
 
 Here's a list of tools you'll be installing. As you go through the workshop, we'll explain what each one is for and how to use it.
 
@@ -32,22 +32,20 @@ Here's a list of tools you'll be installing. As you go through the workshop, we'
 * **GitHub.** (optional)
 * **Heroku.** An application server, which hosts your application during development. This allows you to get your application online and interact with it from any browser, instead of just on your local machine.
 * **Atom.** To write programs in Elixir, you need a text editor to create, edit and save Elixir files.
-* To write programs in Elixir, you need a text editor to create, edit and save Elixir files.
-
 
 You will also create an account on Heroku, an application hosting platform.
 
 If you already have an account on Heroku, make sure you know your username and password.
 
-If you've already installed the above tools and are confident they are setup correctly, skip ahead to the Get a Sticker step.
+If you've already installed the above tools and are confident they are set up correctly, skip ahead to the Get a Sticker step.
 
 Next Step:
 
 Choose your operating system below.
 
-#### Mac
+## Mac
 
-#### Step 1: Learn your Mac OS X Version**
+### Step 1: Learn your Mac OS X Version
 
 * Click on the Apple icon in the top left of your screen.
 * Select "About This Mac"
@@ -55,11 +53,17 @@ Choose your operating system below.
 
 If you have 10.9 or above, you're good to go. Otherwise, flag down a volunteer, and they'll help you with the next steps. If you're reading this in advance, now is a good time to [upgrade](http://www.apple.com/osx/how-to-upgrade/).
 
-#### Step 2: Install Xcode Command Line tools
+### Step 2: Install Xcode Command Line tools
 
 Xcode Command Line Tools include lots of tools your computer needs to set up new software.
 
-## Check to see if you have the tools installed
+#### Step 2.1: Open the Terminal
+
+ Open your Applications folder, then look for the Utilities folder and open it. Open the Terminal application.
+
+ We'll be using Terminal a lot so you may want to add it to your dock. You can also launch Terminal using Spotlight search a nd searching for “terminal”.
+
+#### Step 2.2: Check to see if you have the tools installed already
 
 Type this in the terminal:
 ```
@@ -77,13 +81,11 @@ Thread model: posix
 
 If you see something about Darwin and LLVM, you are good to go. If not, use one of the steps below to install the tools. Come back afterwords and run this command to make sure it works!
 
-### If you see something about Darwin and LLVM, you are good to go. If not, use one of the steps below to install the tools. Come back afterwords and run this command to make sure it works!
+**If you see something about Darwin and LLVM, you are good to go. If not, use one of the steps below to install the tools. Come back afterwords and run this command to make sure it works!**
 
-Option 1: Install XCode Command Line Tools using software update
+#### Step 2.3: Run the xcode-select command
 
 You can install these tools by trying to run a command that requires them.
-
-#### Step 1.1: Run the xcode-select command
 
 Type this in the terminal:
 
@@ -91,16 +93,11 @@ Type this in the terminal:
 xcode-select --install
 ```
 
-#### Step 1.2: Install the tools
+#### Step 2.4: Install the tools
 
 Click on the "Install" button. When the download finishes, go back and run the test to make sure it works.
 
-#### Option 2: Install Command Line Tools for XCode
-Visit the [Apple Developer Downloads Page](https://developer.apple.com/download/)
-
-Download and install the latest **Command Line Tools** for Xcode package for your operating system.This requires you to register for an Apple Developer account.
-
-### Step 2: Install Homebrew
+### Step 3: Install Homebrew
 
 Type this in the terminal:
 
@@ -124,15 +121,14 @@ brew -v
 Approximate expected result:
 
 ```
-Homebrew 0.9.5
+Homebrew 0.9.9
 ```
-#### Step 4: Install Postgres
+### Step 4: Install Postgres
 
 Type this in the terminal:
 ```
 brew install postgresql
 ```
-
 
 If this is your first time installing Postgres with Homebrew, you'll need to create a database.
 
@@ -158,9 +154,7 @@ $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 
 
-
-
-#### Step 5: Install Git
+### Step 5: Install Git
 
 Next we'll install Git, the most popular version control system in the Ruby world:
 
@@ -197,9 +191,9 @@ Approximate expected result:
 git version 2.x.x
 ```
 
-#### Step 6: Install Elixir
+### Step 6: Install Elixir
 
-##### Homebrew
+#### Homebrew
 
 Update your homebrew to latest:
 
@@ -209,14 +203,14 @@ Type this in the terminal:
 
  `brew install elixir`
 
-##### Macports
+#### Macports
 
 Type this in the terminal:
 
 `sudo port install elixir`
 
 
-##### Step :7 Install Hex
+### Step :7 Install Hex
 
 Type this in the terminal:
 
@@ -233,7 +227,9 @@ mix archive.install https://github.com/phoenixframework/archives/raw/master/phoe
 ```
 
 You will see:
-```Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"? [Yn]
+
+```
+Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"? [Yn]
 ```
 
 Answer "Y" to install. Then you should see:
@@ -254,7 +250,7 @@ mix local.phoenix     # Updates Phoenix locally
 mix phoenix.new       # Creates a new Phoenix v1.2.1 application
 ```
 
-### Step :9 Configure Git
+### Step 9: Configure Git
 
 Type this in the terminal:
 
@@ -263,7 +259,7 @@ git config --global user.name "Your Actual Name"
 git config --global user.email "Your Actual Email"
 ```
 
-##### Verify
+#### Verify
 
 Type this in the terminal:
 
@@ -294,12 +290,12 @@ If on a mac, type this into the terminal
 git config --global color.ui auto
 ```
 
-#### Create an SSH Key
+### Step 10: Create an SSH Key
 
 An SSH key uniquely identifies you (and your computer) when your computer is communicating with other computers. Think of an SSH key as a type of password.
 
 
-Step 1:
+#### Step 10.1: Check for an existing key
 
 Let's see if you have a pre-exisiting SSH key on your computer
 
@@ -312,34 +308,32 @@ If you see ** No such file or directory ** you don't have one.
 
 Go on to Generate an SSH key
 
-
-
 Otherwise go on to Create a Heroku Account
 
+#### Step 10.2: Generate an SSH Key
 
-Step 2: Generate an SSH Key
-
-**
-Use the same email address for heroku, git, github, and ssh.**
+**Use the same email address for Heroku, git, GitHub, and ssh.**
 
 Type this in the terminal:
-ssh-keygen -C your_email@example.com -t rsa
 
+
+```
+ssh-keygen -C your_email@example.com -t rsa
+```
 
 Press enter to accept the default key save location.
 
 Next you'll be asked for a passphrase
 
-option 1: No passphrase
+##### Option 1: No passphrase
 Hit enter to accept blank passphrase, then hit enter again.
 
-option 2: Passphrase
+##### Option 2: Passphrase
 If your computer is shared with other people, as in a work laptop, you should choose and enter a real passphrase. Twice.
 
 After the key generation is complete- your output should look like this -
 
 ```
-Expected result:
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/student/.ssh/id_rsa):
 Created directory '/Users/student/.ssh'.
@@ -350,11 +344,11 @@ Your public key has been saved in /Users/student/.ssh/id_rsa.pub.
 The key fingerprint is:
 88:54:ab:77:fe:5c:c3:7s:14:37:28:8c:1d:ef:2a:8d student@example.com
 ```
-##### Verify
+#### Step 10.3: Verify
 
 Your brand-new public key is now stored at ~/.ssh/id_rsa.pub
 
-###### Public vs. Private Keys
+##### Public vs. Private Keys
 
 If you look inside ~/.ssh/, you will notice two files with the same name: id_rsa and id_rsa.pub.
 
@@ -382,6 +376,7 @@ Could not open a connection to your authentication agent
 If the ssh-agent is not running, you will come across this error. Here are a few commands that you can try to use to start the ssh-agent:
 
 For some Windows machines:
+
 ```
 eval `ssh-agent -s`
 ```
