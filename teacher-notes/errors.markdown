@@ -2,6 +2,14 @@
 
 Here are some of the installation errors we have seen and what to do about them.
 
+## Command line tools
+
+If installing via `xcode-select` does not work you can download via the web.
+
+Visit the [Apple Developer Downloads Page](https://developer.apple.com/download/)
+
+Download and install the latest **Command Line Tools** for Xcode package for your operating system.This requires you to register for an Apple Developer account.
+
 ## Homebrew
 
 ### Could not find i18n-0.7.0 in any of the sources
@@ -31,7 +39,7 @@ You're all set. Move on to the next step.
 
 Fix by upgrading node:
 
-    brew ugrade node
+    brew upgrade node
 
 
 
