@@ -60,5 +60,7 @@ Before the next step, you could try deploying your app to Heroku!
 
 Go on to Deploying To Heroku
 
-Next Step:
-Go on to Voting On Topics
+## Next Step
+Go on to [Voting On Topics](/suggestotron/10-voting-on-topics.html)
+or,
+Go Back to [CRUD with scaffolding](/suggestotron/08-CRUD-with-scaffolding.html)

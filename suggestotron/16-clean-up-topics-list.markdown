@@ -39,4 +39,4 @@ Before the next step, you could try deploying your app to Heroku!
 * If this is your first time deploying your app, start at Deploying to Heroku
 
 ## Next Step:
-Go on to Credits And Next Steps
+Go on to Credits And Next Steps [TODO:LINK HERE WHEN IT'S WRITTEN](/link/here/too)

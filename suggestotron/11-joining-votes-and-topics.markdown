@@ -122,6 +122,8 @@ When you ask a vote for its topic, you get the topic for that vote.
 It can still be important to clean up after yourself! `on_delete: :delete_all` on `has_many :votes` means when a Topic gets destroyed, all the votes that correspond to it will be destroyed, too. Without dependent :destroy, those votes would live on the database forever.
 
 Next Step:
-Go on to Allow People To Vote
 
-Back to Voting On Topics
+## Next Step
+Go on to [Allow People To Vote](/suggestotron/12-allow-users-to-vote-on-topics.html)
+or,
+Go Back to [Voting On Topics](/suggestotron/10-voting-on-topics.html)
