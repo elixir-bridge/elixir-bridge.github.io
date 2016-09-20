@@ -150,13 +150,14 @@ Type the following into the terminal:
 createuser -s postgres
 ```
 
-Next type this into the terminal:
+
+Open a new Terminal window and launch Postgres:
 
 ```
-$ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
+postgres -D /usr/local/var/postgres
 ```
 
+When you close this window, Postgres will quit.
 
 
 
