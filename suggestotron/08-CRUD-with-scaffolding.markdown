@@ -85,3 +85,8 @@ Challenge question: Can you find the line of code in new.html.eex and edit.html.
 ```
 This is the controller file that Phoenix created as part of the scaffold
 If you look you'll see a method (a line beginning with def) for each of the views listed above (except form.html.eex)
+
+## Next Step
+Go on to [Setting the default page](/suggestotron/09-setting-the-default-page.html)
+or,
+Go Back to [Phoenix Architecture](/suggestotron/07-phoenix-architecture.html)

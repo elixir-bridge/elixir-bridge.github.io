@@ -92,7 +92,8 @@ Before the next step, you could try deploying your app to Heroku!
 
 If you have already deployed your app to Heroku, go on to Deploying to Heroku again.
 If this is your first time deploying your app, start at Deploying to Heroku
-Next Step:
-Go on to Redirect To The Topics List After Creating A New Topic
 
-Back to Hooking Up Votes And Topics
+Next Step:
+Go on to [TODO: FILL ME IN WHEN LAST LESSONS ARE DONE](/index.html)
+
+Back to [Joining Votes And Topics](/suggestotron/11-joining-votes-and-topics.html)
