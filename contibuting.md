@@ -55,7 +55,7 @@ You'll want to read about [forking](https://help.github.com/articles/fork-a-repo
 
 # Closing
 
-If you haven't taken the time yet, go through the [Git Immersion lab](http://gitimmersion.com) at <http://gitimmersion.com>. Do it. It's worth it no matter how much git-fu you have.
+If you haven't taken the time yet, go through the [Git Immersion lab](http://gitimmersion.com). Do it. It's worth it no matter how much git-fu you have.
 
 Also, [Pro Git](http://git-scm.com/book) is a great (and free!) book about Git.
 
