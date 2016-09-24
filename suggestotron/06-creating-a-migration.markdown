@@ -2,6 +2,7 @@
 layout: post
 title: Creating a Migration
 date: 2016-08-15 00:13:42 -0600
+position: 6
 ---
 
 #Goals

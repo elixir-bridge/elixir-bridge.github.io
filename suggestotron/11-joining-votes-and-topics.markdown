@@ -2,6 +2,7 @@
 layout: page
 title: Joining Votes and topics
 date: 2016-08-28 12:49:19 -0700
+position: 11
 ---
 
 # Hooking Up Votes And Topics
