@@ -38,7 +38,7 @@ To get back to the terminal, you can stop the server by typing Control-c twice.
 
 
 Explanation
-`mix photnix.server` ran your application locally just like Heroku will be running it on their servers.
+`mix phoenix.server` ran your application locally just like Heroku will be running it on their servers.
 
 This provides a very simple means to see your changes before you commit and push them to Heroku.
 
