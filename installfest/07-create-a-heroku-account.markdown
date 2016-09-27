@@ -144,10 +144,10 @@ provide shell access.
 
 Next Step
 
-[Create Phoenix App](installfest/08-create-phoenix-app.html)
+[Create Phoenix App](08-create-phoenix-app.html)
 
 
 Go Back:
 
-[Creat an SSH key] (installfest/06-create-an-ssh-key.html)
+[Create an SSH key](06-create-an-ssh-key.html)
 

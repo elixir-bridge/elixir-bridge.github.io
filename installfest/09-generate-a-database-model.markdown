@@ -130,8 +130,8 @@ You should see the following text at the top of the page
 
 Next Step:
 
-[Create a Phoenix Apo] (installfest/10-deploy-a-phoenix-app.html)
+[Create a Phoenix App](10-deploy-a-phoenix-app.html)
 
 Go Back:
 
-[Create a Phoenix App](installfest/08-create-a-phoenix-app.html)
+[Create a Phoenix App](08-create-phoenix-app.html)

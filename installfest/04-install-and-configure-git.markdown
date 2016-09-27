@@ -84,8 +84,8 @@ git config --global color.ui auto
 
 Next Step:
 
-[Install Elixir and Phoenix] (installfest/05-install-elixir-and-phoenix.html)
+[Install Elixir and Phoenix](05-install-elixir-and-phoenix.html)
 
 Go Back:
 
-[Set up Operating system](installfest/03-macintosh-osx-setup.html)
+[Set up Operating system](03-macintosh-osx-setup.html)

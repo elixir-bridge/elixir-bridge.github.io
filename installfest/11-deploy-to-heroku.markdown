@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Deplo to Heroku
+title: Deploy to Heroku
 date: 2016-09-24 12:28:28 -0700
 ---
 
@@ -12,7 +12,7 @@ Click on your app
 
 Click on Resources
 
-You should see something like 
+You should see something like
 
 ![heroku dashboard](/assets/heroku-dashboard-resources.png)
 
@@ -74,7 +74,7 @@ Copy the portion after the @ sign through amazon.com and paste it as the value f
 
 so it will be something like `abedsd.amazonaws.com.
 
-Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url. 
+Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url.
 
 for example this database url look like so
 
@@ -87,11 +87,11 @@ It has the following format
 postgres://username:password.compute-1.amazonaws.com:5432/databse
 ```
 
-Copy the username portion of the url and paste is at teh left value in your config variables. 
+Copy the username portion of the url and paste is at teh left value in your config variables.
 
 Then Click Add.
 
-It should look like this 
+It should look like this
 
 ![heroku-database-username](/assets/heroku-db-username.png)
 
@@ -103,7 +103,7 @@ postgres://username:password.compute-1.amazonaws.com:5432/databse
 Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
 
 
-Your config should look something like this 
+Your config should look something like this
 ![heroku config](/assets/heroku-config1.png)
 
 
@@ -199,6 +199,6 @@ to see your app.
 
 Go Back:
 
-[Deploy A Phoneix App](installfest/10-deploy-a-phoenix-app.html)
+[Deploy A Phoneix App](10-deploy-a-phoenix-app.html)
 
 

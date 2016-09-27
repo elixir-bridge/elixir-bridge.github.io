@@ -120,9 +120,9 @@ The Problem is Heroku uses environment variables to pass sensitive information t
 Open `config/prod.exs`
 
  At the bottom of this section
- 
- delete the contents of that file. 
- 
+
+ delete the contents of that file.
+
  Then paste in the following
 
 ```
@@ -139,7 +139,7 @@ config :test_app, TestApp.Endpoint,
 config :logger, level: :info
 ```
 
-Make sure that you change the following line to include the name of your app 
+Make sure that you change the following line to include the name of your app
 
 ```
 url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443]
@@ -356,8 +356,8 @@ config :your-app-name, YourAppName.repo
 
 Next Step:
 
-[Deploy To Heroku] (installfest/11-deploy-to-heroku.html)
+[Deploy To Heroku](11-deploy-to-heroku.html)
 
 Go Back:
 
-[Generate a database model](installfest/09-generate-a-databse-model.html)
+[Generate a database model](09-generate-a-database-model.html)
