@@ -114,8 +114,8 @@ For additional options, this [StackOverflow thread](http://stackoverflow.com/que
 
 Next Step:
 
-[Create a Heroku Account](installfest/07-create-a-heroku-account.html)
+[Create a Heroku Account](07-create-a-heroku-account.html)
 
 Go Back:
 
-[Install Elixir and Phoenix](installfest/05-install-elixir-and-phoenix.html)
+[Install Elixir and Phoenix](05-install-elixir-and-phoenix.html)
