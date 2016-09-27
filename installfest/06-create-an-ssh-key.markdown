@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creat an SSH Key
+title: Create an SSH Key
 date: 2016-09-24 12:28:28 -0700
 ---
 
@@ -19,11 +19,11 @@ Type this in the terminal:
 ```
 ls ~/.ssh/id_rsa
 ```
-If you see ** No such file or directory ** you don't have one.
+If you see `No such file or directory` you don't have one.
 
-Go on to Generate an SSH key
+Continue to Generate an SSH key
 
-Otherwise go on to Create a Heroku Account
+Otherwise skip ahead to Create a Heroku Account
 
 #### Step 10.2: Generate an SSH Key
 
@@ -48,7 +48,7 @@ If your computer is shared with other people, as in a work laptop, you should ch
 
 After the key generation is complete- your output should look like this -
 
-```
+```text
 Generating public/private rsa key pair.
 Enter file in which to save the key (/Users/student/.ssh/id_rsa):
 Created directory '/Users/student/.ssh'.
@@ -59,6 +59,7 @@ Your public key has been saved in /Users/student/.ssh/id_rsa.pub.
 The key fingerprint is:
 88:54:ab:77:fe:5c:c3:7s:14:37:28:8c:1d:ef:2a:8d student@example.com
 ```
+
 #### Step 10.3: Verify
 
 Your brand-new public key is now stored at ~/.ssh/id_rsa.pub
@@ -75,13 +76,13 @@ Add your generated public key to the authentication agent using the following co
 
 Type this in the terminal:
 
-```
+```text
 ssh-add ~/.ssh/id_rsa
 ```
 
 Expected Result
 
-```
+```text
 Enter passphrase for /Users/student/.ssh/id_rsa:
 Identity added: /Users/student/.ssh/id_rsa (/Users/student/.ssh/id_rsa)"
 ```
@@ -113,7 +114,7 @@ For additional options, this [StackOverflow thread](http://stackoverflow.com/que
 
 Next Step:
 
-[Create a Heroku Account] (installfest/06-create-a-heroku-account.html)
+[Create a Heroku Account](installfest/07-create-a-heroku-account.html)
 
 Go Back:
 
