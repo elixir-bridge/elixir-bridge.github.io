@@ -29,7 +29,11 @@ We ask that contributions be made as pull requests via GitHub. If those words ar
 
 ## Discussion and Waiting On a Merge
 
-- Every pull request will receive a response from the team. - Not every pull request will be merged as is. - Not every pull request will be merged at all. - If a pull request falls significantly behind master, we may ask that you close   it, rebase your changes off of master, and submit a new pull request. - Feel free to "ping" the team by adding a short comment to your pull request   if it's been more than a week with no reply
+- Every pull request will receive a response from the team.
+- Not every pull request will be merged as is.
+- Not every pull request will be merged at all. 
+- If a pull request falls significantly behind master, we may ask that you close   it, rebase your changes off of master, and submit a new pull request. 
+- Feel free to "ping" the team by adding a short comment to your pull request   if it's been more than a week with no reply
 
 ## After your merge has been accepted
 
