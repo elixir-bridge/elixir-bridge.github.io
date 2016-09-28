@@ -11,13 +11,13 @@ The ElixirBridge curriculum is heavily based on the [Intro to Rails Curriculum](
 
 ### Setup
 
-[Installfest](installfest/01-begin-installfest.html)
+[Installfest](01-begin-installfest.html)
 
 
 
 ### Elixir
 
-[Intro to Elixir and Phoenix](installfest/01-why-program-why-elixir.html)
+[Intro to Elixir and Phoenix](01-why-program-why-elixir.html)
 
 
 

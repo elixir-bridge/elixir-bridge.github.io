@@ -68,8 +68,8 @@ In your browser, open [localhost:4000](http://localhost:4000). You should see a 
 Hit `Ctrl c` twice to stop the server
 
 
-Next Step: [Create a Migration](suggstotron/04-create-a-migration.html)
+Next Step: [Create a Migration](04-create-a-migration.html)
 
-Go Back: [Getting Started](suggestotron/02-getting-started.html)
+Go Back: [Getting Started](02-getting-started.html)
 
 

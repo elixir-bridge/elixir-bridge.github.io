@@ -97,11 +97,11 @@ rmdir /s /q suggestotron
 
 
 Next Step: 
-[Creating a New App](suggestotron/03-create-a-phoenix-app.html)
+[Creating a New App](03-create-a-phoenix-app.html)
 
 Go Back:
 
-[Why Program Elixir](suggestotron/01-why-program-why-elixir.html)
+[Why Program Elixir](01-why-program-why-elixir.html)
 
 
 

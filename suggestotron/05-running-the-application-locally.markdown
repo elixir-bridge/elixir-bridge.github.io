@@ -45,6 +45,6 @@ This provides a very simple means to see your changes before you commit and push
 Control-c is a way of closing or cancelling terminal programs. Since the phoenix server runs forever, you need to interrupt it with Control-c.
 
 ## Next Step
-Go on to [Creating a Migration](/suggestotron/06-creating-a-migration.html)
+Go on to [Creating a Migration](06-creating-a-migration.html)
 or,
 Go Back to [Add the Project to a Git Repo](TODO: FILL ME IN)
