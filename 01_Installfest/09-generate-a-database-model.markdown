@@ -126,12 +126,3 @@ http://localhost:4000/drinks
 You should see the following text at the top of the page
 
 ![drinks successfully created ](/assets/drinks-created.png)
-
-
-Next Step:
-
-[Create a Phoenix App](10-deploy-a-phoenix-app.html)
-
-Go Back:
-
-[Create a Phoenix App](08-create-phoenix-app.html)

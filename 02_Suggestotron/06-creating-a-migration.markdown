@@ -48,8 +48,3 @@ mix is a tool that allows you to run small elixir programs (tasks) that you use 
 Here, `mix ecto.migrate` is a task provided by the Phoenix framework. It uses the migration file we just created (priv/repo/migrations/201xxxxxxxxxxx_create_topics.exs) to change the database. Database migration files can be crucial to code collaboration.
 
 You can run mix -T to see a list of all the rake commands your app currently responds to, along with a short description of each task.
-
-## Next Step
-Go on to [Phoenix Architecture](07-phoenix-architecture.html)
-or,
-Go Back to [Running the App Locally](05-running-the-application-locally.html)

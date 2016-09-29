@@ -195,10 +195,3 @@ Type
 heroku open
 ```
 to see your app.
-
-
-Go Back:
-
-[Deploy A Phoneix App](10-deploy-a-phoenix-app.html)
-
-

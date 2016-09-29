@@ -63,12 +63,3 @@ Expected Result:
 mix local.phoenix     # Updates Phoenix locally
 mix phoenix.new       # Creates a new Phoenix v1.2.1 application
 ```
-
-
-Next Step:
-
-[Create an SSH key](06-create-an-ssh-key.html)
-
-Go Back:
-
-[Install and Configure Git](04-install-and-configure-git.html)

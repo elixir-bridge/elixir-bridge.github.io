@@ -10,5 +10,3 @@ position: 1
 
 ## Why Elixir?
   Right at the start, Elixir is fast. It runs as well as or better than any other language at its level of abstraction, that is how far away from machine code. It's designed to work with modern computers that have many CPU cores that run in parallel, and even across networks. It has a pretty easy to understand syntax, relative to some languages. The official docs are thorough, with examples of how to use the functions and modules that are included in the language. It's relatively young, and the community is very welcoming to new people.
-
-Next Step: Intro to Phoenix #TODO: link to lesson when it's merged

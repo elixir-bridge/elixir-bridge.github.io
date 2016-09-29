@@ -121,10 +121,3 @@ When you ask a topic for its votes, you get a list of votes for that topic.
 A vote is for a particular topic, so we put `belongs_to :topic` in the vote model.
 When you ask a vote for its topic, you get the topic for that vote.
 It can still be important to clean up after yourself! `on_delete: :delete_all` on `has_many :votes` means when a Topic gets destroyed, all the votes that correspond to it will be destroyed, too. Without dependent :destroy, those votes would live on the database forever.
-
-Next Step:
-
-## Next Step
-Go on to [Allow People To Vote](12-allow-users-to-vote-on-topics.html)
-or,
-Go Back to [Voting On Topics](10-voting-on-topics.html)

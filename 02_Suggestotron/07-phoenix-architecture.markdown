@@ -76,8 +76,3 @@ It's built around four main abstractions:
 * Changesets declare data transformations we'll need to perform on our model's data, including operations such as type-casting and validations.
 
 We'll work through these concepts through the guides. For any conceptual questions, feel free to ask a volunteer out for a deeper explanation.
-
-## Next Step
-Go on to [CRUD with scaffolding](08-CRUD-with-scaffolding.html)
-or,
-Go Back to [Creating a Migration](06-creating-a-migration.html)

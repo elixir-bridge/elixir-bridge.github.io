@@ -14,9 +14,3 @@ date: 2016-09-24 12:28:28 -0700
 ![windows logo](/assets/windows-logo.png)
 
 ![mac os logo](/assets/linux-logo.png)
-
-
-
-Go Back:
-
-[Begin Installfest](01-begin-installfest.html)

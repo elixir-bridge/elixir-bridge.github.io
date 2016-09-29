@@ -7,6 +7,7 @@
     {% assign next = pages[next_index]%}
   {% endif %}
 {% endfor %}
-
+<h2>Next step: </h2>
 <p>Go on to <a href="{{next.url}}">{{next.title}}</a>.</p>
+<h2>Or:</h2>
 <p>Go back to <a href="{{previous.url}}">{{previous.title}}</a>.</p>

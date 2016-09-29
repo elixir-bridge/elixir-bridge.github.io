@@ -81,11 +81,3 @@ If on a mac, type this into the terminal
 ```
 git config --global color.ui auto
 ```
-
-Next Step:
-
-[Install Elixir and Phoenix](05-install-elixir-and-phoenix.html)
-
-Go Back:
-
-[Set up Operating system](03-macintosh-osx-setup.html)

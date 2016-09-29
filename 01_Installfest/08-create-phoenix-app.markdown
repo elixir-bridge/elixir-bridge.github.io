@@ -113,15 +113,3 @@ In your browser, open [localhost:4000](http://localhost:4000). You should see a 
 
 
 Hit `Ctrl c` twice to stop the server
-
-
-
-
-
-Next Step:
-
-[Generate a database model](09-generate-a-database-model.html)
-
-Go Back:
-
-[Create a Heorku Account](07-create-a-heroku-account.html)

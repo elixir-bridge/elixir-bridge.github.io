@@ -57,6 +57,3 @@ This line was getting the description using .description and just printing it ou
 <td><%= link topic.title, to: topic_path(@conn, :show, topic), method: :get %></td>
 ```
 Here's another use of `link/2` to create a link on the page. This `link` creates a link using the text from the topic title and goes to the topic show page.
-
-## Next Step:
-Go on to [Clean Up Links On The Topics List](/suggestotron/16-clean-up-topics-list-page.html)
