@@ -9,11 +9,13 @@ position: 10
 ### Goals
 * Create a model for votes
 
-
-| Votes   |
-| id      |
-| topic_id|
-
+<table class="model-diagram">
+<thead><tr><th>Votes</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>topic_id</td></tr>
+</tbody>
+</table>
 
 Every topic in suggestotron can be voted on. In order to count votes, we need to record votes. We'll add that table now.
 

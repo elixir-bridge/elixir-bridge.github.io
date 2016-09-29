@@ -5,7 +5,8 @@ date: 2016-08-15 00:13:42 -0600
 position: 6
 ---
 
-#Goals
+# Goals
+
 <table class="model-diagram">
 <thead><tr><th>Topics</th></tr></thead>
 <tbody>
@@ -14,6 +15,7 @@ position: 6
 <tr><td>description</td></tr>
 </tbody>
 </table>
+
 
 The suggestotron has a list of topics that people can vote on. We'll store our topics in the database. In this step you'll do the following:
 

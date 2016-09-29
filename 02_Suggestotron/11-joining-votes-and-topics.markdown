@@ -9,15 +9,24 @@ position: 11
 
 ## Goals
 
-|Topics|
-|id|
-|title|
-|description|
+<table class="model-diagram">
+<thead><tr><th>Topics</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>title</td></tr>
+<tr><td>description</td></tr>
+</tbody>
+</table>
+
+<table class="model-diagram">
+<thead><tr><th>Votes</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>topic_id</td></tr>
+</tbody>
+</table>
 
 
-|Votes|
-|id|
-|topic_id|
 
 Because there is an explicit relationship between a topic and its votes, we need to specify that. In this step, we'll explicitly declare the relationship between votes and topics.
 
