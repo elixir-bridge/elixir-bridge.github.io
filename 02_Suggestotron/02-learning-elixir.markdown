@@ -1,6 +1,6 @@
 ---
 layout: page
-title: learning_elixir
+title: Learning Elixir
 date: 2016-08-28 13:38:30 -0700
 ---
 
@@ -17,19 +17,19 @@ By the end of this section, you'll know:
 
 We can use the REPL (Read-Eval-Print Loop) command-line tool to write and run simple elixir calculations directly from the command-line. The REPL tool is great for writing simple elixir code, checking on syntax, and understanding how the Elixir run-time works.
 
-Before we move on any further, let's open the Interactive EliXir REPL. After installing Elixir, we'll have at least three new commands. One of these commands is the `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt. 
+Before we move on any further, let's open the Interactive EliXir REPL. After installing Elixir, we'll have at least three new commands. One of these commands is the `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt.
 
 ![eix prompt](/assets/learning_elixir/iex-cli.png)
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
 
-To exit the `iex` prompt, press `Ctrl+c` twice. 
+To exit the `iex` prompt, press `Ctrl+c` twice.
 
 ### Notation
 
-In this section, we'll be using a few notations it's good to know about before we start. 
+In this section, we'll be using a few notations it's good to know about before we start.
 
-If you see the notation of of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity). 
+If you see the notation of of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity).
 
 * `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument
 
@@ -37,7 +37,7 @@ If you see the notation of of a name followed by a `/` and number, this indicate
 
 It's always a great idea to be able to look through documentation when you have a question. Using documentation is often overlooked as a skill and thus, we propose it's a great idea to start with documentation from the beginning.
 
-The official documentation can be found on the [elixir docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the docs, which can be found on the elixir docs page above and is also available at [http://elixir-lang.org/docs/stable/elixir/Kernel.html](http://elixir-lang.org/docs/stable/elixir/Kernel.html). 
+The official documentation can be found on the [elixir docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the docs, which can be found on the elixir docs page above and is also available at [http://elixir-lang.org/docs/stable/elixir/Kernel.html](http://elixir-lang.org/docs/stable/elixir/Kernel.html).
 
 ## Types
 
@@ -56,7 +56,7 @@ We'll use all of these types throughout this course (and you'll use them through
 
 ## Number
 
-A number type comprises the Integer and the Float types. Just like how it sounds, the number types are plain ole' numbers. 
+A number type comprises the Integer and the Float types. Just like how it sounds, the number types are plain ole' numbers.
 
 ### Integer
 
@@ -91,9 +91,9 @@ iex> 2000.8
 iex> 1.0e-10
 ```
 
-We can check if a value is a float by using the `is_float/1` function. 
+We can check if a value is a float by using the `is_float/1` function.
 
-The built-in number types have functions we can perform on them as well, such as addition, division, mixing precision, and more. 
+The built-in number types have functions we can perform on them as well, such as addition, division, mixing precision, and more.
 
 ```elixir
 iex> 1 + 1 # 2
@@ -105,7 +105,7 @@ iex> Float.ceil(1.234567, 3) # 1.235
 iex> 10 / 2
 ```
 
-Try some other commands out to see what else you can do. 
+Try some other commands out to see what else you can do.
 
 > [Float docs](http://elixir-lang.org/docs/stable/elixir/Float.html)
 
@@ -120,7 +120,7 @@ iex> is_boolean(10 / 2 == 5) # true
 
 ### Boolean
 
-Booleans are `true` and `false` types. We can use these types to check truth conditions. 
+Booleans are `true` and `false` types. We can use these types to check truth conditions.
 
 ```elixir
 iex> true ## true
@@ -136,7 +136,7 @@ iex> is_boolean(1) # false
 
 ## Atoms
 
-We'll use atoms a lot in Elixir. They are their own constant values. If you're familiar with Ruby, these are symbols. 
+We'll use atoms a lot in Elixir. They are their own constant values. If you're familiar with Ruby, these are symbols.
 
 For instance, these are all atoms:
 
@@ -163,9 +163,9 @@ iex> "hello world"
 iex> "hello\nworld\n"
 ```
 
-We can print strings by using the `IO` module (which we'll look at in a few) by using the `IO.puts/1` command. We'll come back to using `IO.puts/1` when we write to files which we'll run. 
+We can print strings by using the `IO` module (which we'll look at in a few) by using the `IO.puts/1` command. We'll come back to using `IO.puts/1` when we write to files which we'll run.
 
-Just like integers, the `String` module has a lot of functions built-in to the standard library we can use out of the box. 
+Just like integers, the `String` module has a lot of functions built-in to the standard library we can use out of the box.
 
 ```elixir
 iex> String.length("hello world") # 11
@@ -182,7 +182,7 @@ More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/Str
 
 ## Anonymous functions
 
-In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`. 
+In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`.
 
 For instance, all of these are functions in Elixir:
 
@@ -200,7 +200,7 @@ iex> add.(2 2) # 4
 
 ## Lists
 
-Lists in Elixir are created by surrounding a list of values with brackets `[`. Lists don't need to contain only one type. They can hold on to multiple different types in the same list. 
+Lists in Elixir are created by surrounding a list of values with brackets `[`. Lists don't need to contain only one type. They can hold on to multiple different types in the same list.
 
 For instance, these are all _valid_ lists:
 
@@ -209,7 +209,7 @@ iex> [1, 2, 3]
 iex> [:hello, "world"]
 ```
 
-We have a bunch of built-in methods we can use to interact with and manipulate lists in Elixir. 
+We have a bunch of built-in methods we can use to interact with and manipulate lists in Elixir.
 
 ```elixir
 iex> length [1, 2, 3] # 3
@@ -229,7 +229,7 @@ The tail is everything _but_ the head of the list:
 iex> tl([1, 2, 3]) # [2, 3]
 ```
 
-In Elixir, we'll often work with lists an element at a time, so the `hd/1` command will come in handy. 
+In Elixir, we'll often work with lists an element at a time, so the `hd/1` command will come in handy.
 
 ## Tuples
 
@@ -260,11 +260,11 @@ And we can replace elements in a tuple by using the `put_elem/3` function, which
 iex> put_elem({:ok, "hello"}, 1, "world")
 ```
 
-> Note that Erlang (and thus Elixir) create immutable data. That is, the original tuple is not replaced, but a new tuple based upon the first one is created. 
-> 
+> Note that Erlang (and thus Elixir) create immutable data. That is, the original tuple is not replaced, but a new tuple based upon the first one is created.
+>
 > It turns out that even though it feels like a hinderance, using immutable data makes our software easier to reason about and never need to worry about overwriting variables in memory (thus preventing race conditions) and more.
-> 
-> Although we don't need to focus on this now, it's a good idea to keep in mind that no variables is manipulated after it's created, but that a new one is created. 
+>
+> Although we don't need to focus on this now, it's a good idea to keep in mind that no variables is manipulated after it's created, but that a new one is created.
 
 ## Operators
 
@@ -283,14 +283,14 @@ iex> true and true # true
 iex> false or is_atom(:example) # true
 ```
 
-The `or` and `and` operators are called _short-circut_ operators as they execute the left-side first and if it is enough, the right-hand side will not be executed. 
+The `or` and `and` operators are called _short-circut_ operators as they execute the left-side first and if it is enough, the right-hand side will not be executed.
 
 ```elixir
 iex> false and raise("Error") # false
 iex> true or raise("Error")
 ```
 
-We can use the `||`, `&&`, and `!` operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`. 
+We can use the `||`, `&&`, and `!` operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`.
 
 ```elixir
 iex> 1 || true # 1
@@ -356,7 +356,7 @@ iex> {:ok, msg} = {:ok, "Hello world"}
 iex> msg # "Hello world"
 ```
 
-If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common usecase is if we want to only get the head of a list. 
+If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common usecase is if we want to only get the head of a list.
 
 ```elixir
 iex> [head | _] = [1, 2, 3]
@@ -365,7 +365,7 @@ iex> head # 1
 
 ## Control structures
 
-We often want to run a check on a particular state of a variable. 
+We often want to run a check on a particular state of a variable.
 
 ### `case`
 
@@ -388,7 +388,7 @@ We can also use _guards_ to check against extra conditions in a `case` statement
 iex> case {1, 2, 3} do
     {1, x, 3} when x > 0 ->
         "Matches"
-    _ -> 
+    _ ->
         "Matches if the guard condition is false"
     end
 ```
@@ -420,7 +420,7 @@ iex> cond do
 
 ### `if` and `unless`
 
-We can check a single value by using the `if` and `unless`. 
+We can check a single value by using the `if` and `unless`.
 
 ```elixir
 iex> if true do
@@ -453,13 +453,13 @@ iex> if true do
 iex> # And the equivalent using :
 iex> if true, do: (
         a = 1 + 2
-        a + 10 
+        a + 10
      )
 ```
 
 ## keyword lists
 
-We'll often want to set up a 2-item tuple as a representation of a `key-value` data structure. 
+We'll often want to set up a 2-item tuple as a representation of a `key-value` data structure.
 
 > In languages like Python, this is similar to a dictionary.
 
@@ -498,7 +498,7 @@ iex> # We can use the . syntax to access variables too
 iex> map.c # nil
 ```
 
-Maps do not contain ordering and can allow _any_ value to be set as the key. 
+Maps do not contain ordering and can allow _any_ value to be set as the key.
 
 ## Nested data structures
 
@@ -521,12 +521,12 @@ We can then manipulate variables by using the `put_in/2` function to create a ne
 
 ```elixir
 iex> users = put_in users[:john].age, 31
-iex> users # 
+iex> users #
 john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
 mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
 ```
 
-It's _also_ possible to define how to manipulate the value using the `update_in/2` function. 
+It's _also_ possible to define how to manipulate the value using the `update_in/2` function.
 
 ```elixir
 iex> users = update_in users[:mary].languages, &List.delete(&1, "Clojure")
@@ -534,11 +534,11 @@ iex> users = update_in users[:mary].languages, &List.delete(&1, "Clojure")
  mary: %{age: 29, languages: ["Elixir", "F#"], name: "Mary"}]
 ```
 
-Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.html) documentation for more information on other functions available to use when using nested datastructures. 
+Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.html) documentation for more information on other functions available to use when using nested datastructures.
 
 ## Executing scripts
 
-So far we've used on the `iex` tool to execute Elixir functionality in real-time. This is not always convenient, especially when we start writing bigger and bigger functions. 
+So far we've used on the `iex` tool to execute Elixir functionality in real-time. This is not always convenient, especially when we start writing bigger and bigger functions.
 
 Rather than typing in the REPL, we can write to a file with our elixir code and execute it using the `elixir` command-line function:
 
@@ -550,7 +550,7 @@ $ elixir test.exs
 
 ## Modules
 
-In Phoenix, we'll be building Elixir modules to group functions together. We'll use `modules` to define controller/actions for every action in our Phoenix server. 
+In Phoenix, we'll be building Elixir modules to group functions together. We'll use `modules` to define controller/actions for every action in our Phoenix server.
 
 We've already seen this in action when using previous modules, such as the `String` and `Float` modules. We can create custom modules as well using the `defmodule` macro. For instance, let's say we want to create a `Students` module. We can define it like so:
 
@@ -575,7 +575,7 @@ We can then call the `Students.count/0` function just like we are calling any ot
 iex> Students.count() # 31
 ```
 
-We can compile our modules using the `elixirc` command (the `c` can be thought as compiler). 
+We can compile our modules using the `elixirc` command (the `c` can be thought as compiler).
 
 ```elixir
 elixirc students.ex
@@ -589,7 +589,7 @@ iex> Students.count() # 31
 
 ![](/assets/learning_elixir/compile.png)
 
-We'll write most of our code inside modules with Phoenix. 
+We'll write most of our code inside modules with Phoenix.
 
 ### Guards and pattern matching
 
@@ -613,7 +613,7 @@ defmodule Math do
 end
 ```
 
-If we run this function in our REPL, we'll see that we can call the `Math.zero?(0)` without errors. However, if we run this with any other number, it will explode with an error. 
+If we run this function in our REPL, we'll see that we can call the `Math.zero?(0)` without errors. However, if we run this with any other number, it will explode with an error.
 
 ![](/assets/learning_elixir/zero-matching.png)
 
@@ -664,9 +664,9 @@ defmodule Math do
 end
 ```
 
-Although this might look complex from the outset, it's a fairly succinct method for defining such a complex algorithm. 
+Although this might look complex from the outset, it's a fairly succinct method for defining such a complex algorithm.
 
-Erlang (and elixir) implement recursive functions efficiently, so we can rely on recursive statements as a safe, fast method for dealing with recursive functions. 
+Erlang (and elixir) implement recursive functions efficiently, so we can rely on recursive statements as a safe, fast method for dealing with recursive functions.
 
 ## Pipe operator
 
@@ -682,4 +682,4 @@ The equivalent version using pipes is
 b(:atom) |> d() |> f()
 ```
 
-The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type. 
+The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type.
