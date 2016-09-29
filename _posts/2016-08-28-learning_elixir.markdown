@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: learning_elixir
 date: 2016-08-28 13:38:30 -0700
 ---

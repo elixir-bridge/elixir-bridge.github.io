@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Creating Votes
 date: 2016-08-28 12:30:04 -0700
 position: 10

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Setting the Default Page
 date: 2016-08-28 11:38:51 -0700
 position: 9

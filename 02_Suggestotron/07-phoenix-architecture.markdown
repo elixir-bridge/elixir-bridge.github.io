@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Phoenix architecture
 date: 2016-08-15 00:13:42 -0600
 position: 7

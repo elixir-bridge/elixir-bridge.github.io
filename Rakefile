@@ -7,7 +7,7 @@ task :new_post, [:post_name, :image_dir] do |t, args|
   file = File.open("_posts/#{date}-#{slug}.markdown", "w")
   file.puts <<-eom
 ---
-layout: post
+layout: page
 title: #{args.post_name}
 date: #{time.strftime('%Y-%m-%d %H:%M:%S %z')}
 ---

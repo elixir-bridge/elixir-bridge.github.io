@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Clean Up Topics List
 date: 2016-09-07 20:23:39 -0700
 position: 16

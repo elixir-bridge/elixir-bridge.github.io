@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Allow users to vote on topics
 date: 2016-08-28 15:17:10 -0700
 position: 12

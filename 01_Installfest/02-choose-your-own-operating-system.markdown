@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Choose your own operating system
 date: 2016-09-24 12:28:28 -0700
 ---
@@ -20,5 +20,3 @@ date: 2016-09-24 12:28:28 -0700
 Go Back:
 
 [Begin Installfest](01-begin-installfest.html)
-
-

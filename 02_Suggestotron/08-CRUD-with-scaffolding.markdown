@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: CRUD with scaffolding
 date: 2016-08-21 13:39:33 -0700
 position: 8

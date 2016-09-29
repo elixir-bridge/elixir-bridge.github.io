@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: page
 title: Running the Application Locally
 date: 2016-08-15 00:08:57 -0600
 position: 5
 ---
 
-Goals
+# Goals
 Let's fire up the application locally
 
 # Steps

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Make the Topic title a Link
 date: 2016-08-28 15:17:10 -0700
 position: 13

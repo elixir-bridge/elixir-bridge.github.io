@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Why program? Why elixir?
 date: 2016-08-04 23:08:17 -0700
 position: 1
