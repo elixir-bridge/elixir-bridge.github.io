@@ -1,0 +1,52 @@
+<!-- {% assign url_parts = page.url | split: '/' %}
+{% assign url_parts_size = url_parts | size %}
+{% assign rm = url_parts | last %}
+{% assign base_url = page.url | replace: rm %}
+{% assign parent = url_parts[-2] | slice: 3, 100 %} -->
+
+<!-- <ul class="sidebar-list">
+  <h4>{{ parent }}</h4>
+  {{  }}
+  {% for node in site.pages %}
+    {% if node.url contains base_url %}
+      {% assign node_url_parts = node.url | split: '/' %}
+      {% assign node_url_parts_size = node_url_parts | size %}
+      {% assign filename = node_url_parts | last %}
+      {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
+        <li class="sidebar-list-item"><a href='{{node.url}}'>{{node.title}}</a></li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul> -->
+
+<!-- get the sections -->
+{% assign pages = site.pages | sort: 'url' %}
+{% assign sections = "" %}
+{% for page in pages %}
+  {% if page.url != '/css/main.css' %}
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign parent = url_parts[-2] %}
+    {% assign sections = sections | append: ',' | append: parent %}
+  {% endif %}
+{% endfor %}
+
+<!-- make them an array -->
+{% assign sections = sections | split: ',' | uniq %}
+
+<!-- spit them out as a list of lists -->
+  {% for section in sections %}
+    {% if section != '' %}
+      <h4>{{ section | slice: 3, 100}}</h4>
+      <ul class="sidebar-list">
+      {% for page in pages %}
+        {% if page.url contains section %}
+          <li class="sidebar-list-item"><a href='{{page.url}}'>{{page.title}}</a></li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endfor %}
+<!--
+{% for node in pages %}
+  {{ node.url }} <br />
+{% endfor %} -->

@@ -42,15 +42,3 @@ If you've already installed the above tools and are confident they are set up co
 Next Step:
 
 [Go on to choose your operating system](02-choose-your-own-operating-system.html)
-
-
-
-
-
-
-
-
-
-
-
-
