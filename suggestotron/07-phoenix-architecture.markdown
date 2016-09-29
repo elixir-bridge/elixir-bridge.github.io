@@ -78,6 +78,6 @@ It's built around four main abstractions:
 We'll work through these concepts through the guides. For any conceptual questions, feel free to ask a volunteer out for a deeper explanation.
 
 ## Next Step
-Go on to [CRUD with scaffolding](/suggestotron/08-CRUD-with-scaffolding.html)
+Go on to [CRUD with scaffolding](08-CRUD-with-scaffolding.html)
 or,
-Go Back to [Creating a Migration](/suggestotron/06-creating-a-migration.html)
+Go Back to [Creating a Migration](06-creating-a-migration.html)

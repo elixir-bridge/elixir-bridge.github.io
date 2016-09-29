@@ -39,13 +39,13 @@ To get back to the terminal, you can stop the server by typing Control-c twice.
 
 
 Explanation
-`mix photnix.server` ran your application locally just like Heroku will be running it on their servers.
+`mix phoenix.server` ran your application locally just like Heroku will be running it on their servers.
 
 This provides a very simple means to see your changes before you commit and push them to Heroku.
 
 Control-c is a way of closing or cancelling terminal programs. Since the phoenix server runs forever, you need to interrupt it with Control-c.
 
 ## Next Step
-Go on to [Creating a Migration](/suggestotron/06-creating-a-migration.html)
+Go on to [Creating a Migration](06-creating-a-migration.html)
 or,
 Go Back to [Add the Project to a Git Repo](TODO: FILL ME IN)

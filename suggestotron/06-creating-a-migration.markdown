@@ -50,6 +50,6 @@ Here, `mix ecto.migrate` is a task provided by the Phoenix framework. It uses th
 You can run mix -T to see a list of all the rake commands your app currently responds to, along with a short description of each task.
 
 ## Next Step
-Go on to [Phoenix Architecture](/suggestotron/07-phoenix-architecture.html)
+Go on to [Phoenix Architecture](07-phoenix-architecture.html)
 or,
 Go Back to [Running the App Locally](05-running-the-application-locally.html)

@@ -97,4 +97,4 @@ If this is your first time deploying your app, start at Deploying to Heroku
 Next Step:
 Go on to [TODO: FILL ME IN WHEN LAST LESSONS ARE DONE](/index.html)
 
-Back to [Joining Votes And Topics](/suggestotron/11-joining-votes-and-topics.html)
+Back to [Joining Votes And Topics](11-joining-votes-and-topics.html)

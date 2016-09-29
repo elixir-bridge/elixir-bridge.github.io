@@ -125,6 +125,6 @@ It can still be important to clean up after yourself! `on_delete: :delete_all` o
 Next Step:
 
 ## Next Step
-Go on to [Allow People To Vote](/suggestotron/12-allow-users-to-vote-on-topics.html)
+Go on to [Allow People To Vote](12-allow-users-to-vote-on-topics.html)
 or,
-Go Back to [Voting On Topics](/suggestotron/10-voting-on-topics.html)
+Go Back to [Voting On Topics](10-voting-on-topics.html)
