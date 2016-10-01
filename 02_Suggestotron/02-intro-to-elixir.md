@@ -174,7 +174,5 @@ my_opinion.(["apple", "pizza", "orange"])
 ```
 
 Try changing this method to say what your favorite fruit is.
-  end
-end
 
 Before you move on to the next step you must exit IEX by pressing 'Control+C' twice.
