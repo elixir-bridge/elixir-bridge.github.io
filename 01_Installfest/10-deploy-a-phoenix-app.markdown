@@ -128,47 +128,6 @@ use Mix.Config
 
 config :test_app, TestApp.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/manifest.json",
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-
-# Do not print debug messages in production
-config :logger, level: :info
-```
-
-Make sure that you change the following line to include the name of your app
-
-```
-url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443]
-```
-
-Don't forget to save the file.
-
-
-
-Now we will add the production database configuration to our 'config/prod.exs' file
-
-Open the file.
-
-Paste the following at the bottom of the file.
-
-```
-# Configure your database
-config :test_app, TestApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
-```
-
-The top of the 'config/prod.exs' file should now look like --
-
-```
-use Mix.Config
-
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "stormy-stream-65433.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
@@ -196,7 +155,7 @@ url: [host: "example.com", port: 80]
 ```
 (It should be in the first section of this file we changed).
 
-Replace that line with the following two lines
+Replace that line with the following lines
 
 ```
 url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
