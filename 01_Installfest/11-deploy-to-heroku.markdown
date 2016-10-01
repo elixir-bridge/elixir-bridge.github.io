@@ -139,10 +139,10 @@ config :test_app, TestApp.Repo,
 Let's commit all our changes. Copy each of the lines below into your terminal one at a time. Do not do this all at once.
 
 ```
-$ git add config/prod.exs
-$ git add Procfile.txt
-$ git add web/channels/user_socket.ex
-$ git commit -m "Use production config from Heroku ENV variables and deploy environment"
+git add config/prod.exs
+git add Procfile.txt
+git add web/channels/user_socket.ex
+git commit -m "Use production config from Heroku ENV variables and deploy environment"
 ```
 
 And now DEPLOY!!
@@ -150,7 +150,7 @@ And now DEPLOY!!
 Type this into your terminal:
 
 ```
-$ git push heroku master
+git push heroku master
 ```
 
 You will see a bunch of stuff and at the end you will see
@@ -160,7 +160,7 @@ remote:
 remote: Verifying deploy.... done.
 To https://git.heroku.com/stormy-stream-65433.git
    ae7601a..e5c410b  master -> master
-Annas-MacBook-Pro-3:test_app an$ heroku logs -a stormy-stream-65433
+Annas-MacBook-Pro-3:test_app anheroku logs -a stormy-stream-65433
 ```
 
 You do not see the 'Verifying deploy...done', ask a TA for help.

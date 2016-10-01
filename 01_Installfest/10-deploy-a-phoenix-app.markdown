@@ -270,13 +270,13 @@ web: elixir -S mix phoenix.server
 Next type the following into your terminal (do one line at a time)
 
 ```
-$ heroku addons:create heroku-postgresql:dev
+heroku addons:create heroku-postgresql:dev
 ```
 
 next type the following in your terminal:
 
 ```
-$ heroku config:set MIX_ENV=prod
+heroku config:set MIX_ENV=prod
 ```
 
 ```
@@ -292,7 +292,7 @@ POOL_SIZE: 18
 When Running a mix task, you want to limit the pool size like so -
 
 ```
-$ heroku run "POOL_SIZE=2 mix hello_phoenix.task"
+heroku run "POOL_SIZE=2 mix hello_phoenix.task"
 ```
 
 This is so ecto does not attempt to open more thatn the available connections

@@ -8,7 +8,7 @@ date: 2016-09-24 23:08:17 -0700
 Type this in the terminal:
 
 ```
-$ mix phoenix.new test_app
+mix phoenix.new test_app
 ```
 
 
@@ -22,7 +22,7 @@ Then it will ask you to fetch and install dependencies, type `Y` to do this. If 
 Change into the project directory:
 
 ```
-$ cd test_app
+cd test_app
 ```
 
 
@@ -31,13 +31,13 @@ $ cd test_app
 Type the following into your terminal:
 
 ```
-$ mix deps.get
+mix deps.get
 ```
 
 Step 6: Install nm and node
 
 ```
-$ npm install && node node_modules/brunch/bin/brunch build
+npm install && node node_modules/brunch/bin/brunch build
 ```
 
 #### Step 3: Create the database
@@ -45,12 +45,12 @@ $ npm install && node node_modules/brunch/bin/brunch build
 Type this in a terminal:
 
 ```
-$ mix ecto.create
+mix ecto.create
 ```
 
 Then, type this in a terminal:
 ```
-$ mix phoenix.server
+mix phoenix.server
 ```
 
 If phoenix server starts up with no errors, you're golden! It'll look something like this:

@@ -10,7 +10,7 @@ date: 2016-09-24 12:28:28 -0700
 Type this in the terminal:
 
 ```
-$ cd ~
+cd ~
 ```
 
 `cd ~` sets our home directory to our current directory.
@@ -20,7 +20,7 @@ $ cd ~
 To keep things organized, we'll want all of the elixirbridge files in their own directory. Type this in the terminal:
 
 ```
-$ mkdir elixirbridge
+mkdir elixirbridge
 ```
 `mkdir` stands for make directory (folder).
 
@@ -31,13 +31,13 @@ Change to your new elixirbridge directory
 Type this in the terminal:
 
 ```
-$ cd elixirbridge
+cd elixirbridge
 ```
 ### Step 4: Create a new Phoenix app
 Type this in the terminal:
 
 ```
-$ mix phoenix.new test_app
+mix phoenix.new test_app
 ```
 
 
@@ -51,26 +51,26 @@ Then it will ask you to fetch and install dependencies, type `Y` to do this. If 
 Change into the project directory:
 
 ```
-$ cd test_app
+cd test_app
 ```
 
 Now type this into the terminal:
 
 ```
-$ which node
+which node
 ```
 
 You should see something like this in your terminal:
 
 ```
-$ /usr/local/bin/npm
+/usr/local/bin/npm
 ```
 
 If you do see this, move on to the next step.
 Otherwise type the following into your terminal:
 
 ```
-$ brew install node
+brew install node
 ```
 
 Step 5: Get Dependencies
@@ -78,13 +78,13 @@ Step 5: Get Dependencies
 Type the following into your terminal:
 
 ```
-$ mix deps.get
+mix deps.get
 ```
 
 Step 6: Install nm and node
 
 ```
-$ npm install && node node_modules/brunch/bin/brunch build
+npm install && node node_modules/brunch/bin/brunch build
 ```
 
 #### Create the database
@@ -92,12 +92,12 @@ $ npm install && node node_modules/brunch/bin/brunch build
 Type this in a terminal:
 
 ```
-$ mix ecto.create
+mix ecto.create
 ```
 
 Then, type this in a terminal:
 ```
-$ mix phoenix.server
+mix phoenix.server
 ```
 
 If phoenix server starts up with no errors, you're golden! It'll look something like this:

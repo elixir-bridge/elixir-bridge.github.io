@@ -43,7 +43,7 @@ The file `web/router.ex` is like an address directory listing all the possible a
 At the terminal type `mix phoenix.routes`. You should get something that looks like this:
 
 ```
-$ mix phoenix.routes
+mix phoenix.routes
 topic_path  GET     /topics           TestApp.TopicController :index
 topic_path  GET     /topics/:id/edit  TestApp.TopicController :edit
 topic_path  GET     /topics/new       TestApp.TopicController :new
