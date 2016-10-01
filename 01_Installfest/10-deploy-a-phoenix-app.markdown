@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Deploy a Phoenix App
 date: 2016-09-24 12:28:28 -0700
 ---
@@ -353,11 +353,3 @@ it should look like this
 ```
 config :your-app-name, YourAppName.repo
 ```
-
-Next Step:
-
-[Deploy To Heroku](11-deploy-to-heroku.html)
-
-Go Back:
-
-[Generate a database model](09-generate-a-database-model.html)

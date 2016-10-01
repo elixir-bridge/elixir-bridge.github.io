@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Setting the Default Page
 date: 2016-08-28 11:38:51 -0700
 position: 9
@@ -60,8 +60,3 @@ Deploying
 Before the next step, you could try deploying your app to Heroku!
 
 Go on to Deploying To Heroku
-
-## Next Step
-Go on to [Voting On Topics](10-voting-on-topics.html)
-or,
-Go Back to [CRUD with scaffolding](08-CRUD-with-scaffolding.html)

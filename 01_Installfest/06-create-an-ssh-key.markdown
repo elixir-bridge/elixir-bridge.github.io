@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Create an SSH Key
 date: 2016-09-24 12:28:28 -0700
 ---
@@ -110,12 +110,3 @@ eval `ssh-agent`
 ```
 
 For additional options, this [StackOverflow thread](http://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent) has been helpful:
-
-
-Next Step:
-
-[Create a Heroku Account](07-create-a-heroku-account.html)
-
-Go Back:
-
-[Install Elixir and Phoenix](05-install-elixir-and-phoenix.html)

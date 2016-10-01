@@ -38,19 +38,3 @@ You will also create an account on Heroku, an application hosting platform.
 If you already have an account on Heroku, make sure you know your username and password.
 
 If you've already installed the above tools and are confident they are set up correctly, skip ahead to the Get a Sticker step.
-
-Next Step:
-
-[Go on to choose your operating system](02-choose-your-own-operating-system.html)
-
-
-
-
-
-
-
-
-
-
-
-

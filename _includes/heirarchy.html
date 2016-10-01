@@ -1,0 +1,27 @@
+<!-- get the sections -->
+{% assign pages = site.pages | sort: 'url' %}
+{% assign sections = "" %}
+{% for page in pages %}
+  {% if page.url != '/css/main.css' %}
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign parent = url_parts[-2] %}
+    {% assign sections = sections | append: ',' | append: parent %}
+  {% endif %}
+{% endfor %}
+
+<!-- make them an array -->
+{% assign sections = sections | split: ',' | uniq %}
+
+<!-- spit them out as a list of lists -->
+{% for section in sections %}
+  {% if section != '' %}
+    <h4>{{ section | slice: 3, 100}}</h4>
+    <ul class="sidebar-list">
+    {% for page in pages %}
+      {% if page.url contains section %}
+        <li class="sidebar-list-item"><a href='{{page.url}}'>{{page.title}}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endfor %}

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Mac OSx setup
 date: 2016-09-24 12:28:28 -0700
 ---
@@ -118,10 +118,3 @@ Next type this into the terminal:
 launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
 ```
-
-
-Next Steps
-[Install & Configure git](04-install-and-configure-git.html)
-
-Go Back
-[Choose your operating system](02-choose-your-own-operating-system.html)

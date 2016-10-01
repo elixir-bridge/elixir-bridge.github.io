@@ -9,15 +9,24 @@ position: 11
 
 ## Goals
 
-|Topics|
-|id|
-|title|
-|description|
+<table class="model-diagram">
+<thead><tr><th>Topics</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>title</td></tr>
+<tr><td>description</td></tr>
+</tbody>
+</table>
+
+<table class="model-diagram">
+<thead><tr><th>Votes</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>topic_id</td></tr>
+</tbody>
+</table>
 
 
-|Votes|
-|id|
-|topic_id|
 
 Because there is an explicit relationship between a topic and its votes, we need to specify that. In this step, we'll explicitly declare the relationship between votes and topics.
 
@@ -121,10 +130,3 @@ When you ask a topic for its votes, you get a list of votes for that topic.
 A vote is for a particular topic, so we put `belongs_to :topic` in the vote model.
 When you ask a vote for its topic, you get the topic for that vote.
 It can still be important to clean up after yourself! `on_delete: :delete_all` on `has_many :votes` means when a Topic gets destroyed, all the votes that correspond to it will be destroyed, too. Without dependent :destroy, those votes would live on the database forever.
-
-Next Step:
-
-## Next Step
-Go on to [Allow People To Vote](12-allow-users-to-vote-on-topics.html)
-or,
-Go Back to [Voting On Topics](10-voting-on-topics.html)

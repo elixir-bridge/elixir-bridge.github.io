@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Creating Votes
 date: 2016-08-28 12:30:04 -0700
 position: 10
@@ -9,11 +9,13 @@ position: 10
 ### Goals
 * Create a model for votes
 
-
-| Votes   |
-| id      |
-| topic_id|
-
+<table class="model-diagram">
+<thead><tr><th>Votes</th></tr></thead>
+<tbody>
+<tr><td>id</td></tr>
+<tr><td>topic_id</td></tr>
+</tbody>
+</table>
 
 Every topic in suggestotron can be voted on. In order to count votes, we need to record votes. We'll add that table now.
 
@@ -30,8 +32,3 @@ Just like before, we're creating a new model named "vote."
 The only thing really different is the integer we added called topic_id.
 topic_id is the data we need to draw the line between votes and topics.
 We didn't generate a full scaffold this time because we aren't going to do the full CRUD for votes; they're just going to be considered part of topics as-is. After we've created the model and migrations, we run them so the database also has our changes.
-
-## Next Step
-Go on to [Joining Votes and Topics](10-joining-votes-and-topics.html)
-or,
-Go Back to [Setting the Default Page](09-setting-the-default-page.html)

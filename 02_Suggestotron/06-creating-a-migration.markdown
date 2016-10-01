@@ -1,11 +1,12 @@
 ---
-layout: post
+layout: page
 title: Creating a Migration
 date: 2016-08-15 00:13:42 -0600
 position: 6
 ---
 
-#Goals
+# Goals
+
 <table class="model-diagram">
 <thead><tr><th>Topics</th></tr></thead>
 <tbody>
@@ -14,6 +15,7 @@ position: 6
 <tr><td>description</td></tr>
 </tbody>
 </table>
+
 
 The suggestotron has a list of topics that people can vote on. We'll store our topics in the database. In this step you'll do the following:
 
@@ -48,8 +50,3 @@ mix is a tool that allows you to run small elixir programs (tasks) that you use 
 Here, `mix ecto.migrate` is a task provided by the Phoenix framework. It uses the migration file we just created (priv/repo/migrations/201xxxxxxxxxxx_create_topics.exs) to change the database. Database migration files can be crucial to code collaboration.
 
 You can run mix -T to see a list of all the rake commands your app currently responds to, along with a short description of each task.
-
-## Next Step
-Go on to [Phoenix Architecture](07-phoenix-architecture.html)
-or,
-Go Back to [Running the App Locally](05-running-the-application-locally.html)

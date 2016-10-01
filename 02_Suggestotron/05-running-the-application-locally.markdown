@@ -1,11 +1,11 @@
 ---
-layout: post
+layout: page
 title: Running the Application Locally
 date: 2016-08-15 00:08:57 -0600
 position: 5
 ---
 
-Goals
+# Goals
 Let's fire up the application locally
 
 # Steps
@@ -44,8 +44,3 @@ Explanation
 This provides a very simple means to see your changes before you commit and push them to Heroku.
 
 Control-c is a way of closing or cancelling terminal programs. Since the phoenix server runs forever, you need to interrupt it with Control-c.
-
-## Next Step
-Go on to [Creating a Migration](06-creating-a-migration.html)
-or,
-Go Back to [Add the Project to a Git Repo](TODO: FILL ME IN)

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Allow users to vote on topics
 date: 2016-08-28 15:17:10 -0700
 position: 12
@@ -93,8 +93,3 @@ Before the next step, you could try deploying your app to Heroku!
 
 If you have already deployed your app to Heroku, go on to Deploying to Heroku again.
 If this is your first time deploying your app, start at Deploying to Heroku
-
-Next Step:
-Go on to [TODO: FILL ME IN WHEN LAST LESSONS ARE DONE](/index.html)
-
-Back to [Joining Votes And Topics](11-joining-votes-and-topics.html)

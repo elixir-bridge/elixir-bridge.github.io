@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Creat a Heroku Account
 date: 2016-09-24 12:28:28 -0700
 ---
@@ -140,14 +140,3 @@ Expected Result:
 
 Hi username! You've successfully authenticated, but GitHub does not
 provide shell access.
-
-
-Next Step
-
-[Create Phoenix App](08-create-phoenix-app.html)
-
-
-Go Back:
-
-[Create an SSH key](06-create-an-ssh-key.html)
-
