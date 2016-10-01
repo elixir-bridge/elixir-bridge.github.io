@@ -119,11 +119,9 @@ The Problem is Heroku uses environment variables to pass sensitive information t
 
 Open `config/prod.exs`
 
- At the bottom of this section
+ Delete the contents of that file.
 
- delete the contents of that file.
-
- Then paste in the following
+ Then paste in the following:
 
 ```
 use Mix.Config
