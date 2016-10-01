@@ -9,8 +9,10 @@ position: 12
 Now we're going to add a button people can click to cast a vote.
 
 ## Steps
+
 ### Step 1: Add a new controller action for voting
-Edit web/controllers/topic_controller.ex and add this method at the end of the controller, above the last `end` keyword:
+Edit `web/controllers/topic_controller.ex` and add this method at the end of the controller, above the last `end` keyword:
+
 ```
 def upvote(conn, %{"topic_id" => id}) do
   TestApp.Vote.changeset(%TestApp.Vote{}, %{topic_id: id})
@@ -35,6 +37,7 @@ end
 ```
 
 Replace the `resources "/topics"` line with the following:
+
 ```
 resources "/topics", TopicController do
   post "/upvote", TopicController, :upvote
@@ -55,7 +58,7 @@ Edit `web/templates/topic/index.html.eex` so that the bottom loop looks like thi
     <tr>
       <td><%= topic.description %></td>
       <td><%= topic.title %></td>    
-      <td><%= count(topic.votes) %> <%= ngettext("vote", "votes", count(topic.votes)) %></td>
+      <td><%= length(topic.votes) %> <%= ngettext("vote", "votes", length(topic.votes)) %></td>
 
       <td class="text-right">
         <%= link "Show", to: topic_path(@conn, :show, topic), class: "btn btn-default btn-xs" %>
@@ -78,7 +81,7 @@ end
 ```
 
 The substantive difference here is `preload: :votes`, which makes the database get the votes that belong to each topic, in the same query that gets the votes.
-`ngettext("vote", "votes", count(topic.votes))` displays the number of votes the topic has, plus the word "vote" or "votes" accordingly.
+`ngettext("vote", "votes", length(topic.votes))` displays the number of votes the topic has, plus the word "vote" or "votes" accordingly.
 `link "+1", to: topic_topic_path(@conn, :upvote, topic)` creates an HTML button with the text "+1".
 `topic_topic_path(topic)` creates the appropriate URL for the action we want to invoke. In this case, we want to upvote the current topic. `topic_topic_path(topic)` returns `/topics/42/upvote` (if topic.id was 42).
 `method: :post` ensures we do the create action of CRUD, not the read action.

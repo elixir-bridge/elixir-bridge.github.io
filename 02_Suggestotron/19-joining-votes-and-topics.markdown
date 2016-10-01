@@ -5,8 +5,6 @@ date: 2016-08-28 12:49:19 -0700
 position: 11
 ---
 
-# Hooking Up Votes And Topics
-
 ## Goals
 
 <table class="model-diagram">
@@ -34,7 +32,7 @@ Because there is an explicit relationship between a topic and its votes, we need
 
 ## Step 1: Teach the Topic model about Votes
 
-Open the file `web/models/topic.ex`, and add a line after `timestamps` that says `has_many :votes, TestApp.Vote`. That section of code should look like this when you're done:
+Open the file `web/models/topic.ex`, and add a line after `timestamps` that says `has_many :votes, TestApp.Vote`. Then remove the line that says `field :topic_id, :integer`. That section of code should look like this when you're done:
 
 ```
 schema "topics" do
@@ -82,6 +80,10 @@ At the console, try the following things
 See how many topics exist:  
 ```
 iex(1)> TestApp.Repo.aggregate(TestApp.Topic, :count, :id)
+```
+
+It should give you something like this:
+```
 [debug] QUERY OK db=8.1ms queue=2.2ms
 SELECT count(t0."id") FROM "topics" AS t0 []
 1
@@ -117,13 +119,13 @@ Remove a vote from that topic:
 
 ```
 [vote | _rest] = my_topic.votes
-Repo.delete!(vote)
+TestApp.Repo.delete!(vote)
 ```
 
 
 
-Explanation
-has_many and belongs_to:
+## Explanation
+`has_many` and `belongs_to`:
 
 In Phoenix, relationships between models are called associations.
 Associations (usually) come in pairs.
