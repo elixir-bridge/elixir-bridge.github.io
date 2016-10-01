@@ -62,7 +62,7 @@ If you've written HTML before, many lines in the views should look familiar. Pho
 web/templates/topic/index.html.eex
 ```
 This is the code for the page that lists all the topics.
-Index is the name given to the "default" page for a web site or a section of a web site. When you navigate to http://localhost:3000/topics the topics index page is what is sent to your computer.
+Index is the name given to the "default" page for a web site or a section of a web site. When you navigate to [http://localhost:4000/topics](http://localhost:4000/topics) the topics index page is what is sent to your computer.
 
 ```
 web/templates/topic/show.html.eex

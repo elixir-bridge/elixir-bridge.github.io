@@ -31,7 +31,9 @@ position: 11
 Because there is an explicit relationship between a topic and its votes, we need to specify that. In this step, we'll explicitly declare the relationship between votes and topics.
 
 # Steps
+
 ## Step 1: Teach the Topic model about Votes
+
 Open the file `web/models/topic.ex`, and add a line after `timestamps` that says `has_many :votes, TestApp.Vote`. That section of code should look like this when you're done:
 
 ```

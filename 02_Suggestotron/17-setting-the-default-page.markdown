@@ -6,7 +6,7 @@ position: 9
 ---
 
 ## Goals
-Now that the structure is complete, let's make the flow work smoothly.
+Now that the structure is complete, lets make the flow work smoothly.
 
 Currently when you go to http://localhost:4000 you see the "Welcome aboard" message.
 
@@ -15,7 +15,8 @@ It would be easier to use our app if http://localhost:4000 went directly to the 
 In this step we'll make that happen and learn a bit about routes in Rails.
 
 ## Steps
-* Step 1: Add a root route
+
+### Step 1: Add a root route
 
 Open the file `web/router.ex` in an editor (In the InstallFest yesterday, we suggested that you install and use Atom as your editor).
 
@@ -29,7 +30,7 @@ Look for the line `get "/", PageController, :index` in the lower two thirds of t
 end
 ```
 
-Step 2: Confirm your changes
+### Step 2: Confirm your changes
 Go back to http://localhost:4000/. You should be taken to the topics list automatically.
 
 Explanation
@@ -56,7 +57,7 @@ topic_path  GET     /                 TestApp.TopicController :index
 ```
 This shows all the URLs your application responds to. The parts of the URLs that start with colons are variables so :id means the id number of the record.
 
-Deploying
-Before the next step, you could try deploying your app to Heroku!
+## Deploying
+Before the next step, you could try [deploying your app to Heroku](/01_Installfest/11-deploy-to-heroku.html)!
 
 Go on to Deploying To Heroku
