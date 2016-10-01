@@ -1,13 +1,19 @@
-{% assign pages = site.pages | sort: 'url' %}
-{% for node in pages %}
-  {% if node.url == page.url %}
-    {% assign prev_index = forloop.index0 | plus: -1 %}
-    {% assign next_index = forloop.index0 | plus: 1 %}
-    {% assign previous = pages[prev_index] %}
-    {% assign next = pages[next_index]%}
-  {% endif %}
-{% endfor %}
-<h4>Next step: </h4>
-<p>Go on to <a href="{{next.url}}">{{next.title}}</a>.</p>
-<h4>Or:</h4>
-<p>Go back to <a href="{{previous.url}}">{{previous.title}}</a>.</p>
+{% unless page.page_turn_links == 'none' %}
+  {% assign pages = site.pages | sort: 'url' %}
+  {% for node in pages %}
+    {% if node.url == page.url %}
+      {% assign prev_index = forloop.index0 | plus: -1 %}
+      {% assign next_index = forloop.index0 | plus: 1 %}
+      {% assign previous = pages[prev_index] %}
+      {% assign next = pages[next_index]%}
+    {% endif %}
+  {% endfor %}
+  {% unless page.page_turn_links == 'last' %}
+    <h4>Next step: </h4>
+    <p>Go on to <a href="{{next.url}}">{{next.title}}</a>.</p>
+  {% endunless %}
+  {% unless page.page_turn_links == 'first' %}
+    <h4>Or:</h4>
+    <p>Go back to <a href="{{previous.url}}">{{previous.title}}</a>.</p>
+  {% endunless %}
+{% endunless %}
