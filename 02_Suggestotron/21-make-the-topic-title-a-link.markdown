@@ -15,7 +15,7 @@ Your friends recommended two changes for the site:
 ## Steps
 
 ### Step 1: Remove the description
-Let's start by removing the description. Open app/views/topics/index.html.erb and delete the line that looks like this:
+Let's start by removing the description. Open ` web/templates/topic/index.html.eex` and delete the line that looks like this:
 
 ```
 <td><%= topic.description %></td>
