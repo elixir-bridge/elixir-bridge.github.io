@@ -117,7 +117,7 @@ USER_NAME:
 NEW_DATABSE_URL
 ```
 
-Then Open up your 'Prod.exs file' - and change the value of the host name so it is using the NEW_DATABASE_URL -
+Then Open up your `config/prod.exs` file, and change the value of the host name so it is using the NEW_DATABASE_URL -
 
 It should look like this
 
