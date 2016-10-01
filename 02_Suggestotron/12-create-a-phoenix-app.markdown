@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Create a Phoenix App
 date: 2016-09-24 23:08:17 -0700
 ---
@@ -66,10 +66,3 @@ In your browser, open [localhost:4000](http://localhost:4000). You should see a 
 
 
 Hit `Ctrl c` twice to stop the server
-
-
-Next Step: [Create a Migration](04-create-a-migration.html)
-
-Go Back: [Getting Started](02-getting-started.html)
-
-
