@@ -18,12 +18,7 @@ You should see something like
 
 At the serach bar near the bottom of the page type in `postgres`
 
-You should see the following pop up
-
-![heroku resources](/assets/heroku-postgres-snapshot.png)
-
-
-Select the option for `Heroku Postgres`
+You should see a pop up menu, select the option for `Heroku Postgres`
 
 You will see the following window pop up
 
@@ -44,7 +39,8 @@ You should see something that looks like this
 Click on the button that says **Reveal Config Vars**
 
 Make sure you have the following environment variables set.
-Note - they may not be set in this same order
+Note - they may not be set in this same order. Anything not
+in this list, you should set.
 
 ```
 DATABASE_URL: heroku-sets-this-for=you
