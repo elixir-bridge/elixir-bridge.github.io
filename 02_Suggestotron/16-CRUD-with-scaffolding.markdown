@@ -16,6 +16,7 @@ At the core, most database driven web sites are the same. They need to store rec
 Because these 4 actions (CRUD) are so common, Phoenix includes the scaffold command to make creating them easier.
 
 ### Steps
+ 
 #### Step 1
 
 * Type this in the terminal:
