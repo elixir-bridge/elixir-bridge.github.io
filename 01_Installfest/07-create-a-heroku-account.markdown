@@ -81,7 +81,6 @@ Type this in the terminal:
 
 ```
 pbcopy < ~/.ssh/id_rsa.pub
-
 ```
 
 ##### Linux users
@@ -91,7 +90,7 @@ Type this in the terminal:
 ```
 sudo apt-get install xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
-``
+```
 
 sudo apt-get install xclip installs a tiny application, xclip, that lets us copy the contents of a file without opening it. Mac and Windows users have similar things already installed (pbcopy and clip).
 

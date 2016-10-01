@@ -33,9 +33,9 @@ git add -A
 
 With Git, there are usually many ways to do very similar things.
 
-*git add foo.txt adds a file named foo.txt
-*git add . ("git add dot") adds all new files and changed files, but keeps files that you've deleted
-*git add -A adds everything, including deletions
+* git add foo.txt adds a file named foo.txt
+* git add . ("git add dot") adds all new files and changed files, but keeps files that you've deleted
+* git add -A adds everything, including deletions
 
 "Adding deletions" may sound weird, but if you think of a version control system as keeping track of changes, it might make more sense.
 
@@ -71,8 +71,8 @@ The very first time you use heroku you must enter your Heroku email address and 
 Type this into the terminal:
 
 ```
- heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
- ```
+heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+```
 
  Expected Result:
  Something similar to the following -
