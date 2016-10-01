@@ -9,8 +9,8 @@ date: 2016-08-28 13:38:30 -0700
 By the end of this section, you'll know:
 
 * The basics of Elixir
-* Use the elixir REPL to run elixir code
-* Run elixir code from a script
+* How to use the elixir REPL to run elixir code
+* How to run elixir code from a script
 * How to find elixir documentation
 
 ## Getting started
@@ -19,7 +19,7 @@ We can use the REPL (Read-Eval-Print Loop) command-line tool to write and run si
 
 Before we move on any further, let's open the Interactive EliXir REPL. After installing Elixir, we'll have at least three new commands. One of these commands is the `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt.
 
-![eix prompt](/assets/learning_elixir/iex-cli.png)
+![iex prompt](/assets/learning_elixir/iex-cli.png)
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
 
@@ -60,7 +60,7 @@ A number type comprises the Integer and the Float types. Just like how it sounds
 
 ### Integer
 
-In our `eix` command prompt, these are all integers:
+In our `iex` command prompt, these are all integers:
 
 ```elixir
 iex> 1
@@ -369,14 +369,14 @@ We often want to run a check on a particular state of a variable.
 
 ### `case`
 
-The `case` function allows us to compare a value against several patters until we find one that matches. For instance:
+The `case` function allows us to compare a value against several patterns until we find one that matches. For instance:
 
 ```elixir
 iex> case {1, 2, 3} do
     {4, 5, 6} ->
         "Does not match"
     {1, x, 3} ->
-        "This caluse does match and sets x to 2"
+        "This clause does match and sets x to 2"
     _ ->
         "Matches any value not previously matched"
     end
@@ -471,7 +471,7 @@ iex> list[:a] # 1
 iex> list[:c] # nil
 ```
 
-We can concatenate the dictionary using the key-value syntax woth `++`. For instance:
+We can concatenate the dictionary using the key-value syntax with `++`. For instance:
 
 ```elixir
 iex> list = [{:a, 1}, {:b, 2}]
