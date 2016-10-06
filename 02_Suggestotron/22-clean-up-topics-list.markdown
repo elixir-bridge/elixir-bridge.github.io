@@ -14,8 +14,9 @@ Let's clean up the topics list page by doing the following:
 * Remove the 'edit' link
 * Change 'destroy' to 'delete'
 
-### Steps
-#### Step 1: Remove the 'show' and 'edit' links
+## Steps
+
+### Step 1: Remove the 'show' and 'edit' links
 Open `test_app/web/templates/topic/index.html.eex` and remove these two lines:
 
 ```
@@ -23,12 +24,15 @@ Open `test_app/web/templates/topic/index.html.eex` and remove these two lines:
 <%= link "Edit", to: topic_path(@conn, :edit, topic), class: "btn btn-default btn-xs" %>
 ```
 
-Step 2: Change 'Delete' to 'Remove'
+### Step 2: Change 'Delete' to 'Remove'
 Change the line with the word 'Destroy' to this:
+
 ```
 <%= link "Remove", to: topic_path(@conn, :delete, topic), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
 ```
+
 ## Explanation
+
 * The two links we removed were show and edit. We did this because the title now links to the show page and from the show page you can reach the edit page.
 
 * The second change we made was to make the link text 'Delete' instead of 'Destroy'.

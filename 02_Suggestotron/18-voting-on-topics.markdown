@@ -23,6 +23,10 @@ Every topic in suggestotron can be voted on. In order to count votes, we need to
 Type this in the terminal:
 ```
 mix phoenix.gen.model Vote votes topic_id:integer
+```
+
+That generates a new migration, which we'll run using mix again:
+```
 mix ecto.migrate
 ```
 

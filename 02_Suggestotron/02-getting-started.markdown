@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Getting Started 
+title: Getting Started
 date: 2016-09-24 23:08:17 -0700
 ---
 
@@ -21,7 +21,7 @@ A directory is the same thing as a folder.
 Type the following into the terminal:
 
 ```
-cd c:\Sites 
+cd c:\Sites
 ```
 
 **Option 1.2: Mac or Linux**
@@ -33,7 +33,7 @@ cd ~
 ### Step 2
 
 
-Type the following into the terminal:
+Type the following into the terminal (if you've already created this in the Installfest, skip to step 3):
 
 ```
 mkdir elixirbridge
@@ -43,11 +43,9 @@ mkdir elixirbridge
 
 Type the following into the terminal:
 
-
 ```
 cd elixirbridge
 ```
-
 
 Check to see if you have an app from a previous elixirbridge
 
@@ -62,7 +60,7 @@ ls
 ls stands for list
 
 
-It lists the contents of the current directory. If you have any old suggestotron apps in that list you can remove them 
+It lists the contents of the current directory. If you have any old suggestotron apps in that list you can remove them
 to prevent confusion.
 
 Type the following into the terminal:
@@ -85,7 +83,7 @@ dir stands for directory.
 
 It lists the contents of the current directory.
 
-If you have any old suggestotron apps in that list you can remove them 
+If you have any old suggestotron apps in that list you can remove them
 to prevent confusion.
 
 Type this in the terminal:
@@ -93,20 +91,3 @@ Type this in the terminal:
 ```
 rmdir /s /q suggestotron
 ```
-
-
-
-Next Step: 
-[Creating a New App](03-create-a-phoenix-app.html)
-
-Go Back:
-
-[Why Program Elixir](01-why-program-why-elixir.html)
-
-
-
-
-
-
-
-

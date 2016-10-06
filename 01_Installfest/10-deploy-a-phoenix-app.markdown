@@ -33,9 +33,9 @@ git add -A
 
 With Git, there are usually many ways to do very similar things.
 
-*git add foo.txt adds a file named foo.txt
-*git add . ("git add dot") adds all new files and changed files, but keeps files that you've deleted
-*git add -A adds everything, including deletions
+* git add foo.txt adds a file named foo.txt
+* git add . ("git add dot") adds all new files and changed files, but keeps files that you've deleted
+* git add -A adds everything, including deletions
 
 "Adding deletions" may sound weird, but if you think of a version control system as keeping track of changes, it might make more sense.
 
@@ -71,8 +71,8 @@ The very first time you use heroku you must enter your Heroku email address and 
 Type this into the terminal:
 
 ```
- heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
- ```
+heroku create --buildpack "https://github.com/HashNuke/heroku-buildpack-elixir.git"
+```
 
  Expected Result:
  Something similar to the following -
@@ -119,52 +119,9 @@ The Problem is Heroku uses environment variables to pass sensitive information t
 
 Open `config/prod.exs`
 
- At the bottom of this section
+ Delete the contents of that file.
 
- delete the contents of that file.
-
- Then paste in the following
-
-```
-use Mix.Config
-
-config :test_app, TestApp.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443],
-  force_ssl: [rewrite_on: [:x_forwarded_proto]],
-  cache_static_manifest: "priv/static/manifest.json",
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
-
-# Do not print debug messages in production
-config :logger, level: :info
-```
-
-Make sure that you change the following line to include the name of your app
-
-```
-url: [scheme: "https", host: "your-app-name.herokuapp.com", port: 443]
-```
-
-Don't forget to save the file.
-
-
-
-Now we will add the production database configuration to our 'config/prod.exs' file
-
-Open the file.
-
-Paste the following at the bottom of the file.
-
-```
-# Configure your database
-config :test_app, TestApp.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
-```
-
-The top of the 'config/prod.exs' file should now look like --
+ Then paste in the following:
 
 ```
 use Mix.Config
@@ -198,7 +155,7 @@ url: [host: "example.com", port: 80]
 ```
 (It should be in the first section of this file we changed).
 
-Replace that line with the following two lines
+Replace that line with the following lines
 
 ```
 url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
@@ -270,13 +227,13 @@ web: elixir -S mix phoenix.server
 Next type the following into your terminal (do one line at a time)
 
 ```
-$ heroku addons:create heroku-postgresql:dev
+heroku addons:create heroku-postgresql:dev
 ```
 
 next type the following in your terminal:
 
 ```
-$ heroku config:set MIX_ENV=prod
+heroku config:set MIX_ENV=prod
 ```
 
 ```
@@ -289,10 +246,10 @@ Setting POOL_SIZE and restarting ⬢ stormy-stream-65433... done, v7
 POOL_SIZE: 18
 ```
 
-When Running a mix task, you want to limit the pool size like so -
+When Running a mix task after you deploy, you want to limit the pool size with an environment variable -
 
 ```
-$ heroku run "POOL_SIZE=2 mix hello_phoenix.task"
+heroku run "POOL_SIZE=2 mix hello_phoenix.task"
 ```
 
 This is so ecto does not attempt to open more thatn the available connections
@@ -351,5 +308,5 @@ make sure that the name after 'config' is the name of your app,
 it should look like this
 
 ```
-config :your-app-name, YourAppName.repo
+config :your-app-name, TestApp.repo
 ```

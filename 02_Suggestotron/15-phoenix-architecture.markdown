@@ -48,7 +48,7 @@ The templates that are rendered by the view are precompiled by the Phoenix compi
 
 ## Channels
 
-We'll work through building a channel with our Phoenix application when we start working through building a chat application. These are responsibile for managing socket requests for _real-time_ communication. They are eseentially controllers, except that instead of only accepting a request, they can allow bi-directional communication with persistent socket connections.
+We'll work through building a channel with our Phoenix application when we start working through building a chat application. These are responsibile for managing socket requests for _real-time_ communication. They are essentially controllers, except that instead of only accepting a request, they can allow bi-directional communication with persistent socket connections.
 
 ## Pubsub
 

@@ -13,7 +13,7 @@ Phoenix gives us a phoenix.gen.html task similar to Rails `rails generate scaffo
 Now that the database has been created with `mix ecto.create`, type this into the terminal:
 
 ```
-$ mix phoenix.gen.html Drink drinks name:string temperature:string
+mix phoenix.gen.html Drink drinks name:string temperature:string
 ```
 
 You should see output similar to this:
@@ -37,7 +37,7 @@ Add the resource to your browser scope in web/router.ex:
 
 Remember to update your repository by running migrations:
 
-    $ mix ecto.migrate
+    mix ecto.migrate
 ```
 
 Now let's follow the instructions at the end of that output.
@@ -97,7 +97,7 @@ Now lets start our server up again
 Type the following into the terminal
 
 ```
-$ mix phoenix.server
+mix phoenix.server
 ```
 
 Then go to your browsers and type in
