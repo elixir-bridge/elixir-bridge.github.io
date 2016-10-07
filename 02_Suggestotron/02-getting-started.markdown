@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Getting Started
 date: 2016-09-24 23:08:17 -0700
 ---
