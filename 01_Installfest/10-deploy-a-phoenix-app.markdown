@@ -87,7 +87,7 @@ Copy and paste the name of your app somewhere, you will need it for a later step
 
 In this case..the name of the app is `stormy-stream-65433`
 
---buildpack option we are passing allows us to specify the Elixir buildpack we want Heroku to use.
+The **--buildpack** option we are passing allows us to specify the Elixir buildpack we want Heroku to use.
 
 A buildpack is a convenient way of packaging framework and/or runtime support. In our case it's installing Erlang, Elixir, fetching our application dependencies, and so on, before we run it.
 
@@ -113,7 +113,7 @@ Every new project comes with a config file, `config/prod.secret.exs` which store
 
 Phoenix adds it to the .gitingnore file by default.
 
-The Problem is Heroku uses environment variables to pass sensitive information to our application.
+The problem is Heroku uses environment variables to pass sensitive information to our application.
 
 ##### Setup config files for Deploy
 
@@ -161,7 +161,7 @@ Replace that line with the following lines
 url: [scheme: "https", host: "name-of-your-app.herokuapp.com", port: 443],
 ```
 
-Make sure that you replace the part of the host url that says `name-of-your-app` with the app name that you copied and saved from an earlier step.
+Make sure that you replace the part of the host url that says `name-of-your-app` with the app name that you copied and saved from an earlier step. In the tutorial the app was called `stormy-stream-65433`
 
 ```
 use Mix.Config
@@ -209,6 +209,9 @@ This ensures that any idle connections are closed by Phoenix before they reach H
 
 #### Create Profile
 
+A Procfile is a mechanism for declaring what commands are run by your application's dynos on the Heroku platform
+
+
 In your terminal make sure you are in your test_app directory.
 
 Then type:
@@ -246,13 +249,6 @@ Setting POOL_SIZE and restarting ⬢ stormy-stream-65433... done, v7
 POOL_SIZE: 18
 ```
 
-When Running a mix task after you deploy, you want to limit the pool size with an environment variable -
-
-```
-heroku run "POOL_SIZE=2 mix hello_phoenix.task"
-```
-
-This is so ecto does not attempt to open more thatn the available connections
 
 ##### Create SECRET_KEY_BASE config based on Random string.
 
@@ -284,9 +280,6 @@ Setting SECRET_KEY_BASE and restarting ⬢ stormy-stream-65433... done, v8
 SECRET_KEY_BASE: your-secret-key
 ```
 
-If you need to make any of your config variables available at compile time, you will need to explicitly define which ones in a configuration file.
-Create a file elixir_buildpack.config in your application's root directory and add a line like: config_vars_to_export=(MY_VAR) [See more](https://github.com/HashNuke/heroku-buildpack-elixir#specifying-config-vars-to-export-at-compile-time)
-
 Next open up your 'Prod.exs file'
 
 There should be a section towards the bottom of the file that looks like this
@@ -308,5 +301,5 @@ make sure that the name after 'config' is the name of your app,
 it should look like this
 
 ```
-config :your-app-name, TestApp.repo
+config :test_app, TestApp.repo
 ```

@@ -22,7 +22,9 @@ Open the file `web/router.ex` in an editor (In the InstallFest yesterday, we sug
 
 Look for the line `get "/", PageController, :index` in the lower two thirds of the file, and change `PageController` to say `TopicController`. When you are done that block of code should look like this:
 
-```scope "/", TestApp do
+
+```
+scope "/", TestApp do
   pipe_through :browser # Use the default browser stack
 
   resources "/topics", TopicController
@@ -35,7 +37,7 @@ Go back to http://localhost:4000/. You should be taken to the topics list automa
 
 Explanation
 
-`get "/", TopicController, :index` is a Phoenix route that tells the app when a GET request comes in for the root of the site (that is, the domain without anything after the /), to user the `TopicController` and the `:index` method. The `index` method is the topics list page.
+`get "/", TopicController, :index` is a Phoenix route that tells the app when a GET request comes in for the root of the site (that is, the domain without anything after the /), to use the `TopicController` and the `:index` method. The `index` method is the topics list page.
 
 Phoenix routes control how URLs get matched with the code on the server. It's similar to how houses and apartments have addresses. You can think of each controller as a street, and each method in that controller as a house.
 
@@ -58,6 +60,6 @@ topic_path  GET     /                 TestApp.TopicController :index
 This shows all the URLs your application responds to. The parts of the URLs that start with colons are variables so :id means the id number of the record.
 
 ## Deploying
-Before the next step, you could try [deploying your app to Heroku](/01_Installfest/11-deploy-to-heroku.html)!
+Before the next step, you could try [deploying your app to Heroku](/01_Installfest/10-deploy-a-phoenix-app.html)!
 
 Go on to Deploying To Heroku

@@ -70,24 +70,24 @@ rm -rf suggestotron
 ```
 
 
-**Windows**
+<!--**Windows**-->
 
-Type the following into the terminal:
+<!--Type the following into the terminal:-->
 
-```
-dir
-```
+<!--```-->
+<!--dir-->
+<!--```-->
 
-dir stands for directory.   
+<!--dir stands for directory.   -->
 
 
-It lists the contents of the current directory.
+<!--It lists the contents of the current directory.-->
 
-If you have any old suggestotron apps in that list you can remove them
-to prevent confusion.
+<!--If you have any old suggestotron apps in that list you can remove them-->
+<!--to prevent confusion.-->
 
-Type this in the terminal:
+<!--Type this in the terminal:-->
 
-```
-rmdir /s /q suggestotron
+<!--```-->
+<!--rmdir /s /q suggestotron-->
 ```

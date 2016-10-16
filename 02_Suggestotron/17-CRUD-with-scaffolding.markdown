@@ -5,7 +5,8 @@ date: 2016-08-21 13:39:33 -0700
 position: 8
 ---
 
-Goals
+### Goals
+
 At the core, most database driven web sites are the same. They need to store records and provide a way to do the following:
 
 * Create new records in the database
@@ -83,7 +84,10 @@ This is the page you get when you click "Edit".
 web/templates/topic/form.html.eex
 ```
 You may have noticed that the page for new topics and the page to edit topics looked similar. That's because they both use the code from this file to show a form. This file is called a partial since it only contains code for part of a page. Partials always have filenames starting with an underscore character.
-Challenge question: Can you find the line of code in new.html.eex and edit.html.eex that makes the form partial appear?
+
+
+
+**Challenge question:** Can you find the line of code in new.html.eex and edit.html.eex that makes the form partial appear?
 
 ```
 web/controllers/topics_controller.ex

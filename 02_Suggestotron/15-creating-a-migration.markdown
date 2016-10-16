@@ -45,9 +45,10 @@ mix ecto.migrate
 This tells Phoenix (through the database library, Ecto) to update the database to include a table for our new model.
 
 # Explanation
-mix
 
-mix is a tool that allows you to run small elixir programs (tasks) that you use often in your application.
+### Mix
+
+Mix is a tool that allows you to run small elixir programs (tasks) that you use often in your application.
 
 Here, `mix ecto.migrate` is a task provided by the Phoenix framework. It uses the migration file we just created (priv/repo/migrations/201xxxxxxxxxxx_create_topics.exs) to change the database. Database migration files can be crucial to code collaboration.
 

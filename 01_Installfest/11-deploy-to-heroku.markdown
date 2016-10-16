@@ -16,7 +16,7 @@ You should see something like
 
 ![heroku dashboard](/assets/heroku-dashboard-resources.png)
 
-At the serach bar near the bottom of the page type in `postgres`
+At the search bar near the bottom of the page type in `postgres`
 
 You should see a pop up menu, select the option for `Heroku Postgres`
 
@@ -91,9 +91,9 @@ It should look like this
 
 ![heroku-database-username](/assets/heroku-db-username.png)
 
-Do the same for password. Create a Variable called password. and then cpy the password from the correct portion of the database url
+Do the same for password. Create a Variable called password. and then copy the password from the correct portion of the database url
 ```
-postgres://username:password.compute-1.amazonaws.com:5432/databse
+postgres://username:password.compute-1.amazonaws.com:5432/database
 ```
 
 Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
