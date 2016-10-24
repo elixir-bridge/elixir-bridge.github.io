@@ -9,20 +9,30 @@ date: 2016-09-24 12:28:28 -0700
 
 #### Homebrew
 
-Update your homebrew to latest:
-
-Type this in the terminal:
+Before installing anything with homebrew, always update to latest,
+by typing this in the terminal:
 
 `brew update`
 
+then you can use homebrew to install elixir:
+
  `brew install elixir`
 
-#### Macports
+#### OR Macports
 
-Type this in the terminal:
+Alternately, you may install using Macports, by typing this in the terminal:
 
 `sudo port install elixir`
 
+#### Check Your Installation
+
+To check that Elixir is installed correctly:
+
+`elixir -v`
+
+You should see:
+
+`Elixir 1.3.4`
 
 ### Step :7 Install Hex
 
@@ -59,6 +69,7 @@ mix help | grep phoenix
 ```
 
 Expected Result:
+
 ```
 mix local.phoenix     # Updates Phoenix locally
 mix phoenix.new       # Creates a new Phoenix v1.2.1 application
