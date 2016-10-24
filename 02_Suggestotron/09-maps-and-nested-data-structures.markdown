@@ -14,7 +14,7 @@ iex> map = %{:a => 1, 2 => :b}
 iex> map[:a] # 1
 iex> map[2] # :b
 iex> # We can use the . syntax to access variables too
-iex> map.c # nil
+iex> map[:c] # nil
 ```
 
 Maps do not contain ordering and can allow _any_ value to be set as the key.
