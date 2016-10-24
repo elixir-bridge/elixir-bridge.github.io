@@ -96,11 +96,11 @@ We can check if a value is a float by using the `is_float/1` function.
 The built-in number types have functions we can perform on them as well, such as addition, division, mixing precision, and more.
 
 ```elixir
-iex> 1 + 1 # 2
-iex> div(10, 2)
-iex> rem(10, 3)
+iex> 1 + 1        # 2
+iex> div(10, 2)   # 5
+iex> rem(10, 3)   # 1
 iex> ## Or without parenthesis
-iex> rem 10 3
+iex> rem 10, 3    # 1
 iex> Float.ceil(1.234567, 3) # 1.235
 iex> 10 / 2
 ```
