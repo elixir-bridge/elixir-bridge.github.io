@@ -95,15 +95,16 @@ Next, let's look at the `handle_in/3` method. It takes an event, a payload and a
 
 This for pubsub but for the web. Clients subscribe to something that they want to know about, and when an event happens it is rebroadcast to all the clients
 
-> Publish–subscribe or 'pubsub` is a messaging pattern where senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers, but instead characterize published messages into classes without knowledge of which subscribers. Similarly, subscribers express interest in one or more classes and only receive messages that are of interest, without knowledge of which publishers.
+> Publish–subscribe or "pubsub" is a messaging pattern where senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers, but instead characterize published messages into classes without knowledge of which subscribers. Similarly, subscribers express interest in one or more classes and only receive messages that are of interest, without knowledge of which publishers.
 -wikipedia (https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern)[https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern]
 
-In our app, the clients are both the publishers and the subscribers. You publish a message when you want to say something, and you're also subscribed, listening for messages from anyone else in the channel. 
+
+In our app, the clients are both the publishers and the subscribers. You publish a message when you want to say something, and you're also subscribed, listening for messages from anyone else in the channel.
 
 The handle_in method is fired every time a new incoming message is received on the socket, which broadcasts that message to all other open sockets. When you send a message to the chatroom, the chatroom(our channel) sends it back to you and to everyone else in the channel
 
 
-#TODO page break 
+#TODO page breaks
 
 
 Handling the connections on Client-side
@@ -115,13 +116,13 @@ To make things easier, we’ll start by adding jQuery to our web/templates/layou
 
 Phoenix comes packed with a simple javascript socket client, but it’s disabled by default. Go into your web/static/js/app.js and uncomment the last line:
 
+```
 import socket from "./socket"
-
-
+```
 
 Go into your web/static/js/socket.js and paste in this:
 
-
+```
 let channel = socket.channel("elixirbridge", {});
 let list    = $('#message-list');
 let message = $('#message');
@@ -145,6 +146,7 @@ channel.join()
 
 // ...
 
+```
 
 `socket.channel("elixirbridge", {})` sends the join request to the server. It makes it's way to the join method we wrote above, and then you get back a websocket.
 
