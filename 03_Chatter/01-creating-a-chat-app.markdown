@@ -1,14 +1,22 @@
+---
+layout: page
+title: Creating a Chat App
+date: 2016-08-04 23:08:17 -0700
+position: 1
+---
+
 #### Building a Simple Chat App With Elixir and Phoenix
 
 In this curriculum with will build a simple chat app that takes advantage of phoenix's easy uses of web sockets and evented programming
 
 
-### Goals: 
+### Goals:
 
 Through this app we will:
-    * gain a better understanding of web sockets 
-    * learn how to take advantage of Elixir's Asychronous programming model
-    
+
+* gain a better understanding of web sockets
+* learn how to take advantage of Elixir's Asychronous programming model
+
 
 Getting Started
 
@@ -39,16 +47,16 @@ A channel is persisted connection between teh browser and the server. A regular 
 In a normal request the server only sends one response. But in the case of web sockets the server can continue to send updates as long as the browser maintains the connections.
 
 
-So channels use websockets. 
+So channels use websockets.
 
 We’re going to create a new channel called elixirbridge. Open up `web/channels/user_socket.ex` and add this line:
 
 
 `channel "elixirbridge", Chatter.ElixirBridgeChannel`
 
-Create a new file called web/channels/elixirbridge_channel.ex and implement the functionality for the new elixirbridge channel. 
+Create a new file called web/channels/elixirbridge_channel.ex and implement the functionality for the new elixirbridge channel.
 
-elixir_bridge_channel.ex is analagous to a controller in Phoenix, except it is for handling websocket requests instead of http requests. 
+elixir_bridge_channel.ex is analagous to a controller in Phoenix, except it is for handling websocket requests instead of http requests.
 
 
 
@@ -83,11 +91,11 @@ end
 
 The join method is a call back that you implement.
 
-If you look at the file, when you call `use Phoenix.Channel` as seen above, it adds a bunch of methods from the Phoenix.channel module. Those methods are called by the router we implemented in the previous step. 
+If you look at the file, when you call `use Phoenix.Channel` as seen above, it adds a bunch of methods from the Phoenix.channel module. Those methods are called by the router we implemented in the previous step.
 
-The Phoenix.Channel module includes a bunch of extra code, but we still have to define what happens when a client joins the channel, and what happens when someone sends a message to the channel. 
+The Phoenix.Channel module includes a bunch of extra code, but we still have to define what happens when a client joins the channel, and what happens when someone sends a message to the channel.
 
-First, let's look at the `join/3` method. First, `def join("elixirbridge", _payload, socket) do`: it takes three arguments. The name of the channel, `"elixirbridge"`, is so that this method is only called when the client is joining that specific channel. The second argument, `_payload` is the request from the user. In this case, we're not using it, so we put an underscore in front, to tell the compiler not to worry about it. Finally, it takes `socket`, which is the websocket connection. Then, `{:ok, socket}` just returns a status and the websocket they are connecting to. `join/3` always returns {:ok, socket} to allow all connections to the channel. 
+First, let's look at the `join/3` method. First, `def join("elixirbridge", _payload, socket) do`: it takes three arguments. The name of the channel, `"elixirbridge"`, is so that this method is only called when the client is joining that specific channel. The second argument, `_payload` is the request from the user. In this case, we're not using it, so we put an underscore in front, to tell the compiler not to worry about it. Finally, it takes `socket`, which is the websocket connection. Then, `{:ok, socket}` just returns a status and the websocket they are connecting to. `join/3` always returns {:ok, socket} to allow all connections to the channel.
 
 
 Next, let's look at the `handle_in/3` method. It takes an event, a payload and a socket. The event, in this case, will always be `"new_message"`. The payload is the message itself, and the socket is the same websocket from the client connection that they got when they joined. The first line calls `broadcast!/3`. `broadcast!` sends the message to everyone on the channel. The second line returns a status (`:noreply`) and returns the socket as well.  
@@ -173,7 +181,7 @@ Let’s start with something easy by writing the markup and CSS for our chat app
   </div>
 </div>
 ```
-We’ve created an empty div that will list all chat messages and two text fields (one for the user’s name and one for the message). 
+We’ve created an empty div that will list all chat messages and two text fields (one for the user’s name and one for the message).
 
 Now open `web/static/css/app.css `and paste this at the end:
 
@@ -186,7 +194,7 @@ Now open `web/static/css/app.css `and paste this at the end:
 }
 
 
-#TODO 
+#TODO
 
 Channel persistance - if the server goes down or is reset all the messages will disappear
 A nice feature to have would be to share messages across servers
@@ -195,4 +203,3 @@ A nice feature to have would be to share messages across servers
 
 #Todo
 something async
-
