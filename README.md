@@ -1,5 +1,5 @@
 # elixir-bridge.github.io
-Static Site for Elixirbridge
+Static Site for [Elixirbridge](http://elixirbridge.org/)
 
 ## Running the app in development
 
