@@ -227,7 +227,7 @@ web: elixir -S mix phoenix.server
 Next type the following into your terminal (do one line at a time)
 
 ```
-heroku addons:create heroku-postgresql:dev
+heroku addons:create heroku-postgresql:hobby-dev
 ```
 
 next type the following in your terminal:
