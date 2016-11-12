@@ -79,7 +79,13 @@ mix phoenix.new       # Creates a new Phoenix v1.2.1 application
 ### Step 8 install Docker
 If you are not building the elixir app tomorrow you can skip this step.
 
-run `brew install docker-machine`
+run the following commands (each might take a little while since they will download and install things):
+
+```
+brew tap caskroom/cask
+brew cask install virtualbox 
+brew install docker-machine
+```
 
 If that is successful run 
 
@@ -92,9 +98,19 @@ Docker-machine makes building docker environments in multiple platforms simple. 
 run `docker-machine create --driver virtualbox default`
 
 
-This will create a local image names `default` using virtualbox as the driver
+This will create a local image names `default` using virtualbox as the driver. To see your local config:
 
-Let's make sure that our `$Docker_HOST` is pointing to our local machine.
+```
+docker-machine env default
+```
+
+This command shows the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `default`.  Now let's set then up as convenient variables:
+
+```
+eval $(docker-machine env default)
+```
+
+Double check to make sure that our `$DOCKER_HOST` is pointing to our local machine.
 
 `echo $DOCKER_HOST`
 
@@ -102,15 +118,4 @@ This should reference our local machine. You should see something like the follo
 
 `tcp://192.xxxxx`
 
-Then type 
-
-`docker-machine env default`
-
-
-This will export our environment variables for our local machine
-
-`eval $(docker-machine env default)`
-
-This command sets the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `default`
- 
  We will use this local image to build our elixir app tomorrow. 
