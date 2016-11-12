@@ -98,9 +98,19 @@ Docker-machine makes building docker environments in multiple platforms simple. 
 run `docker-machine create --driver virtualbox default`
 
 
-This will create a local image names `default` using virtualbox as the driver
+This will create a local image names `default` using virtualbox as the driver. To see your local config:
 
-Let's make sure that our `$Docker_HOST` is pointing to our local machine.
+```
+docker-machine env default
+```
+
+then set up some convenient variables:
+
+```
+eval $(docker-machine env default)
+```
+
+Let's make sure that our `$DOCKER_HOST` is pointing to our local machine.
 
 `echo $DOCKER_HOST`
 
