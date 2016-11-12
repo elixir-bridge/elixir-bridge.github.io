@@ -79,7 +79,13 @@ mix phoenix.new       # Creates a new Phoenix v1.2.1 application
 ### Step 8 install Docker
 If you are not building the elixir app tomorrow you can skip this step.
 
-run `brew install docker-machine`
+run the following commands (each might take a little while since they will download and install things):
+
+```
+brew tap caskroom/cask
+brew cask install virtualbox 
+brew install docker-machine
+```
 
 If that is successful run 
 
