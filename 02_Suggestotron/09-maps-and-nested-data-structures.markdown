@@ -11,10 +11,13 @@ Maps in Elixir provides a quick key-value store called a map. Maps can be create
 
 ```elixir
 iex> map = %{:a => 1, 2 => :b}
-iex> map[:a] # 1
-iex> map[2] # :b
+iex> map[:a]  # 1
+iex> map[2]   # :b
+iex> map[:c]  # nil
 iex> # We can use the . syntax to access variables too
-iex> map.c # nil
+iex> map.a   # 1
+iex> # but not for an element that doesn't exist...
+iex> map.c    # error
 ```
 
 Maps do not contain ordering and can allow _any_ value to be set as the key.
