@@ -104,13 +104,13 @@ This will create a local image names `default` using virtualbox as the driver. T
 docker-machine env default
 ```
 
-then set up some convenient variables:
+This command shows the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `default`.  Now let's set then up as convenient variables:
 
 ```
 eval $(docker-machine env default)
 ```
 
-Let's make sure that our `$DOCKER_HOST` is pointing to our local machine.
+Double check to make sure that our `$DOCKER_HOST` is pointing to our local machine.
 
 `echo $DOCKER_HOST`
 
@@ -118,15 +118,4 @@ This should reference our local machine. You should see something like the follo
 
 `tcp://192.xxxxx`
 
-Then type 
-
-`docker-machine env default`
-
-
-This will export our environment variables for our local machine
-
-`eval $(docker-machine env default)`
-
-This command sets the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `default`
- 
  We will use this local image to build our elixir app tomorrow. 
