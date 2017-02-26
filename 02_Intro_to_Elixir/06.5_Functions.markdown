@@ -1,0 +1,43 @@
+---
+layout: page
+title: Functions
+date: 2016-10-1 13:38:30 -0700
+---
+
+## Anonymous functions
+
+In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`.
+
+For instance, all of these are functions in Elixir:
+
+```elixir
+iex> add = fn a, b -> a + b end
+iex> is_function(add) # true
+iex> b = (fn a -> a + 2 end)
+```
+
+In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the function name. For example, to call the `add/2` function, we'll need to type:
+
+```elixir
+iex> add.(2 2) # 4
+```
+
+
+## Head/Tail
+
+Elixir allows us to easily access the first element in the list, referred to as the `head`. The remaining part of the list is referred to as the tail.  
+
+[head | tail]
+Common functions we'll use whenever we write Elixir code are checking for the head (`hd/1`) and tails of a list (`tl/1`). When we talk about the head of the list, we're looking for the first element of the list. For instance:
+
+```elixir
+iex> hd([1, 2, 3]) # 1
+```
+
+The tail is everything _but_ the head of the list:
+
+```elixir
+iex> tl([1, 2, 3]) # [2, 3]
+```
+
+In Elixir, we'll often work with lists an element at a time, so the `hd/1` command will come in handy.

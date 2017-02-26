@@ -60,13 +60,13 @@ ls
 ls stands for list
 
 
-It lists the contents of the current directory. If you have any old suggestotron apps in that list you can remove them
+It lists the contents of the current directory. If you have any old getting_started apps in that list you can remove them
 to prevent confusion.
 
 Type the following into the terminal:
 
 ```
-rm -rf suggestotron
+rm -rf getting_started
 ```
 
 
@@ -83,11 +83,11 @@ dir stands for directory.
 
 It lists the contents of the current directory.
 
-If you have any old suggestotron apps in that list you can remove them
+If you have any old getting_started apps in that list you can remove them
 to prevent confusion.
 
 Type this in the terminal:
 
 ```
-rmdir /s /q suggestotron
+rmdir /s /q getting_started
 ```
