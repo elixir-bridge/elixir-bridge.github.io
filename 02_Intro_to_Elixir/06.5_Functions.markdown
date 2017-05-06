@@ -8,36 +8,82 @@ date: 2016-10-1 13:38:30 -0700
 
 In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`.
 
-For instance, all of these are functions in Elixir:
+For example, type the following in iex:
 
 ```elixir
 iex> add = fn a, b -> a + b end
 iex> is_function(add) # true
-iex> b = (fn a -> a + 2 end)
 ```
 
-In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the function name. For example, to call the `add/2` function, we'll need to type:
+The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the variable. For example, to call the `add/2` function, try the following:
 
 ```elixir
 iex> add.(2 2) # 4
 ```
 
-
-## Head/Tail
-
-Elixir allows us to easily access the first element in the list, referred to as the `head`. The remaining part of the list is referred to as the tail.  
-
-[head | tail]
-Common functions we'll use whenever we write Elixir code are checking for the head (`hd/1`) and tails of a list (`tl/1`). When we talk about the head of the list, we're looking for the first element of the list. For instance:
+Above, we have anonymous functions, but there's another syntax you'll use when defining functions inside modules. The keyword `def` is used:
 
 ```elixir
-iex> hd([1, 2, 3]) # 1
+defmodule Foo do
+  def hashtag(word) do
+    "#" <> word
+  end  
+end
+
+Foo.hashtag("elixir")
 ```
 
-The tail is everything _but_ the head of the list:
+Note that we used the `do ... end` syntax for the block, but there's also a shortcut syntax:
 
 ```elixir
-iex> tl([1, 2, 3]) # [2, 3]
+def hashtag(word), do: "#" <> word
 ```
 
-In Elixir, we'll often work with lists an element at a time, so the `hd/1` command will come in handy.
+The reason this is useful is you can pattern match on the data passed into the function (called the function signature). Let's take a look an example
+
+```elixir
+defmodule Social do
+  def hashtag({:twitter, word}), do: "#" <> word <> " #twitterisgreat"
+
+  def hashtag({:facebook, word}), do: "#" <> word <> " #facebookisgreat"
+end
+```
+
+
+As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? Well as mentioned above, the function that gets executed is the one where data being passed in matched the arguments in the function signature.
+
+This eliminates the need for us to use conditional logic in our functions. Copy and paste the module above, and then try the following:
+
+```elixir
+Social.hashtag({:facebook, "elixir"})
+Social.hashtag({:instagram, "elixir"})
+```
+
+What happened? When there's no matching function in elixir, you get the a similar error to other other failed matches:
+
+```elixir
+Social.hashtag({:instagram, "elixir"})
+** (FunctionClauseError) no function clause matching in Social.hashtag/1
+   iex:2: Social.hashtag({:instagram, "elixir"})
+```
+
+We received an error because there was no function signature that matched the arguments that had been passed in. To prevent triggering such an error, you can add a default case to your functions when pattern matching. In this case we will add one more function to our module.
+
+```elixir
+defmodule Social do
+  def hashtag({:twitter, word}), do: "#" <> word <> " #twitterisgreat"
+
+  def hashtag({:facebook, word}), do: "#" <> word <> " #facebookisgreat"
+
+  def hashtag({network , word}), do: "#" <> word <> " ##{network}isgreat"
+end
+```
+
+This way, any `network` we pass in will match the last function, and we won't see that error. Try it out:  
+
+```elixir
+iex(4)> Social.hashtag({:instagram, "elixir"})
+"#elixir #instagramisgreat"
+```
+
+Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match. 
