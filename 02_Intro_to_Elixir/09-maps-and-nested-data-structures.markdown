@@ -20,7 +20,7 @@ iex> # but not for an element that doesn't exist...
 iex> map.c    # error
 ```
 
-Maps do not contain ordering and can allow _any_ value to be set as the key.
+Maps do not contain ordering and can allow any value to be set as the key, however, it's recommended to stick to literals (strings, atoms, and numbers).
 
 ## Nested data structures
 
@@ -48,15 +48,7 @@ john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
 mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
 ```
 
-It's _also_ possible to define how to manipulate the value using the `update_in/2` function.
-
-```elixir
-iex> users = update_in users[:mary].languages, &List.delete(&1, "Clojure")
-[john: %{age: 31, languages: ["Erlang", "Ruby", "Elixir"], name: "John"},
- mary: %{age: 29, languages: ["Elixir", "F#"], name: "Mary"}]
-```
-
-Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.html) documentation for more information on other functions available to use when using nested datastructures.
+Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.html) documentation for more information on other functions available to use when using nested data structures.
 
 ## Executing scripts
 
