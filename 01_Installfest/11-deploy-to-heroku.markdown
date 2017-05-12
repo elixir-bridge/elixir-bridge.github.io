@@ -16,7 +16,7 @@ You should see something like
 
 ![heroku dashboard](/assets/heroku-dashboard-resources.png)
 
-At the serach bar near the bottom of the page type in `postgres`
+At the search bar near the bottom of the page type in `postgres`
 
 You should see a pop up menu, select the option for `Heroku Postgres`
 
