@@ -17,7 +17,6 @@ Through this app we will:
 * gain a better understanding of web sockets
 * learn how to take advantage of Elixir's Asychronous programming model
 
-
 Getting Started
 
 
@@ -27,8 +26,12 @@ $ mix phoenix.new chatter
 ```
 
 # Start the server
+
+```
 $ cd chatter
+$ mix ecto.create
 $ mix phoenix.server
+```
 
 Point your browser to localhost:4000, it should look like this:
 
