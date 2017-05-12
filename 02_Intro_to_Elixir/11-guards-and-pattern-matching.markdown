@@ -59,8 +59,6 @@ defmodule Math do
   end
 
   def zero?(_), do: false
-  # or, the one line version
-  # def zero?(x) when x == "zero", do: true
 end
 ```
 

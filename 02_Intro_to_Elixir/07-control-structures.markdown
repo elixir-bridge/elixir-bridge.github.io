@@ -4,53 +4,71 @@ We often want to run a check on a particular state of a variable.
 
 ### `case`
 
-The `case` function allows us to compare a value against several patters until we find one that matches. For instance:
+The `case` function allows us to compare a value against several patterns until we find one that matches. Copy the following into iex:
 
 ```elixir
-iex> case {1, 2, 3} do
-    {4, 5, 6} ->
-        "Does not match"
-    {1, x, 3} ->
-        "This caluse does match and sets x to 2"
-    _ ->
-        "Matches any value not previously matched"
-    end
+case_statement = fn x ->
+  case x do
+  {4, 5, 6} ->
+      "matches {4,5,6}"
+  {1, x, 3} ->
+      "This sets x to #{x}"
+  _ ->
+      "Matches any value not previously matched"
+  end
+end
+```
+
+Now, try calling the function:
+
+```elixir
+iex(2)> case_statement.({4,5,6})
+"matches {4,5,6}"
+iex(3)> case_statement.({1,4,6})
+"Matches any value not previously matched"
+iex(4)> case_statement.({1,4,3})
+"This sets x to 4"
 ```
 
 We can also use _guards_ to check against extra conditions in a `case` statement. This is useful for setting _extra_ conditions not previously covered in the match statement:
 
 ```elixir
-iex> case {1, 2, 3} do
-    {1, x, 3} when x > 0 ->
-        "Matches"
-    _ ->
-        "Matches if the guard condition is false"
-    end
+case_statement = fn x ->
+  case x do
+  {1, x, 3} when x > 0 ->
+      x
+  end
+end
+
+case_statement.({1,2,3})
+case_statement.({1,-5,3})
 ```
 
-We can use lots of different operators in the guard clauses above. The documentation at [http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses](http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses) is pretty complete and covers all of the operators we have available to us.
-
-If there are no matching clauses in a `case` statement, an error will be raised:
+When there is no match, as in the second call, we get an error:
 
 ```elixir
-iex> case :ok do
-      :error -> "Does not match"
-    end
+iex(15)> case_statement.({1,-5,3})
+** (CaseClauseError) no case clause matching: {1, -5, 3}
 ```
+
+We can use lots of different operators in the guard clauses above. The documentation at [http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses](http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses) covers all of the operators we have available to us.
 
 ### `cond`
 
-The `cond` function allows us to check against the conditions which evaluate to true rather than just different values. It's similar to the `case` statement, but evaluates functions and uses it's result to pattern match:
+The `cond` function allows us to check against the conditions which evaluate to true rather than just different values. It's similar to the `case` statement, but evaluates functions and uses the result to pattern match. Try the following:
 
 ```elixir
-iex> cond do
-      2 + 2 == 5 ->
-        "This is not true"
-      2 * 2 == 3 ->
-        "This is not true"
-      1 + 1 == 2 ->
-        "This does match"
-    end
+conditional = fn x ->
+  cond do
+    2 + x == 5 ->
+      "This is not true"
+    2 * x == 3 ->
+      "This is not true"
+    1 + x == 2 ->
+      "This does match"
+  end
+end
+conditional.(1)
 ```
 
 ### `if` and `unless`
@@ -59,7 +77,7 @@ We can check a single value by using the `if` and `unless`.
 
 ```elixir
 iex> if true do
-      "This is true"
+       "This is true"
      end
 iex> unless true do
       "This won't be seen"
