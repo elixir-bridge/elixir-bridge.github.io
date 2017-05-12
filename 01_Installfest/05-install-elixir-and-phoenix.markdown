@@ -32,7 +32,7 @@ To check that Elixir is installed correctly:
 
 You should see:
 
-`Elixir 1.3.4`
+`Elixir 1.4.2`
 
 ### Step :7 Install Hex
 
@@ -83,15 +83,15 @@ run the following commands (each might take a little while since they will downl
 
 ```
 brew tap caskroom/cask
-brew cask install virtualbox 
+brew cask install virtualbox
 brew install docker-machine
 ```
 
-If that is successful run 
+If that is successful run
 
 `brew install docker`
 
-Docker-machine makes building docker environments in multiple platforms simple. In this case, we'll be building against the google cloud engine, but we can just as easily build our environment with aws, virtualbox, or any other cloud provider supported by docker-machine. 
+Docker-machine makes building docker environments in multiple platforms simple. In this case, we'll be building against the google cloud engine, but we can just as easily build our environment with aws, virtualbox, or any other cloud provider supported by docker-machine.
 
 
 
@@ -114,8 +114,8 @@ Double check to make sure that our `$DOCKER_HOST` is pointing to our local machi
 
 `echo $DOCKER_HOST`
 
-This should reference our local machine. You should see something like the following 
+This should reference our local machine. You should see something like the following
 
 `tcp://192.xxxxx`
 
- We will use this local image to build our elixir app tomorrow. 
+ We will use this local image to build our elixir app tomorrow.
