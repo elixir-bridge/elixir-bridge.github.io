@@ -42,7 +42,7 @@ Make sure you have the following environment variables set.
 Note - they may not be set in this same order. Anything not
 in this list, you should set.
 
-```
+```yaml
 DATABASE_URL: heroku-sets-this-for=you
 DATABASE: heroku-sets-this-for=you
 MIX_ENV: prod  **you need to set this one**
@@ -62,7 +62,7 @@ in the first empty field create a new variabel called
 
 Then take a look at your database url, but clicking on the pencil icon next to it. It should look something like
 
-```
+```shell
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
@@ -74,12 +74,12 @@ Then in the next blank field under the var settings type in `USERNAME' on the ri
 
 for example this database url look like so
 
-```
+```html
 postgres://abscdefg:123456.compute-1.amazonaws.com:5432/d51oep5q7b7bbi
 ```
 It has the following format
 
-```
+```html
 postgres://username:password.compute-1.amazonaws.com:5432/databse
 ```
 
@@ -104,9 +104,9 @@ Your config should look something like this
 
 
 
-You should have teh following variables now defined
+You should have the following variables now defined
 
-```
+```yaml
 DATABASE_URL:
 DATABASE:
 MIX_ENV:
@@ -114,14 +114,14 @@ PASSWORD:
 POOL_SIZE:
 SECRET_KEY_BASE:
 USER_NAME:
-NEW_DATABSE_URL
+NEW_DATABSE_URL:
 ```
 
 Then Open up your `config/prod.exs` file, and change the value of the host name so it is using the NEW_DATABASE_URL -
 
 It should look like this
 
-```
+```elixir
 # Configure your database
 config :test_app, TestApp.Repo,
   adapter: Ecto.Adapters.Postgres,
@@ -134,7 +134,7 @@ config :test_app, TestApp.Repo,
 ```
 Let's commit all our changes. Copy each of the lines below into your terminal one at a time. Do not do this all at once.
 
-```
+```bash
 git add config/prod.exs
 git add Procfile.txt
 git add web/channels/user_socket.ex
@@ -145,13 +145,13 @@ And now DEPLOY!!
 
 Type this into your terminal:
 
-```
+```bash
 git push heroku master
 ```
 
 You will see a bunch of stuff and at the end you will see
 
-```
+```bash
 remote:
 remote: Verifying deploy.... done.
 To https://git.heroku.com/stormy-stream-65433.git
@@ -164,13 +164,13 @@ You do not see the 'Verifying deploy...done', ask a TA for help.
 
 next type the following into your terminal
 
-```
+```bash
 npm install brunch
 ```
 
 then type
 
-```
+```bash
 node_modules/brunch/bin/brunch  build --production
 
 ```
@@ -179,7 +179,7 @@ finally type
 
 
 
-```
+```bash
 heroku run "mix ecto.migrate"
 ```
 
@@ -187,7 +187,7 @@ YAY all done!
 
 Type
 
-```
+```bash
 heroku open
 ```
 to see your app.
