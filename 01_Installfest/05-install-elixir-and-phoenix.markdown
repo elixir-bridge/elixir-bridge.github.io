@@ -24,6 +24,10 @@ Alternately, you may install using Macports, by typing this in the terminal:
 
 `sudo port install elixir`
 
+#### Windows installation
+
+Navigate to [http://elixir-lang.org/install.html#windows](http://elixir-lang.org/install.html#windows) and find the web installer. Download it and accept the defaults. This will take a little bit of time as it needs to download the installation files.
+
 #### Check Your Installation
 
 To check that Elixir is installed correctly:
