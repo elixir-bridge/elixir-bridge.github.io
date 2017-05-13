@@ -64,7 +64,23 @@ Click on the "Install" button. When the download finishes, go back and run the t
 
 ### Step 3: Install Homebrew
 
-Type this in the terminal:
+Type this in your terminal to see if you already have homebrew:
+
+```
+brew -v
+```
+
+If you see a response like this (your version number might be different):
+
+```
+Homebrew 0.9.9
+```
+
+then you already have Homebrew and you can skip this section! If you do not see
+a response with a version of Homebrew, and instead see something like
+"Command not found", then you should install Homebrew. To do so,
+type this in the terminal:
+
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
