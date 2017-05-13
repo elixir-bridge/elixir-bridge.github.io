@@ -47,7 +47,7 @@ Then take a look at your database url, but clicking on the pencil icon next to i
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
-Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL. 
+Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL.
 
 So it will be something like `abedsd.amazonaws.com.`
 
@@ -77,7 +77,10 @@ Do the same for password. Create a Variable called password. and then copy the p
 postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/databse
 ```
 
-Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
+Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the DATABASE URL. Here is an example -
+```
+postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/database
+```
 
 Your config should look something like this
 ![heroku config](/assets/heroku-config1.png)
