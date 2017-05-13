@@ -47,7 +47,7 @@ Then take a look at your database url, but clicking on the pencil icon next to i
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
-Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL. It should look something like -
+Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL. 
 
 So it will be something like `abedsd.amazonaws.com.`
 
