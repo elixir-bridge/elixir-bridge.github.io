@@ -42,6 +42,10 @@ Approximate expected result:
 git version 2.x.x
 ```
 
+### Windows installation
+
+Head to [git-scm.com/download/win](http://git-scm.com/download/win) and download the Windows installer. Run the executable and choose the default options. 
+
 
 ### Step 6: Configure git
 Type this in the terminal:
