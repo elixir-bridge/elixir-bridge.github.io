@@ -91,6 +91,10 @@ brew cask install virtualbox
 brew install docker-machine
 ```
 
+### Windows installation
+
+Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/). 
+
 If that is successful run
 
 `brew install docker`
