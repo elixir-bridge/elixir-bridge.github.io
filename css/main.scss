@@ -22,9 +22,17 @@
     background-color: #634580;
 }
 
+.page-wrapper {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (min-width: $medium-screen) {
+    flex-direction: row;
+  }
+}
+
 .sidebar {
-    width: 22%;
-    float: left;
+    flex-basis: 22%;
     margin-left: 5px;
 }
 
