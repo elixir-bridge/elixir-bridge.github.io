@@ -73,7 +73,7 @@ scope "/", TestApp do
 so that section should now look like this
 
 ```
-scope "/", ElixirBlog do
+scope "/", TestApp do
     pipe_through :browser # Use the default browser stack
     get "/", DrinkController, :index
 
