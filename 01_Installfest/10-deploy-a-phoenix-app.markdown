@@ -246,14 +246,6 @@ Setting POOL_SIZE and restarting ⬢ stormy-stream-65433... done, v7
 POOL_SIZE: 18
 ```
 
-When Running a mix task after you deploy, you want to limit the pool size with an environment variable -
-
-```
-heroku run "POOL_SIZE=2 mix hello_phoenix.task"
-```
-
-This is so ecto does not attempt to open more thatn the available connections
-
 ##### Create SECRET_KEY_BASE config based on Random string.
 
 Type the following into your terminal:
