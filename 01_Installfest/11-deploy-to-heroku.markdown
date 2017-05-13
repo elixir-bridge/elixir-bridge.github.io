@@ -10,24 +10,8 @@ Go to heroku.com
 
 Click on your app
 
-Click on Resources
 
-You should see something like
-
-![heroku dashboard](/assets/heroku-dashboard-resources.png)
-
-At the search bar near the bottom of the page type in `postgres`
-
-You should see a pop up menu, select the option for `Heroku Postgres`
-
-You will see the following window pop up
-
-![heroku provision postgres](/assets/provision-heroku-postgres.png)
-
-Click on `Provision`
-
-
-Then Click on settings
+Then click on settings
 
 
 ![heroku app interface](/assets/heroku-app-interface.png)
@@ -44,19 +28,16 @@ in this list, you should set.
 
 ```yaml
 DATABASE_URL: heroku-sets-this-for=you
-DATABASE: heroku-sets-this-for=you
 MIX_ENV: prod  **you need to set this one**
-PASSWORD: heroku-sets-this-for=you
 POOL_SIZE: 18
 SECRET_KEY_BASE:
-USER_NAME:
 ```
 
 Now in the empty row at the bottom of the page
 
 ![empty heroku config var](/assets/empty-heroku-config-var1.png)
 
-in the first empty field create a new variabel called
+in the first empty field create a new variable called
 
 'NEW_DATABASE_URL'
 
@@ -66,24 +47,24 @@ Then take a look at your database url, but clicking on the pencil icon next to i
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
-Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL
+Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL. It should look something like -
 
-so it will be something like `abedsd.amazonaws.com.
+So it will be something like `abedsd.amazonaws.com.`
 
 Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url.
 
-for example this database url look like so
+For example this database url look like so
 
 ```html
-postgres://abscdefg:123456.compute-1.amazonaws.com:5432/d51oep5q7b7bbi
+postgres://abscdefg:123456@12-245-123-12.compute-1.amazonaws.com:5432/d51oep5q7b7bbi
 ```
 It has the following format
 
 ```html
-postgres://username:password.compute-1.amazonaws.com:5432/databse
+postgres://username:password@12-245-123-12.compute-1.amazonaws.com:5432/databse
 ```
 
-Copy the username portion of the url and paste is at teh left value in your config variables.
+Copy the username portion of the url and paste is at the left value in your config variables.
 
 Then Click Add.
 
@@ -91,18 +72,15 @@ It should look like this
 
 ![heroku-database-username](/assets/heroku-db-username.png)
 
-Do the same for password. Create a Variable called password. and then cpy the password from the correct portion of the database url
+Do the same for password. Create a Variable called password. and then copy the password from the correct portion of the database url
 ```
-postgres://username:password.compute-1.amazonaws.com:5432/databse
+postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/databse
 ```
 
 Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
 
-
 Your config should look something like this
 ![heroku config](/assets/heroku-config1.png)
-
-
 
 You should have the following variables now defined
 
@@ -117,9 +95,7 @@ USER_NAME:
 NEW_DATABSE_URL:
 ```
 
-Then Open up your `config/prod.exs` file, and change the value of the host name so it is using the NEW_DATABASE_URL -
-
-It should look like this
+Then Open up your `config/prod.exs` file. It should look like this.
 
 ```elixir
 # Configure your database
@@ -175,7 +151,7 @@ node_modules/brunch/bin/brunch  build --production
 
 ```
 
-finally type
+Finally type
 
 
 
