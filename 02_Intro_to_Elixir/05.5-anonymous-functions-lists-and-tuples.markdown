@@ -46,6 +46,36 @@ iex> [1] ++ [2] # [1, 2]
 iex> [1, 2, 3] -- [2] # [1, 3]
 ```
 
+We often will want to figure out the first item in a list
+
+```elixir
+[h | tail] = [1, 2, 3]
+```
+Notice we have a list with two variables on the left. The `h` variable will match to the first value on the rigt. `tail` will hold the rest of the vlues in the list. 
+
+Try typing the following into the command line: 
+
+```elixir
+[h | tail] = [1, 2, 3]
+```
+not type in `h`
+
+you should see:
+
+```elixir
+iex> h
+1
+```
+
+If we type in `tail` - we should see the rest of the list. 
+
+```elixir
+iex> tail
+[2, 3]
+```
+
+
+
 ## Tuples
 
 Tuples in Elixir are types that store a fixed number of elements. Let's look at how to create a tuple.

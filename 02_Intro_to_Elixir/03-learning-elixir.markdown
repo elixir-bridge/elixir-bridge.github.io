@@ -15,9 +15,17 @@ By the end of this section, you'll know:
 
 ## Getting started
 
+
+#### iex
+
 We can use the REPL (Read-Eval-Print Loop) command-line tool to write and run simple elixir calculations directly from the command-line. The REPL tool is great for writing simple elixir code, checking on syntax, and understanding how the Elixir run-time works.
 
-Before we move on any further, let's open the Interactive EliXir REPL. After installing Elixir, we'll have at least three new commands. One of these commands is the `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt.
+Let's open the Interactive EliXir REPL. 
+
+Type `iex` into your command line.
+
+
+The `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt.
 
 ![eix prompt](/assets/learning_elixir/iex-cli.png)
 
@@ -32,6 +40,8 @@ If you see the notation of of a name followed by a `/` and number, this indicate
 * `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument
 
 Newer versions of IEx have implemented the h/1 command. 'h' is a quick access to the docs. Let's try it with the `Integer.to_string`:
+
+Type: `h Integer.to_string` into command line 
 
 ```
 iex(4)> h Integer.to_string
@@ -70,18 +80,63 @@ It's always a great idea to be able to look through documentation when you have 
 
 The official documentation can be found on the [elixir docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the docs, which can be found on the elixir docs page above and is also available at [http://elixir-lang.org/docs/stable/elixir/Kernel.html](http://elixir-lang.org/docs/stable/elixir/Kernel.html).
 
+
+## Loading Files
+
+There are several different ways to load files into our interactive shell. Using the `c` command we can tell our REPL which file to compile. 
+
+```elixir
+c("play.ex")
+```
+
+using the `r` command we can recompile. 
+
+
+```elixir
+r (Calc)
+```
+
+To see what the `r` function does we can use our help command
+
+Type: `h r` into the terminal
+
+```elixir
+iex(1)> h r
+
+def r(module)                                  
+
+Recompiles and reloads the given module.
+
+Please note that all the modules defined in the same file as module are
+recompiled and reloaded.
+
+This function is meant to be used for development and debugging purposes. Do
+not depend on it in production code.
+
+## In-memory reloading
+
+When we reload the module in IEx, we recompile the module source code, updating
+its contents in memory. The original .beam file in disk, probably the one where
+the first definition of the module came from, does not change at all.
+
+Since typespecs and docs are loaded from the .beam file (they are not loaded in
+memory with the module because there is no need for them to be in memory), they
+are not reloaded when you reload the module.
+
+iex(2)> 
+```
+
 ## Types
 
 Although Elixir is not a statically typed language, it does have the concept of types. The basic types we'll work with are:
 
 * Numbers
+* Floats 
 * Booleans
-* Atoms
 * Strings
-* Anonymous functions
+* Atoms
 * Lists
 * Tuples
-* Custom types
 
 We'll use all of these types throughout this course (and you'll use them throughout your Elixir career), so let's look at how to create/use each one.
 
@@ -175,6 +230,19 @@ Try some other commands out to see what else you can do.
 
 > [Float docs](http://elixir-lang.org/docs/stable/elixir/Float.html)
 
+
+### Hex, Octal, Binary
+
+Elixir supports notations for entering binary, hex, octal, and hexadecimal numbers
+
+```Elixir
+0b0010
+0x644
+0x1F
+```
+
+But let's not worry about these for now.
+
 ### Boolean
 
 Booleans are `true` and `false` types. We can use these types to check truth conditions.
@@ -194,6 +262,17 @@ Try typing the following into the console:
 iex> a = 1
 iex> is_boolean(true) # true
 iex> is_boolean(a) # false
+iex> false
+iex> true
+```
+
+Elixir also provides `or`, `and`, `not` as boolean operators. These operators are strict in that they expect a boolean as an argument.
+
+Type the following into the console:
+
+```elixir
+42 && true
+nil || 42
 ```
 
 ## Atoms
@@ -245,5 +324,17 @@ Now try using it. Type the following into the console:
 ```elixir
 iex> "Hello" <> "World" # "HelloWorld"
 ```
+
+#### String Interpolation
+
+type the following into the console
+
+```elixir
+receiver = "World"
+"Hello #{receiver}"
+```
+
+Variables are interpolated using the `#{variable}`
+
 
 More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).

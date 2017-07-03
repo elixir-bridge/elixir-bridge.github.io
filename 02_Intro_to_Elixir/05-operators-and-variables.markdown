@@ -59,6 +59,17 @@ iex> 1 == 1.0 # true
 iex> 1 === 1.0 # false
 ```
 
+### Comparison
+
+Here are some examples of comparison in Elixir: Try typing the examples below into your console
+
+```
+1 + 1 == 2
+1 > 2
+2 <= 4
+1 != 2
+```
+
 ## Variables
 
 In Elixir, we'll use variables all over the place. Assign values to variables in elixir works differently than it does in imperative languages like Ruby or Javascript.

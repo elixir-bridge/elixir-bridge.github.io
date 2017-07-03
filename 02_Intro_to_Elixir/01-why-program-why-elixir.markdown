@@ -5,12 +5,6 @@ date: 2016-08-04 23:08:17 -0700
 position: 1
 ---
 
-## Why Program?
-  Programming is fun. It's also frustrating and difficult and creative and gives you a new perspective on the world. It's also a good job. You sit down (or stand at a standing desk), do your work, and go home. The worst hazards are RSI and spontaneous chair failure. It's in high demand, so it pays well. Until the machines can program themselves, there will be a need for people to make them do what humans need them to do. Also, everything is a computer now. Cars, phones, watches, even appliances like refrigerators and washing machines. Learning to program will help you understand all of these other machines. It gives you a perspective, a way to see things that are unknowable otherwise. That makes it powerful, even if your job isn't to write code every day.
-
-## Why Elixir?
-  Right at the start, Elixir is fast. It runs as well as or better than any other language at its level of abstraction, that is how far away from machine code. It's designed to work with modern computers that have many CPU cores that run in parallel, and even across networks. It has a pretty easy to understand syntax, relative to some languages. The official docs are thorough, with examples of how to use the functions and modules that are included in the language. It's relatively young, and the community is very welcoming to new people.
-  
 ## Why Functional Programming?
   
   At their lowest level, computer programs are a step-by-step series of instructions to follow.
@@ -32,3 +26,36 @@ position: 1
   An Elixir program is made up of many such functions, chained together. We can visualize each function as a step in a pipeline, transforming an initial value multiple times until a final result is computed. 
   The goal of the functional approach is to construct a complicated program out of small, easy to understand pieces. Individual functions can be “referentially transparent”, a fancy way of saying that they always produce the same value, given the same input. Functions can be composed together easily, passing the output of one to the input of another, creating bigger functions that do more complicated things. By following this approach, we’ll be able to build an entire web application. 
   
+
+## Why Elixir?
+There are several reasons why people are excited about Elixir. Let's take a look at a few below.
+
+#### Scalable 
+* All elixir code runs inside of something called processes(think lots of little programs. Each Program can exist on its own and it communicates with other programs via message passing. Because each "process" does not take up a lot of processing power, hundreds of thousands of programs could be running at the same time potenitally on different computers. Because each program is isolated it can be garbage collected independantly. this reduces pauses that are system wide. It also allows all machine resources to be used as efficiently as possible. 
+
+#### Fault-tolerant
+  * Knowing that thigns will go wrong inside of a program - elixir introduces the conceopt of supervisors. Supervisors understand how to restart parts of your stsysme then things go wrong - so that entire program does not stop running if part of it happens to break.
+
+#### Functional
+  * Functional programming allows deveopers to design code that is short, fast, maintainable, and does not have unexpexted side effects that might be seen in an imperative language.
+  * Everything is immutable
+  * Composable - Miltiple functions can be chained together in various combinations to produce a certain outcome.
+  
+
+#### Very Extensible
+  * Elixir has been designed to let developers naturally extend the language to various domains. 
+
+#### Built off Erlang
+  * Erlang is a functional programming langauge that was developed by Ericcson in the 1980's. Given it's maturity, it is very stable and is optimized for eficiency.
+
+#### Telco Strong 
+  * Erlang has nine nines reliability. Meaning that any Erlang program will have be up and running 99.9999999% of the time
+
+#### Hot Reload Friendly 
+  * Because there is a run time available, Elixir allows you to start, stop, load, and unload processes. So we can provide code for the runtime to load and replace other code without having to restart our system.
+
+#### Soft real-time 
+  * Allowing the applications to run in almost real time.
+
+
+

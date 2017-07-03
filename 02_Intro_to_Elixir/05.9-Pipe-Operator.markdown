@@ -13,3 +13,12 @@ b(:atom) |> d() |> f()
 ```
 
 The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type, or build up a data structure with different functions.
+
+
+```elixir
+42 |> is_number
+[1, 2, 3] |> Enum.map(fn(x) -> x * x end)
+[1, 2, 3] |> Enum.map(fn(x) -> x * x end) |> Enum.reduce(&+/2)
+```
+
+

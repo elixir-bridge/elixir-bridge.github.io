@@ -95,3 +95,9 @@ end
 ```
 
 Pattern matching can be used with any of the data types built into elixir. You'll see more examples of this as we move along.
+
+### Tuples or Lists?
+
+When do we use a list and when a tuple? It is good to kep in minde that lists are slow to moify/read but fast to create. Tuples aer expensive to modify, but are good at handling pattern matching and returning additional info.
+
+

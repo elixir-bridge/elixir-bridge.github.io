@@ -1,0 +1,73 @@
+---
+layout: page
+title: Enumerables
+date: 2016-10-1 13:38:30 -0700
+---
+
+
+# Enumerables
+
+When we invoke a function in the Enum module, the first arguement is usually a collection that must implement a certain protocol.
+
+
+```Elixir
+Enum.map([1, 2, 3], fn(x) -> x * 2 end)
+Enum.reduce(1..3, 0, fn(x, acc) -> acc + x end) 
+Enum.reduce(1..3, 0, &+/2)
+```
+
+Above we see both map and reduce being called.
+
+What does `map` do?
+
+It returns a list where each item is the result of invoking fun on each respective item of enumerable.
+
+```elixir
+iex> Enum.map([1, 2, 3], fn(x) -> x * 2 end)
+[2, 4, 6]
+```
+
+What about reduce?
+
+`reduce(enumerable, fun)`
+
+It invokes a function for each element in the enumerable, and passes each element and the accumulator as arguments.
+
+The funcction returns the value stored in the accumulator.
+
+```elixir
+iex> Enum.reduce([1, 2, 3, 4], fn(x, acc) -> x * acc end)
+24
+```
+
+What other operators are available to Enumerable?
+
+* all?
+* any?
+* chunk
+* map
+* reduce
+* max
+* sort
+* uniq
+* ...
+
+
+How do we see them all?
+
+Type the following into the command line:
+
+```elixir
+Enum.__info__(:functions) |> Enum.each(&(IO.inspect(&1)))
+```
+
+Lets try the following examples:
+
+Type each line into the console one at a time:
+
+```elixir
+Enum.chunk(1..10, 2)
+Enum.map(1..6, fn(x) -> x - 1 end)
+Enum.uniq([1, 1, 1, 2, 3])
+```
+
