@@ -12,7 +12,7 @@ One of the more powerful ideas in Elixir is using pattern matching for destructu
 ```elixir
 list = [1,2,3]
 ```
-So again, the varianle `list` is now bound to the pattern `[1,2,3]`.
+So again, the variable `list` is now bound to the pattern `[1,2,3]`.
 
 You can use more complex patterns for when you just want part if a data structure. Let's take a look the following example. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
 
@@ -95,6 +95,23 @@ end
 ```
 
 Pattern matching can be used with any of the data types built into elixir. You'll see more examples of this as we move along.
+
+### Pin Operator
+
+One last note on variables in Elxir. In Elixir we can place a pin `^` operator in front of a variable. We do this when we want to match against the contents of the variable. In otherwords we want to keep the value of the variable, rathern than bind that variable to a new value.
+
+Let's look at the following code snippet 
+
+```elixir
+x = 1
+ ^x = 2
+```
+
+In the snippet above we see that `x` has a value of `1`. When we try to match the `2` tuple against the value of `x` which is 1, we get an error. When we use the pin operator we can imagine we are replacing the variable with it's value. In which case the above expression would look like this:
+
+```elixir
+1 = 2
+```
 
 ### Tuples or Lists?
 

@@ -6,43 +6,170 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Modules
 
-In Elixir, we'll be building Elixir modules to group functions together. Like other languages, this is used to group common functionality together.
+In Elixir, we'll be building Elixir modules to group related functions together.
 
-We've already seen this in action when using previous modules, such as the `String` and `Float` modules. We can create custom modules as well using the `defmodule` macro. For instance, let's say we want to create a `Students` module. We can define it like so:
+We've already seen this in action when using previous modules, such as the `String`.
+
+Looking below we see the module `String` has a function `length` defined on it.
 
 ```elixir
-iex> defmodule Students do
+String.length("hello world")
+```
+
+We can create custom modules as well using the `defmodule` macro.
+
+Let's say we want to create a `Calc` module. We can define it like so:
+
+```elixir
+iex> defmodule Calc do
      end
 ```
 
-The `Students` module isn't very interesting _yet_. We can define functions inside a module using the `def` keyword. For instance, let's say we want to define a `count/0` function which lists the number of students:
+The `Calc` module isn't very interesting _yet_. We can define functions inside a module using the `def` keyword. Let's define a `double/1`.
 
 ```elixir
-iex> defmodule Students do
-        def count() do
-          31
+iex> defmodule Calc do
+        def double(a) do
+          a + a
         end
      end
 ```
 
-We can then call the `Students.count/0` function just like we are calling any other module:
+We can then call the `Calc.double/0` function just like we are calling any other module:
 
 ```elixir
-iex> Students.count() # 31
+iex> Calc.double(2) # 4
 ```
 
 We can compile our modules using the `elixirc` command (the `c` can be thought as compiler).
 
 ```elixir
-elixirc students.ex
+elixirc calc.ex
 ```
 
 Now if we run the `iex` in this same directory, elixir will automatically pull in the compiled `.beam` file into the environment and we can use it directly:
 
 ```elixir
-iex> Students.count() # 31
+iex> Calc.double() # 31
 ```
 
-![](/assets/learning_elixir/compile.png)
+If we wanted to write our module to a file we cold do the following - 
 
-We'll write most of our code inside modules.
+```elixir
+echo "defmodule Calc do\n\
+  def double(a) do\n\
+    a + a\n\
+  end\n\
+end" > calc.ex
+```
+Now that we have our `Calc.ex` file. Let's run the file in iex. 
+
+Type each of the following lines into the comand line - one line at a time.
+
+```elixir
+iex
+c("calc.ex")
+Calc.double(4)
+```
+
+Once we open `iex` we can use our `c` function - which stands for compile. This will compile our `calc.ex` file and allow us to access it inside of `iex`.
+
+### Module Attributes
+
+There is a way for us to create constants in modules
+
+```elixir
+defmodule Calc do
+  @note "Fancy"
+  def desc() do
+    ~s(#{@note} calculator.)
+  end
+end
+```
+
+
+### Structs
+
+Structs are useful for handling known data structures. 
+
+They are extension built on top of maps. The keyword `defstruct` defines what fields the struct will have along with their default values.
+
+Structs take the name of the module they are defined in. 
+
+defmodule Calc.Op do
+  defstruct name: "add", a: 1, b: 1
+end
+
+We now have a `Calc` struct `Calc%{}`
+
+Stucts provide a compile-time guarantee that only the fields defined in `defstruct` are allowed to exist in the struct. 
+
+
+### Import
+The `import` command allows us to bring in functions from other modules
+
+Let's take a look at the following example:
+
+```elixir
+iex(1)> import List
+List
+iex(2)> last([1, 2, 3])
+3
+iex(3)> import Enum, only: [map: 2]
+Enum
+iex(4)> 
+```
+
+Note that `last` is a function that is defined on `List`. What other fucntions might we be able to acces on list?
+
+As we can see in the example -`import` let's us bring in a module, and then access any functions that are defined on that module.  
+
+
+### Require
+
+`require` ensures a module is compiled and loaded in another module 
+
+Example:
+
+```elixir
+defmodule Adder do
+  require Calc
+  def add(a, b) do
+    Calc.op({:add, a, b})
+  end
+end
+```
+
+`require` ensures that the entire `Calc` module is compiled and loaded so that we can access it inside of `Adder`.
+
+### Use
+Injects Apis into modules
+
+```elixir
+defmodule Calc do
+  defmacro __using__(_) do
+    quote do
+      def op({:add, a, b}), do: a + b
+      def op({:subtract, a, b}), do: a - b
+      def op(_) do
+        "Not implemented"
+      end
+    end
+  end
+end
+```
+
+```elixir
+defmodule Adder do
+  use Calc
+  def add(a, b) do
+    op({:add, a, b})
+  end
+end
+```
+
+It allows us to use functionality from certian modules inside of another module. Note that we can access teh `Calc` api inside of `Adder`
+
+
+
+`
