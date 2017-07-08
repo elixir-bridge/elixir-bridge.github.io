@@ -103,19 +103,19 @@ Docker-machine makes building docker environments in multiple platforms simple. 
 
 
 
-run `docker-machine create --driver virtualbox default`
+run `docker-machine create --driver virtualbox elixir-experiment`
 
 
-This will create a local image named `default` using virtualbox as the driver. To see your local config:
-
-```
-docker-machine env default
-```
-
-This command shows the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `default`.  Now let's set them up as convenient variables:
+This will create a local image named `elixir-experiment` using virtualbox as the driver. To see your local config:
 
 ```
-eval $(docker-machine env default)
+docker-machine env elixir-experiment
+```
+
+This command shows the docker environment variables for the environment specified, in this case the environment variables are being set for our local machine named `elixir-experiment`.  Now let's set them up as convenient variables:
+
+```
+eval $(docker-machine env elixir-experiment)
 ```
 
 Double check to make sure that our `$DOCKER_HOST` is pointing to our local machine.

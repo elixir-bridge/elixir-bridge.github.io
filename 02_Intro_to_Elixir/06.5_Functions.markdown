@@ -4,7 +4,27 @@ title: Functions
 date: 2016-10-1 13:38:30 -0700
 ---
 
-## Anonymous functions
+##Functions
+
+Functions are small pieces of code that can be reused. They take inputs, called argumets, and return values or have side effects on other pieces of data. In elixir, there are three syntaxes we use for functions: 
+
+Example:
+
+```elixir
+double = fn a -> a + a end 
+
+def double(a) do
+  a + a
+end
+
+def double(a), do: a + a
+
+```
+
+These all have different utiliy in context. 
+
+
+### Anonymous functions
 
 In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`.
 
@@ -18,10 +38,15 @@ iex> is_function(add) # true
 The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the variable. For example, to call the `add/2` function, try the following:
 
 ```elixir
-iex> add.(2 2) # 4
+iex> add.(2, 2) # 4
 ```
 
-Above, we have anonymous functions, but there's another syntax you'll use when defining functions inside modules. The keyword `def` is used:
+### Functions in Modules
+
+Modules are used to group related functions. When defining functions inside modules, we use the following syntax:
+ 
+ 
+The keyword `def` is used:
 
 ```elixir
 defmodule Foo do
@@ -32,6 +57,8 @@ end
 
 Foo.hashtag("elixir")
 ```
+
+### Inline functions
 
 Note that we used the `do ... end` syntax for the block, but there's also a shortcut syntax:
 
@@ -48,7 +75,6 @@ defmodule Social do
   def hashtag({:facebook, word}), do: "#" <> word <> " #facebookisgreat"
 end
 ```
-
 
 As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? Well as mentioned above, the function that gets executed is the one where data being passed in matched the arguments in the function signature.
 

@@ -7,6 +7,9 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Pattern matching
 
+_Teaching Notes  - It may be useful to treat variable binding like assignment in the context of this curriculum - given that it is an easier concept to comprehend and explain_
+
+
 One of the more powerful ideas in Elixir is using pattern matching for destructuring, or extracting parts of a data structure. As mentioned in the previous section, the `=` sign is the match operator. We talked about variables matching anything you put on the right of the equals sign. Let's take a look at another example:
 
 ```elixir
@@ -115,6 +118,6 @@ In the snippet above we see that `x` has a value of `1`. When we try to match th
 
 ### Tuples or Lists?
 
-When do we use a list and when a tuple? It is good to kep in minde that lists are slow to moify/read but fast to create. Tuples aer expensive to modify, but are good at handling pattern matching and returning additional info.
+When do we use a list and when a tuple? It is good to kep in mind that lists are slow to moify/read but fast to create. Tuples aer expensive to modify, but are good at handling pattern matching and returning additional info.
 
 

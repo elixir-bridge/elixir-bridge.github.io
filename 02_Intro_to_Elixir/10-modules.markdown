@@ -168,8 +168,5 @@ defmodule Adder do
 end
 ```
 
-It allows us to use functionality from certian modules inside of another module. Note that we can access teh `Calc` api inside of `Adder`
+It allows us to use functionality from certian modules inside of another module. Note that we can access the `Calc` api inside of `Adder`.
 
-
-
-`
