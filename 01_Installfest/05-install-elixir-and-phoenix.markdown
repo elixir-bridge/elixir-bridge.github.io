@@ -91,17 +91,13 @@ brew cask install virtualbox
 brew install docker-machine
 ```
 
-### Windows installation
-
-Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/). 
+> *Windows installation* Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/). 
 
 If that is successful run
 
 `brew install docker`
 
 Docker-machine makes building docker environments in multiple platforms simple. In this case, we'll be building against the google cloud engine, but we can just as easily build our environment with aws, virtualbox, or any other cloud provider supported by docker-machine.
-
-
 
 run `docker-machine create --driver virtualbox default`
 
