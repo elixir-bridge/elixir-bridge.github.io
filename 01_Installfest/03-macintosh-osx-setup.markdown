@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mac OSx setup
+title: Mac OSX setup
 date: 2016-09-24 12:28:28 -0700
 ---
 
