@@ -279,7 +279,7 @@ SECRET_KEY_BASE: your-secret-key
 If you need to make any of your config variables available at compile time, you will need to explicitly define which ones in a configuration file.
 Create a file elixir_buildpack.config in your application's root directory and add a line like: config_vars_to_export=(MY_VAR) [See more](https://github.com/HashNuke/heroku-buildpack-elixir#specifying-config-vars-to-export-at-compile-time)
 
-Next open up your 'Prod.exs file'
+Next open up your `prod.exs` file
 
 There should be a section towards the bottom of the file that looks like this
 

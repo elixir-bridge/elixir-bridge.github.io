@@ -41,7 +41,7 @@ in the first empty field create a new variable called
 
 'NEW_DATABASE_URL'
 
-Then take a look at your database url, but clicking on the pencil icon next to it. It should look something like
+Then take a look at the value in your DATABASE_URL variable, by clicking on the pencil icon next to it. It should look something like
 
 ```shell
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
@@ -51,7 +51,7 @@ Copy the portion after the @ sign through amazon.com and paste it as the value f
 
 So it will be something like `abedsd.amazonaws.com.`
 
-Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url.
+Then in the next blank field under the var settings type in `USERNAME` on the right. Then take another look at your database url.
 
 For example this database url look like so
 
@@ -72,7 +72,7 @@ It should look like this
 
 ![heroku-database-username](/assets/heroku-db-username.png)
 
-Do the same for password. Create a Variable called password. and then copy the password from the correct portion of the database url
+Do the same for password. Create a Variable called `PASSWORD`. and then copy the password from the correct portion of the database url
 ```
 postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/databse
 ```
