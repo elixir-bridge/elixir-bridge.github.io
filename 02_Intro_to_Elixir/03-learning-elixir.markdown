@@ -167,7 +167,7 @@ What about operators that look less familiar?
 The `rem` operator will return the remainder of a division operations
 
 ```
-iex> div(10, 3)
+iex> rem(10, 3)
 1
 ```
 
