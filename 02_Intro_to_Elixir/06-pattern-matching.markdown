@@ -12,7 +12,7 @@ One of the more powerful ideas in Elixir is using pattern matching for destructu
 ```elixir
 list = [1,2,3]
 ```
-So again, the varianle `list` is now bound to the pattern `[1,2,3]`.
+So again, the variable `list` is now bound to the pattern `[1,2,3]`.
 
 You can use more complex patterns for when you just want part if a data structure. Let's take a look the following example. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
 
