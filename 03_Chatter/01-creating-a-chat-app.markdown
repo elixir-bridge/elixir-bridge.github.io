@@ -117,8 +117,8 @@ defmodule ChatterWeb.ChatRoomChannel do
 
   # It is also common to receive messages from the client and
   # broadcast to everyone in the current topic (chat_room:lobby).
-  def handle_in("shout", payload, socket) do
-    broadcast socket, "shout", payload
+  def handle_in("new_message", payload, socket) do
+    broadcast socket, "new_message", payload
     {:noreply, socket}
   end
 
@@ -164,12 +164,12 @@ let name = $('#name');
 
 message.on('keypress', event => {
   if (event.keyCode == 13) {
-    channel.push('shout', {name: name.val(), message: message.val()});
+    channel.push('new_message', {name: name.val(), message: message.val()});
     message.val('');
   }
 });
 
-channel.on('shout', payload => {
+channel.on('new_message', payload => {
   list.append(`<b>${payload.name || 'Anonymous'}:</b> ${payload.message}<br>`);
   list.prop({scrollTop: list.prop('scrollHeight')});
 });
