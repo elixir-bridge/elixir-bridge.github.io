@@ -10,12 +10,44 @@ date: 2016-10-1 13:38:30 -0700
 _Teaching Notes  - It may be useful to treat variable binding like assignment in the context of this curriculum - given that it is an easier concept to comprehend and explain_
 
 
-One of the more powerful ideas in Elixir is using pattern matching for destructuring, or extracting parts of a data structure. As mentioned in the previous section, the `=` sign is the match operator. We talked about variables matching anything you put on the right of the equals sign. Let's take a look at another example:
+One of the more powerful ideas in Elixir is using pattern matching. In Elixir the `=` acts as the match operator. 
+The term on the right matches the pattern on the left. If there is a match we return the value of the patern, otherwise we get an error. Lets look at an example
+
+```elixir
+  a = 1
+  1 = a
+```
+
+If we look above, the first line looks
+```elixir 
+ a = 1
+```
+
+It may look like assignment if you are familiar with object oriented languages.
+
+However what is actually happening is `a` initially does not have a value, so with uninitialized variables, the variable gets bound to the value on the right hand side of the expression. We can pretend it works like assignement for now. 
+
+In the next line we now know `a` has a value of 1. Here we are checking that the term on the right, matches the pattern on the left.
+
+Since `a` has a value of 1
+
+```elixir
+1 = a
+```
+is equivalent to 
+
+```elixir
+1 = 1
+```
+
+So we have a match.
+
+ We talked about variables matching anything you put on the right of the equals sign. Let's take a look at another example:
 
 ```elixir
 list = [1,2,3]
 ```
-So again, the variable `list` is now bound to the pattern `[1,2,3]`.
+So again, the variable `list` is now bound to the term `[1,2,3]`.
 
 You can use more complex patterns for when you just want part if a data structure. Let's take a look the following example. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
 
@@ -37,7 +69,13 @@ iex(4)> c
 
 As you can see, it bound the variables in each place to the respective values in the pattern.
 
-Often times we have a list, but we only care about the first item. Elixir gives us the `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
+### Review of Head and Tail
+
+Often times we have a list, but we only care about the first item. 
+
+Remember when we looked at the `head` and `tail` of the list? This was pattern matching.
+
+ Elixir gives us the `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
 
 ```elixir
 iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
@@ -50,7 +88,7 @@ You can also add to the beginning of a list this way. Try the following:
 ```elixir
 iex> [1 | [2, 3]] # [1, 2, 3]
 ```
-
+### Ignoring Values
 If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common use case is if we want to only get the head of a list.
 
 ```elixir
@@ -58,6 +96,7 @@ iex> [head | _] = [1, 2, 3]
 iex> head # 1
 ```
 
+### Pattern Matching with Tuples
 Lists aren't the only data structure that allows us to pattern match. Tuples are data structures used for a fixed number of items. We can pattern match on tuples as well. For instance:
 
 ```elixir
@@ -79,6 +118,8 @@ iex(5)> {a, b, c} = {:ok, "hello"}
 ** (MatchError) no match of right hand side value: {:ok, "hello"}
 ```
 
+### Matching on specific values of a Tuple
+
 We'll also use pattern matching to match on specific values of a tuple. Try the following:
 
 ```elixir
@@ -99,6 +140,22 @@ end
 
 Pattern matching can be used with any of the data types built into elixir. You'll see more examples of this as we move along.
 
+
+### Arity
+We have mentiond the term Arity a few times. Arity means the number of arguments a function takes. 
+
+In Elixir when we see a function name it will include the `arity` of the function
+
+```elixir
+rem/2
+c/1
+```
+
+We can see that the `rem` function has an arity of 2.
+
+The `c` or compile function has an arity of 1.
+
+
 ### Pin Operator
 
 One last note on variables in Elxir. In Elixir we can place a pin `^` operator in front of a variable. We do this when we want to match against the contents of the variable. In otherwords we want to keep the value of the variable, rathern than bind that variable to a new value.
@@ -110,14 +167,10 @@ x = 1
  ^x = 2
 ```
 
-In the snippet above we see that `x` has a value of `1`. When we try to match the `2` tuple against the value of `x` which is 1, we get an error. When we use the pin operator we can imagine we are replacing the variable with it's value. In which case the above expression would look like this:
+In the snippet above we see that `x` has a value of `1`. When we try to match the `2` against the value of `x` which is 1, we get an error. When we use the pin operator we can imagine we are replacing the variable with it's value. In which case the above expression would look like this:
 
 ```elixir
 1 = 2
 ```
-
-### Tuples or Lists?
-
-When do we use a list and when a tuple? It is good to kep in mind that lists are slow to moify/read but fast to create. Tuples aer expensive to modify, but are good at handling pattern matching and returning additional info.
 
 

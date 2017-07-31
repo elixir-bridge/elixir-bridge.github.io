@@ -25,7 +25,9 @@ end
 Plug.Router is a plug that contains its own plug pipeline. 
 
 
-When the routher is invoked, it will invoke the `:match` plug as we see above which is represented by the `match/2` function we see in our example. 
+When the router is invoked, it will invoke the `:match` plug as we see above which is represented by the `match/2` function we see in our example. 
+
+Thw `match/2` function will check against any of our HTTP requests to see which one matches.
 
 Then it calls the `:dispatch` plug which will execute the matched code.
 

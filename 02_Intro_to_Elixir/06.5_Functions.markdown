@@ -66,7 +66,21 @@ Note that we used the `do ... end` syntax for the block, but there's also a shor
 def hashtag(word), do: "#" <> word
 ```
 
-The reason this is useful is you can pattern match on the data passed into the function (called the function signature). Let's take a look an example
+### Private Functions
+
+If we want to create a private function that cannot be accessed publicly, we use the 'defp` keyword.
+
+```elixir
+defp add(a, b) do
+  a + b
+end
+```
+
+### Pattern Mathching with Functions.
+
+Pattern matching becomes very useful when we use it with functions.
+
+Take a look at the example below.
 
 ```elixir
 defmodule Social do
@@ -76,7 +90,7 @@ defmodule Social do
 end
 ```
 
-As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? Well as mentioned above, the function that gets executed is the one where data being passed in matched the arguments in the function signature.
+As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? The function that gets executed is the one where data being passed in matched the arguments in the function signature.
 
 This eliminates the need for us to use conditional logic in our functions. Copy and paste the module above, and then try the following:
 

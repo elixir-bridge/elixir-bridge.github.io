@@ -33,7 +33,7 @@ What about reduce?
 
 It invokes a function for each element in the enumerable, and passes each element and the accumulator as arguments.
 
-The funcction returns the value stored in the accumulator.
+The function returns the value stored in the accumulator.
 
 ```elixir
 iex> Enum.reduce([1, 2, 3, 4], fn(x, acc) -> x * acc end)
@@ -52,22 +52,34 @@ What other operators are available to Enumerable?
 * uniq
 * ...
 
-
-How do we see them all?
-
-Type the following into the command line:
+We can see all the functions available to `Enum` wih the following command:
 
 ```elixir
 Enum.__info__(:functions) |> Enum.each(&(IO.inspect(&1)))
 ```
 
-Lets try the following examples:
-
-Type each line into the console one at a time:
+What do we think each of these functions do?
 
 ```elixir
-Enum.chunk(1..10, 2)
+Enum.chunk([1, 2, 3, 4], 2)
 Enum.map(1..6, fn(x) -> x - 1 end)
 Enum.uniq([1, 1, 1, 2, 3])
 ```
 
+`Enum.chunk/2` will break up lists into multiple lists based on the integer provided as the second arguement. 
+
+```elixir
+iex(7)> Enum.chunk([1, 2, 3, 4], 2)
+[[1, 2], [3, 4]]
+```
+
+`Enum.map/2` will return a new list with each result corresponding to the result of the function.
+
+```elixir
+iex(8)> Enum.map(1..6, fn(x) -> x - 1 end)
+[0, 1, 2, 3, 4, 5]
+```
+
+`Enum.uniq/1` sill return a list of unique values.
+(iex(9)> Enum.uniq([1, 1, 1, 2, 3])
+[1, 2, 3])

@@ -1,6 +1,6 @@
 ## Templating
 
-Elixir allows you to create template files to create views for your web application. EEX stands for embedded elixir and it works liek ERB for Ruby or Jinja for Python.
+Elixir allows you to create template files to create views for your web application. EEX stands for embedded elixir and it works like ERB for Ruby or Jinja for Python.
 
 
 ```elixir

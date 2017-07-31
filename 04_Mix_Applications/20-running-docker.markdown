@@ -66,6 +66,18 @@ The output should look something like:
 
 Now run 
 ```bash
+docker run -p 4000:4000 auser/elix .
+```
+
+Then run 
+
+```bash
+docker run --rm -it -p 4000:4000 auser/elix /bin/bash
+```
+
+Then 
+
+```
 docker run -p 4000:4000 auser/elix
 ```
 

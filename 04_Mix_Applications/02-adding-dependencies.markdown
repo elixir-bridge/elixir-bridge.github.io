@@ -3,7 +3,13 @@
 Let's add a dependency. We'll use a thing called [cowboy](https://github.com/ninenines/cowboy), an HTTP server for erlang/elixir and one called [plug](https://github.com/elixir-lang/plug), a specification tool and connection adapter for web servers.
 
 
-Let's open up our Mixfile an add our dependenices.
+Let's open up our Mixfile an add our dependenices.  But first let's look up the latest version for each dependency
+
+Type the function 
+
+```elixir
+mix hex.info cowboy
+```
 
 ```elixir
 defmodule Myapp.Mixfile do

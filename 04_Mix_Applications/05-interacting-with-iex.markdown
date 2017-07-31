@@ -1,6 +1,6 @@
 ## Interacting in iex
 
-We can start the app with the command `iex -S mix`: 
+We can start the app with the command `iex -S mix`. This will start our app with iex.
 
 ```bash
 $ iex -S mix

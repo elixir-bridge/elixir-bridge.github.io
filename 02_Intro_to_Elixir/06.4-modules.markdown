@@ -6,7 +6,7 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Modules
 
-In Elixir, we'll be building Elixir modules to group related functions together.
+In Elixir, we'll be building modules to group related functions together.
 
 We've already seen this in action when using previous modules, such as the `String`.
 
@@ -40,30 +40,21 @@ We can then call the `Calc.double/0` function just like we are calling any other
 ```elixir
 iex> Calc.double(2) # 4
 ```
+Let's crate a file and write our code in there instead. Let's create `calc.ex` file
 
-We can compile our modules using the `elixirc` command (the `c` can be thought as compiler).
-
-```elixir
-elixirc calc.ex
+```bash
+touch calc.ex
 ```
 
-Now if we run the `iex` in this same directory, elixir will automatically pull in the compiled `.beam` file into the environment and we can use it directly:
+Now add the follwing code to the file.
 
 ```elixir
-iex> Calc.double() # 31
+defmodule Calc do
+  def double(a) do
+    a + a
+  end
+end
 ```
-
-If we wanted to write our module to a file we cold do the following - 
-
-```elixir
-echo "defmodule Calc do\n\
-  def double(a) do\n\
-    a + a\n\
-  end\n\
-end" > calc.ex
-```
-Now that we have our `Calc.ex` file. Let's run the file in iex. 
-
 Type each of the following lines into the comand line - one line at a time.
 
 ```elixir
@@ -86,7 +77,6 @@ defmodule Calc do
   end
 end
 ```
-
 
 ### Structs
 

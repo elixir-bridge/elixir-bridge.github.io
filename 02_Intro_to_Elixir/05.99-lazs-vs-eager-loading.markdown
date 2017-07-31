@@ -9,7 +9,7 @@ Example:
 Enum.map(1..10_000_000, fn(x) -> x * x end)
 ```
 
-What would happen in the above example?
+What would happen in the above example? How might this be a problem?
 
 #### Lazy
 Operations are performed only at the last minute

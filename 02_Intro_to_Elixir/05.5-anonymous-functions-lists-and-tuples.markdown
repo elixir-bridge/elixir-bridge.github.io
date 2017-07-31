@@ -8,17 +8,20 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Lists
 
+Collection of objects in Linked list O(n)
+
 Here is an example of a list in Elixir: `[1, 2, 3, 4]`
 
 This may look exactly like an array if you are familiar with Ruby or Javascript, however they're a little different in the details. We'll get into that later.
 
 Lists in Elixir are created by surrounding a list of values with brackets `[]`. Try creating a list in the console by typing `[1, 2, 3]`.
 
-Lists don't need to contain only one type. They can hold on to multiple different types in the same list. Create a list with multiple types by typing: `[:hello, "world"]`
+Lists don't need to contain only one type. They can hold on to multiple different types in the same list. 
 
 ```elixir
-iex> [:hello, "world"]
-[:hello, "world"]
+[1, 2, 3]
+["a", "b", "c"]
+[1, :b, "c", "c"]
 ```
 
 We create the list with the brackets, and by typing _literal_ values into the items; you can also use variables in lists.
@@ -36,29 +39,21 @@ As you can see, Elixir replaces the variable with the literal value in the list 
 
 We have a bunch of built-in methods we can use to interact with and manipulate lists in Elixir.
 
-Try adding and removing items from lists.
-
-Type the following(one line at a time):
-
-```elixir
-iex> length [1, 2, 3] # 3
-iex> [1] ++ [2] # [1, 2]
-iex> [1, 2, 3] -- [2] # [1, 3]
-```
+### HEAD/TAIL
 
 We often will want to figure out the first item in a list
 
 ```elixir
 [h | tail] = [1, 2, 3]
 ```
-Notice we have a list with two variables on the left. The `h` variable will match to the first value on the rigt. `tail` will hold the rest of the vlues in the list. 
+Notice we have a list with two variables on the left. The `h` variable will match to the first value on the right. `tail` will hold the rest of the values in the list. 
 
 Try typing the following into the command line: 
 
 ```elixir
 [h | tail] = [1, 2, 3]
 ```
-not type in `h`
+now type in `h`
 
 you should see:
 
@@ -74,11 +69,40 @@ iex> tail
 [2, 3]
 ```
 
+### List Concatenation
 
+Try adding and removing items from lists.
+
+Adding lists 
+ To concantenate list we use  the `++` operator. 
+
+  ```elixir
+ [1] ++ [2] # [1, 2] 
+ ```
+
+
+Type the following:
+
+```elixir
+iex> [1] ++ [2] # [1, 2] 
+```
+### Subtracting Lists 
+
+Let's take a look
+
+[1, 2, 3] -- [2] # [1, 3]
+
+If we have duplicate values we want to remove like so: 
+
+It will only remove one of the duplicates
+
+```elixir
+[1, 2, 2, 2] -- [2]
+```
 
 ## Tuples
 
-Tuples in Elixir are types that store a fixed number of elements. Let's look at how to create a tuple.
+Tuples in Elixir are datatypes similar to lists. But they are used to store a fixed number of elements. Let's look at how to create a tuple.
 
 Tuples are created by using the curly brackets with elements separated by commas.
 
@@ -87,10 +111,7 @@ Type the following into the console:
 ```elixir
 iex> {:ok, "hello"}
 ```
-
-Because these are created and stored in one block in memory, we can use the indicies to indicate which value we want to pull out of a tuple. For instance, we can get the `:ok` value in the tuple by using the `elem/2` function. This function takes 2 arguments - the tuple itself, and the index for the value we are looking for.
-
-In this case we want to retrieve the first element in the tuple which is located at index 0.
+If we want to retrieve the first element in the tuple which is located at index 0, we can pass the index into the function below.
 
 Type the following into the console:
 
@@ -114,3 +135,10 @@ Type the following:
 ```elixir
 iex> put_elem({:ok, "hello"}, 1, "world")
 ```
+
+### Tuples vs Lists?
+
+* Lists are slow to modify/read, but fast creation
+* Tuples are expensive to modify but good for pattern matching and additional information
+
+

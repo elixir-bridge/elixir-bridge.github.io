@@ -6,7 +6,7 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Mix
 
-A build tool for elixir to building elixir apps.  If you’re familiar with Ruby, Mix is Bundler, RubyGems, and Rake combined.
+A build tool for elixir to building elixir apps.  If you’re familiar with Ruby, think about Mix as Bundler, RubyGems, and Rake combined.
 
 ## Creating our first Project
 
@@ -41,7 +41,11 @@ Run "mix help" for more commands.
 
 ```
 
-If we open our app in an editor we will see the `Mix.exs` file in the root directory. It will look something like this. 
+## Mix.exs
+
+If we open our app in an editor we will see the `Mix.exs` file in the root directory. This file contains the project information/build instructions for our app.
+
+ It will look something like this. 
 
 ```elixir
 defmodule Myapp.Mixfile do
