@@ -38,7 +38,7 @@ We have a bunch of built-in methods we can use to interact with and manipulate l
 
 Try adding and removing items from lists.
 
-Type the following(one line at a time):
+Type the following one line at a time:
 
 ```elixir
 iex> length [1, 2, 3] # 3
