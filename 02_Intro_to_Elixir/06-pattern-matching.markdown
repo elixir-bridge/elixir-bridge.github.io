@@ -7,18 +7,19 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Pattern matching
 
-One of the more powerful ideas in Elixir is using pattern matching for destructuring, or extracting parts of a data structure. As mentioned in the previous section, the `=` sign is the match operator. We talked about variables matching anything you put on the right of the equals sign. Let's take a look at another example:
+One of the more powerful ideas in Elixir is using pattern matching for destructuring which allows us to extract parts of a data structure. As mentioned in the previous section, the `=` sign is the match operator. We talked about variables matching anything you put on the right of the `=` sign. Let's take a look at another example:
 
 ```elixir
 list = [1,2,3]
 ```
 So again, the variable `list` is now bound to the pattern `[1,2,3]`.
 
-You can use more complex patterns for when you just want part if a data structure. Let's take a look the following example. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
+You can use more complex patterns for when you just want to match part of a data structure. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
 
 ```elixir
 iex> [a, b, c] = [1, 2, 3]
 ```
+
 What values do these variables now have? Try it:
 
 ```elixir
@@ -34,7 +35,7 @@ iex(4)> c
 
 As you can see, it bound the variables in each place to the respective values in the pattern.
 
-Often times we have a list, but we only care about the first item. Elixir gives us the `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
+Often times we have a list, but we only care about the first item. Elixir gives us a `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
 
 ```elixir
 iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
@@ -48,7 +49,7 @@ You can also add to the beginning of a list this way. Try the following:
 iex> [1 | [2, 3]] # [1, 2, 3]
 ```
 
-If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have need for this value in a pattern. For instance, a common use case is if we want to only get the head of a list.
+If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have a need for this value. For instance, a common use case is if we want to only get the head portion of a list.
 
 ```elixir
 iex> [head | _] = [1, 2, 3]
@@ -82,6 +83,7 @@ We'll also use pattern matching to match on specific values of a tuple. Try the 
 iex> {:ok, msg} = {:ok, "hello"}
 iex> msg # "Hello world"
 ```
+
 This is incredibly useful for checking results of functions; many libraries allow you to deal with errors this way. In this example, we use a case statement to match the result of a web request. We'll talk more about `case` when we talk about control structures.
 
 ```elixir
@@ -94,4 +96,4 @@ case HttpPoison.get('example.com') do
 end
 ```
 
-Pattern matching can be used with any of the data types built into elixir. You'll see more examples of this as we move along.
+Pattern matching can be used with any of the data types built into Elixir. You'll see more examples of this in the following chapters.
