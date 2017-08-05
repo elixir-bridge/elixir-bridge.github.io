@@ -1,15 +1,19 @@
 ## Pipe operator
 
-One operator that we'll see often is the pipe operator `|>`. The `|>` pipe operator looks scary but really just passes the result of one function on to the next function. Conceptually, it's like running the function:
+One operator that we'll see and use often is the pipe operator `|>`. It looks scary but really it just passes the result of one function call on to the next function.
+
+Conceptually, it's like running the following:
 
 ```
 f(d(b(:atom)))
 ```
 
-The equivalent version using pipes is
+Where the equivalent version in Elixir using pipes would be:
 
 ```
 b(:atom) |> d() |> f()
 ```
 
-The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type, or build up a data structure with different functions.
+Here, the pipe operator takes the output from the expression on the left side and passes it as the first argument to the function call on the right side. As you chain additional pipes, the same behavior applies.
+
+The purpose of the pipe operator is to highlight the data being transformed by a series of functions. This helps our code stay clean and readable. We'll use it for cases where we want to transform a request type, or build up a data structure with different functions.
