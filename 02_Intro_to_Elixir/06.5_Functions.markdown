@@ -6,22 +6,22 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Anonymous functions
 
-In Elixir, we can create functions which are treated just like any other type in Elixir. To create a function, we'll use the keywords of `fn` and `end`.
-
-For example, type the following in iex:
+In Elixir, we can create functions which are treated just like any other type. To create a function, we'll use the keywords `fn` and `end`. For example, type the following in IEx:
 
 ```elixir
 iex> add = fn a, b -> a + b end
 iex> is_function(add) # true
 ```
 
-The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the variable. For example, to call the `add/2` function, try the following:
+The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous function, we'll need to add a suffix of `.` to the variable. For example, to call the `add/2` function, try the following:
 
 ```elixir
 iex> add.(2, 2) # 4
 ```
 
-Above, we have anonymous functions, but there's another syntax you'll use when defining functions inside modules. The keyword `def` is used:
+The `.` ensures there is no ambiguity between calling an anonymous function named `add` and a named function `add/2`. In this sense, Elixir makes a clear distinction between the two.
+
+Now that we know how to create an anonymous function, there is another syntax we'll use when defining functions. In Elixir we group several functions into what are called modules. The keyword `def` is used to define a function:
 
 ```elixir
 defmodule Foo do
@@ -49,17 +49,16 @@ defmodule Social do
 end
 ```
 
+We now have two functions with the same name. The question becomes - which function is executed? Well as mentioned earlier, the function that gets executed is the one where data being passed in matched the arguments in the function signature. *This eliminates the need for us to use conditional logic in our functions.*
 
-As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? Well as mentioned above, the function that gets executed is the one where data being passed in matched the arguments in the function signature.
-
-This eliminates the need for us to use conditional logic in our functions. Copy and paste the module above, and then try the following:
+Copy and paste the earlier `Social` module, and then try the following:
 
 ```elixir
 Social.hashtag({:facebook, "elixir"})
 Social.hashtag({:instagram, "elixir"})
 ```
 
-What happened? When there's no matching function in elixir, you get a similar error to the other failed matches:
+What happened? When there's no matching function in Elixir, you get a similar error to the other failed matches:
 
 ```elixir
 Social.hashtag({:instagram, "elixir"})
@@ -79,11 +78,11 @@ defmodule Social do
 end
 ```
 
-This way, any `network` value we pass in will match the last function, and we won't see that error. Try it out:  
+Now when calling the function and giving a value *other than* `:twitter` or `:facebook`, it will match the last function and essentially act as a catch all. With that change, we won't see the previous error anymore. Try it out:  
 
 ```elixir
 iex(4)> Social.hashtag({:instagram, "elixir"})
 "#elixir #instagramisgreat"
 ```
 
-Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match. 
+Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match first. 
