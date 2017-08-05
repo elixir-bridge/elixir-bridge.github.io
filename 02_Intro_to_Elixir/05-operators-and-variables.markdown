@@ -6,7 +6,7 @@ date: 2016-10-1 13:38:30 -0700
 
 # Operators
 
-Elixir has a lot of built-in operators. We've already seen a few, such as addition (`+`), division (`/`), and `++`/`--` (list manipulation):
+Elixir has a lot of built-in operators. We've already seen a few, such as addition (`+`), division (`/`), and those for list manipulation (`++` and `--`):
 
 ```elixir
 iex> [1, 2, 3] ++ [4, 5, 6] # [1, 2, 3, 4, 5, 6]
@@ -42,7 +42,7 @@ The `or` and `and` operators are called _short-circut_ operators as they execute
 
 We can use the `||` (logical OR), `&&` (logical AND), and `!` (logical not) operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`.
 
-Type the following(one line at a time):
+Type the following one line at a time:
 
 ```elixir
 iex> 1 || true # 1
@@ -61,17 +61,16 @@ iex> 1 === 1.0 # false
 
 ## Variables
 
-In Elixir, we'll use variables all over the place. Assign values to variables in elixir works differently than it does in imperative languages like Ruby or Javascript.
-Let's look at an example.
+In Elixir, we'll use variables all over the place. Assigning values to variables in Elixir works differently than it does in imperative languages like Ruby or Javascript. Let's look at an example.
 
 ```elixir
 iex> x = 2
 iex> y = 3
 ```
 
-If we look at the code above. It looks like we have variables on the left-hand side of our expression and values on the right. And it appears that the values on the right are being "assigned" to the values on the left. However in elixir there is no assignment operator. The "=" is called the match operator. What does this mean?
+If we look at the code, it appears like we have variables on the left-hand side of our expression and values on the right. And thus it may seem that the values on the right are being "assigned" to the values on the left. However in Elixir there is no assignment operator. The `=` is called the match operator. What does this mean?
 
-In elixir the "=" matches the term on the right to the "pattern" on left. In our example, the variable will match any datatype that elixir allows, and then the value of that term is bound to the variable. 
+In Elixir the `=` matches the term on the right to the "pattern" on the left. In our example, the variable will match any data type that Elixir allows, and then the value of that term is bound to the variable. 
 
 ```elixir
 iex> a = 1 # 1
