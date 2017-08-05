@@ -27,9 +27,9 @@ From this console, we'll be able to play around and experiment with Elixir. Anyt
 
 In this section, we'll be using a few notations it's good to know about before we start.
 
-If you see the notation of of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity).
+If you see the notation of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity). For example:
 
-* `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument
+* `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument.
 
 Newer versions of IEx have implemented the h/1 command. 'h' is a quick access to the docs. Let's try it with the `Integer.to_string`:
 
@@ -60,7 +60,7 @@ Inlined by the compiler.
 * So as you can see, the `h` method shows you the arguments the function takes and examples of how it is used.
 In this case `Integer.to_string` takes an integer and returns a string.
 
-* There is a second function defined by Integer.to_string defined in the docs. But we won't worry about that for now.
+* There is a second function defined by `Integer.to_string` defined in the docs but we won't worry about that for now.
 
 To exit the `iex` prompt, press `Ctrl+c` twice.
 
@@ -68,7 +68,7 @@ To exit the `iex` prompt, press `Ctrl+c` twice.
 
 It's always a great idea to be able to look through documentation when you have a question. Using documentation is often overlooked as a skill and thus, we propose it's a great idea to start with documentation from the beginning.
 
-The official documentation can be found on the [elixir docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the docs, which can be found on the elixir docs page above and is also available at [http://elixir-lang.org/docs/stable/elixir/Kernel.html](http://elixir-lang.org/docs/stable/elixir/Kernel.html).
+The official documentation can be found on the [elixir-lang docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the Elixir documenation which is available at [https://hexdocs.pm/elixir/](https://hexdocs.pm/elixir/).
 
 ## Types
 
@@ -105,9 +105,9 @@ You should see output like this:
 iex(5)> 1 + 1
 2
 ```
-Basic math operations like the one above work as you would expect them to (Subtraction, Multiplication etc.)
+Basic math operations (subtraction, multiplication, etc.) like the one above work as you would expect them to.
 
-We can check if a value is an integer by using the function `is_integer/1`. Try it! Type `is_integer(42)` into IEx, and press enter. You should see something like the following:
+We can check if a value is an integer by using the function `is_integer/1`. Let's try it out! Type `is_integer(42)` into IEx, and press enter. You should see something like the following:
 
 ```elixir
 iex> is_integer(42)
@@ -123,11 +123,11 @@ false
 
 Why is this false? Because 3.14 is not in integer, it's a `Float`. Let's take a look at floats.
 
-> [Docs for Integer](http://elixir-lang.org/docs/stable/elixir/Integer.html)
+> [Docs for Integer](https://hexdocs.pm/elixir/Integer.html)
 
 ### Floats
 
-Creating/using floats is the same as creating integers, typed as you might expect: They require a dot followed by at least one digit. Try typing the following floats in IEX:
+Creating floats is the same as creating integers, typed as you might expect: they require a dot followed by at least one digit. Try typing the following floats in IEx:
 ```elixir
 iex> 1.0
 iex> 2000.8
@@ -135,7 +135,7 @@ iex> 1.0e-10
 ```
 
 We can check if a value is a float by using the `is_float/1` function.
-Type the following into iex:
+Type the following into IEx:
 
 ```
 iex> is_float(3.14)
@@ -144,7 +144,7 @@ true
 
 Let's see what other mathematical operations we can practice.
 
-Try typing some of the operations listed bellow into your iex console.
+Try typing some of the operations listed below into your IEx console.
 
 ```elixir
 iex> 1 + 1        # 2
@@ -155,7 +155,7 @@ iex> rem 10, 3    # 1
 iex> 10 / 2
 ```
 
-As you can see operations we are familiar with like `div/2` behave as we expect
+As you can see operations we are familiar with like `div/2` behave as we expect:
 
 ```
 iex> div(9, 3)
@@ -164,7 +164,7 @@ iex> div(9, 3)
 
 What about operators that look less familiar?
 
-The `rem` operator will return the remainder of a division operations
+The `rem` operator will return the remainder of a division operation:
 
 ```
 iex> rem(10, 3)
@@ -173,20 +173,20 @@ iex> rem(10, 3)
 
 Try some other commands out to see what else you can do.
 
-> [Float docs](http://elixir-lang.org/docs/stable/elixir/Float.html)
+> [Float docs](https://hexdocs.pm/elixir/Float.html)
 
 ### Boolean
 
 Booleans are `true` and `false` types. We can use these types to check truth conditions.
 
-Type the following lines(one at a time) into the iex console:
+Type the following lines (one at a time) into the IEx console:
 
 ```elixir
 iex> true ## true
 iex> true == false
 ```
 
-It's possible to check if a variable is a boolean by using the `is_boolean/1` function:
+It's possible to check if a variable is a boolean by using the `is_boolean/1` function.
 
 Try typing the following into the console:
 
@@ -219,7 +219,7 @@ iex> "hello\nworld\n"
 iex> "❤️💛💚💙"
 ```
 
-We can output values to the console using the `IO.puts/1` command. Let's try and output our string to the console. Type the following:
+We can output values to the console using the `IO.puts/1` command. Let's try and output our string. Type the following:
 
 ```
 iex> IO.puts("hello world!")
@@ -227,18 +227,18 @@ hello world!
 :ok
 ```
 
-It prints the string to stdout by default, and then returns the `:ok` tuple, to indicate that there were no errors.
+By default, it prints the string to stdout (short for standard output), and then returns the `:ok` tuple to indicate that there were no errors.
 
 Just like integers, the `String` module has a lot of functions built-in to the standard library we can use out of the box.
 
-Type the following lines onto the console one at a time:
+Type the following lines into the console one at a time:
 
 ```elixir
 iex> String.length("hello world") # 11
 iex> String.upcase("hello world") # HELLO WORLD
 ```
 
-So what happens when we want to put two separate strings together? We use something called the concatenate operator. It looks like this: `<>` operator.
+So what happens when we want to combine two strings together? We use something called the concatenation operator which looks like: `<>`. 
 
 Now try using it. Type the following into the console:
 
@@ -246,4 +246,4 @@ Now try using it. Type the following into the console:
 iex> "Hello" <> "World" # "HelloWorld"
 ```
 
-More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).
+More documentation on the [String](https://hexdocs.pm/elixir/String.html) module is available at [https://hexdocs.pm/elixir/String.html](https://hexdocs.pm/elixir/String.html).
