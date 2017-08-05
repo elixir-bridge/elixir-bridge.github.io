@@ -18,7 +18,7 @@ iex> is_function(add) # true
 The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous functions, we'll need to add a suffix of `.` to the end of the variable. For example, to call the `add/2` function, try the following:
 
 ```elixir
-iex> add.(2 2) # 4
+iex> add.(2, 2) # 4
 ```
 
 Above, we have anonymous functions, but there's another syntax you'll use when defining functions inside modules. The keyword `def` is used:
@@ -39,7 +39,7 @@ Note that we used the `do ... end` syntax for the block, but there's also a shor
 def hashtag(word), do: "#" <> word
 ```
 
-The reason this is useful is you can pattern match on the data passed into the function (called the function signature). Let's take a look an example
+The reason this is useful is you can pattern match on the data passed into the function (called the function signature). Let's take a look at an example:
 
 ```elixir
 defmodule Social do
@@ -59,7 +59,7 @@ Social.hashtag({:facebook, "elixir"})
 Social.hashtag({:instagram, "elixir"})
 ```
 
-What happened? When there's no matching function in elixir, you get the a similar error to other other failed matches:
+What happened? When there's no matching function in elixir, you get a similar error to the other failed matches:
 
 ```elixir
 Social.hashtag({:instagram, "elixir"})
@@ -79,7 +79,7 @@ defmodule Social do
 end
 ```
 
-This way, any `network` we pass in will match the last function, and we won't see that error. Try it out:  
+This way, any `network` value we pass in will match the last function, and we won't see that error. Try it out:  
 
 ```elixir
 iex(4)> Social.hashtag({:instagram, "elixir"})
