@@ -16,7 +16,7 @@ iex> list[:a] # 1
 iex> list[:c] # nil
 ```
 
-We can concatenate the dictionary using the key-value syntax with `++`. For instance:
+Since keyword lists are just lists, we can use all available operators to lists. For instance, we can use `++` to add new values:
 
 ```elixir
 iex> list = [a: 1, b: 2]
@@ -27,6 +27,6 @@ iex> newList[:c] # 3
 iex> list[:c] # nil
 ```
 
-We'll use keyword-lists a lot in [Ecto](https://github.com/elixir-ecto/ecto) (the database wrapper of the Phoenix library) to make elegant queries to our database. This is covered in the Phoenix class in more depth.
+We'll use keyword lists a lot with [the Ecto library](https://github.com/elixir-ecto/ecto) for writing queries and interacting with databases in Elixir. Ecto is the database wrapper used by the Phoenix framework and will be covered in that class.
 
-Keyword lists are just lists which means that this isn't really a fantastic data structure for doing large operations.  For this reason, Elixir provides another data structure: the `Map`.
+Keyword lists are not really a fantastic data structure for doing large operations. For this reason, Elixir provides another data structure called maps which is considered the "go to" data structure whenever you need a key-value store.
