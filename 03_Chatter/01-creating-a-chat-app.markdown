@@ -49,7 +49,7 @@ mix phx.server
 
 Point your browser to localhost:4000, it should look like this:
 
-![New server on first start](assets/new-phx-server.png)
+![New server on first start](/assets/new-phx-server.png)
 
 ## Setting up a new Channel
 
@@ -66,7 +66,7 @@ So channels use websockets.
 
 ## Creating the channel file
 
-Since Phoenix 1.2, there's a built-in mix task for channels that will create files and do some of the boilerplate work for you. The command is `mix phx.gen.channel <channel name>`. Try it out:
+Since Phoenix 1.3, there's a built-in mix task for channels that will create files and do some of the boilerplate work for you. The command is `mix phx.gen.channel <channel name>`. Try it out:
 
 ``` bash
 ~/p/e/chatter>  mix phx.gen.channel chat_room
@@ -86,13 +86,13 @@ At the end of the command, it tells you to add a line to your `lib/chatter_web/c
 
 Looking at the code below,
 
-`channel "chat_room:lobby", Chatter.ChatRoomChannel`
+`channel "chat_room:lobby", ChatterWeb.ChatRoomChannel`
 
-`channel` above refers to the channel method in phoenix. It takes a topic (which is just a namespace for websocket connections). In our case the name space is "chat_room:lobby".
+`channel` above refers to the channel function in phoenix. It takes a topic (which is just a namespace for websocket connections). In our case the name space is "chat_room:lobby".
 
-The next argument `Chatter.ChatRoomChannel` is made up of two parts. The first part `Chatter` is the name of the app. The second part `ChatRoomChannel` is the name of the module that handles the elixirbridge channel. In Phoenix, it's conventional to namespace all your modules with your app name first. This helps avoid collisions.
+The next argument `ChatterWeb.ChatRoomChannel` is made up of two parts. The first part `ChatterWeb` is the name of the app. The second part `ChatRoomChannel` is the name of the module that handles the "chat_room:lobby" channel. In Phoenix, it's conventional to namespace all your modules with your app name first. This helps avoid collisions.
 
-The file we're in, `user_channels.ex`, is like the `router.ex` file, but for channels. The topic, in our case `elixirbridge` allows clients to subscribe to the channel. In the same way a path in a web request directs the request the right controller, the topic directs the socket to rhe right module, in this case, `Chatter.ChatRoomChannel`.
+The file we're in, `user_channels.ex`, is like the `router.ex` file, but for channels. The topic, in our case `chat_room:lobby` allows clients to subscribe to the channel. In the same way a path in a web request directs the request the right controller, the topic directs the socket to the right module, in this case, `ChatterWeb.ChatRoomChannel`.
 
 
 In our `lib/chatter_web/channels/chat_room_channel.ex` paste the following
@@ -129,19 +129,19 @@ defmodule ChatterWeb.ChatRoomChannel do
 end
 ```
 
-We now have a bunch of boilerplate code that doesn't look like much, but it will work without modification to hook up to a front end for our simple chat app. Let's look a little closer at what the methods are doing.
+We now have a bunch of boilerplate code that doesn't look like much, but it will work without modification to hook up to a front end for our simple chat app. Let's look a little closer at what the functions are doing.
 
-First, let's look at the `join/3` method. `def join("chat_room:lobby", payload, socket) do`: it takes three arguments. The name of the channel, `"chat_room:lobby"`, is so that this method is only called when the client is joining that specific channel. The second argument, `payload` is the request from the user; it can contain auth credentials, a message, anything the user wants.
+First, let's look at the `join/3` function. `def join("chat_room:lobby", payload, socket) do`: it takes three arguments. The name of the channel, `"chat_room:lobby"`, is so that this function is only called when the client is joining that specific channel. The second argument, `payload` is the request from the user; it can contain auth credentials, a message, anything the user wants.
 
 Finally, it takes `socket`, which is the websocket connection. There's a test, `authorized?`, which always returns true. Then, `{:ok, socket}` just returns a status and the websocket they are connecting to. `join/3` always returns `{:ok, socket}` to allow all connections to the channel.
 
 Once a user joins to a channel, then they can send messages to the channel and they'll be received by one of the `handle_in/3` messages. The first one just returns the payload sent by the user back to them.
 
-The second one sends the payload to all the users subscribed to the channel. It's this one that allows us to build out chat room with a little front end work. When we send a message to the chatroom, this method sends it back to you and to everyone else in the channel.
+The second one sends the payload to all the users subscribed to the channel. It's this one that allows us to build out chat room with a little front end work. When we send a message to the chatroom, this function sends it back to you and to everyone else in the channel.
 
 ## Handling the connections on Client-side
 
-To make things easier, we’ll start by adding jQuery to our `lib/chatter_web/templates/layouts/app.html.eex:`
+To make things easier, we’ll start by adding jQuery to our `lib/chatter_web/templates/layout/app.html.eex:`
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -157,7 +157,7 @@ import socket from "./socket"
 Go into your `assets/js/socket.js` and replace the generated code after the comment `Now that you are connected, you can join channels with a topic`:
 
 ```
-let channel = socket.channel('elixirbridge', {});
+let channel = socket.channel('chat_room:lobby', {});
 let list = $('#message-list');
 let message = $('#message');
 let name = $('#name');
@@ -186,7 +186,7 @@ channel
 export default socket;
 ```
 
-`socket.channel("elixirbridge", {})` sends the join request to the server, and the server sends the message back to the client.
+`socket.channel("chat_room:lobby", {})` sends the join request to the server, and the server sends the message back to the client.
 
 Here, we listen for a keypress event on the message text field. Whenever the user enters a message, it’s pushed on the channel and the text field is cleared. When there’s an incoming message on the channel, it’s appended to the div we previously created and scrolled to the bottom.
 
