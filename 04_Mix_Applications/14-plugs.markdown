@@ -1,9 +1,8 @@
 ## Plugs
 
-Notice above that we are using the `Plug` module.
+Notice that we are using the `Plug` module.
 
 Plugs provide a common interface for handling connections. We're going to use plugs extensively throughout our elixir apps.
-
 
 So what is a Plug?
 

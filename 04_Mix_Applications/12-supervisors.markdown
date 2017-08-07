@@ -27,9 +27,9 @@ end
 ```
 When our supervisor starts it will call a function `start_link`. This function takes two arguements. `children` and  `options`.
 
-The `children` are the processes that the Supervisor will watch. 
+The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started. Usually this is with a `start_link/1` function. The start link function often immediately calls the `init` calllback as its first step. 
 
-In the `options` arugement, we also need to specify a strategy. This tells the supervisor what to do if a child process fails. 
+In the `options` arguement, we also need to specify a strategy. This tells the supervisor what to do if a child process fails. 
 
 In this case we are using teh `:one_for_one` strategy. With this process, if the child process terminates, it will be restarted.
 
@@ -57,7 +57,7 @@ So our applicaion function now looks like:
   end
 ```
 
-Notice that we specify the name of our App as what we pass to the `mod` option. This will start application when it to run. 
+Notice that we specify the name of our App as what we pass to the `mod` option.  
 
 
 

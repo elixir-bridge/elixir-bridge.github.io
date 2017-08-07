@@ -33,7 +33,7 @@ To actually add the documentation, we will use two packages `:earmark` and `:ex_
 
 [:ex_doc](https://hex.pm/packages/ex_doc) is a documentation generation tool for Elixir.
 
-Let's add these dependencies to our Mix.exs file. It should nwo look like this. 
+Let's add these dependencies to our Mix.exs file. It should now look like this. 
 
 defp deps do
     [
@@ -43,6 +43,8 @@ defp deps do
       {:ex_doc, "~> 0.15.1", only: :dev}
     ]
   end
+
+Let's retreive our dependencies using `mix deps.get`
 
 To generate our documentation we can run `mix docs`
 
