@@ -38,12 +38,15 @@ We have a bunch of built-in methods we can use to interact with and manipulate l
 
 Try adding and removing items from lists.
 
-Type the following one line at a time:
+Try the following:
 
 ```elixir
-iex> length [1, 2, 3] # 3
-iex> [1] ++ [2] # [1, 2]
-iex> [1, 2, 3] -- [2] # [1, 3]
+iex> length [1, 2, 3]
+3
+iex> [1] ++ [2]
+[1, 2]
+iex> [1, 2, 3] -- [2]
+[1, 3]
 ```
 
 ## Tuples
@@ -65,8 +68,10 @@ In this case we want to retrieve the first element in the tuple which is located
 Type the following into the console:
 
 ```elixir
-iex> elem({:ok, "hello"}, 0) # :ok
+iex> elem({:ok, "hello"}, 0)
+:ok
 ```
+
 As you can see, the function returns `:ok`.
 
 We can check the size of a tuple using the `tuple_size/1` function:
@@ -74,7 +79,8 @@ We can check the size of a tuple using the `tuple_size/1` function:
 Type the following:
 
 ```elixir
-iex> tuple_size({:ok, "hello"}) # 2
+iex> tuple_size({:ok, "hello"})
+2
 ```
 
 And we can replace elements in a tuple by using the `put_elem/3` function, which takes the tuple, the argument, and the value:
@@ -83,4 +89,5 @@ Type the following:
 
 ```elixir
 iex> put_elem({:ok, "hello"}, 1, "world")
+{:ok, "world"}
 ```
