@@ -38,30 +38,37 @@ As you can see, it bound the variables in each place to the respective values in
 Often times we have a list, but we only care about the first item. Elixir gives us a `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
 
 ```elixir
-iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
-iex> head # 1
-iex> tail # [2, 3]
+iex> [ head | tail] = [1, 2, 3]
+[1, 2, 3]
+iex> head
+1
+iex> tail
+[2, 3]
 ```
 
 You can also add to the beginning of a list this way. Try the following:
 
 ```elixir
-iex> [1 | [2, 3]] # [1, 2, 3]
+iex> [1 | [2, 3]]
+[1, 2, 3]
 ```
 
 If we are only interested in a single value in a pattern, we'll use the `_` notation which is a common way of saying we don't have a need for this value. For instance, a common use case is if we want to only get the head portion of a list.
 
 ```elixir
 iex> [head | _] = [1, 2, 3]
-iex> head # 1
+iex> head
+1
 ```
 
 Lists aren't the only data structure that allows us to pattern match. Tuples are data structures used for a fixed number of items. We can pattern match on tuples as well. For instance:
 
 ```elixir
 iex> {a, b, c} = {:hello, "world", 42}
-iex> a # :hello
-iex> c # 42
+iex> a
+:hello
+iex> c
+42
 ```
 
 This works as the tuples are the same size. We'll get a `MatchError` if the size of the tuples are different. Type the following:
@@ -70,7 +77,7 @@ This works as the tuples are the same size. We'll get a `MatchError` if the size
 iex> {a, b, c} = {:ok, "hello"}
 ```
 
-What happened? You should have seen something like the following:
+What happened? You should have seen something like:
 
 ```elixir
 iex(5)> {a, b, c} = {:ok, "hello"}
@@ -81,7 +88,8 @@ We'll also use pattern matching to match on specific values of a tuple. Try the 
 
 ```elixir
 iex> {:ok, msg} = {:ok, "hello"}
-iex> msg # "Hello world"
+iex> msg
+"Hello world"
 ```
 
 This is incredibly useful for checking results of functions; many libraries allow you to deal with errors this way. In this example, we use a case statement to match the result of a web request. We'll talk more about `case` when we talk about control structures.
