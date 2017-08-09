@@ -147,12 +147,21 @@ Let's see what other mathematical operations we can practice.
 Try typing some of the operations listed below into your IEx console.
 
 ```elixir
-iex> 1 + 1        # 2
-iex> div(10, 2)   # 5
-iex> rem(10, 3)   # 1
-iex> ## Or without parenthesis
-iex> rem 10, 3    # 1
+iex> 1 + 1
+2
+iex> div(10, 2)
+5
+iex> rem(10, 3)
+1
+```
+
+Or without parentheses...
+
+```elixir
+iex> rem 10, 3
+1
 iex> 10 / 2
+5.0
 ```
 
 As you can see operations we are familiar with like `div/2` behave as we expect:
@@ -177,23 +186,23 @@ Try some other commands out to see what else you can do.
 
 ### Boolean
 
-Booleans are `true` and `false` types. We can use these types to check truth conditions.
-
-Type the following lines (one at a time) into the IEx console:
+Booleans are `true` and `false` types. We can use these types to check truth conditions. Try the following in the IEx console:
 
 ```elixir
-iex> true ## true
+iex> true
+true
 iex> true == false
+false
 ```
 
-It's possible to check if a variable is a boolean by using the `is_boolean/1` function.
-
-Try typing the following into the console:
+It's possible to check if a variable is a boolean by using the `is_boolean/1` function. Try the following:
 
 ```elixir
 iex> a = 1
-iex> is_boolean(true) # true
-iex> is_boolean(a) # false
+iex> is_boolean(true)
+true
+iex> is_boolean(a)
+false
 ```
 
 ## Atoms
@@ -203,10 +212,10 @@ We'll use atoms a lot in Elixir. They are their own constant values. If you're f
 For instance, these are all atoms:
 
 ```elixir
-iex> :hello
-iex> :world
-iex> :true
-iex> :this_has_underscores
+:hello
+:world
+:true
+:this_has_underscores
 ```
 
 ## Strings
@@ -229,21 +238,24 @@ hello world!
 
 By default, it prints the string to stdout (short for standard output), and then returns the `:ok` tuple to indicate that there were no errors.
 
-Just like integers, the `String` module has a lot of functions built-in to the standard library we can use out of the box.
+Just like integers, the `String` module has a lot of functions built-in we can use out of the box.
 
-Type the following lines into the console one at a time:
+Try the following in your console:
 
 ```elixir
-iex> String.length("hello world") # 11
-iex> String.upcase("hello world") # HELLO WORLD
+iex> String.length("hello world")
+11
+iex> String.upcase("hello world")
+"HELLO WORLD"
 ```
 
 So what happens when we want to combine two strings together? We use something called the concatenation operator which looks like: `<>`. 
 
-Now try using it. Type the following into the console:
+Now try using it:
 
 ```elixir
-iex> "Hello" <> "World" # "HelloWorld"
+iex> "Hello" <> "World"
+"HelloWorld"
 ```
 
 More documentation on the [String](https://hexdocs.pm/elixir/String.html) module is available at [https://hexdocs.pm/elixir/String.html](https://hexdocs.pm/elixir/String.html).
