@@ -81,10 +81,10 @@ Type the following into your terminal:
 mix deps.get
 ```
 
-Step 6: Install nm and node
+Step 6: Install npm and node
 
 ```
-npm install && node node_modules/brunch/bin/brunch build
+cd asset && npm install && node node_modules/brunch/bin/brunch build
 ```
 
 #### Create the database
