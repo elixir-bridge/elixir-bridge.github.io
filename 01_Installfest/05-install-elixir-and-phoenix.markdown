@@ -36,7 +36,7 @@ To check that Elixir is installed correctly:
 
 You should see:
 
-`Elixir 1.4.2`
+`Elixir 1.5.1`
 
 ### Step :7 Install Hex
 
@@ -69,16 +69,16 @@ Answer "Y" to install. Then you should see:
 #### Verify
 Type this in the terminal:
 ```
-mix help | grep phoenix
+mix help | grep phx
 ```
 
 Expected Result:
 
 ```
-mix local.phoenix     # Updates Phoenix locally
-mix phoenix.new       # Creates a new Phoenix v1.2.1 application
+mix phx.new       # Creates a new Phoenix v1.3.0 application
 ```
 
+You will likely see other mix commands, but that's the important one.
 
 ### Step 8 install Docker
 If you are not building the elixir app tomorrow you can skip this step.
@@ -91,7 +91,7 @@ brew cask install virtualbox
 brew install docker-machine
 ```
 
-> *Windows installation* Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/). 
+> *Windows installation* Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/).
 
 If that is successful run
 
