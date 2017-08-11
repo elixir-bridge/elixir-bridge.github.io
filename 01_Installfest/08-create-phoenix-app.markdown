@@ -83,7 +83,7 @@ mix deps.get
 ### Step 6: Install npm and node
 
 ```
-npm install && node node_modules/brunch/bin/brunch build
+cd asset && npm install && node node_modules/brunch/bin/brunch build
 ```
 
 #### Create the database
