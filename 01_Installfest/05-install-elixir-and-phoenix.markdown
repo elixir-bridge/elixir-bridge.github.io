@@ -51,19 +51,19 @@ mix local.hex
 Type this in the terminal:
 
 ```
-mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
 
 You will see:
 
 ```
-Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"? [Yn]
+Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phx_new.ez"? [Yn]
 ```
 
 Answer "Y" to install. Then you should see:
 
 ```
-* creating /Users/{your user name}/.mix/archives/phoenix_new
+* creating /Users/{your user name}/.mix/archives/phx_new
 ```
 
 #### Verify
