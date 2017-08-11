@@ -86,6 +86,10 @@ mix deps.get
 cd assets && npm install && node node_modules/brunch/bin/brunch build
 ```
 
+```
+cd ../
+```
+
 #### Create the database
 
 Type this in a terminal:
