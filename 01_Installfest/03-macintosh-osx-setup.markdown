@@ -131,6 +131,5 @@ createuser -s postgres
 Next type this into the terminal:
 
 ```
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
+brew services start postgresql
 ```
