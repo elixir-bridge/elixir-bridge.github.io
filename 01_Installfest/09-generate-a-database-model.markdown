@@ -6,14 +6,14 @@ date: 2016-09-24 12:28:28 -0700
 
 #### Step 7 : Generate a database model
 
-Phoenix gives us a phoenix.gen.html task similar to Rails `rails generate scaffold`
+Phoenix gives us a phoenix.gen.schema task similar to Rails `rails generate scaffold`
 
 
 
 Now that the database has been created with `mix ecto.create`, type this into the terminal:
 
 ```
-mix phoenix.gen.html Drink drinks name:string temperature:string
+mix phoenix.gen.schema Drink drinks name:string temperature:string
 ```
 
 You should see output similar to this:
