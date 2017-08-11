@@ -33,18 +33,17 @@ Type this in the terminal:
 ```
 cd elixirbridge
 ```
+
 ### Step 4: Create a new Phoenix app
 Type this in the terminal:
 
 ```
-mix phoenix.new test_app
+mix phx.new test_app
 ```
-
 
 The command's output is a list of the files it creates, which will be fairly long. We'll go into detail about what these files are later.
 
 ![phoenix app output](/assets/phoenix-new-app-output.png)
-
 
 Then it will ask you to fetch and install dependencies, type `Y` to do this. If there's an error at this point, grab a volunteer to help you.
 
@@ -73,7 +72,7 @@ Otherwise type the following into your terminal:
 brew install node
 ```
 
-Step 5: Get Dependencies
+### Step 5: Get Dependencies
 
 Type the following into your terminal:
 
@@ -81,7 +80,7 @@ Type the following into your terminal:
 mix deps.get
 ```
 
-Step 6: Install nm and node
+### Step 6: Install npm and node
 
 ```
 npm install && node node_modules/brunch/bin/brunch build
@@ -97,7 +96,7 @@ mix ecto.create
 
 Then, type this in a terminal:
 ```
-mix phoenix.server
+mix phx.server
 ```
 
 If phoenix server starts up with no errors, you're golden! It'll look something like this:
