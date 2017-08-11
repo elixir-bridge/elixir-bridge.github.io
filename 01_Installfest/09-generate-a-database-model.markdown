@@ -13,7 +13,7 @@ Phoenix gives us a phoenix.gen.schema task similar to Rails `rails generate scaf
 Now that the database has been created with `mix ecto.create`, type this into the terminal:
 
 ```
-mix phoenix.gen.html Elixirbridge Drink drinks name:string temperature:string
+mix phx.gen.html Elixirbridge Drink drinks name:string temperature:string
 ```
 
 You should see output similar to this:
