@@ -12,19 +12,25 @@ For instance, if we want to set up a key-value mapping, we set them as a list of
 
 ```elixir
 iex> list = [a: 1, b: 2]
-iex> list[:a] # 1
-iex> list[:c] # nil
+iex> list[:a]
+1
+iex> list[:c]
+nil
 ```
 
 Since keyword lists are just lists, we can use all available operators to lists. For instance, we can use `++` to add new values:
 
 ```elixir
 iex> list = [a: 1, b: 2]
-iex> list[:a] # 1
-iex> list[:c] # nil
+iex> list[:a]
+1
+iex> list[:c]
+nil
 iex> newList = list ++ [c: 3]
-iex> newList[:c] # 3
-iex> list[:c] # nil
+iex> newList[:c]
+3
+iex> list[:c]
+nil
 ```
 
 We'll use keyword lists a lot with [the Ecto library](https://github.com/elixir-ecto/ecto) for writing queries and interacting with databases in Elixir. Ecto is the database wrapper used by the Phoenix framework and will be covered in that class.
