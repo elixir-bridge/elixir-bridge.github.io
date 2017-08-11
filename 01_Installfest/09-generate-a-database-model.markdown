@@ -42,11 +42,9 @@ Remember to update your repository by running migrations:
 
 Now let's follow the instructions at the end of that output.
 
-We'll add routes. Open up a file named 'web/router.ex'
+We'll add routes. Open up a file named `lib/test_app_web/router.ex`
 
-Around line 19 (this will vary depending on your editor)
-
-delete the section that looks like
+Around line 19 (this will vary depending on your editor) delete the section that looks like
 
 ```
  scope "/", TestApp do
@@ -69,20 +67,7 @@ scope "/", TestApp do
   end
 ```
 
-
-so that section should now look like this
-
-```
-scope "/", TestApp do
-    pipe_through :browser # Use the default browser stack
-    get "/", DrinkController, :index
-
-    resources "/drinks", DrinkController
-  end
-
-```
-
-now type this into the terminal
+Now type this into the terminal
 
 ```
 mix ecto.migrate
@@ -97,7 +82,7 @@ Now lets start our server up again
 Type the following into the terminal
 
 ```
-mix phoenix.server
+mix phx.server
 ```
 
 Then go to your browsers and type in
