@@ -116,7 +116,7 @@ Let's commit all our changes. Copy each of the lines below into your terminal on
 ```bash
 git add config/prod.exs
 git add Procfile.txt
-git add web/channels/user_socket.ex
+git add lib/test_app_web/channels/user_socket.ex
 git commit -m "Use production config from Heroku ENV variables and deploy environment"
 ```
 
