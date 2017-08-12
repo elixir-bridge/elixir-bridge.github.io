@@ -214,7 +214,7 @@ In your terminal make sure you are in your test_app directory.
 Then type:
 
 ```
-touch Procfile.txt
+touch Procfile
 
 ```
 
