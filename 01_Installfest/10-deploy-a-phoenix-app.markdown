@@ -300,5 +300,5 @@ make sure that the name after 'config' is the name of your app,
 it should look like this
 
 ```
-config :your-app-name, TestApp.repo
+config :test_app, TestApp.repo
 ```
