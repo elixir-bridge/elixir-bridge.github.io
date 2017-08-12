@@ -38,7 +38,7 @@ You should see:
 
 `Elixir 1.5.1`
 
-### Step :7 Install Hex
+### Step 7: Install Hex
 
 Type this in the terminal:
 
@@ -80,7 +80,7 @@ mix phx.new       # Creates a new Phoenix v1.3.0 application
 
 You will likely see other mix commands, but that's the important one.
 
-### Step 8 install Docker
+### Step 9: install Docker
 If you are not building the elixir app tomorrow you can skip this step.
 
 run the following commands (each might take a little while since they will download and install things):
