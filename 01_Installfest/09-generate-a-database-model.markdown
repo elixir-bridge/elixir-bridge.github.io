@@ -47,7 +47,7 @@ We'll add routes. Open up a file named `lib/test_app_web/router.ex`
 Around line 19 (this will vary depending on your editor) delete the section that looks like
 
 ```
- scope "/", TestApp do
+ scope "/", TestAppWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
@@ -58,7 +58,7 @@ Around line 19 (this will vary depending on your editor) delete the section that
 and paste in the following
 
 ```
-scope "/", TestApp do
+scope "/", TestAppWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", DrinkController, :index
