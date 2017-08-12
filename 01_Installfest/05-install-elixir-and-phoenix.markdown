@@ -36,9 +36,9 @@ To check that Elixir is installed correctly:
 
 You should see:
 
-`Elixir 1.4.2`
+`Elixir 1.5.1`
 
-### Step :7 Install Hex
+### Step 7: Install Hex
 
 Type this in the terminal:
 
@@ -51,36 +51,36 @@ mix local.hex
 Type this in the terminal:
 
 ```
-mix archive.install https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez
+mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez
 ```
 
 You will see:
 
 ```
-Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phoenix_new.ez"? [Yn]
+Are you sure you want to install archive "https://github.com/phoenixframework/archives/raw/master/phx_new.ez"? [Yn]
 ```
 
 Answer "Y" to install. Then you should see:
 
 ```
-* creating /Users/{your user name}/.mix/archives/phoenix_new
+* creating /Users/{your user name}/.mix/archives/phx_new
 ```
 
 #### Verify
 Type this in the terminal:
 ```
-mix help | grep phoenix
+mix help | grep phx
 ```
 
 Expected Result:
 
 ```
-mix local.phoenix     # Updates Phoenix locally
-mix phoenix.new       # Creates a new Phoenix v1.2.1 application
+mix phx.new       # Creates a new Phoenix v1.3.0 application
 ```
 
+You will likely see other mix commands, but that's the important one.
 
-### Step 8 install Docker
+### Step 9: install Docker
 If you are not building the elixir app tomorrow you can skip this step.
 
 run the following commands (each might take a little while since they will download and install things):
@@ -91,7 +91,7 @@ brew cask install virtualbox
 brew install docker-machine
 ```
 
-> *Windows installation* Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/). 
+> *Windows installation* Follow the instructions on [https://docs.docker.com/docker-for-windows/](https://docs.docker.com/docker-for-windows/).
 
 If that is successful run
 

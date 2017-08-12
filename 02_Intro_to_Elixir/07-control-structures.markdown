@@ -103,7 +103,11 @@ iex> if true do
         a = 1 + 2
         a + 10
      end
-iex> # And the equivalent using :
+```
+
+And the equivalent using:
+
+```elixir
 iex> if true, do: (
         a = 1 + 2
         a + 10

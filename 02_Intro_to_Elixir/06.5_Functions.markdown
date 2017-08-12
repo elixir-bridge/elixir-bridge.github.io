@@ -10,13 +10,15 @@ In Elixir, we can create functions which are treated just like any other type. T
 
 ```elixir
 iex> add = fn a, b -> a + b end
-iex> is_function(add) # true
+iex> is_function(add)
+true
 ```
 
 The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous function, we'll need to add a suffix of `.` to the variable. For example, to call the `add/2` function, try the following:
 
 ```elixir
-iex> add.(2, 2) # 4
+iex> add.(2, 2)
+4
 ```
 
 The `.` ensures there is no ambiguity between calling an anonymous function named `add` and a named function `add/2`. In this sense, Elixir makes a clear distinction between the two.
