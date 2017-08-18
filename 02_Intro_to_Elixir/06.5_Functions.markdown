@@ -4,24 +4,23 @@ title: Functions
 date: 2016-10-1 13:38:30 -0700
 ---
 
-##Functions
+## Functions
 
-Functions are small pieces of code that can be reused. They take inputs, called argumets, and return values or have side effects on other pieces of data. In elixir, there are three syntaxes we use for functions: 
+Functions are small pieces of code that can be reused. They take inputs, called argumets, and return values or have side effects on other pieces of data. In elixir, there are three syntaxes we use for functions:
 
 Example:
 
 ```elixir
-double = fn a -> a + a end 
+double = fn a -> a + a end
 
 def double(a) do
   a + a
 end
 
 def double(a), do: a + a
-
 ```
 
-These all have different utiliy in context. 
+These all have different utiliy in context.
 
 
 ### Anonymous functions
@@ -44,15 +43,15 @@ iex> add.(2, 2) # 4
 ### Functions in Modules
 
 Modules are used to group related functions. When defining functions inside modules, we use the following syntax:
- 
- 
+
+
 The keyword `def` is used:
 
 ```elixir
 defmodule Foo do
   def hashtag(word) do
     "#" <> word
-  end  
+  end
 end
 
 Foo.hashtag("elixir")
@@ -119,11 +118,11 @@ defmodule Social do
 end
 ```
 
-This way, any `network` we pass in will match the last function, and we won't see that error. Try it out:  
+This way, any `network` we pass in will match the last function, and we won't see that error. Try it out:
 
 ```elixir
 iex(4)> Social.hashtag({:instagram, "elixir"})
 "#elixir #instagramisgreat"
 ```
 
-Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match. 
+Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match.

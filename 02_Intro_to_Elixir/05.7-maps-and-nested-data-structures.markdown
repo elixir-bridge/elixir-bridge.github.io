@@ -7,11 +7,9 @@ date: 2016-10-1 13:38:30 -0700
 
 # Maps
 
-Maps in Elixir provides a quick key-value store called a map. Maps can be created by using the `%{}` , Keys in a map can be of any type.
+Maps in Elixir are key-value stores. Maps can be created by using the `%{}` , Keys in a map can be of any type. The map data-structures are similar to keyword lists except they are unordered.
 
-Maps are similar to keyword lists except they are not ordered.  
-
-Try typing the following examples. 
+Try typing the following examples.
 
 ```elixir
 map = %{:msg => "Hello", "receiver" => :world}
@@ -44,7 +42,7 @@ We can then get variables using the `[]` and `.` syntax:
 iex> users[:john].age # 27
 ```
 
-We can then manipulate maps like so - 
+We can then manipulate maps like so -
 
 ```elixir
 map = %{:msg => "Hello", "receiver" => :world}

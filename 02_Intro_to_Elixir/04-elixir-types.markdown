@@ -15,7 +15,7 @@ By the end of this section, you'll know:
 Although Elixir is not a statically typed language, it does have the concept of types. The basic types we'll work with are:
 
 * Numbers
-* Floats 
+* Floats
 * Booleans
 * Strings
 * Atoms
@@ -202,15 +202,13 @@ Variables are interpolated using the `#{variable}`
 
 More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).
 
-
-
 ### Concatenate Operator
 
-So what happens when we want to put two separate strings together? 
+So what happens when we want to put two separate strings together?
 
-We use the concatenate operator. 
+We use the concatenate operator.
 
-It looks like this: `<>` 
+It looks like this: `<>`
 
 Now try using it. Type the following into the console:
 

@@ -1,6 +1,6 @@
-## Set up MyApp
+## Set up Myapp
 
-Remember the keyword `use`. We'll use it to add functionality to the `MyApp` module.
+Remember the keyword `use`. We'll use it to add functionality to the `Myapp` module.
 
 Let's open up `myapp.ex`. It is in the `lib` directory.
 

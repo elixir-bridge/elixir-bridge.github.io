@@ -20,19 +20,19 @@ By the end of this section, you'll know:
 
 We can use the REPL (Read-Eval-Print Loop) command-line tool to write and run simple elixir calculations directly from the command-line. The REPL tool is great for writing simple elixir code, checking on syntax, and understanding how the Elixir run-time works.
 
-Let's open the Interactive Elixir REPL. 
+Let's open the Interactive Elixir REPL.
 
 Type `iex` into your command line.
 
 
 The `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive EliXir command prompt.
 
-```elixir 
+```elixir
 >$ iex
 Erlang/OTP 19 [erts-8.3] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
 
 Interactive Elixir (1.4.5) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> 
+iex(1)>
 ```
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
@@ -51,7 +51,7 @@ warning: variable "h" does not exist and is being expanded to "h()", please use 
   iex:1
 
 
-                                  IEx.Helpers                                   
+                                  IEx.Helpers
 
 Welcome to Interactive Elixir. You are currently seeing the documentation for
 the module IEx.Helpers which provides many helpers to make Elixir's shell more
@@ -85,12 +85,12 @@ If you see the notation of of a name followed by a `/` and number, this indicate
 
 Newer versions of IEx have implemented the h/1 command. 'h' is a quick access to the docs. Let's try it with the `Integer.to_string`:
 
-Type: `h Integer.to_string` into command line 
+Type: `h Integer.to_string` into command line
 
-```
+```elixir
 iex(4)> h Integer.to_string
 
-                             def to_string(integer)                             
+                             def to_string(integer)
 
 Returns a binary which corresponds to the text representation of integer.
 
@@ -127,11 +127,11 @@ The official documentation can be found on the [elixir docs](http://elixir-lang.
 
 ## Loading Files
 
-There are several different ways to load files into our interactive shell. Using the `c` command we can tell our REPL which file to compile. 
+There are several different ways to load files into our interactive shell. Using the `c` command we can tell our REPL which file to compile.
 
 Let's create a file names 'calc.ex'
 
-type the following into the command line: 
+type the following into the command line:
 
 ```bash
 touch calc.ex
@@ -141,7 +141,7 @@ touch calc.ex
 c("calc.ex")
 ```
 
-using the `r` command we can recompile. 
+using the `r` command we can recompile.
 
 ```elixir
 r (Calc)
@@ -154,7 +154,7 @@ Type: `h r` into the terminal
 ```elixir
 iex(1)> h r
 
-def r(module)                                  
+def r(module)
 
 Recompiles and reloads the given module.
 
@@ -165,3 +165,17 @@ This function is meant to be used for development and debugging purposes. Do
 not depend on it in production code.
 ```
 
+### Arity
+
+We have mentiond the term Arity a few times. Arity means the number of arguments a function takes.
+
+In Elixir when we see a function name it will include the `arity` of the function
+
+```elixir
+rem/2
+c/1
+```
+
+We can see that the `rem` function has an arity of 2.
+
+The `c` or compile function has an arity of 1.

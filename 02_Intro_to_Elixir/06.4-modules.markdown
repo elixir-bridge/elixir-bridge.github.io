@@ -80,11 +80,11 @@ end
 
 ### Structs
 
-Structs are useful for handling known data structures. 
+Structs are useful for handling known data structures.
 
 They are extension built on top of maps. The keyword `defstruct` defines what fields the struct will have along with their default values.
 
-Structs take the name of the module they are defined in. 
+Structs take the name of the module they are defined in.
 
 defmodule Calc.Op do
   defstruct name: "add", a: 1, b: 1
@@ -92,10 +92,10 @@ end
 
 We now have a `Calc` struct `Calc%{}`
 
-Stucts provide a compile-time guarantee that only the fields defined in `defstruct` are allowed to exist in the struct. 
-
+Stucts provide a compile-time guarantee that only the fields defined in `defstruct` are allowed to exist in the struct.
 
 ### Import
+
 The `import` command allows us to bring in functions from other modules
 
 Let's take a look at the following example:
@@ -107,17 +107,17 @@ iex(2)> last([1, 2, 3])
 3
 iex(3)> import Enum, only: [map: 2]
 Enum
-iex(4)> 
+iex(4)>
 ```
 
 Note that `last` is a function that is defined on `List`. What other fucntions might we be able to acces on list?
 
-As we can see in the example -`import` let's us bring in a module, and then access any functions that are defined on that module.  
+As we can see in the example -`import` let's us bring in a module, and then access any functions that are defined on that module.
 
 
 ### Require
 
-`require` ensures a module is compiled and loaded in another module 
+`require` ensures a module is compiled and loaded in another module
 
 Example:
 
@@ -133,6 +133,7 @@ end
 `require` ensures that the entire `Calc` module is compiled and loaded so that we can access it inside of `Adder`.
 
 ### Use
+
 Injects Apis into modules
 
 ```elixir

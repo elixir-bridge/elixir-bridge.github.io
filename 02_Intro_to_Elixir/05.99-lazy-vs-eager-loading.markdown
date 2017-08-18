@@ -1,9 +1,10 @@
 ## Lazy vs Eager loading
 
 #### Eager
+
 When we are eager loading - all operations need to execute before completion
 
-Example: 
+Example:
 
 ```elixir
 Enum.map(1..10_000_000, fn(x) -> x * x end)
@@ -12,6 +13,7 @@ Enum.map(1..10_000_000, fn(x) -> x * x end)
 What would happen in the above example? How might this be a problem?
 
 #### Lazy
+
 Operations are performed only at the last minute
 
 Instead of peforming the operations, it returns a precomputed function.
@@ -35,22 +37,22 @@ Stream.cycle([1, 2, 3])
 #Function<59.87278901/2 in Stream.unfold/2>
 ```
 
-Now looking at Stream.take, `take(enum, count)` - takes an enumerable and a count as arguments. It lazily takes the numbers of items from the enumerable equal to the count, and stops the enumeration. 
+Now looking at Stream.take, `take(enum, count)` - takes an enumerable and a count as arguments. It lazily takes the numbers of items from the enumerable equal to the count, and stops the enumeration.
 
-In this case 
+In this case
 ```elixir
 Stream.cycle([1, 2, 3])
 #Function<59.87278901/2 in Stream.unfold/2>
 Stream.cycle([1, 2, 3]) |> Stream.take(10) |> Enum.to_list
 ```
 
-It the stream would take the first 10 items. 
+It the stream would take the first 10 items.
 
 
-`Enum.to_list` will convert an enumerable to a list. 
+`Enum.to_list` will convert an enumerable to a list.
 
 
-If we took out the `take` function and just had the following - 
+If we took out the `take` function and just had the following -
 ```elixir
 Stream.cycle([1, 2, 3]) |> Enum.to_list
 ```
