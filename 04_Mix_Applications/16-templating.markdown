@@ -1,8 +1,14 @@
+---
+layout: page
+title: Templating
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Templating
 
 Elixir allows you to create template files to create views for your web application. EEX stands for embedded elixir and it works like ERB for Ruby or Jinja for Python.
 
-Let's create a `templates` directory 
+Let's create a `templates` directory
 
 ```bash
 mkdir templates
@@ -28,13 +34,13 @@ defmodule Myapp.Router do
 
   plug :match
 	plug :dispatch
-  
+
   plug Plug.Parsers, parsers: [:urlencoded, :multipart]
   plug Plug.Parsers, parsers: [:urlencoded, :json],
                    pass:  ["text/*"],
                    json_decoder: Poison
 
-                   
+
   def start_link() do
     {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
   end
@@ -55,9 +61,9 @@ defmodule Myapp.Router do
 end
 ```
 
-As we can see above, the `eval_file/3` function allows us to retrieve a file name, and evaluate the values using bindings. 
+As we can see above, the `eval_file/3` function allows us to retrieve a file name, and evaluate the values using bindings.
 
-We can then send that template back in a response to the client. 
+We can then send that template back in a response to the client.
 
 ### Interpolation
 

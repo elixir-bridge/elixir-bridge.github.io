@@ -1,9 +1,15 @@
+---
+layout: page
+title: Docker and the Dockerfile
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Dockerfile
 
 We are going to use docker to deploy our application. To do so we need to create a dockerfile
 
 Step 1: Dockerfile
-Make sure you are in your root app directory and type the following into the commad line. 
+Make sure you are in your root app directory and type the following into the commad line.
 
 ```bash
 touch dockerfile
@@ -19,7 +25,7 @@ Run the following in your terminal:
 eval $(docker-machine env elixir-experiment)
 ```
 
-This will connect your shell to your machine. 
+This will connect your shell to your machine.
 
 Copy and paste the following into your dockerfile:
 

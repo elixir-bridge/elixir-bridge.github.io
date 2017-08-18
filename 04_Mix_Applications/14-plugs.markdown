@@ -1,3 +1,9 @@
+---
+layout: page
+title: Plugs
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Plugs
 
 Notice that we are using the `Plug` module.
@@ -18,7 +24,7 @@ def hello_world_plug(conn, _opts) do
 end
 ```
 
-A module plug implements an init/1 function to initialize options, and a call/2 function which received the intialized options and the connection and returns a connection. 
+A module plug implements an init/1 function to initialize options, and a call/2 function which received the intialized options and the connection and returns a connection.
 
 ```elixir
 defmodule HelloWorldPlug do

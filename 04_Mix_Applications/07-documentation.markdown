@@ -1,3 +1,9 @@
+---
+layout: page
+title: Documentation
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Documentation
 
 Elixir makes documenting our code really straightforward.
@@ -6,7 +12,7 @@ Document a module using `@moduledoc `.
 Document function using `@doc`.
 Spec a function with `@spec`.
 
-Let's open our our `myapp.ex` file. Add add some documentation. 
+Let's open our our `myapp.ex` file. Add add some documentation.
 
 ```elixir
 defmodule Myapp do
@@ -28,12 +34,12 @@ defmodule Myapp do
 ```
 
 
-To actually add the documentation, we will use two packages `:earmark` and `:ex_doc`. 
+To actually add the documentation, we will use two packages `:earmark` and `:ex_doc`.
 [:earmark](https://hex.pm/packages/earmark) is a pure Elixir markdown converter.
 
 [:ex_doc](https://hex.pm/packages/ex_doc) is a documentation generation tool for Elixir.
 
-Let's add these dependencies to our Mix.exs file. It should now look like this. 
+Let's add these dependencies to our Mix.exs file. It should now look like this.
 
 defp deps do
     [

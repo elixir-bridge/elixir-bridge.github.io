@@ -1,3 +1,9 @@
+---
+layout: page
+title: Plug.Router
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Plug.Router
 
 We'll most often use the Plug.Router to match and dispatch requests.

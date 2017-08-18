@@ -1,3 +1,9 @@
+---
+layout: page
+title: Running docker
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Running Docker
 
 Now that are configuration is set up. Run the following from your command line:
@@ -6,7 +12,7 @@ Now that are configuration is set up. Run the following from your command line:
 docker run --rm -it -p 4000:4000 auser/elix /bin/bash
 ```
 
-It may take a few minutes to build. 
+It may take a few minutes to build.
 
 You should see something like the following as output at the end:
 ```bash
@@ -45,7 +51,7 @@ $ docker run --rm -it -p 4000:4000 auser/elix /bin/bash
 You will see the following output:
 
 ```bash
-root@36a75b685457:/build/_build/prod/rel/myapp# 
+root@36a75b685457:/build/_build/prod/rel/myapp#
 ```
 
 Hit `Ctl D` do exit.
@@ -64,24 +70,24 @@ The output should look something like:
 192.xxx.xxx.xx
 ```
 
-Now run 
+Now run
 ```bash
 docker run -p 4000:4000 auser/elix .
 ```
 
-Then run 
+Then run
 
 ```bash
 docker run --rm -it -p 4000:4000 auser/elix /bin/bash
 ```
 
-Then 
+Then
 
 ```
 docker run -p 4000:4000 auser/elix
 ```
 
-In your browser go to `your-docker-machine-ip:4000`. 
+In your browser go to `your-docker-machine-ip:4000`.
 The web address will look like: `192.xxx.xxx.xxx:4000`
 
 You should see `Not found` printed on the screen.

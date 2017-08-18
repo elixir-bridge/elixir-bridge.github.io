@@ -1,3 +1,9 @@
+---
+layout: page
+title: Deployment
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Deployment
 
 For deployment we will use [distillery](https://hex.pm/packages/distillery). It builds releases of your mix projects.
@@ -14,7 +20,7 @@ defp deps do
 end
 
 
-Our dependencies should now look like this - 
+Our dependencies should now look like this -
 
 ```elixir
  defp deps do
@@ -30,7 +36,7 @@ We'll run our `mix deps.get` command to retrieve our dependencies.
 
 ### Configure Distillery
 
-To configure distillery we'll run the following command - 
+To configure distillery we'll run the following command -
 
 ```elixir
 mix release.init

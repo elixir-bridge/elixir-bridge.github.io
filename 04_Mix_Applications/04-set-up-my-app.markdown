@@ -1,3 +1,9 @@
+---
+layout: page
+title: Our first application
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Set up Myapp
 
 Remember the keyword `use`. We'll use it to add functionality to the `Myapp` module.

@@ -1,3 +1,9 @@
+---
+layout: page
+title: Router
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Router
 
 Now We are going to create a router that will route requests coming into our application.

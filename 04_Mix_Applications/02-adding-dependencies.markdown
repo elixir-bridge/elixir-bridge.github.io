@@ -1,3 +1,9 @@
+---
+layout: page
+title: Adding dependencies
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Adding Dependencies
 
 Let's add a dependency. We'll use a package called [cowboy](https://github.com/ninenines/cowboy), an HTTP server for erlang/elixir and one called [plug](https://github.com/elixir-lang/plug), a specification tool and connection adapter for web servers.
@@ -5,7 +11,7 @@ Let's add a dependency. We'll use a package called [cowboy](https://github.com/n
 
 Let's open up our Mixfile an add our dependenices.  But first let's look up the latest version for each dependency
 
-Type the function 
+Type the function
 
 ```elixir
 mix hex.info cowboy
@@ -23,7 +29,7 @@ defmodule Myapp.Mixfile do
 end
 ```
 
-How do we figure out what version to use? The command `mix hex.info #{dependency}` will get info from the central package repo, called hex. 
+How do we figure out what version to use? The command `mix hex.info #{dependency}` will get info from the central package repo, called hex.
 
 ```bash
 $ mix hex.info cowboy
@@ -72,7 +78,7 @@ Dependency resolution completed:
   Fetched package
 ```
 
-You'll see that it fetches your dependencies, and also the packages that they depend on. 
+You'll see that it fetches your dependencies, and also the packages that they depend on.
 
 ## Running Dependencies
 
@@ -85,4 +91,4 @@ def application do
 end
 ```
 
-Now, when the application is started, it will also start `:cowboy` and `:plug`. 
+Now, when the application is started, it will also start `:cowboy` and `:plug`.

@@ -1,3 +1,9 @@
+---
+layout: page
+title: Interacting with iex
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Interacting in iex
 
 We can start the app with the command `iex -S mix`. This will start our app with iex.
@@ -19,7 +25,7 @@ Generated plug app
 Compiling 1 file (.ex)
 Generated myapp app
 Interactive Elixir (1.4.2) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> 
+iex(1)>
 ```
 
 

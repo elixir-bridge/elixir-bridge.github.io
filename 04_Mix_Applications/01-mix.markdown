@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Modules
+title: Mix
 date: 2016-10-1 13:38:30 -0700
 ---
 
@@ -45,7 +45,7 @@ Run "mix help" for more commands.
 
 If we open our app in an editor we will see the `Mix.exs` file in the root directory. This file contains the project information/build instructions for our app.
 
- It will look something like this. 
+ It will look something like this.
 
 ```elixir
 defmodule Myapp.Mixfile do
@@ -83,7 +83,7 @@ defmodule Myapp.Mixfile do
 end
 ```
 
-`def project` defines what is needed in order for your application to compile. 
+`def project` defines what is needed in order for your application to compile.
 
 `def application` defines what is needed for your application to run.
 

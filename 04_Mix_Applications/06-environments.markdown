@@ -1,3 +1,9 @@
+---
+layout: page
+title: Environments
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Environments
 
 We will have 3 different enivronments in our application:

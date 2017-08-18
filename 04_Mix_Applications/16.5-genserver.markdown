@@ -1,13 +1,19 @@
+---
+layout: page
+title: GenServer
+date: 2016-10-1 13:38:30 -0700
+---
+
 ### GenServer
 One of the benefits of using Elixir is its asynchronous nature by default. We can demonstrate this by making calls to an external api.
 
-We are going to create a module in the lib directory of our application called `api_handler.ex`. It will be a handler for external api calls. 
+We are going to create a module in the lib directory of our application called `api_handler.ex`. It will be a handler for external api calls.
 
-We are going to spin off a process that will ask to make calls to an external api, which will allow us to handle api calls in a non-blocking way - so tha tour application is free to continue answering http requests.  This feature allows elixir to be fast and non-blocking. 
+We are going to spin off a process that will ask to make calls to an external api, which will allow us to handle api calls in a non-blocking way - so tha tour application is free to continue answering http requests.  This feature allows elixir to be fast and non-blocking.
 
 Because this pattern is so common in Erlang, the OTP library provides an interface called `GenServer`.
-In Elixir we will create a module that implements this behavior. 
- 
+In Elixir we will create a module that implements this behavior.
+
 
 In our lib directory lets create a file called  `api_handler.ex`. Inside this file let's define a module named `Myapp.ApiHandler`.
 
@@ -15,9 +21,9 @@ In our lib directory lets create a file called  `api_handler.ex`. Inside this fi
 defmodule Myapp.ApiServer do
   use GenServer
 end
-``` 
+```
 
-The GenServer behavior requires us to define functions for handling callbacks. The callbacks that we will be implementing are 
+The GenServer behavior requires us to define functions for handling callbacks. The callbacks that we will be implementing are
 
 * init/1
 * handle_call/3
@@ -38,72 +44,72 @@ defmodule Myapp.ApiServer do
     :ok
   end
 end
-``` 
+```
 
 A GenServer is a process that listens for messages. We can send 3 different types of messages to our GenServer process.
 
-The most basic message is using native Erlang message passing. When the GenServer receives a message in this way the `handle_info/2` callback is called. 
+The most basic message is using native Erlang message passing. When the GenServer receives a message in this way the `handle_info/2` callback is called.
 
 ```elixir
 defmodule Myapp.ApiServer do
   use GenServer
- 
-  def handle_info(term, state) do 
+
+  def handle_info(term, state) do
     {:noreply, state}
   end
 end
-``` 
+```
 
-We can send a message to the GenServer and wait for a response. In this case the `handle_call/3` function will receive the message. 
+We can send a message to the GenServer and wait for a response. In this case the `handle_call/3` function will receive the message.
 
 ```elixir
 defmodule Myapp.ApiServer do
   use GenServer
- 
-  def handle_call(request, from, state) do 
+
+  def handle_call(request, from, state) do
     {:reply, response, state}
   end
 end
-``` 
+```
 
-Finally, we can send a message and not wait for a response. GenServer will call the `handle_cast/2` callback to handle these messages. 
+Finally, we can send a message and not wait for a response. GenServer will call the `handle_cast/2` callback to handle these messages.
 
 ```elixir
 defmodule Myapp.ApiServer do
   use GenServer
- 
-  def handle_cast(request, state) do 
+
+  def handle_cast(request, state) do
     {:noreply, state}
   end
 end
-``` 
+```
 
-Notice in each of these functions we have this variable called state. We can keep state of the module using this variable. We are not going to keep track of any state in our module, however know that this functionality is available. 
+Notice in each of these functions we have this variable called state. We can keep state of the module using this variable. We are not going to keep track of any state in our module, however know that this functionality is available.
 
-So let's implement our module. We will focus on calls. 
+So let's implement our module. We will focus on calls.
 
-To call our GenServer we will use the `GenServer.call/2` function.  
+To call our GenServer we will use the `GenServer.call/2` function.
 
-Let's add a function called `get_pokemon/1` to call our GenServer to retreive a pokemon. 
+Let's add a function called `get_pokemon/1` to call our GenServer to retreive a pokemon.
 
 
 ```elixir
 defmodule Myapp.ApiServer do
   use GenServer
- 
+
   def get_pokemon(id_or_name) do
     GenServer.call(__MODULE__, {:get_poke, id_or_name})
   end
 end
-``` 
+```
 
-Notice that when we call the GenServer we are sending a tuple. We can use pattern matching in our `handle_call/3` callback to handle this message. 
+Notice that when we call the GenServer we are sending a tuple. We can use pattern matching in our `handle_call/3` callback to handle this message.
 
 
 ```elixir
 defmodule Myapp.ApiServer do
   use GenServer
- 
+
   def handle_call({:get_poke, id_or_name}, _pid, state) do
     {:ok, response} = get_poke_request(id_or_name)
     {:reply, response, state}
@@ -113,11 +119,11 @@ defmodule Myapp.ApiServer do
     {:reply, [], state}
   end
 end
-``` 
+```
 
-So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_poke_request/1` method. 
+So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_poke_request/1` method.
 
-But first let's add the required dependencies to our `mix.exs` file. 
+But first let's add the required dependencies to our `mix.exs` file.
 
 ```elixir
 defp deps do
@@ -137,7 +143,7 @@ Let's fetch our dependencies by calling `mix deps.get`. Now let's implement our 
 ```elixir
 defmodule Myapp.ApiHandler do
   use GenServer
- 
+
   def get_poke_request(id_or_name) do
     url = api_route("pokemon/#{id_or_name}/")
 
@@ -159,11 +165,11 @@ defmodule Myapp.ApiHandler do
 end
 ```
 
-We'll start the GenServer process with out supervisor we implemented previously. 
+We'll start the GenServer process with out supervisor we implemented previously.
 
-The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree. 
+The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree.
 
-Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiServer as a child in our supervision tree. 
+Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiServer as a child in our supervision tree.
 
 Add the following line to our list of children:
 
@@ -179,7 +185,7 @@ children = [
       worker(Myapp.Router, []),
       worker(Myapp.ApiHandler, []),
     ]
-``` 
+```
 
 When our app is started it will start our ApiHandler as a child process.
 
@@ -195,19 +201,19 @@ defmodule Myapp.Router do
 
    # ...
   end
-end  
+end
 ```
 
-Now we have a non-blocking GenServer that calls an external api in an efficient way. 
+Now we have a non-blocking GenServer that calls an external api in an efficient way.
 
 The last thing we want to call out is that we want to register our GenServer with the Erlang name server.
 
-We will do this with the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.  
+We will do this with the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.
 
 ```elixir
 defmodule Myapp.ApiHandler do
   use GenServer
- 
+
   def start_link(default) do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end

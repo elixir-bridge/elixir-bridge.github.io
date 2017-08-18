@@ -1,8 +1,14 @@
+---
+layout: page
+title: Testing
+date: 2016-10-1 13:38:30 -0700
+---
+
 ## Testing
 
-Elixir makes testing really Easy. `ExUnit` is built into to every mix app. 
+Elixir makes testing really Easy. `ExUnit` is built into to every mix app.
 
-Let's run `mix test` in our app and see what we get. 
+Let's run `mix test` in our app and see what we get.
 
 ```bash
 $ mix test
