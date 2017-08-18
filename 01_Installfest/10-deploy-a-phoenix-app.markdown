@@ -190,7 +190,7 @@ config :test_app, TestApp.Repo,
 
 The last thing we need to do is decrease the timeout for websocket Transport.
 
-Open `web/channels/user_socket.ex`
+Open `lib/test_app_web/channels/user_socket.ex`
 
 Under '##Transports`
 
