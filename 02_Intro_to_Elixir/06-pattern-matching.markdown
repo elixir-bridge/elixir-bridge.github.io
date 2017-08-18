@@ -7,9 +7,6 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Pattern matching
 
-_Teaching Notes  - It may be useful to treat variable binding like assignment in the context of this curriculum - given that it is an easier concept to comprehend and explain_
-
-
 One of the more powerful ideas in Elixir is using pattern matching. In Elixir the `=` acts as the match operator.
 The term on the right matches the pattern on the left. If there is a match we return the value of the patern, otherwise we get an error. Lets look at an example
 
@@ -52,7 +49,7 @@ list = [1,2,3]
 
 The variable `list` is now bound to the term `[1,2,3]`.
 
-You can use more complex patterns for when you just want part if a data structure. Let's take a look the following example. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
+You can use more complex patterns for when you just want to match part of a data structure. To handle these concepts, Elixir allows us to break up lists by their placement. Type the following into `iex`:
 
 ```elixir
 iex> [a, b, c] = [1, 2, 3]
@@ -82,15 +79,19 @@ Remember when we looked at the `head` and `tail` of the list? This was pattern m
  Elixir gives us the `[first_item|remaining_items]` pattern, where the `first_item` gives us the first item in the list, and the `remaining_items` is a sub-list with the remaining items. Those variables can be any name you want; the pipe (`|`) is what makes the pattern work. Try it out:
 
 ```elixir
-iex> [ head | tail] = [1, 2, 3] # [1, 2, 3]
-iex> head # 1
-iex> tail # [2, 3]
+iex> [ head | tail] = [1, 2, 3]
+[1, 2, 3]
+iex> head
+1
+iex> tail
+[2, 3]
 ```
 
 You can also add to the beginning of a list this way. Try the following:
 
 ```elixir
-iex> [1 | [2, 3]] # [1, 2, 3]
+iex> [1 | [2, 3]]
+[1, 2, 3]
 ```
 
 ### Ignoring Values
@@ -99,7 +100,8 @@ If we are only interested in a single value in a pattern, we'll use the `_` nota
 
 ```elixir
 iex> [head | _] = [1, 2, 3]
-iex> head # 1
+iex> head
+1
 ```
 
 ### Pattern Matching with Tuples
@@ -108,8 +110,10 @@ Lists aren't the only data structure that allows us to pattern match. Tuples are
 
 ```elixir
 iex> {a, b, c} = {:hello, "world", 42}
-iex> a # :hello
-iex> c # 42
+iex> a
+:hello
+iex> c
+42
 ```
 
 This works as the tuples are the same size. We'll get a `MatchError` if the size of the tuples are different. Type the following:
@@ -118,7 +122,7 @@ This works as the tuples are the same size. We'll get a `MatchError` if the size
 iex> {a, b, c} = {:ok, "hello"}
 ```
 
-What happened? You should have seen something like the following:
+What happened? You should have seen something like:
 
 ```elixir
 iex(5)> {a, b, c} = {:ok, "hello"}
@@ -131,8 +135,10 @@ We'll also use pattern matching to match on specific values of a tuple. Try the 
 
 ```elixir
 iex> {:ok, msg} = {:ok, "hello"}
-iex> msg # "Hello world"
+iex> msg
+"Hello world"
 ```
+
 This is incredibly useful for checking results of functions; many libraries allow you to deal with errors this way. In this example, we use a case statement to match the result of a web request. We'll talk more about `case` when we talk about control structures.
 
 ```elixir

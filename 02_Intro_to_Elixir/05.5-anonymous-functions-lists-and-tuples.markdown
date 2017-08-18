@@ -16,7 +16,7 @@ This may look exactly like an array if you are familiar with Ruby or Javascript,
 
 Lists in Elixir are created by surrounding a list of values with brackets `[]`. Try creating a list in the console by typing `[1, 2, 3]`.
 
-Lists don't need to contain only one type. They can hold on to multiple different types in the same list. 
+Lists don't need to contain only one type. They can hold on to multiple different types in the same list.
 
 ```elixir
 [1, 2, 3]
@@ -46,9 +46,9 @@ We often will want to figure out the first item in a list
 ```elixir
 [h | tail] = [1, 2, 3]
 ```
-Notice we have a list with two variables on the left. The `h` variable will match to the first value on the right. `tail` will hold the rest of the values in the list. 
+Notice we have a list with two variables on the left. The `h` variable will match to the first value on the right. `tail` will hold the rest of the values in the list.
 
-Try typing the following into the command line: 
+Try typing the following into the command line:
 
 ```elixir
 [h | tail] = [1, 2, 3]
@@ -62,7 +62,7 @@ iex> h
 1
 ```
 
-If we type in `tail` - we should see the rest of the list. 
+If we type in `tail` - we should see the rest of the list.
 
 ```elixir
 iex> tail
@@ -73,26 +73,26 @@ iex> tail
 
 Try adding and removing items from lists.
 
-Adding lists 
- To concantenate list we use  the `++` operator. 
+Adding lists
+ To concantenate list we use  the `++` operator.
 
   ```elixir
- [1] ++ [2] # [1, 2] 
+ [1] ++ [2] # [1, 2]
  ```
 
 
 Type the following:
 
 ```elixir
-iex> [1] ++ [2] # [1, 2] 
+iex> [1] ++ [2] # [1, 2]
 ```
-### Subtracting Lists 
+### Subtracting Lists
 
 Let's take a look
 
 [1, 2, 3] -- [2] # [1, 3]
 
-If we have duplicate values we want to remove like so: 
+If we have duplicate values we want to remove like so:
 
 It will only remove one of the duplicates
 
@@ -116,8 +116,10 @@ If we want to retrieve the first element in the tuple which is located at index 
 Type the following into the console:
 
 ```elixir
-iex> elem({:ok, "hello"}, 0) # :ok
+iex> elem({:ok, "hello"}, 0)
+:ok
 ```
+
 As you can see, the function returns `:ok`.
 
 We can check the size of a tuple using the `tuple_size/1` function:
@@ -125,7 +127,8 @@ We can check the size of a tuple using the `tuple_size/1` function:
 Type the following:
 
 ```elixir
-iex> tuple_size({:ok, "hello"}) # 2
+iex> tuple_size({:ok, "hello"})
+2
 ```
 
 And we can replace elements in a tuple by using the `put_elem/3` function, which takes the tuple, the argument, and the value:
@@ -134,6 +137,7 @@ Type the following:
 
 ```elixir
 iex> put_elem({:ok, "hello"}, 1, "world")
+{:ok, "world"}
 ```
 
 ### Tuples vs Lists?

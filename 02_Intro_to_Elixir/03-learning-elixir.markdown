@@ -79,9 +79,9 @@ There are many other helpers available:
 
 In this section, we'll be using a few notations it's good to know about before we start.
 
-If you see the notation of of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity).
+If you see the notation of a name followed by a `/` and number, this indicates a function and it's number of arguments (arity). For example:
 
-* `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument
+* `is_integer/1` - indicates a function called `is_integer` that accepts `1` argument.
 
 Newer versions of IEx have implemented the h/1 command. 'h' is a quick access to the docs. Let's try it with the `Integer.to_string`:
 
@@ -114,7 +114,7 @@ Inlined by the compiler.
 * So as you can see, the `h` method shows you the arguments the function takes and examples of how it is used.
 In this case `Integer.to_string` takes an integer and returns a string.
 
-* There is a second function defined by Integer.to_string defined in the docs. But we won't worry about that for now.
+* There is a second function defined by `Integer.to_string` defined in the docs but we won't worry about that for now.
 
 To exit the `iex` prompt, press `Ctrl+c` twice.
 
@@ -122,7 +122,7 @@ To exit the `iex` prompt, press `Ctrl+c` twice.
 
 It's always a great idea to be able to look through documentation when you have a question. Using documentation is often overlooked as a skill and thus, we propose it's a great idea to start with documentation from the beginning.
 
-The official documentation can be found on the [elixir docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the docs, which can be found on the elixir docs page above and is also available at [http://elixir-lang.org/docs/stable/elixir/Kernel.html](http://elixir-lang.org/docs/stable/elixir/Kernel.html).
+The official documentation can be found on the [elixir-lang docs](http://elixir-lang.org/docs.html) page. We'll be using the latest _stable_ version of the Elixir documenation which is available at [https://hexdocs.pm/elixir/](https://hexdocs.pm/elixir/).
 
 
 ## Loading Files

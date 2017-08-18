@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mac OSx setup
+title: Mac OSX setup
 date: 2016-09-24 12:28:28 -0700
 ---
 
@@ -131,6 +131,5 @@ createuser -s postgres
 Next type this into the terminal:
 
 ```
-launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-
+brew services start postgresql
 ```

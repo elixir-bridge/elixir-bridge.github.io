@@ -190,7 +190,7 @@ config :test_app, TestApp.Repo,
 
 The last thing we need to do is decrease the timeout for websocket Transport.
 
-Open `web/channels/user_socket.ex`
+Open `lib/test_app_web/channels/user_socket.ex`
 
 Under '##Transports`
 
@@ -214,7 +214,7 @@ In your terminal make sure you are in your test_app directory.
 Then type:
 
 ```
-touch Procfile.txt
+touch Procfile
 
 ```
 
@@ -279,7 +279,7 @@ SECRET_KEY_BASE: your-secret-key
 If you need to make any of your config variables available at compile time, you will need to explicitly define which ones in a configuration file.
 Create a file elixir_buildpack.config in your application's root directory and add a line like: config_vars_to_export=(MY_VAR) [See more](https://github.com/HashNuke/heroku-buildpack-elixir#specifying-config-vars-to-export-at-compile-time)
 
-Next open up your 'Prod.exs file'
+Next open up your `prod.exs` file
 
 There should be a section towards the bottom of the file that looks like this
 
@@ -300,5 +300,5 @@ make sure that the name after 'config' is the name of your app,
 it should look like this
 
 ```
-config :your-app-name, TestApp.repo
+config :test_app, TestApp.repo
 ```

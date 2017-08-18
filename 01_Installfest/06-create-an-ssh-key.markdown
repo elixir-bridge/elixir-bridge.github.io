@@ -109,4 +109,4 @@ For Linux:
 eval `ssh-agent`
 ```
 
-For additional options, this [StackOverflow thread](http://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent) has been helpful:
+For additional options, this [StackOverflow thread](http://stackoverflow.com/questions/17846529/could-not-open-a-connection-to-your-authentication-agent) has been helpful.

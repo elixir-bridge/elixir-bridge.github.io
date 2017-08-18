@@ -41,17 +41,17 @@ in the first empty field create a new variable called
 
 'NEW_DATABASE_URL'
 
-Then take a look at your database url, but clicking on the pencil icon next to it. It should look something like
+Then take a look at the value in your DATABASE_URL variable, by clicking on the pencil icon next to it. It should look something like
 
 ```shell
 postgres://xxxxxxxxxxxxxxx@xxxxxxxxx.amazonaws.com:5432/xxxxxxx
 ```
 
-Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL. 
+Copy the portion after the @ sign through amazon.com and paste it as the value for the NEW_DATABASE_URL.
 
 So it will be something like `abedsd.amazonaws.com.`
 
-Then in the next blank field under the var settings type in `USERNAME' on the right. Then take another look at your database url.
+Then in the next blank field under the var settings type in `USERNAME` on the right. Then take another look at your database url.
 
 For example this database url look like so
 
@@ -72,12 +72,15 @@ It should look like this
 
 ![heroku-database-username](/assets/heroku-db-username.png)
 
-Do the same for password. Create a Variable called password. and then copy the password from the correct portion of the database url
+Do the same for password. Create a Variable called `PASSWORD`. and then copy the password from the correct portion of the database url
 ```
 postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/databse
 ```
 
-Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the database to set as the value/
+Do the same again for database. Create a Variable called `DATABASE` and copy the value from the end of the DATABASE URL. Here is an example -
+```
+postgres://username:password@12-245-123-12compute-1.amazonaws.com:5432/database
+```
 
 Your config should look something like this
 ![heroku config](/assets/heroku-config1.png)
@@ -113,7 +116,7 @@ Let's commit all our changes. Copy each of the lines below into your terminal on
 ```bash
 git add config/prod.exs
 git add Procfile.txt
-git add web/channels/user_socket.ex
+git add lib/test_app_web/channels/user_socket.ex
 git commit -m "Use production config from Heroku ENV variables and deploy environment"
 ```
 
