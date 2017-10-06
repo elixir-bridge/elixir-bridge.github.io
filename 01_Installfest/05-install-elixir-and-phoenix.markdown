@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Install Elixr and Phoenix
+title: Install Elixir and Phoenix
 date: 2016-09-24 12:28:28 -0700
 ---
 
