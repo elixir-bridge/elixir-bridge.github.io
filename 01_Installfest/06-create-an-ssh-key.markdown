@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Create an SSH Key
-date: 2016-09-24 12:28:28 -0700
+date: 2017-10-16 00:08:28 -0700
 ---
 
 
@@ -12,22 +12,21 @@ An SSH key uniquely identifies you (and your computer) when your computer is com
 
 #### Step 10.1: Check for an existing key
 
-Let's see if you have a pre-exisiting SSH key on your computer
-
-Type this in the terminal:
+Let's see if you have a pre-existing SSH key on your computer - you might have one from a previous RailsBridge or ElixirBridge workshop you have been to. Type this in the terminal:
 
 ```
 ls ~/.ssh/id_rsa
 ```
-If you see `No such file or directory` you don't have one.
+If you see the message `No such file or directory`, you don't have one.
 
-Continue to Generate an SSH key
+Continue to [Generate an SSH key](#generate-an-ssh-key)
 
-Otherwise skip ahead to Create a Heroku Account
+Otherwise skip ahead to the next chapter, **Create a Heroku Account**
 
 #### Step 10.2: Generate an SSH Key
 
-**Use the same email address for Heroku, git, GitHub, and ssh.**
+{:.message.important.vertical-centerer}
+  Use the same email address below for Heroku, git, GitHub, and ssh.
 
 Type this in the terminal:
 
@@ -38,15 +37,15 @@ ssh-keygen -C your_email@example.com -t rsa
 
 Press enter to accept the default key save location.
 
-Next you'll be asked for a passphrase
+Next you'll be asked for a passphrase.
 
 ##### Option 1: No passphrase
-Hit enter to accept blank passphrase, then hit enter again.
+Hit enter to accept a blank passphrase, then hit enter again.
 
 ##### Option 2: Passphrase
 If your computer is shared with other people, as in a work laptop, you should choose and enter a real passphrase. Twice.
 
-After the key generation is complete- your output should look like this -
+After the key generation is complete, your output should look like this:
 
 ```text
 Generating public/private rsa key pair.
@@ -62,15 +61,14 @@ The key fingerprint is:
 
 #### Step 10.3: Verify
 
-Your brand-new public key is now stored at ~/.ssh/id_rsa.pub
+Your brand-new public key is now stored at `~/.ssh/id_rsa.pub`
 
 ##### Public vs. Private Keys
 
-If you look inside ~/.ssh/, you will notice two files with the same name: id_rsa and id_rsa.pub.
+If you look inside `~/.ssh/`, you will notice two files with the same name: `id_rsa` and `id_rsa.pub`.
 
-id_rsa.pub is your **public key** and can be shared freely.
-
-id_rsa is your **private key** and must be kept secret.
+* `id_rsa.pub` is your **public key** and can be shared freely.
+* `id_rsa` is your **private key** and must be kept secret.
 
 Add your generated public key to the authentication agent using the following command:
 
@@ -87,9 +85,16 @@ Enter passphrase for /Users/student/.ssh/id_rsa:
 Identity added: /Users/student/.ssh/id_rsa (/Users/student/.ssh/id_rsa)"
 ```
 
-Could not open a connection to your authentication agent
+If you did not see any errors, you can skip to the next chapter.
 
-If the ssh-agent is not running, you will come across this error. Here are a few commands that you can try to use to start the ssh-agent:
+If you saw this error:
+
+```
+Could not open a connection to your authentication agent
+```
+
+
+it's possible your ssh-agent is not running. Here are a few commands that you can try to use to start the ssh-agent:
 
 For some Windows machines:
 
