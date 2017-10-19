@@ -8,7 +8,7 @@ date: 2016-09-24 12:28:28 -0700
 
 #### Step 1: Visit the Heroku web site
 
-(http://heroku.com)[http://heroku.com]
+[http://heroku.com](http://heroku.com)
 
 #### Step 2: Create an Account
 
