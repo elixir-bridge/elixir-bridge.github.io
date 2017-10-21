@@ -34,7 +34,7 @@ To check that Elixir is installed correctly:
 
 `elixir -v`
 
-You should see:
+You should see a version number greater than 1.5, like this:
 
 `Elixir 1.5.1`
 

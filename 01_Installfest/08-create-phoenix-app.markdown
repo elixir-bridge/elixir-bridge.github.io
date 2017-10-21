@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Create a Phoenix App
-date: 2016-09-24 12:28:28 -0700
+date: 2017-10-16 00:08:28 -0700
 ---
 
 ### Step 1: Change to your home directory
@@ -22,13 +22,11 @@ To keep things organized, we'll want all of the elixirbridge files in their own 
 ```
 mkdir elixirbridge
 ```
-`mkdir` stands for make directory (folder).
 
-We've made a folder called elixirbridge.
+`mkdir` stands for make directory (folder). We've now made a folder called `elixirbridge`.
 
 ### Step 3:
-Change to your new elixirbridge directory
-Type this in the terminal:
+Change to your new `elixirbridge` directory. Type this in the terminal:
 
 ```
 cd elixirbridge
@@ -65,8 +63,7 @@ You should see something like this in your terminal:
 /usr/local/bin/npm
 ```
 
-If you do see this, move on to the next step.
-Otherwise type the following into your terminal:
+If you do see this, move on to Step 7: [Create the Database](#create-database). Otherwise, type the following into your terminal:
 
 ```
 brew install node
@@ -90,7 +87,7 @@ cd assets && npm install && node node_modules/brunch/bin/brunch build
 cd ../
 ```
 
-#### Create the database
+### Step 7: Create the database
 
 Type this in a terminal:
 
@@ -103,16 +100,15 @@ Then, type this in a terminal:
 mix phx.server
 ```
 
-If phoenix server starts up with no errors, you're golden! It'll look something like this:
+If the Phoenix server starts up with no errors, you're golden! It'll look something like this:
 
 ```
 [info] Running TestApp.Endpoint with Cowboy using http://localhost:4000
 21 Aug 13:06:41 - info: compiled 6 files into 2 files, copied 3 in 958ms
 ```
 
-In your browser, open [localhost:4000](http://localhost:4000). You should see a page Like this:
+In your browser, open [localhost:4000](http://localhost:4000). You should see a page like this:
 
 ![](/assets/welcome-to-phoenix.png)
 
-
-Hit `Ctrl c` twice to stop the server
+Hit `Ctrl c` **twice** to stop the server.
