@@ -7,6 +7,12 @@ date: 2016-09-24 12:28:28 -0700
 
 ### Step 6: Install Elixir
 
+You can either install elixir with asdf or brew. We recommend asdf, but either approach will be sufficient.
+
+### asdf
+
+For asdf follow the setup insructions here - [https://github.com/asdf-vm/asdf](https://github.com/asdf-vm/asdf)
+
 #### Homebrew
 
 Before installing anything with homebrew, always update to latest,
@@ -26,7 +32,11 @@ Alternately, you may install using Macports, by typing this in the terminal:
 
 #### Windows installation
 
-Navigate to [http://elixir-lang.org/install.html#windows](http://elixir-lang.org/install.html#windows) and find the web installer. Download it and accept the defaults. This will take a little bit of time as it needs to download the installation files.
+Navigate to [https://chocolatey.org/install](https://chocolatey.org/install). 
+
+Install the chocolatey package. 
+
+Then install elixir. Follow the instructions here: [https://chocolatey.org/packages/Elixir](https://chocolatey.org/packages/Elixir)
 
 #### Check Your Installation
 
@@ -34,10 +44,11 @@ To check that Elixir is installed correctly:
 
 `elixir -v`
 
-You should see:
+You should see something similar to :
 
 `Elixir 1.5.1`
 
+Anything about 1.5 is fine.
 ### Step 7: Install Hex
 
 Type this in the terminal:
