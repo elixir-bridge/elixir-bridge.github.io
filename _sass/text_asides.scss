@@ -1,0 +1,21 @@
+.vertical-centerer {
+  display: table;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+}
+
+.important {
+  background-color: #FFEBDD;
+  border: solid 5px #E65D00;
+  border-radius: 4px;
+  min-height: 43px;
+}
+
+.important, .tip {
+  padding: .5em 1em;
+  margin: 1em 0;
+}
+
+
+ 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Install Elixr and Phoenix
+title: Install Elixir and Phoenix
 date: 2016-09-24 12:28:28 -0700
 ---
 
@@ -44,11 +44,12 @@ To check that Elixir is installed correctly:
 
 `elixir -v`
 
-You should see something similar to :
+You should see a version number greater than 1.5, like this:
 
 `Elixir 1.5.1`
 
-Anything about 1.5 is fine.
+Anything above 1.5 is fine.
+
 ### Step 7: Install Hex
 
 Type this in the terminal:

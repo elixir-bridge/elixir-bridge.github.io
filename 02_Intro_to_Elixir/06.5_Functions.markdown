@@ -74,7 +74,7 @@ defp add(a, b) do
 end
 ```
 
-### Pattern Mathching with Functions.
+### Pattern Matching with Functions.
 
 Pattern matching becomes very useful when we use it with functions.
 

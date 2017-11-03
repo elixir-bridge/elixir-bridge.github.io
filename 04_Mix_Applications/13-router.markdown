@@ -12,7 +12,7 @@ Let's create a `router.ex` file in our `lib` directory in our applicaiton.
 
 Type the following into that file:
 
-``elixir
+```elixir
 defmodule Myapp.Router do
   use Plug.Router
   plug :match
