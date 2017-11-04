@@ -27,10 +27,9 @@ defmodule Myapp do
 end
 ```
 
-When our supervsior starts, it looks for 
 When our supervisor starts it will call a function `start_link`. This function takes two arguments - a list of tuples, and a stratgey for how to restart child processes when they fail. Each tuple contains the name of the Child Process, and any intial arguments that will get passed into the start_link function of that respective module. 
 
-The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started, stopped, and restarted. Usually this is with a `start_link/1` function. 
+The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started, stopped, and restarted. Usually this is with a `start_link/1` function. We will look at the `child_spec` soon.
 
 In the `options` argument, we also need to specify a strategy. This tells the supervisor what to do if a child process fails.
 
