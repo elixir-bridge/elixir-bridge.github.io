@@ -12,11 +12,22 @@ Let's create a `router.ex` file in our `lib` directory in our applicaiton.
 
 Type the following into that file:
 
+
 ```elixir
 defmodule Myapp.Router do
   use Plug.Router
   plug :match
   plug :dispatch
+
+  def child_spec(_opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end 
 
   def start_link() do
     {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
@@ -25,7 +36,6 @@ defmodule Myapp.Router do
   match _ do
     conn
       |> send_resp(404, "Not found")
-      |> halt
   end
 end
 ```

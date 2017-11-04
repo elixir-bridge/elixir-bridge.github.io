@@ -51,7 +51,7 @@ A GenServer is a process that listens for messages. We can send 3 different type
 The most basic message is using native Erlang message passing. When the GenServer receives a message in this way the `handle_info/2` callback is called.
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 
   def handle_info(term, state) do
@@ -138,6 +138,8 @@ defp deps do
 end
 ```
 
+HTTPoison is an http client for elixir. Poison is a json library for elixir
+
 Let's fetch our dependencies by calling `mix deps.get`. Now let's implement our `get_poke_request/1` method.
 
 ```elixir
@@ -146,17 +148,12 @@ defmodule Myapp.ApiHandler do
 
   def get_poke_request(id_or_name) do
     url = api_route("pokemon/#{id_or_name}/")
-
     case HTTPoison.get(url, [], []) do
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
       {:ok, %HTTPoison.Response{body: body}} ->
-        {:ok, process(body)}
+        {:ok, body }
     end
-  end
-
-  defp process(body) do
-    body |> Poison.decode!
   end
 
   defp api_route(path) do
@@ -173,18 +170,12 @@ Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex
 
 Add the following line to our list of children:
 
-```elixir
-worker(Myapp.ApiHandler, []),
-```
-
 Our list of chidren should now look like this now:
 
 ```elixir
-children = [
-      # Looks for .start_link()
-      worker(Myapp.Router, []),
-      worker(Myapp.ApiHandler, []),
-    ]
+def start(_type, _args) do
+    Supervisor.start_link([{NewApp.Router, []}, {NewApp.ApiHandler, []}, strategy: :one_for_one)
+  end
 ```
 
 When our app is started it will start our ApiHandler as a child process.
@@ -193,14 +184,16 @@ Now we can call our `get_poke_request/1` function from our router.
 
 ```elixir
 defmodule Myapp.Router do
-  use Plug.Router
-  get "/:name" do
-    conn = Plug.Conn.fetch_query_params(conn)
-    name = conn.params["name"] || 1
-    pokemon = Myapp.ApiServer.get_pokemon(name)
-
-   # ...
-  end
+  use Plug.
+  
+  get("/:name") do
+    query_params = Plug.Conn.fetch_query_params(conn)
+    name =  query_params.params["name"] || 1
+    pokemon = NewApp.ApiServer.get_pokemon(name)
+    conn
+      |> put_resp_content_type("application/json")
+      |> send_resp(200, pokemon)
+  end  
 end
 ```
 
@@ -223,62 +216,63 @@ end
 The complete `ApiHandler` module looks like this:
 
 ```elixir
-defmodule Myapp.ApiHandler do
+defmodule NewApp.ApiHandler do 
   use GenServer
 
-  require Poison
-  require HTTPoison
-
-  def init(_) do
-    {:ok, []}
+  def init(args) do
+    {:ok, args}  
   end
 
-  @doc """
+  def start_link(_) do 
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)    
+  end  
+
+   @doc """
   A method for calling the pokemon api
   """
   def get_pokemon(id_or_name) do
     GenServer.call(__MODULE__, {:get_poke, id_or_name})
   end
 
-  def start_link, do: start_link([], [])
-  def start_link(_, _) do
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  def terminate(reason, state) do
+    :ok
   end
 
   def handle_call({:get_poke, id_or_name}, _pid, state) do
     {:ok, response} = get_poke_request(id_or_name)
-    {:reply, response, state}
+    {:reply, response, state}  
   end
 
   def handle_call(_term, _pid, state) do
     {:reply, [], state}
   end
 
-  def handle_cast(_term, state) do
+  def handle_cast(request, state) do
     {:noreply, state}
   end
+
+  def handle_info(term, state) do 
+    {:noreply, state}
+  end  
 
   def terminate do
     :ok
   end
 
+
   def get_poke_request(id_or_name) do
     url = api_route("pokemon/#{id_or_name}/")
-
     case HTTPoison.get(url, [], []) do
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
       {:ok, %HTTPoison.Response{body: body}} ->
-        {:ok, process(body)}
+        {:ok, body }
     end
   end
 
-  defp process(body) do
-    body |> Poison.decode!
-  end
-
   defp api_route(path) do
-    "http://pokeapi.co/api/v2/#{path}"
+    "https://pokeapi.co/api/v2/#{path}"
   end
 end
+
 ```
