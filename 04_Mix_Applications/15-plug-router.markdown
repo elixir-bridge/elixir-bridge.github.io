@@ -18,6 +18,16 @@ defmodule Myapp.Router do
   plug :match
   plug :dispatch
 
+  def child_spec(_opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end 
+
   def start_link() do
     {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
   end
@@ -25,8 +35,8 @@ defmodule Myapp.Router do
   get "/" do
     conn
       |> send_resp(200, "YAY")
-      |> halt
   end
+
   match _ do
     conn
       |> send_resp(404, "Not found")
@@ -56,7 +66,7 @@ plug Plug.Parsers,
 
 We will use Poison, an JSON library for Elixir, to decode JSON.
 
-Let's add parsers to our router - open up the router file and copy the following right below the `:dispatch` function
+Let's add parsers to our router - open up the router file and copy the following after the `:dispatch` function
 
 ```elixir
 plug Plug.Parsers,
@@ -72,13 +82,13 @@ defmodule Myapp.Router do
   use Plug.Router
 
   plug :match
-	plug :dispatch
+	
+  plug Plug.Parsers,
+  parsers: [:json],
+  pass: ["*/*"],
+  json_decoder: Poison
 
-  plug Plug.Parsers, parsers: [:urlencoded, :multipart]
-  plug Plug.Parsers, parsers: [:urlencoded, :json],
-                   pass:  ["text/*"],
-                   json_decoder: Poison
-
+  plug :dispatch
 
   def start_link() do
     {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
@@ -86,8 +96,7 @@ defmodule Myapp.Router do
 
   get "/" do
     conn
-      |> put_resp_content_type("text/html")
-      |> send_resp(200, page)
+      |> send_resp(200, "yay)
       |> halt
   end
 

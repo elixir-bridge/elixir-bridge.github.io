@@ -19,23 +19,19 @@ In our `myapp.ex` file located in our lib directory - we are going to add the fo
 ```elixir
 defmodule Myapp do
   use Application
+  use Supervisor
+
   def start(_type, _args) do
-    import Supervisor.Spec, warn: false
-    children = [
-      worker(Myapp.Router, [])
-    ]
-    opts = [
-      strategy: :one_for_one, name: Myapp.Supervisor
-    ]
-    Supervisor.start_link(children, opts)
+    Supervisor.start_link([{NewApp.Router, []}, strategy: :one_for_one)
   end
 end
 ```
-When our supervisor starts it will call a function `start_link`. This function takes two arguements. `children` and  `options`.
 
-The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started. Usually this is with a `start_link/1` function. The start link function often immediately calls the `init` calllback as its first step.
+When our supervisor starts it will call a function `start_link`. This function takes two arguments - a list of tuples, and a stratgey for how to restart child processes when they fail. Each tuple contains the name of the Child Process, and any intial arguments that will get passed into the start_link function of that respective module. 
 
-In the `options` arguement, we also need to specify a strategy. This tells the supervisor what to do if a child process fails.
+The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started, stopped, and restarted. Usually this is with a `start_link/1` function. We will look at the `child_spec` soon.
+
+In the `options` argument, we also need to specify a strategy. This tells the supervisor what to do if a child process fails.
 
 In this case we are using teh `:one_for_one` strategy. With this process, if the child process terminates, it will be restarted.
 
@@ -63,7 +59,7 @@ So our applicaion function now looks like:
   end
 ```
 
-Notice that we specify the name of our App as what we pass to the `mod` option.
+Notice that we specify the name of our App as what we pass to the `mod` option. This is our application callback module. So when our application starts, the module we pass to `mod` will be started
 
 
 

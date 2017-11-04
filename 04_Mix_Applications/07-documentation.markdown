@@ -41,14 +41,17 @@ To actually add the documentation, we will use two packages `:earmark` and `:ex_
 
 Let's add these dependencies to our Mix.exs file. It should now look like this.
 
+```elixir
 defp deps do
-    [
-      {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.3"},
-      {:earmark, "~> 1.2", only: :dev},
-      {:ex_doc, "~> 0.15.1", only: :dev}
-    ]
-  end
+  [
+    {:cowboy, "~> 1.1"},
+    {:plug, "~> 1.3"},
+    {:earmark, "~> 1.2", only: :dev},
+    {:ex_doc, "~> 0.18.1", only: :dev}
+  ]
+end
+```
+
 
 Let's retreive our dependencies using `mix deps.get`
 
