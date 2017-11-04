@@ -86,9 +86,11 @@ They are extension built on top of maps. The keyword `defstruct` defines what fi
 
 Structs take the name of the module they are defined in.
 
+```elixir
 defmodule Calc.Op do
   defstruct name: "add", a: 1, b: 1
 end
+```
 
 We now have a `Calc` struct `Calc%{}`
 
