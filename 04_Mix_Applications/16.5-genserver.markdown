@@ -157,7 +157,7 @@ defmodule Myapp.ApiHandler do
   end
 
   defp api_route(path) do
-    "http://pokeapi.co/api/v2/#{path}"
+    "https://pokeapi.co/api/v2/#{path}"
   end
 end
 ```
