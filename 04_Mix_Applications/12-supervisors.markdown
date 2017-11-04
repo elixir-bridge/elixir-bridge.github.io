@@ -22,18 +22,18 @@ defmodule Myapp do
   use Supervisor
 
   def start(_type, _args) do
-    Supervisor.start_link([{NewApp.Router, []}, strategy: :one_for_one)
+    Supervisor.start_link([{NewApp.Router, []}], strategy: :one_for_one)
   end
 end
 ```
 
-When our supervisor starts it will call a function `start_link`. This function takes two arguments - a list of tuples, and a stratgey for how to restart child processes when they fail. Each tuple contains the name of the Child Process, and any intial arguments that will get passed into the start_link function of that respective module. 
+When our supervisor starts it will call a function `start_link`. This function takes two arguments - a list of tuples, and a strategy for how to restart child processes when they fail. Each tuple contains the name of the Child Process, and any initial arguments that will get passed into the start_link function of that respective module.
 
 The `children` are the processes that the Supervisor will watch. The Supervisor will iterate over every child module and find its `child_spec/` which defines how the child will be started, stopped, and restarted. Usually this is with a `start_link/1` function. We will look at the `child_spec` soon.
 
 In the `options` argument, we also need to specify a strategy. This tells the supervisor what to do if a child process fails.
 
-In this case we are using teh `:one_for_one` strategy. With this process, if the child process terminates, it will be restarted.
+In this case we are using the `:one_for_one` strategy. With this process, if the child process terminates, it will be restarted.
 
 Now let's create our router that will handle our requests.
 
@@ -47,7 +47,7 @@ We will add the following to our application
   mod: {Myapp, []}
 ```
 
-So our applicaion function now looks like:
+So our application function now looks like:
 
 ```elixir
   def application do
@@ -60,6 +60,3 @@ So our applicaion function now looks like:
 ```
 
 Notice that we specify the name of our App as what we pass to the `mod` option. This is our application callback module. So when our application starts, the module we pass to `mod` will be started
-
-
-
