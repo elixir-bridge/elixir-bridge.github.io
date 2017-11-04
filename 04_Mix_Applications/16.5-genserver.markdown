@@ -184,7 +184,7 @@ Now we can call our `get_poke_request/1` function from our router.
 
 ```elixir
 defmodule Myapp.Router do
-  use Plug.
+  use Plug.Router
 
   get("/:name") do
     query_params = Plug.Conn.fetch_query_params(conn)
