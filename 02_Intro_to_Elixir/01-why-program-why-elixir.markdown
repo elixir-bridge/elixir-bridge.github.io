@@ -32,15 +32,15 @@ There are several reasons why people are excited about Elixir. Let's take a look
 
 All elixir code runs inside of something called processes(think lots of little programs. Each Program can exist on its own and it communicates with other programs via message passing.
 
-Because each "process" does not take up a lot of processing power, hundreds of thousands of programs could be running at the same time potenitally on different computers. Since each `process` is isolated it can be garbage collected independantly. this reduces pauses that are system wide. This feature also allows all machine resources to be used as efficiently as possible.
+Because each "process" does not take up a lot of processing power, hundreds of thousands of programs could be running at the same time potentially on different computers. Since each `process` is isolated it can be garbage collected independently. This reduces pauses that are system wide. This feature also allows all machine resources to be used as efficiently as possible.
 
 #### Fault-tolerant
 
-Knowing that thigns will go wrong inside of a program - elixir introduces the conceopt of supervisors. Supervisors understand how to restart parts of your system when things go wrong - so that entire program does not stop running if part of it happens to break.
+Knowing that things will go wrong inside of a program - elixir introduces the concept of supervisors. Supervisors understand how to restart parts of your system when things go wrong - so that entire program does not stop running if part of it happens to break.
 
 #### Functional
 
-Functional programming allows deveopers to design code that is short, fast, maintainable, and does not have unexpected side effects that might be seen in an imperative language
+Functional programming allows developers to design code that is short, fast, maintainable, and does not have unexpected side effects that might be seen in an imperative language
 
 #### Very Extensible
 
@@ -48,7 +48,7 @@ Elixir has been designed to let developers naturally extend the language to vari
 
 #### Built off Erlang
 
-Erlang is a functional programming langauge that was developed by Ericcson in the 1980's. Given it's maturity, the language and run-time environment are very stable and optimized for eficiency.
+Erlang is a functional programming language that was developed by Ericcson in the 1980's. Given it's maturity, the language and run-time environment are very stable and optimized for efficiency.
 
 #### Telco Strong
 
@@ -66,4 +66,4 @@ Since real-time features are becoming increasingly important, as the web moves t
 
 * Very fast
 * No global lock for garbage collection
-* Very effiecient
+* Very efficient
