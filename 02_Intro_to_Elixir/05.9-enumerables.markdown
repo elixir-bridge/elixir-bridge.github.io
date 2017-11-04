@@ -7,12 +7,12 @@ date: 2016-10-1 13:38:30 -0700
 
 # Enumerables
 
-When we invoke a function in the Enum module, the first arguement is usually a collection that must implement a certain protocol.
+When we invoke a function in the Enum module, the first argument is usually a collection that must implement a certain protocol.
 
 
 ```Elixir
 Enum.map([1, 2, 3], fn(x) -> x * 2 end)
-Enum.reduce(1..3, 0, fn(x, acc) -> acc + x end) 
+Enum.reduce(1..3, 0, fn(x, acc) -> acc + x end)
 Enum.reduce(1..3, 0, &+/2)
 ```
 
@@ -38,6 +38,8 @@ The function returns the value stored in the accumulator.
 ```elixir
 iex> Enum.reduce([1, 2, 3, 4], fn(x, acc) -> x * acc end)
 24
+iex> Enum.reduce(["I", "Like", "Cheese"], "The truth is:", fn(x, sentence) -> sentence <> " " <> x end)
+"The truth is: I Like Cheese"
 ```
 
 What other operators are available to Enumerable?
@@ -52,7 +54,7 @@ What other operators are available to Enumerable?
 * uniq
 * ...
 
-We can see all the functions available to `Enum` wih the following command:
+We can see all the functions available to `Enum` with the following command:
 
 ```elixir
 Enum.__info__(:functions) |> Enum.each(&(IO.inspect(&1)))
@@ -66,7 +68,7 @@ Enum.map(1..6, fn(x) -> x - 1 end)
 Enum.uniq([1, 1, 1, 2, 3])
 ```
 
-`Enum.chunk/2` will break up lists into multiple lists based on the integer provided as the second arguement. 
+`Enum.chunk/2` will break up lists into multiple lists based on the integer provided as the second argument.
 
 ```elixir
 iex(7)> Enum.chunk([1, 2, 3, 4], 2)
