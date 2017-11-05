@@ -143,11 +143,10 @@ This is incredibly useful for checking results of functions; many libraries allo
 
 ```elixir
 case HttpPoison.get('example.com') do
-  {:ok, result}
+  {:ok, result} ->
     result
-  {:error, some_error}
+  {:error, some_error} ->
     handle_error
-  end
 end
 ```
 
