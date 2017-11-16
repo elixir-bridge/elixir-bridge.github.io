@@ -1,6 +1,6 @@
 ## Pipe operator
 
-One operator that we'll see often is the pipe operator `|>`. The `|>` pipe operator  passes the result of one function on to the next function. Conceptually, it's like running the function:
+One operator that we'll see often is the pipe operator `|>`. The `|>` pipe operator passes the result of one function on to the next function. Conceptually, it's like running the function:
 
 ```
 f(d(b(:atom)))
@@ -25,9 +25,4 @@ Looking at the first line above `42 |> is_number`.
 
 What is actually happening is that `42` is being passed as the first argument to `is_number` so it looks like `is_number(42)`.
 
-
-What do we think is happeninin the other two functions?
-
-
-
-
+What do we think is happening in the other two functions?
