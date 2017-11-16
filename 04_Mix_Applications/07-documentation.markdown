@@ -19,13 +19,15 @@ defmodule Myapp do
   @moduledoc """
     Main application module
   """
+
   @doc """
   Say hello
   ## Parameters
   - name: String of a person
+
   ## Examples
-    iex> Myapp.say("Ari")
-    "Hello Ari"
+      iex> Myapp.say("Ari")
+      "Hello Ari"
   """
   @spec say(String.t) :: String.t
   def say(name) do
@@ -53,7 +55,8 @@ end
 ```
 
 
-Let's retreive our dependencies using `mix deps.get`
+Let's retrieve our dependencies using `mix deps.get`
 
 To generate our documentation we can run `mix docs`
 
+To view our documentation we can run `open doc/index.html`
