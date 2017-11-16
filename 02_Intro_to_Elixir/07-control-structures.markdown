@@ -4,6 +4,19 @@ We often want to run a check on a particular state of a variable.
 
 ### `case`
 
+A very basic case statement:
+
+```elixir
+dog = "PUPPY"
+> "PUPPY"
+
+case dog do
+  "PUPPY" -> "CUTE!!!!!!"
+  _ -> "BOOOOOOO"
+end
+> "CUTE!!!!!!"
+```
+
 The `case` function allows us to compare a value against several patterns until we find one that matches. Copy the following into iex:
 
 ```elixir
