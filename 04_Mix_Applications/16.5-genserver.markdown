@@ -15,10 +15,10 @@ Because this pattern is so common in Erlang, the OTP library provides an interfa
 In Elixir we will create a module that implements this behavior.
 
 
-In our lib directory lets create a file called  `api_handler.ex`. Inside this file let's define a module named `Myapp.ApiHandler`.
+In our lib directory lets create a file called `api_handler.ex`. Inside this file let's define a module named `Myapp.ApiHandler`.
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 end
 ```
@@ -34,7 +34,7 @@ The GenServer behavior requires us to define functions for handling callbacks. T
 The `init/1` is called when the server starts up and `terminate/2` is called before the server shuts down.
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
   def init(args) do
     {:ok, args}
@@ -63,7 +63,7 @@ end
 We can send a message to the GenServer and wait for a response. In this case the `handle_call/3` function will receive the message.
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 
   def handle_call(request, from, state) do
@@ -75,7 +75,7 @@ end
 Finally, we can send a message and not wait for a response. GenServer will call the `handle_cast/2` callback to handle these messages.
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 
   def handle_cast(request, state) do
@@ -90,11 +90,11 @@ So let's implement our module. We will focus on calls.
 
 To call our GenServer we will use the `GenServer.call/2` function.
 
-Let's add a function called `get_pokemon/1` to call our GenServer to retreive a pokemon.
+Let's add a function called `get_pokemon/1` to call our GenServer to retrieve a pokemon.
 
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 
   def get_pokemon(id_or_name) do
@@ -107,7 +107,7 @@ Notice that when we call the GenServer we are sending a tuple. We can use patter
 
 
 ```elixir
-defmodule Myapp.ApiServer do
+defmodule Myapp.ApiHandler do
   use GenServer
 
   def handle_call({:get_poke, id_or_name}, _pid, state) do
@@ -138,7 +138,7 @@ defp deps do
 end
 ```
 
-HTTPoison is an http client for elixir. Poison is a json library for elixir
+HTTPoison is an http client for elixir. Poison is a JSON library for elixir
 
 Let's fetch our dependencies by calling `mix deps.get`. Now let's implement our `get_poke_request/1` method.
 
@@ -157,7 +157,7 @@ defmodule Myapp.ApiHandler do
   end
 
   defp api_route(path) do
-    "http://pokeapi.co/api/v2/#{path}"
+    "https://pokeapi.co/api/v2/#{path}"
   end
 end
 ```
@@ -166,7 +166,7 @@ We'll start the GenServer process with out supervisor we implemented previously.
 
 The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree.
 
-Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiServer as a child in our supervision tree.
+Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiHandler as a child in our supervision tree.
 
 Add the following line to our list of children:
 
@@ -184,16 +184,16 @@ Now we can call our `get_poke_request/1` function from our router.
 
 ```elixir
 defmodule Myapp.Router do
-  use Plug.
-  
+  use Plug.Router
+
   get("/:name") do
     query_params = Plug.Conn.fetch_query_params(conn)
     name =  query_params.params["name"] || 1
-    pokemon = NewApp.ApiServer.get_pokemon(name)
+    pokemon = NewApp.ApiHandler.get_pokemon(name)
     conn
       |> put_resp_content_type("application/json")
       |> send_resp(200, pokemon)
-  end  
+  end
 end
 ```
 
@@ -216,16 +216,16 @@ end
 The complete `ApiHandler` module looks like this:
 
 ```elixir
-defmodule NewApp.ApiHandler do 
+defmodule NewApp.ApiHandler do
   use GenServer
 
   def init(args) do
-    {:ok, args}  
+    {:ok, args}
   end
 
-  def start_link(_) do 
-    GenServer.start_link(__MODULE__, [], name: __MODULE__)    
-  end  
+  def start_link(_) do
+    GenServer.start_link(__MODULE__, [], name: __MODULE__) 
+  end
 
    @doc """
   A method for calling the pokemon api
@@ -240,7 +240,7 @@ defmodule NewApp.ApiHandler do
 
   def handle_call({:get_poke, id_or_name}, _pid, state) do
     {:ok, response} = get_poke_request(id_or_name)
-    {:reply, response, state}  
+    {:reply, response, state}
   end
 
   def handle_call(_term, _pid, state) do
@@ -251,14 +251,13 @@ defmodule NewApp.ApiHandler do
     {:noreply, state}
   end
 
-  def handle_info(term, state) do 
+  def handle_info(term, state) do
     {:noreply, state}
-  end  
+  end
 
   def terminate do
     :ok
   end
-
 
   def get_poke_request(id_or_name) do
     url = api_route("pokemon/#{id_or_name}/")
@@ -274,5 +273,4 @@ defmodule NewApp.ApiHandler do
     "https://pokeapi.co/api/v2/#{path}"
   end
 end
-
 ```
