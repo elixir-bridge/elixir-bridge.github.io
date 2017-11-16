@@ -10,7 +10,7 @@ We'll most often use the Plug.Router to match and dispatch requests.
 
 Plug.Router is a plug that contains its own plug pipeline.
 
-When the router is invoked, it will invoke the `:match` plug as we see above which is represented by the `match/2` function we see in our example.
+When the router is invoked, it will invoke the `:match` plug as we see above, which is represented by the `match/2` function we see in our example.
 
 ```elixir
 defmodule Myapp.Router do
@@ -66,7 +66,7 @@ plug Plug.Parsers,
 
 We will use Poison, an JSON library for Elixir, to decode JSON.
 
-Let's add parsers to our router - open up the router file and copy the following after the `:dispatch` function
+Let's add parsers to our router - open up the router file and copy the following before the `:dispatch` function
 
 ```elixir
 plug Plug.Parsers,
@@ -82,7 +82,7 @@ defmodule Myapp.Router do
   use Plug.Router
 
   plug :match
-	
+
   plug Plug.Parsers,
   parsers: [:json],
   pass: ["*/*"],
@@ -118,9 +118,9 @@ conn
   |> halt
 ```
 
-The send_resp function defined on our Plug.Conn, allows us to send response back to our client.
+The send_resp function, defined on our Plug.Conn, allows us to send response back to our client.
 
-The halt funciton halts the Plug pipeline by preventing further plugs downstream from being invoked.
+The halt function halts the Plug pipeline by preventing further plugs downstream from being invoked.
 
 
 ### Forwarding
