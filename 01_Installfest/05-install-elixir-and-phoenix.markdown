@@ -11,7 +11,7 @@ You can either install elixir with asdf or brew. We recommend asdf, but either a
 
 ### asdf
 
-For asdf follow the setup insructions here - [https://github.com/asdf-vm/asdf](https://github.com/asdf-vm/asdf)
+For asdf follow the setup instructions here - [https://github.com/asdf-vm/asdf](https://github.com/asdf-vm/asdf)
 
 #### Homebrew
 
@@ -32,9 +32,9 @@ Alternately, you may install using Macports, by typing this in the terminal:
 
 #### Windows installation
 
-Navigate to [https://chocolatey.org/install](https://chocolatey.org/install). 
+Navigate to [https://chocolatey.org/install](https://chocolatey.org/install).
 
-Install the chocolatey package. 
+Install the chocolatey package.
 
 Then install elixir. Follow the instructions here: [https://chocolatey.org/packages/Elixir](https://chocolatey.org/packages/Elixir)
 
