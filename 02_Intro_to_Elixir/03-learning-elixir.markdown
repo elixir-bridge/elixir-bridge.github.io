@@ -29,10 +29,9 @@ The `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive Eli
 
 ```elixir
 >$ iex
-Erlang/OTP 19 [erts-8.3] [source] [64-bit] [smp:8:8] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
+Erlang/OTP 20 [erts-9.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
 
-Interactive Elixir (1.4.5) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)>
+Interactive Elixir (1.6.1) - press Ctrl+C to exit (type h() ENTER for help)
 ```
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
