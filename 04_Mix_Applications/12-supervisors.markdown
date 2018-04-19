@@ -17,12 +17,16 @@ First let's look at how we can set up a Supervisor.
 In our `myapp.ex` file located in our lib directory - we are going to add the following snippet.
 
 ```elixir
-defmodule Myapp do
+defmodule MyApp do
   use Application
-  use Supervisor
 
   def start(_type, _args) do
-    Supervisor.start_link([{NewApp.Router, []}], strategy: :one_for_one)
+    children = [
+      {MyApp.Router, []}
+    ]
+
+    opts = [strategy: :one_for_one, name: MyApp.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 end
 ```
@@ -44,17 +48,16 @@ Since we want our application to start at run time, we need to add a configurati
 We will add the following to our application
 
 ```elixir
-  mod: {Myapp, []}
+  mod: {MyApp, []}
 ```
 
 So our application function now looks like:
 
 ```elixir
   def application do
-    # Specify extra applications you'll use from Erlang/Elixir
     [
-      extra_applications: [:logger, :cowboy, :plug],
-      mod: {Myapp, []}
+      extra_applications: [:logger],
+      mod: {MyApp, []}
     ]
   end
 ```

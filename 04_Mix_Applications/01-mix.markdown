@@ -13,28 +13,29 @@ A build tool for elixir to building elixir apps.  If you’re familiar with Ruby
 Type the following into the terminal:
 
 ```elixir
-mix new myapp
+mix new my_app --sup
 ```
 
 You will see the follwing:
 
-```elixir
-Annas-MacBook-Pro-3:elixirbridge an$ mix new myapp
+```bash
+$ mix new my_app
 * creating README.md
+* creating .formatter.exs
 * creating .gitignore
 * creating mix.exs
 * creating config
 * creating config/config.exs
 * creating lib
-* creating lib/myapp.ex
+* creating lib/my_app.ex
 * creating test
 * creating test/test_helper.exs
-* creating test/myapp_test.exs
+* creating test/my_app_test.exs
 
 Your Mix project was created successfully.
 You can use "mix" to compile it, test it, and more:
 
-    cd myapp
+    cd my_app
     mix test
 
 Run "mix help" for more commands.
@@ -47,38 +48,33 @@ If we open our app in an editor we will see the `Mix.exs` file in the root direc
 
  It will look something like this.
 
-```elixir
-defmodule Myapp.Mixfile do
+ ```elixir
+defmodule MyApp.MixProject do
   use Mix.Project
 
   def project do
-    [app: :myapp,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps()]
+    [
+      app: :my_app,
+      version: "0.1.0",
+      elixir: "~> 1.6",
+      start_permanent: Mix.env() == :prod,
+      deps: deps()
+    ]
   end
 
-  # Configuration for the OTP application
-  #
-  # Type "mix help compile.app" for more information
+  # Run "mix help compile.app" to learn about applications.
   def application do
-    # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger]]
+    [
+      extra_applications: [:logger]
+    ]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:my_dep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:my_dep, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
+  # Run "mix help deps" to learn about dependencies.
   defp deps do
-    []
+    [
+      # {:dep_from_hexpm, "~> 0.3.0"},
+      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+    ]
   end
 end
 ```
