@@ -30,10 +30,10 @@ This will connect your shell to your machine.
 Copy and paste the following into your dockerfile:
 
 ```bash
-FROM elixir:1.4.2
+FROM elixir:1.6.1
 ENV PORT=4000 MIX_ENV=prod
 
-ENV APP_NAME=myapp APP_VERSION="0.1.0"
+ENV APP_NAME=my_app APP_VERSION="0.1.0"
 
 RUN mix local.hex --force && \
     mix local.rebar --force && \

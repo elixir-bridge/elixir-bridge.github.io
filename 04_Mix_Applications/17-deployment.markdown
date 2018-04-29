@@ -10,12 +10,12 @@ For deployment we will use [distillery](https://hex.pm/packages/distillery). It 
 
 Open up our `mix.exs` file.
 
-Let's add the follwing dependency.
+Let's add the following dependency.
 
 
 defp deps do
   [
-    {:distillery, "~> 1.4"},
+    {:distillery, "~> 1.5"},
   ]
 end
 
@@ -23,11 +23,15 @@ end
 Our dependencies should now look like this -
 
 ```elixir
- defp deps do
+  defp deps do
     [
-      {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.3"},
-      {:distillery, "~> 1.4"}
+      {:cowboy, "~> 2.3"},
+      {:plug, "~> 1.5"},
+      {:httpoison, "~> 1.1"},
+      {:poison, "~> 3.1"},
+      {:distillery, "~> 1.5"},
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.18.3", only: :dev}
     ]
   end
 ```
