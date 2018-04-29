@@ -13,7 +13,7 @@ A build tool for elixir to building elixir apps.  If you’re familiar with Ruby
 Type the following into the terminal:
 
 ```elixir
-mix new my_app --sup
+mix new my_app
 ```
 
 You will see the follwing:
