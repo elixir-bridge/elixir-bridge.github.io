@@ -13,7 +13,7 @@ Plug.Router is a plug that contains its own plug pipeline.
 When the router is invoked, it will invoke the `:match` plug as we see above, which is represented by the `match/2` function we see in our example.
 
 ```elixir
-defmodule Myapp.Router do
+defmodule MyApp.Router do
   use Plug.Router
   plug :match
   plug :dispatch
@@ -26,24 +26,17 @@ defmodule Myapp.Router do
       restart: :permanent,
       shutdown: 500
     }
-  end 
-
-  def start_link() do
-    {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
   end
 
-  get "/" do
-    conn
-      |> send_resp(200, "YAY")
+  def start_link() do
+    {:ok, _} = Plug.Adapters.Cowboy2.http(MyApp.Router, [], port: 4000)
   end
 
   match _ do
     conn
-      |> send_resp(404, "Not found")
-      |> halt
+    |> send_resp(404, "Not found")
   end
 end
-
 ```
 
 Thw `match/2` function will check against any of our HTTP requests to see which one matches.
@@ -78,9 +71,8 @@ plug Plug.Parsers,
 Our router should now look like this -
 
 ```elixir
-defmodule Myapp.Router do
+defmodule MyApp.Router do
   use Plug.Router
-
   plug :match
 
   plug Plug.Parsers,
@@ -90,20 +82,29 @@ defmodule Myapp.Router do
 
   plug :dispatch
 
+  def child_spec(_opts) do
+    %{
+      id: __MODULE__,
+      start: {__MODULE__, :start_link, []},
+      type: :worker,
+      restart: :permanent,
+      shutdown: 500
+    }
+  end
+
   def start_link() do
-    {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
+    {:ok, _} = Plug.Adapters.Cowboy2.http(MyApp.Router, [], port: 4000)
   end
 
   get "/" do
     conn
-      |> send_resp(200, "yay)
-      |> halt
+    |> send_resp(200, "yay")
+    |> halt
   end
 
   match _ do
     conn
-      |> send_resp(404, "Not found")
-      |> halt
+    |> send_resp(404, "Not found")
   end
 end
 ```
@@ -126,7 +127,7 @@ The halt function halts the Plug pipeline by preventing further plugs downstream
 ### Forwarding
 
 ```elixir
-forward "/hello", to: Myapp.Plugs.HelloWorld
+forward "/hello", to: MyApp.Plugs.HelloWorld
 ```
 
 `forward` is invoked by Plug.Router to forward requests to another plug.

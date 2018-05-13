@@ -4,16 +4,17 @@ title: Our first application
 date: 2016-10-1 13:38:30 -0700
 ---
 
-## Set up Myapp
+## Set up MyApp
 
-Remember the keyword `use`. We'll use it to add functionality to the `Myapp` module.
+Remember the keyword `use`. We'll use it to add functionality to the `MyApp` module.
 
-Let's open up `myapp.ex`. It is in the `lib` directory.
+Let's open up `my_app.ex`. It is in the `lib` directory.
 
 ```elixir
-# myapp.ex
-defmodule Myapp do
+# my_app.ex
+defmodule MyApp do
   use Application
+
   def start(_type, _args) do
   end
 end

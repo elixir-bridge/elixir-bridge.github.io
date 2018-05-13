@@ -15,21 +15,21 @@ Spec a function with `@spec`.
 Let's open our our `myapp.ex` file. Add add some documentation.
 
 ```elixir
-defmodule Myapp do
+defmodule MyApp do
   @moduledoc """
-    Main application module
+      Main application module
   """
 
   @doc """
-  Say hello
-  ## Parameters
-  - name: String of a person
+  Says Hello
 
   ## Examples
-      iex> Myapp.say("Ari")
+
+      iex> MyApp.say("Ari")
       "Hello Ari"
   """
-  @spec say(String.t) :: String.t
+
+  @spec say(String.t()) :: String.t()
   def say(name) do
     "Hello #{name}"
   end
@@ -46,10 +46,10 @@ Let's add these dependencies to our Mix.exs file. It should now look like this.
 ```elixir
 defp deps do
   [
-    {:cowboy, "~> 1.1"},
-    {:plug, "~> 1.3"},
+    {:cowboy, "~> 2.3"},
+    {:plug, "~> 1.5"},
     {:earmark, "~> 1.2", only: :dev},
-    {:ex_doc, "~> 0.18.1", only: :dev}
+    {:ex_doc, "~> 0.18.3", only: :dev}
   ]
 end
 ```

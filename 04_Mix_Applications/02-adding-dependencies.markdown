@@ -18,12 +18,12 @@ mix hex.info cowboy
 ```
 
 ```elixir
-defmodule Myapp.Mixfile do
+defmodule MyApp.Mixfile do
   # ...
   defp deps do
     [
-      {:cowboy, "~> 1.1"},
-      {:plug, "~> 1.3"}
+      {:cowboy, "~> 2.3"},
+      {:plug, "~> 1.5"}
     ]
   end
 end
@@ -32,17 +32,16 @@ end
 How do we figure out what version to use? The command `mix hex.info #{dependency}` will get info from the central package repo, called hex.
 
 ```bash
-$ mix hex.info cowboy
+$ mix hex.info.cowboy
 Small, fast, modular HTTP server.
 
-Config: {:cowboy, "~> 1.1"}
-Releases: 1.1.2, 1.1.1, 1.1.0, 1.0.4, 1.0.3, 1.0.2, 1.0.1, 1.0.0
+Config: {:cowboy, "~> 2.3"}
+Releases: 2.3.0, 2.2.2, 2.2.1, 2.2.0, 2.1.0, 2.0.0, 1.1.2, 1.1.1, ...
 
 Maintainers: Loïc Hoguin
 Licenses: ISC
 Links:
   GitHub: https://github.com/ninenines/cowboy
-
 ```
 
 You can also go to the Hex site and browse packages: [hex.pm](https://hex.pm).
@@ -54,28 +53,18 @@ Mix has a build in command for installing dependencies, `mix deps.get`. Let's pu
 
 ```bash
 $ mix deps.get
-Running dependency resolution...
+Resolving Hex dependencies...
 Dependency resolution completed:
-  cowboy 1.1.2
-  cowlib 1.0.2
-  mime 1.1.0
-  plug 1.3.5
-  ranch 1.3.2
+  cowboy 2.3.0
+  cowlib 2.2.1
+  mime 1.2.0
+  plug 1.5.0
+  ranch 1.4.0
 * Getting cowboy (Hex package)
-  Checking package (https://repo.hex.pm/tarballs/cowboy-1.1.2.tar)
-  Fetched package
 * Getting plug (Hex package)
-  Checking package (https://repo.hex.pm/tarballs/plug-1.3.5.tar)
-  Fetched package
 * Getting mime (Hex package)
-  Checking package (https://repo.hex.pm/tarballs/mime-1.1.0.tar)
-  Fetched package
 * Getting cowlib (Hex package)
-  Checking package (https://repo.hex.pm/tarballs/cowlib-1.0.2.tar)
-  Fetched package
 * Getting ranch (Hex package)
-  Checking package (https://repo.hex.pm/tarballs/ranch-1.3.2.tar)
-  Fetched package
 ```
 
 You'll see that it fetches your dependencies, and also the packages that they depend on.

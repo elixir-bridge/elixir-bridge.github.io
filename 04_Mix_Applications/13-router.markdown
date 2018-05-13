@@ -14,10 +14,10 @@ Type the following into that file:
 
 
 ```elixir
-defmodule Myapp.Router do
+defmodule MyApp.Router do
   use Plug.Router
-  plug :match
-  plug :dispatch
+  plug(:match)
+  plug(:dispatch)
 
   def child_spec(_opts) do
     %{
@@ -27,15 +27,15 @@ defmodule Myapp.Router do
       restart: :permanent,
       shutdown: 500
     }
-  end 
+  end
 
   def start_link() do
-    {:ok, _} = Plug.Adapters.Cowboy.http Myapp.Router, [], [port: 4000]
+    {:ok, _} = Plug.Adapters.Cowboy2.http(MyApp.Router, [], port: 4000)
   end
 
   match _ do
     conn
-      |> send_resp(404, "Not found")
+    |> send_resp(404, "Not found")
   end
 end
 ```
