@@ -55,14 +55,14 @@ Point your browser to localhost:4000, it should look like this:
 
 ### What is a channel
 
-A channel is persisted connection between the browser and the server. A regular request is like sending letters back and forth between the browser and the server. But a socket is more like a pipe or a phone call. Where the connection is always on, and each side can communicate messages efficiently and quickly. In our case, the server can broadcast messaged down and the users can send messages up through their browser.
+A channel is persisted connection between the browser and the server. A regular request is like sending letters back and forth between the browser and the server. But a channel is more like a pipe or a phone call. The connection is always on, and each side can communicate messages efficiently and quickly. In our case, the server can broadcast messaged down and the users can send messages up through their browser.
 
 * Down means towards the Clients
 * Up means towards the server
 
-In a normal request the server only sends one response. But in the case of web sockets the server can continue to send updates as long as the browser maintains the connections.
+In a normal request the server only sends one response. But in the case of channels the server can continue to send updates as long as the browser maintains the connections.
 
-So channels use websockets.
+Channels use web sockets, which are a standard for this kind of connection, not specific to Phoenix. A channel is a web socket connection, and you can use either term interchangeably; we try to consistently use 'channel' in these docs to refer to Phoenix connections, and 'web socket' where we're talking about things outside of Phoenix.
 
 ## Creating the channel file
 
@@ -82,7 +82,7 @@ Add the channel to your `lib/chatter_web/channels/user_socket.ex` handler, for e
 
 At the end of the command, it tells you to add a line to your `lib/chatter_web/channels/user_socket.ex` file. You need to do this so the websocket request can be directed to your channel.
 
-`chat_room_channel.ex` is analagous to a controller in Phoenix, except it is for handling websocket requests instead of http requests.
+`chat_room_channel.ex` is analagous to a controller in Phoenix, except it is for handling web socket requests instead of http requests.
 
 Looking at the code below,
 
@@ -95,7 +95,7 @@ The next argument `ChatterWeb.ChatRoomChannel` is made up of two parts. The firs
 The file we're in, `user_channels.ex`, is like the `router.ex` file, but for channels. The topic, in our case `chat_room:lobby` allows clients to subscribe to the channel. In the same way a path in a web request directs the request the right controller, the topic directs the socket to the right module, in this case, `ChatterWeb.ChatRoomChannel`.
 
 
-In our `lib/chatter_web/channels/chat_room_channel.ex` paste the following
+In our `lib/chatter_web/channels/chat_room_channel.ex` the generated code should look like this:
 
 ```elixir
 defmodule ChatterWeb.ChatRoomChannel do
@@ -115,13 +115,6 @@ defmodule ChatterWeb.ChatRoomChannel do
     {:reply, {:ok, payload}, socket}
   end
 
-  # It is also common to receive messages from the client and
-  # broadcast to everyone in the current topic (chat_room:lobby).
-  def handle_in("new_message", payload, socket) do
-    broadcast socket, "new_message", payload
-    {:noreply, socket}
-  end
-
   # Add authorization logic here as required.
   defp authorized?(_payload) do
     true
@@ -129,7 +122,7 @@ defmodule ChatterWeb.ChatRoomChannel do
 end
 ```
 
-We now have a bunch of boilerplate code that doesn't look like much, but it will work without modification to hook up to a front end for our simple chat app. Let's look a little closer at what the functions are doing.
+We now have a bunch of boilerplate code that doesn't look like much. Let's look a little closer at what the functions are doing.
 
 First, let's look at the `join/3` function. `def join("chat_room:lobby", payload, socket) do`: it takes three arguments. The name of the channel, `"chat_room:lobby"`, is so that this function is only called when the client is joining that specific channel. The second argument, `payload` is the request from the user; it can contain auth credentials, a message, anything the user wants.
 
@@ -137,7 +130,16 @@ Finally, it takes `socket`, which is the websocket connection. There's a test, `
 
 Once a user joins to a channel, then they can send messages to the channel and they'll be received by one of the `handle_in/3` messages. The first one just returns the payload sent by the user back to them.
 
-The second one sends the payload to all the users subscribed to the channel. It's this one that allows us to build out chat room with a little front end work. When we send a message to the chatroom, this function sends it back to you and to everyone else in the channel.
+The second method sends a 'ping' to all the people on the channel. After that method, we need to add one more:
+
+```elixir
+def handle_in("new_message", payload, socket) do
+  broadcast socket, "new_message", payload
+  {:noreply, socket}
+end
+```
+
+This method takes any message sent on the channel to the 'new_message' topic and sends it to anything that's subscribed to the channel.
 
 ## Handling the connections on Client-side
 
