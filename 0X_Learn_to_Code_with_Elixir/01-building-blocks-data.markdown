@@ -1,8 +1,7 @@
-* What are data types and why do we care?
-  * What's the purpose of programming?
-  * ultimately a way to get a computer to make a decision for us, so that we don't have to spend brain power doing it
-  * In order to get the computer to make decisions on our behalf, we have to help it understand our world. So that it can make decisions about our world.
-  * Let's talk about some of the tools we have to represent our world
+* What's the purpose of programming?
+* ultimately a way to get a computer to make a decision for us, so that we don't have to spend brain power doing it
+* In order to get the computer to make decisions on our behalf, we have to help it understand our world. So that it can make decisions about our world.
+* Let's talk about some of the tools we have to represent our world
 
 * Numbers
   * Probably the most fundamental building block
