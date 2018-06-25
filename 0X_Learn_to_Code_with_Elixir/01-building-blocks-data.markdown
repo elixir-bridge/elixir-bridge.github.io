@@ -1,12 +1,7 @@
 * What are data types and why do we care?
   * What's the purpose of programming?
-  * "Problem Solving", "Computer Science"
   * ultimately a way to get a computer to make a decision for us, so that we don't have to spend brain power doing it
-  * It's a way to automate a decision
-  * It's a way to group those types of decisions together in the same place?
   * In order to get the computer to make decisions on our behalf, we have to help it understand our world. So that it can make decisions about our world.
-    * (Computers know nothing a priori)
-  * So we have to construct a representation of our world. Then give that representation to the computer, which bases its decisions off that representation
   * Let's talk about some of the tools we have to represent our world
 
 * Integers and Floats
