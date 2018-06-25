@@ -4,10 +4,10 @@
   * In order to get the computer to make decisions on our behalf, we have to help it understand our world. So that it can make decisions about our world.
   * Let's talk about some of the tools we have to represent our world
 
-* Integers and Floats
+* Numbers
   * Probably the most fundamental building block
   * Think: Banking Applications (balances), Games (Points, Scoreboards), Thermostats (Temp)
-  * Basic operations with Integers and Floats
+  * Basic operations with Numbers
     * Addition, Subtraction, Division, Multiplication
     * Depositing money to a bank account
     * Withdrawing money from a bank account
