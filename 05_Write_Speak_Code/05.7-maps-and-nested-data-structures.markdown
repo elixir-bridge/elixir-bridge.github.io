@@ -1,0 +1,55 @@
+---
+layout: page
+title: Maps and Nested Data Structures
+date: 2016-10-1 13:38:30 -0700
+---
+
+
+# Maps
+
+Maps in Elixir are key-value stores. Maps can be created by using the `%{}` , Keys in a map can be of any type. The map data-structures are similar to keyword lists except they are unordered.
+
+Try typing the following examples.
+
+```elixir
+map = %{:msg => "Hello", "receiver" => :world}
+map[:msg]
+map["msg"]
+map[:"msg"]
+```
+
+```elixir
+map["receiver"]
+name = "Foo"
+map = %{name => "world"}
+map[name]
+```
+
+## Nested data structures
+
+Elixir provides a way for us to hold variables inside of maps. For instance, we can create a list of users that is a key-value map to another nested map:
+
+```elixir
+iex> users = [
+  john: %{name: "John", age: 27, languages: ["Erlang", "Ruby", "Elixir"]},
+  mary: %{name: "Mary", age: 29, languages: ["Elixir", "F#", "Clojure"]}
+]
+```
+
+We can then get variables using the `[]` and `.` syntax:
+
+```elixir
+iex> users[:john].age # 27
+```
+
+We can then manipulate maps like so -
+
+```elixir
+map = %{:msg => "Hello", "receiver" => :world}
+%{map | msg: "goodbye"}
+map.msg
+```
+
+Check out the [Kernel module](http://elixir-lang.org/docs/stable/elixir/Kernel.html) documentation for more information on other functions available to use when using nested data structures.
+
+

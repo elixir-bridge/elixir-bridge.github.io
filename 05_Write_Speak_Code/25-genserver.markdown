@@ -1,0 +1,265 @@
+---
+layout: page
+title: GenServer
+date: 2016-10-1 13:38:30 -0700
+---
+
+### GenServer
+One of the benefits of using Elixir is its asynchronous nature by default. We can demonstrate this by making calls to an external api.
+
+We are going to create a module in the lib directory of our application called `api_handler.ex`. It will be a handler for external api calls.
+
+We are going to spin off a process that will ask to make calls to an external api, which will allow us to handle api calls in a non-blocking way - so tha tour application is free to continue answering http requests.  This feature allows elixir to be fast and non-blocking.
+
+Because this pattern is so common in Erlang, the OTP library provides an interface called `GenServer`.
+In Elixir we will create a module that implements this behavior.
+
+
+In our lib directory lets create a file called `api_handler.ex`. Inside this file let's define a module named `MyApp.ApiHandler`.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+end
+```
+
+The GenServer behavior requires us to define functions for handling callbacks. The callbacks that we will be implementing are
+
+* init/1
+* handle_call/3
+* handle_cast/2
+* handle_info/2
+* terminate/2
+
+The `init/1` is called when the server starts up and `terminate/2` is called before the server shuts down.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+  def init(args) do
+    {:ok, args}
+  end
+
+  def terminate(reason, state) do
+    :ok
+  end
+end
+```
+
+A GenServer is a process that listens for messages. We can send 3 different types of messages to our GenServer process.
+
+The most basic message is using native Erlang message passing. When the GenServer receives a message in this way the `handle_info/2` callback is called.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def handle_info(term, state) do
+    {:noreply, state}
+  end
+end
+```
+
+We can send a message to the GenServer and wait for a response. In this case the `handle_call/3` function will receive the message.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def handle_call(request, from, state) do
+    {:reply, response, state}
+  end
+end
+```
+
+Finally, we can send a message and not wait for a response. GenServer will call the `handle_cast/2` callback to handle these messages.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def handle_cast(request, state) do
+    {:noreply, state}
+  end
+end
+```
+
+Notice in each of these functions we have this variable called state. We can keep state of the module using this variable. We are not going to keep track of any state in our module, however know that this functionality is available.
+
+So let's implement our module. We will focus on calls.
+
+To call our GenServer we will use the `GenServer.call/2` function.
+
+Let's add a function called `get_character/1` to call our GenServer to retrieve a pokemon.
+
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def get_character(id_or_name) do
+    GenServer.call(__MODULE__, {:get_character, id_or_name})
+  end
+end
+```
+
+Notice that when we call the GenServer we are sending a tuple. We can use pattern matching in our `handle_call/3` callback to handle this message.
+
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def handle_call({:get_character, id_or_name}, _pid, state) do
+    {:ok, response} = get_character_request(id_or_name)
+    {:reply, response, state}
+  end
+
+  def handle_call(_term, _pid, state) do
+    {:reply, [], state}
+  end
+end
+```
+
+So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_poke_request/1` method.
+
+But first let's add the required dependencies to our `mix.exs` file.
+
+```elixir
+defp deps do
+  [
+    {:cowboy, "~> 2.3"},
+    {:plug, "~> 1.5"},
+    {:httpoison, "~> 1.1"},
+    {:poison, "~> 3.1"},
+    {:earmark, "~> 1.2", only: :dev},
+    {:ex_doc, "~> 0.18.3", only: :dev}
+  ]
+end
+```
+
+HTTPoison is an http client for elixir. Poison is a JSON library for elixir
+
+Let's fetch our dependencies by calling `mix deps.get`. Now let's implement our `get_poke_request/1` method.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  defp get_character_request(id_or_name) do
+    url = api_route(id_or_name)
+    case HTTPoison.get(url, [], []) do
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {:error, reason}
+      {:ok, %HTTPoison.Response{body: body}} ->
+        {:ok, body}
+    end
+  end
+
+  defp api_route(id) do
+    "https://anapioficeandfire.com/api/characters/#{id}"
+  end
+end
+```
+
+We'll start the GenServer process with out supervisor we implemented previously.
+
+The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree.
+
+Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiHandler as a child in our supervision tree.
+
+Add the following line to our list of children:
+
+Our list of chidren should now look like this now:
+
+```elixir
+def start(_type, _args) do
+  children = [
+    {MyApp.Router, []},
+    {MyApp.ApiHandler, []}
+  ]
+
+  opts = [strategy: :one_for_one, name: MyApp.Supervisor]
+  Supervisor.start_link(children, opts)
+end
+```
+
+When our app is started it will start our ApiHandler as a child process.
+
+Now we can call our `get_character_request/1` function from our router.
+
+```elixir
+defmodule MyApp.Router do
+  use Plug.Router
+
+  get("/:name") do
+    query_params = Plug.Conn.fetch_query_params(conn)
+    name =  query_params.params["name"] || 1
+    character = MyApp.ApiHandler.get_character(name)
+    conn
+      |> put_resp_content_type("application/json")
+      |> send_resp(200, character)
+  end
+end
+```
+
+Now we have a non-blocking GenServer that calls an external api in an efficient way.
+
+The last thing we want to call out is that we want to register our GenServer with the Erlang name server.
+
+We will do this with the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def start_link(_default) do
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  end
+end
+```
+
+The complete `ApiHandler` module looks like this:
+
+```elixir
+defmodule MyApp.ApiHandler do
+  use GenServer
+
+  def start_link(_default) do
+    GenServer.start_link(__MODULE__, [], name: __MODULE__)
+  end
+
+  def init(args) do
+    {:ok, args}
+  end
+
+  def get_character(id_or_name) do
+    GenServer.call(__MODULE__, {:get_character, id_or_name})
+  end
+
+  def handle_call({:get_character, id_or_name}, _pid, state) do
+    {:ok, response} = get_character_request(id_or_name)
+    {:reply, response, state}
+  end
+
+  def handle_call(_term, _pid, state) do
+    {:reply, [], state}
+  end
+
+  defp get_character_request(id_or_name) do
+    url = api_route(id_or_name)
+
+    case HTTPoison.get(url, [], []) do
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        {:error, reason}
+
+      {:ok, %HTTPoison.Response{body: body}} ->
+        {:ok, body}
+    end
+  end
+
+  defp api_route(id) do
+    "https://anapioficeandfire.com/api/characters/#{id}"
+  end
+end
+```

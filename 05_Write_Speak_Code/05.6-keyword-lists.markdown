@@ -1,0 +1,47 @@
+---
+layout: page
+title: Keyword Lists
+date: 2016-10-1 13:38:30 -0700
+---
+
+## Associative Data Strucutres
+
+Associative data structures are structures that are able to associate a value (or multiple values) to a key. In elixir we have two associative data structures - keywords lists and maps.
+
+## Keyword Lists
+
+Keyword Lists are a special kind of lists. It is a list of tuples where the first element in each tuple is an atom.
+
+We'll often want to set up a 2-item tuple as a representation of a `key-value` data structure.
+
+These are special kind of lists
+
+```
+[greeting: "hello", receiver: "world"]
+[{greeting: "hello}, {:receiever, "world"}]
+```
+
+We can concatenate the dictionary using the key-value syntax with `++`.
+Try typing the following lines in the console -
+
+```elixir
+iex> list = [a: 1, b: 2]
+iex> list[:a] # 1
+iex> list[:c] # nil
+iex> new_list = list ++ [c: 3]
+iex> new_list[:c] # 3
+iex> list[:c] # nil
+```
+
+We'll use keyword-lists a lot in [Ecto](https://github.com/elixir-ecto/ecto) (the database wrapper of the Phoenix library) to make elegant queries to our database. This is covered in the Phoenix class in more depth.
+
+Keyword lists are just lists which means that this isn't really a fantastic data structure for doing large operations.
+
+Remember the following about keys in keyword lists:
+
+Keys are:
+  * Atoms
+  * Ordered
+  * Not Unique
+
+For this reason, Elixir provides another data structure: the `Map`.

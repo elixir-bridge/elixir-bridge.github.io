@@ -1,0 +1,127 @@
+---
+layout: page
+title: Functions
+date: 2016-10-1 13:38:30 -0700
+---
+
+## Functions
+
+Functions are small pieces of code that can be reused. They take inputs, called arguments, and return values or have side effects on other pieces of data. In elixir, there are three syntaxes we use for functions:
+
+Example:
+
+```elixir
+double = fn a -> a + a end
+
+def double(a) do
+  a + a
+end
+
+def double(a), do: a + a
+```
+
+These all have different utiliy in context.
+
+
+### Anonymous functions
+
+In Elixir, we can create functions which are treated just like any other type. To create a function, we'll use the keywords `fn` and `end`. For example, type the following in IEx:
+
+```elixir
+iex> add = fn a, b -> a + b end
+iex> is_function(add)
+true
+```
+
+The anonymous function is now bound to the variable `add`. In order to actually execute our anonymous function, we'll need to add a suffix of `.` to the variable. For example, to call the `add/2` function, try the following:
+
+```elixir
+iex> add.(2, 2) # 4
+```
+
+### Functions in Modules
+
+Modules are used to group related functions. When defining functions inside modules, we use the following syntax:
+
+
+The keyword `def` is used:
+
+```elixir
+defmodule Foo do
+  def hashtag(word) do
+    "#" <> word
+  end
+end
+
+Foo.hashtag("elixir")
+```
+
+### Inline functions
+
+Note that we used the `do ... end` syntax for the block, but there's also a shortcut syntax:
+
+```elixir
+def hashtag(word), do: "#" <> word
+```
+
+### Private Functions
+
+If we want to create a private function that cannot be accessed publicly, we use the 'defp` keyword.
+
+```elixir
+defp add(a, b) do
+  a + b
+end
+```
+
+### Pattern Matching with Functions.
+
+Pattern matching becomes very useful when we use it with functions.
+
+Take a look at the example below.
+
+```elixir
+defmodule Social do
+  def hashtag({:twitter, word}), do: "#" <> word <> " #twitterisgreat"
+
+  def hashtag({:facebook, word}), do: "#" <> word <> " #facebookisgreat"
+end
+```
+
+As you can see, we have two functions here with the exact same name. The question becomes - which function is executed? The function that gets executed is the one where data being passed in matched the arguments in the function signature.
+
+This eliminates the need for us to use conditional logic in our functions. Copy and paste the module above, and then try the following:
+
+```elixir
+Social.hashtag({:facebook, "elixir"})
+Social.hashtag({:instagram, "elixir"})
+```
+
+What happened? When there's no matching function in Elixir, you get a similar error to the other failed matches:
+
+```elixir
+Social.hashtag({:instagram, "elixir"})
+** (FunctionClauseError) no function clause matching in Social.hashtag/1
+   iex:2: Social.hashtag({:instagram, "elixir"})
+```
+
+We received an error because there was no function signature that matched the arguments that had been passed in. To prevent triggering such an error, you can add a default case to your functions when pattern matching. In this case we will add one more function to our module.
+
+```elixir
+defmodule Social do
+  def hashtag({:twitter, word}), do: "#" <> word <> " #twitterisgreat"
+
+  def hashtag({:facebook, word}), do: "#" <> word <> " #facebookisgreat"
+
+  def hashtag({network , word}), do: "#" <> word <> " ##{network}isgreat"
+end
+```
+
+This way, any `network` we pass in will match the last function, and we won't see that error. Try it out:
+
+```elixir
+iex(4)> Social.hashtag({:instagram, "elixir"})
+"#elixir #instagramisgreat"
+```
+
+Order matters when defining functions. Notice we put the default case last. That's because the patterns are matched in the order that they appear in the file. Since the default case will match whatever we pass in, we put it last, so the special cases have a chance to match.

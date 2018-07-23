@@ -1,0 +1,28 @@
+## Pipe operator
+
+One operator that we'll see often is the pipe operator `|>`. The `|>` pipe operator passes the result of one function on to the next function. Conceptually, it's like running the function:
+
+```
+f(d(b(:atom)))
+```
+
+The equivalent version using pipes is
+
+```
+b(:atom) |> d() |> f()
+```
+
+The `pipe` operator helps our code stay clean and readable. We'll use it for cases where we want to transform a request type, or build up a data structure with different functions.
+
+
+```elixir
+42 |> is_number
+[1, 2, 3] |> Enum.map(fn(x) -> x * x end)
+[1, 2, 3] |> Enum.map(fn(x) -> x * x end) |> Enum.reduce(&+/2)
+```
+
+Looking at the first line above `42 |> is_number`.
+
+What is actually happening is that `42` is being passed as the first argument to `is_number` so it looks like `is_number(42)`.
+
+What do we think is happening in the other two functions?
