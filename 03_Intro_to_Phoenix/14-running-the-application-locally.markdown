@@ -28,11 +28,11 @@ Compiled web/views/topic_view.ex
 
 ```
 
-##Step 2
+## Step 2
 Point your web browser to http://localhost:4000
 See your web app actually running!
 
-##Step 3
+## Step 3
 While the server is running, whatever you type in that terminal tab will be ignored.
 
 To get back to the terminal, you can stop the server by typing Control-c twice.
