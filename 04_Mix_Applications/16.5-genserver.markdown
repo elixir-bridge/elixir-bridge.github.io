@@ -170,7 +170,7 @@ Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex
 
 Add the following line to our list of children:
 
-Our list of chidren should now look like this now:
+Our list of children should now look like this now:
 
 ```elixir
 def start(_type, _args) do

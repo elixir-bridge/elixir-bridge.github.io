@@ -114,7 +114,7 @@ iex> true or IO.puts("This won't print")
 true
 ```
 
-The `or` and `and` operators are called _short-circut_ operators as they execute the left-side first and only execute the right side if necessary.
+The `or` and `and` operators are called _short-circuit_ operators as they execute the left-side first and only execute the right side if necessary.
 
 We can use the `||` (logical OR), `&&` (logical AND), and `!` (logical not) operators which accept arguments of all types. All values from these operators evaluate to true except for `false` and `nil`.
 

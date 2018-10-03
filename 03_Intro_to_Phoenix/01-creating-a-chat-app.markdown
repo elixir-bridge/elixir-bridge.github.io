@@ -27,7 +27,7 @@ $ mix phx.new chatter
 
 # Prepare the app for the first start
 
-There are a few more steps to get our app ready for the first start. First, we need ot get into or project directory. Then, we need to create the database that we'll use later. For now, it's enought that it exists.
+There are a few more steps to get our app ready for the first start. First, we need to get into or project directory. Then, we need to create the database that we'll use later. For now, it's enough that it exists.
 
 ```bash
 cd chatter
@@ -82,7 +82,7 @@ Add the channel to your `lib/chatter_web/channels/user_socket.ex` handler, for e
 
 At the end of the command, it tells you to add a line to your `lib/chatter_web/channels/user_socket.ex` file. You need to do this so the websocket request can be directed to your channel.
 
-`chat_room_channel.ex` is analagous to a controller in Phoenix, except it is for handling websocket requests instead of http requests.
+`chat_room_channel.ex` is analogous to a controller in Phoenix, except it is for handling websocket requests instead of http requests.
 
 Looking at the code below,
 

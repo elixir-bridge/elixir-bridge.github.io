@@ -6,7 +6,7 @@ date: 2016-10-1 13:38:30 -0700
 
 ## Environments
 
-We will have 3 different enivronments in our application:
+We will have 3 different environments in our application:
 
 * :dev default environment
 * :test test environment
@@ -15,4 +15,3 @@ We will have 3 different enivronments in our application:
 To switch between environments, we can set the `MIX_ENV` environment variable.
 
 `MIX_ENV=prod mix compile`
-

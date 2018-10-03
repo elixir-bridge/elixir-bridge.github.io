@@ -39,7 +39,7 @@ defmodule MyApp.Router do
 end
 ```
 
-Thw `match/2` function will check against any of our HTTP requests to see which one matches.
+The `match/2` function will check against any of our HTTP requests to see which one matches.
 
 Then it calls the `:dispatch` plug which will execute the matched code.
 
@@ -131,4 +131,3 @@ forward "/hello", to: MyApp.Plugs.HelloWorld
 ```
 
 `forward` is invoked by Plug.Router to forward requests to another plug.
-

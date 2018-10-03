@@ -20,7 +20,7 @@ end
 def double(a), do: a + a
 ```
 
-These all have different utiliy in context.
+These all have different utility in context.
 
 
 ### Anonymous functions

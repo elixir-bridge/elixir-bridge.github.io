@@ -20,7 +20,7 @@ cd into that directory we'll create a file called `home.html`
 home.html
 ```
 
-Now let's add the folowing line of code to our `get` route in our router
+Now let's add the following line of code to our `get` route in our router
 
 ```elixir
 page = EEx.eval_file("templates/home.html")
@@ -80,8 +80,3 @@ In Eex we can interpolate variables list so:
 ```elixir
 <h2><% name %></h2>
 ```
-
-
-
-
-

@@ -9,7 +9,7 @@ date: 2016-10-1 13:38:30 -0700
 We are going to use docker to deploy our application. To do so we need to create a dockerfile
 
 Step 1: Dockerfile
-Make sure you are in your root app directory and type the following into the commad line.
+Make sure you are in your root app directory and type the following into the command line.
 
 ```bash
 touch dockerfile
@@ -17,7 +17,7 @@ touch dockerfile
 
 The dockerfile will specify all of the commands we needed to build a docker image
 
-Step 2: Connect your shell to your maching
+Step 2: Connect your shell to your machine
 
 Run the following in your terminal:
 

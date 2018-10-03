@@ -109,7 +109,7 @@ This buildpack allows us to compile static assets for Phoenix deployment.
 
 ##### Setting Enviroment Variables
 
-Every new project comes with a config file, `config/prod.secret.exs` which stores configuration that shold not be committed with source code.
+Every new project comes with a config file, `config/prod.secret.exs` which stores configuration that should not be committed with source code.
 
 Phoenix adds it to the .gitingnore file by default.
 

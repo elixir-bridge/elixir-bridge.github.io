@@ -9,8 +9,8 @@ position: 5
 Let's fire up the application locally
 
 # Steps
-##Step 1
-Make sure that you're in the suggestotron folder. You can type `pwd` (print working directory) in the terminal to see what folder you are in.
+## Step 1
+Make sure that you're in the test_app folder. You can type `pwd` (print working directory) in the terminal to see what folder you are in.
 
 Type this in the terminal:
 
