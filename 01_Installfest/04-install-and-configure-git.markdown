@@ -84,3 +84,14 @@ If on a mac, type this into the terminal
 ```
 git config --global color.ui auto
 ```
+
+Type this in the terminal:
+
+```
+git config --get color.ui
+```
+
+Expected Result:
+```
+auto
+```
