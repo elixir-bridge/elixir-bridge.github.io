@@ -18,7 +18,7 @@ These are special kind of lists
 
 ```
 [greeting: "hello", receiver: "world"]
-[{greeting: "hello}, {:receiever, "world"}]
+[{:greeting, "hello"}, {:receiver, "world"}]
 ```
 
 We can concatenate the dictionary using the key-value syntax with `++`.
