@@ -30,7 +30,7 @@ There are several reasons why people are excited about Elixir. Let's take a look
 
 #### Scalable
 
-All elixir code runs inside of something called processes(think lots of little programs. Each Program can exist on its own and it communicates with other programs via message passing.
+All elixir code runs inside of something called processes (think lots of little programs). Each Program can exist on its own and it communicates with other programs via message passing.
 
 Because each "process" does not take up a lot of processing power, hundreds of thousands of programs could be running at the same time potentially on different computers. Since each `process` is isolated it can be garbage collected independently. This reduces pauses that are system wide. This feature also allows all machine resources to be used as efficiently as possible.
 

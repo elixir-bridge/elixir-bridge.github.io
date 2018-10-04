@@ -8,7 +8,7 @@ date: 2016-10-1 13:38:30 -0700
 
 Now We are going to create a router that will route requests coming into our application.
 
-Let's create a `router.ex` file in our `lib` directory in our applicaiton.
+Let's create a `router.ex` file in our `lib` directory in our application.
 
 Type the following into that file:
 
@@ -39,9 +39,3 @@ defmodule MyApp.Router do
   end
 end
 ```
-
-
-
-
-
-

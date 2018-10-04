@@ -8,7 +8,7 @@ date: 2016-10-1 13:38:30 -0700
 ## Pattern matching
 
 One of the more powerful ideas in Elixir is using pattern matching. In Elixir the `=` acts as the match operator.
-The term on the right matches the pattern on the left. If there is a match we return the value of the patern, otherwise we get an error. Lets look at an example
+The term on the right matches the pattern on the left. If there is a match we return the value of the pattern, otherwise we get an error. Lets look at an example
 
 ```elixir
 a = 1
@@ -23,7 +23,7 @@ a = 1
 
 It may look like assignment if you are familiar with object oriented languages.
 
-However what is actually happening is `a` initially does not have a value, so with uninitialized variables, the variable gets bound to the value on the right hand side of the expression. We can pretend it works like assignement for now.
+However what is actually happening is `a` initially does not have a value, so with uninitialized variables, the variable gets bound to the value on the right hand side of the expression. We can pretend it works like assignment for now.
 
 In the next line we now know `a` has a value of 1. Here we are checking that the term on the right, matches the pattern on the left.
 
@@ -154,8 +154,8 @@ Pattern matching can be used with any of the data types built into elixir. You'l
 
 ### Pin Operator
 
-One last note on variables in Elxir. In Elixir we can place a pin `^` operator in front of a variable. We do this when we want to match against the contents of the variable.
-In otherwords, we want to keep the value of the variable, rathern than bind that variable to a new value.
+One last note on variables in Elixir. In Elixir we can place a pin `^` operator in front of a variable. We do this when we want to match against the contents of the variable.
+In other words, we want to keep the value of the variable, rather than bind that variable to a new value.
 
 Let's look at the following code snippet
 
@@ -171,5 +171,3 @@ When we try to match the `2` against the value of `x` which is 1, we get an erro
 ```elixir
 1 = 2
 ```
-
-

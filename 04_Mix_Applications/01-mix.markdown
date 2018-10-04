@@ -16,7 +16,7 @@ Type the following into the terminal:
 mix new my_app
 ```
 
-You will see the follwing:
+You will see the following:
 
 ```bash
 $ mix new my_app
@@ -84,10 +84,3 @@ end
 `def application` defines what is needed for your application to run.
 
 `defp deps` defines the dependencies that are required for the application.
-
-
-
-
-
-
-

@@ -46,7 +46,7 @@ Let's crate a file and write our code in there instead. Let's create `calc.ex` f
 touch calc.ex
 ```
 
-Now add the follwing code to the file.
+Now add the following code to the file.
 
 ```elixir
 defmodule Calc do
@@ -55,7 +55,7 @@ defmodule Calc do
   end
 end
 ```
-Type each of the following lines into the comand line - one line at a time.
+Type each of the following lines into the command line - one line at a time.
 
 ```elixir
 iex
@@ -112,7 +112,7 @@ Enum
 iex(4)>
 ```
 
-Note that `last` is a function that is defined on `List`. What other fucntions might we be able to acces on list?
+Note that `last` is a function that is defined on `List`. What other functions might we be able to access on list?
 
 As we can see in the example -`import` let's us bring in a module, and then access any functions that are defined on that module.
 
@@ -161,5 +161,4 @@ defmodule Adder do
 end
 ```
 
-It allows us to use functionality from certian modules inside of another module. Note that we can access the `Calc` api inside of `Adder`.
-
+It allows us to use functionality from certain modules inside of another module. Note that we can access the `Calc` api inside of `Adder`.

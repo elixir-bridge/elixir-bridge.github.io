@@ -16,7 +16,7 @@ What would happen in the above example? How might this be a problem?
 
 Operations are performed only at the last minute
 
-Instead of peforming the operations, it returns a precomputed function.
+Instead of performing the operations, it returns a precomputed function.
 
 Lets look at an example and figure out what is happening below
 
@@ -60,9 +60,3 @@ Stream.cycle([1, 2, 3]) |> Enum.to_list
 Why would this be a problem?
 
 Hint: Stream.cycle will run infinitely.
-
-
-
-
-
-

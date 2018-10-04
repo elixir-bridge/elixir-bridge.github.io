@@ -9,8 +9,8 @@ position: 5
 Let's fire up the application locally
 
 # Steps
-##Step 1
-Make sure that you're in the suggestotron folder. You can type `pwd` (print working directory) in the terminal to see what folder you are in.
+## Step 1
+Make sure that you're in the test_app folder. You can type `pwd` (print working directory) in the terminal to see what folder you are in.
 
 Type this in the terminal:
 
@@ -28,11 +28,11 @@ Compiled web/views/topic_view.ex
 
 ```
 
-##Step 2
+## Step 2
 Point your web browser to http://localhost:4000
 See your web app actually running!
 
-##Step 3
+## Step 3
 While the server is running, whatever you type in that terminal tab will be ignored.
 
 To get back to the terminal, you can stop the server by typing Control-c twice.

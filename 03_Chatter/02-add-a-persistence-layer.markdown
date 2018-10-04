@@ -18,7 +18,7 @@ We have a basic chat app working now, but what happens if you reload the page? P
 
 ### Create the model
 
-First, we'll create and run a migration. Migrations are pieces of code that dreate or change database columns. In Phoenix, we can invoke `mix phx.gen.schema` from the terminal to generate our model, then run the migration:
+First, we'll create and run a migration. Migrations are pieces of code that creates or changes database columns. In Phoenix, we can invoke `mix phx.gen.schema` from the terminal to generate our model, then run the migration:
 
 ```bash
 mix phx.gen.schema Message messages name:string message:string
@@ -92,7 +92,7 @@ Now this `handle_info/2` will get called after the socket has been connected. We
 
 ### Fetching most recent messages
 
-Since we're going to be getting these messages a lot, it makes sense to put that code in the schema for messages, `lib/chatter/message.ex`. We can add the folloing method to our module, after the `changeset/2` method:
+Since we're going to be getting these messages a lot, it makes sense to put that code in the schema for messages, `lib/chatter/message.ex`. We can add the following method to our module, after the `changeset/2` method:
 
 ```elixir
 def recent_messages(limit \\ 10) do

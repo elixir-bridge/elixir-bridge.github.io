@@ -22,7 +22,7 @@ Heroku will send you an activation email. Open it and click on the activation li
 
 #### Step 4: Install the Heroku toolbelt
 
-Visit [https://toolbelt.heroku.com/]( https://toolbelt.heroku.com/) clickk the downloand link, and install
+Visit [https://toolbelt.heroku.com/]( https://toolbelt.heroku.com/) click the download link, and install
 
 ##### Verify
 
@@ -137,4 +137,3 @@ Expected Result:
 ```
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
 ```
-

@@ -17,7 +17,7 @@ position: 6
 </table>
 
 
-The suggestotron has a list of topics that people can vote on. We'll store our topics in the database. In this step you'll do the following:
+The test_app has a list of topics that people can vote on. We'll store our topics in the database. In this step you'll do the following:
 
 * Create a simple Table in the database for topics with a title and a description
 
