@@ -50,6 +50,16 @@ You should see a version number greater than 1.5, like this:
 
 Anything above 1.5 is fine.
 
+Mix is a build tool that ships with Elixir, that provides tasks for creating, compiling, testing your application, managing its dependencies, and more.
+
+To check that Mix is also installed correctly:
+
+`mix -v`
+
+You should see a version number greater than 1.5, like this:
+
+`Mix 1.5.1`
+
 ### Step 7: Install Hex
 
 Type this in the terminal:
