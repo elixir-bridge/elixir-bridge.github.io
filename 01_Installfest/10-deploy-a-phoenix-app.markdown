@@ -221,7 +221,7 @@ touch Procfile
 Open the Procfile in your text editor and paste in the following:
 
 ```
-web: elixir -S mix phoenix.server
+web: elixir -S mix phx.server
 ```
 
 Next type the following into your terminal (do one line at a time)
@@ -251,7 +251,7 @@ POOL_SIZE: 18
 Type the following into your terminal:
 
 ```
-mix phoenix.gen.secret
+mix phx.gen.secret
 ```
 Expected Result:
 Something like below, but your string will be different so don't expect the output to be the same.
