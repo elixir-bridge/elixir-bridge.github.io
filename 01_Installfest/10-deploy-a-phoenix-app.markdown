@@ -207,7 +207,7 @@ with
 
 This ensures that any idle connections are closed by Phoenix before they reach Heroku's 55 second timeout window.
 
-#### Create Profile
+#### Create Procfile
 
 In your terminal make sure you are in your test_app directory.
 
