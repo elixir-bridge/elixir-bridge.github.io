@@ -126,7 +126,7 @@ Open `config/prod.exs`
 ```
 use Mix.Config
 
-config :test_app, TestApp.Endpoint,
+config :test_app, TestAppWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "example.com", port: 80],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
@@ -166,7 +166,7 @@ Make sure that you replace the part of the host url that says `name-of-your-app`
 ```
 use Mix.Config
 
-config :test_app, TestApp.Endpoint,
+config :test_app, TestAppWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "stormy-stream-65433.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
