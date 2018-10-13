@@ -138,7 +138,7 @@ To https://git.heroku.com/stormy-stream-65433.git
 Annas-MacBook-Pro-3:test_app anheroku logs -a stormy-stream-65433
 ```
 
-You do not see the 'Verifying deploy...done', ask a TA for help.
+If you do not see the 'Verifying deploy...done', ask a TA for help.
 
 
 next type the following into your terminal
