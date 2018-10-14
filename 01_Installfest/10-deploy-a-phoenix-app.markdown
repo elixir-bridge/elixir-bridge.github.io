@@ -126,12 +126,12 @@ Open `config/prod.exs`
 ```
 use Mix.Config
 
-config :test_app, TestApp.Endpoint,
+config :test_app, TestAppWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "example.com", port: 80],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -166,12 +166,12 @@ Make sure that you replace the part of the host url that says `name-of-your-app`
 ```
 use Mix.Config
 
-config :test_app, TestApp.Endpoint,
+config :test_app, TestAppWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [scheme: "https", host: "stormy-stream-65433.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/manifest.json",
-  secret_key_base: System.get_env("SECRET_KEY_BASE")
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -207,7 +207,7 @@ with
 
 This ensures that any idle connections are closed by Phoenix before they reach Heroku's 55 second timeout window.
 
-#### Create Profile
+#### Create Procfile
 
 In your terminal make sure you are in your test_app directory.
 
@@ -221,7 +221,7 @@ touch Procfile
 Open the Procfile in your text editor and paste in the following:
 
 ```
-web: elixir -S mix phoenix.server
+web: elixir -S mix phx.server
 ```
 
 Next type the following into your terminal (do one line at a time)
@@ -251,7 +251,7 @@ POOL_SIZE: 18
 Type the following into your terminal:
 
 ```
-mix phoenix.gen.secret
+mix phx.gen.secret
 ```
 Expected Result:
 Something like below, but your string will be different so don't expect the output to be the same.

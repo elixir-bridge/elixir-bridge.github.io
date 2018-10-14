@@ -5,7 +5,7 @@ date: 2016-08-15 00:13:42 -0600
 page_turn_links: first
 ---
 
-This is a step by step guide for installing Elixir, Phoenix, and other tools for developing your first application. If you want to contribute, please see our [Contributing Guide](INSERT GUIDE THERE TODO).
+This is a step by step guide for installing Elixir, Phoenix, and other tools for developing your first application. If you want to contribute, please see our [Contributing Guide](https://github.com/elixir-bridge/elixir-bridge.github.io/blob/master/CONTRIBUTING.md).
 
 ## Step 1: Prepare for the Installfest
 
