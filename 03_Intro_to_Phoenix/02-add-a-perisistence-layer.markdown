@@ -98,7 +98,7 @@ Since we're going to be getting these messages a lot, it makes sense to put that
 
 ```elixir
 def recent_messages(limit \\ 10) do
-  Chatter.Repo.all(Message, limit: limit)
+  Chatter.Repo.all(Chatter.Message, limit: limit)
 end
 ```
 
