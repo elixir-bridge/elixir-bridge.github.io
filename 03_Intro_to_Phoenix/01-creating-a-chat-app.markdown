@@ -55,7 +55,7 @@ Point your browser to localhost:4000, it should look like this:
 
 ### What is a channel
 
-A channel is persisted connection between the browser and the server. A regular request is like sending letters back and forth between the browser and the server. But a socket is more like a pipe or a phone call. Where the connection is always on, and each side can communicate messages efficiently and quickly. In our case, the server can broadcast messaged down and the users can send messages up through their browser.
+A channel is persisted connection between the browser and the server. A regular request is like sending letters back and forth between the browser and the server. But a socket is more like a pipe or a phone call. Where the connection is always on, and each side can communicate messages efficiently and quickly. In our case, the server can broadcast messages down and the users can send messages up through their browser.
 
 * Down means towards the Clients
 * Up means towards the server
