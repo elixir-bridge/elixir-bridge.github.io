@@ -46,10 +46,11 @@ Let's add these dependencies to our Mix.exs file. It should now look like this.
 ```elixir
 defp deps do
   [
-    {:cowboy, "~> 2.3"},
-    {:plug, "~> 1.5"},
-    {:earmark, "~> 1.2", only: :dev},
-    {:ex_doc, "~> 0.18.3", only: :dev}
+    {:cowboy, "~> 2.6"},
+    {:plug, "~> 1.7"},
+    {:plug_cowboy, "~> 2.0"},
+    {:earmark, "~> 1.3", only: :dev},
+    {:ex_doc, "~> 0.19.1", only: :dev}
   ]
 end
 ```

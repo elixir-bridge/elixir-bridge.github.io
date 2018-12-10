@@ -22,8 +22,9 @@ defmodule MyApp.Mixfile do
   # ...
   defp deps do
     [
-      {:cowboy, "~> 2.3"},
-      {:plug, "~> 1.5"}
+      {:cowboy, "~> 2.6"},
+      {:plug, "~> 1.7"},
+      {:plug_cowboy, "~> 2.0"}
     ]
   end
 end
@@ -55,14 +56,17 @@ Mix has a build in command for installing dependencies, `mix deps.get`. Let's pu
 $ mix deps.get
 Resolving Hex dependencies...
 Dependency resolution completed:
-  cowboy 2.3.0
-  cowlib 2.2.1
-  mime 1.2.0
-  plug 1.5.0
-  ranch 1.4.0
+New:
+  cowboy 2.6.1
+  cowlib 2.7.0
+  mime 1.3.1
+  plug 1.7.1
+  plug_crypto 1.0.0
+  ranch 1.7.1
 * Getting cowboy (Hex package)
 * Getting plug (Hex package)
 * Getting mime (Hex package)
+* Getting plug_crypto (Hex package)
 * Getting cowlib (Hex package)
 * Getting ranch (Hex package)
 ```
