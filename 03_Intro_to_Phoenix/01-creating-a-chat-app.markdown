@@ -145,7 +145,7 @@ To make things easier, we’ll start by adding jQuery to our `lib/chatter_web/te
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+<script src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
 ```
 
 Phoenix comes packed with a simple javascript socket client, but it’s disabled by default. Go into your `assets/js/app.js` and uncomment the last line:

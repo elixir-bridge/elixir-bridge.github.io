@@ -51,7 +51,7 @@ defmodule MyApp.Router do
   end
 
   def start_link() do
-    {:ok, _} = Plug.Adapters.Cowboy2.http(MyApp.Router, [], port: 4000)
+    {:ok, _} = Plug.Adapters.Cowboy.http(MyApp.Router, [], port: 4000)
   end
 
   get "/" do
