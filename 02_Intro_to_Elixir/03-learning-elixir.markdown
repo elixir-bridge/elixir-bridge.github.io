@@ -29,9 +29,10 @@ The `iex` command (_I_nteractive _E_li_X_ir), which launches the Interactive Eli
 
 ```elixir
 >$ iex
-Erlang/OTP 20 [erts-9.1] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:10] [hipe] [kernel-poll:false]
+Erlang/OTP 21 [erts-10.0] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [hipe]
 
-Interactive Elixir (1.6.1) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (1.7.4) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)>
 ```
 
 From this console, we'll be able to play around and experiment with Elixir. Anytime that you see code prepended by the string `iex> `, this means we're working inside the REPL. Feel free to try it along with us as we go. It's a good way to get your fingers working through writing Elixir.
@@ -40,15 +41,12 @@ From this console, we'll be able to play around and experiment with Elixir. Anyt
 
 The `h` command is the help command. It is very useful to find information the elixir language
 
-Type `h` into the command line
+Type `h()` into the command line
 
 You should see something similar to the following:
 
 ```elixir
-iex(1)> h
-warning: variable "h" does not exist and is being expanded to "h()", please use parentheses to remove the ambiguity or change the variable name
-  iex:1
-
+iex(1)> h()
 
                                   IEx.Helpers
 
@@ -62,16 +60,17 @@ h/0 (since it expects 0 arguments).
 You can use the h/1 function to invoke the documentation for any Elixir module
 or function:
 
-    iex> h Enum
-    iex> h Enum.map
-    iex> h Enum.reverse/1
+    iex> h(Enum)
+    iex> h(Enum.map)
+    iex> h(Enum.reverse/1)
 
 You can also use the i/1 function to introspect any value you have in the
 shell:
 
-    iex> i "hello"
+    iex> i("hello")
 
-There are many other helpers available:
+There are many other helpers available, here are some examples:
+...
 ```
 
 ### Notation
@@ -90,6 +89,8 @@ Type: `h Integer.to_string` into command line
 iex(4)> h Integer.to_string
 
                              def to_string(integer)
+                             
+  @spec to_string(integer()) :: String.t()
 
 Returns a binary which corresponds to the text representation of integer.
 
