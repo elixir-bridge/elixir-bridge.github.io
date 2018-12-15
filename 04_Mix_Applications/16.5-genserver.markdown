@@ -121,7 +121,7 @@ defmodule MyApp.ApiHandler do
 end
 ```
 
-So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_poke_request/1` method.
+So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_character_request/1` method.
 
 But first let's add the required dependencies to our `mix.exs` file.
 
@@ -163,6 +163,7 @@ defmodule MyApp.ApiHandler do
 end
 ```
 
+
 We'll start the GenServer process with out supervisor we implemented previously.
 
 The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree. We'll implement the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.
@@ -175,6 +176,13 @@ defmodule MyApp.ApiHandler do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 end
+```
+
+Now that we have our completed ApiHandler, we can call it from the console:
+
+```elixir
+iex(2)> MyApp.ApiHandler.get_character(1)
+"{\"url\":\"https://anapioficeandfire.com/api/characters/1\",\"name\":\"\",\"gender\":\"Female\",\"culture\":\"Braavosi\",\"born\":\"\",\"died\":\"\",\"titles\":[\"\"],\"aliases\":[\"The Daughter of the Dusk\"],\"father\":\"\",\"mother\":\"\",\"spouse\":\"\",\"allegiances\":[],\"books\":[\"https://anapioficeandfire.com/api/books/5\"],\"povBooks\":[],\"tvSeries\":[\"\"],\"playedBy\":[\"\"]}"
 ```
 
 The complete `ApiHandler` module looks like this:
