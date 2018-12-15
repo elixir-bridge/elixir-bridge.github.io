@@ -22,11 +22,11 @@ The `case` function allows us to compare a value against several patterns until 
 ```elixir
 case_statement = fn x ->
   case x do
-  {4, 5, 6} ->
+    {4, 5, 6} ->
       "matches {4,5,6}"
-  {1, x, 3} ->
-      "This sets x to #{x}"
-  _ ->
+    {1, y, 3} ->
+      "This sets y to #{y}"
+    _ ->
       "Matches any value not previously matched"
   end
 end
