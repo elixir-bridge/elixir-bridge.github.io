@@ -92,7 +92,7 @@ defmodule Calc.Op do
 end
 ```
 
-We now have a `Calc` struct `Calc%{}`
+We now have a `Calc` struct `%Calc{}`
 
 Stucts provide a compile-time guarantee that only the fields defined in `defstruct` are allowed to exist in the struct.
 
