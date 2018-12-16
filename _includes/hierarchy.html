@@ -15,7 +15,7 @@
 <!-- spit them out as a list of lists -->
 {% for section in sections %}
   {% if section != '' %}
-    <h4>{{ section | slice: 3, 100}}</h4>
+    <h4>{{ section | slice: 3, 100 | split: "_" | join: " "}}</h4>
     <ul class="sidebar-list">
     {% for page in pages %}
       {% if page.url contains section %}
