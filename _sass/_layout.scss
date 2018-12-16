@@ -113,7 +113,7 @@ pre code.hljs {
     margin: 0;
     font-size: 1.5em;
     padding-top: 0.5em;
-    @include media ($tablet) {
+    @include media ($medium-screen) {
       display: none;
     }
   }
@@ -121,12 +121,16 @@ pre code.hljs {
   .navigation-wrapper {
   	@include outer-container;
     @include clearfix;
-    position: relative;
+		position: relative;
+		text-align: center;
+
+		@media screen and (max-width: $medium-screen) {
+			text-align: left;
+		}
   }
   .logo {
-    float: left;
     height: 4em;
-    @include media ($tablet) {
+    @include media ($medium-screen) {
     	padding-left: $em-base;
     }
     img {
@@ -141,7 +145,7 @@ pre code.hljs {
   nav {
     float: none;
     padding: 1.25em 0;
-    @include media ($tablet) {
+    @include media ($medium-screen) {
       float: right;
       line-height: 1.5em;
     }
@@ -153,7 +157,7 @@ pre code.hljs {
     overflow: visible;
     padding: 0;
     width: 100%;
-    @include media ($tablet) {
+    @include media ($medium-screen) {
       display: block;
       margin: 0;
       padding: 0;
@@ -168,7 +172,7 @@ pre code.hljs {
     text-align: right;
     width: 100%;
     padding: 0.25em 0;
-    @include media ($tablet) {
+    @include media ($medium-screen) {
       background: transparent;
       display: inline;
       text-decoration: none;
@@ -178,12 +182,12 @@ pre code.hljs {
   li.nav-link {
   	a {
 	    display: inline-block;
-	    @include media ($tablet) {
+	    @include media ($medium-screen) {
 	      padding-right: 1.5em;
 	    }
 	  }
 	  &:last-child a {
-	  	@include media ($tablet) {
+	  	@include media ($medium-screen) {
     		padding-right: 1em;
     	}
     }
@@ -194,6 +198,12 @@ pre code.hljs {
 *	Body
 */
 .page-content {
+	margin: auto;
+
+	@media screen and (min-width: $medium-screen) {
+		margin: initial;
+	}
+
 	.wrapper {
 		@include outer-container;
 		padding: 1em;
