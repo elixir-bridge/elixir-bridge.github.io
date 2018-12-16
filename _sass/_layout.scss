@@ -142,56 +142,6 @@ pre code.hljs {
     	font-size: 1.25em;
     }
   }
-  nav {
-    float: none;
-    padding: 1.25em 0;
-    @include media ($medium-screen) {
-      float: right;
-      line-height: 1.5em;
-    }
-  }
-  ul.navigation-menu {
-    clear: both;
-    display: none;
-    margin: 0 auto;
-    overflow: visible;
-    padding: 0;
-    width: 100%;
-    @include media ($medium-screen) {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-    &.show {
-      display: block;
-    }
-  }
-  // Nav items
-  ul li.nav-link {
-    display: block;
-    text-align: right;
-    width: 100%;
-    padding: 0.25em 0;
-    @include media ($medium-screen) {
-      background: transparent;
-      display: inline;
-      text-decoration: none;
-      width: auto;
-    }
-  }
-  li.nav-link {
-  	a {
-	    display: inline-block;
-	    @include media ($medium-screen) {
-	      padding-right: 1.5em;
-	    }
-	  }
-	  &:last-child a {
-	  	@include media ($medium-screen) {
-    		padding-right: 1em;
-    	}
-    }
-  }
 }
 
 /*

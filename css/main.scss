@@ -33,6 +33,21 @@
 
   @media screen and (max-width: $medium-screen) {
     display: none;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    overflow: scroll;
+    height: 100vh;
+    padding: 10px 40px;
+    margin-left: 0;
+    background: white;
+    border-right: 2px solid #70aad0;
+    box-shadow: 0 0 20px black;
+
+    &.mobile-show {
+      display: block;
+    }
   }
 }
 
