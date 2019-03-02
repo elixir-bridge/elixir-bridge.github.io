@@ -62,7 +62,7 @@ false
 
 Why is this false? Because 3.14 is not in integer, it's a `Float`. Let's take a look at floats.
 
-> [Docs for Integer](http://elixir-lang.org/docs/stable/elixir/Integer.html)
+> [Docs for Integer](https://hexdocs.pm/elixir/Integer.html)
 
 ### Floats
 
@@ -112,7 +112,7 @@ iex> div(10, 3)
 
 Try some other commands out to see what else you can do.
 
-> [Float docs](http://elixir-lang.org/docs/stable/elixir/Float.html)
+> [Float docs](https://hexdocs.pm/elixir/Float.html)
 
 
 ### Hex, Octal, Binary
@@ -200,7 +200,7 @@ receiver = "World"
 Variables are interpolated using the `#{variable}`
 
 
-More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).
+More documentation on the [String](https://hexdocs.pm/elixir/String.html) module is available at [https://hexdocs.pm/elixir/String.html](https://hexdocs.pm/elixir/String.html).
 
 ### Concatenate Operator
 
