@@ -200,7 +200,7 @@ receiver = "World"
 Variables are interpolated using the `#{variable}`
 
 
-More documentation on the [String](http://elixir-lang.org/docs/stable/elixir/String.html) module is available at [http://elixir-lang.org/docs/stable/elixir/String.html](http://elixir-lang.org/docs/stable/elixir/String.html).
+More documentation on the [String](https://hexdocs.pm/elixir/String.html) module is available at [https://hexdocs.pm/elixir/String.html](https://hexdocs.pm/elixir/String.html).
 
 ### Concatenate Operator
 
