@@ -9,7 +9,6 @@ page_turn_links: none
 
 [OSX/MacOS](03-macintosh-osx-setup)
 
-Windows
+[Windows](03-windows-setup)
 
 Linux
-

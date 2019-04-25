@@ -4,7 +4,6 @@ title: Install Elixir and Phoenix
 date: 2016-09-24 12:28:28 -0700
 ---
 
-
 ### Step 6: Install Elixir
 
 You can either install elixir with asdf or brew. We recommend asdf, but either approach will be sufficient.
@@ -22,21 +21,13 @@ by typing this in the terminal:
 
 then you can use homebrew to install elixir:
 
- `brew install elixir`
+`brew install elixir`
 
 #### OR Macports
 
 Alternately, you may install using Macports, by typing this in the terminal:
 
 `sudo port install elixir`
-
-#### Windows installation
-
-Navigate to [https://chocolatey.org/install](https://chocolatey.org/install).
-
-Install the chocolatey package.
-
-Then install elixir. Follow the instructions here: [https://chocolatey.org/packages/Elixir](https://chocolatey.org/packages/Elixir)
 
 #### Check Your Installation
 
@@ -89,7 +80,9 @@ Answer "Y" to install. Then you should see:
 ```
 
 #### Verify
+
 Type this in the terminal:
+
 ```
 mix help | grep phx
 ```
