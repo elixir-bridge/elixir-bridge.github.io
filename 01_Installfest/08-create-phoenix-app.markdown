@@ -7,6 +7,7 @@ date: 2017-10-16 00:08:28 -0700
 ### Step 1: Change to your home directory
 
 #### Mac or Linux
+
 Type this in the terminal:
 
 ```
@@ -26,6 +27,7 @@ mkdir elixirbridge
 `mkdir` stands for make directory (folder). We've now made a folder called `elixirbridge`.
 
 ### Step 3:
+
 Change to your new `elixirbridge` directory. Type this in the terminal:
 
 ```
@@ -33,6 +35,7 @@ cd elixirbridge
 ```
 
 ### Step 4: Create a new Phoenix app
+
 Type this in the terminal:
 
 ```
@@ -77,6 +80,12 @@ Type the following into your terminal:
 mix deps.get
 ```
 
+- On Windows, you may need to add the line to your mix.exs file
+
+```
+      {:plug_cowboy, "~> 1.0"}
+```
+
 ### Step 6: Install npm and node
 
 ```
@@ -96,6 +105,7 @@ mix ecto.create
 ```
 
 Then, type this in a terminal:
+
 ```
 mix phx.server
 ```
