@@ -14,27 +14,41 @@
 ;
 
 .page-content .site-header-container {
-    color: #fff;
-    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.33);
-    background-color: #634580;
+  color: #fff;
+  text-shadow: 0 2px 1px rgba(0, 0, 0, 0.33);
+  background-color: #634580;
 }
-
 .site-footer {
-    background-color: #634580;
+  background-color: #634580;
 }
 
 .page-wrapper {
   display: flex;
-  flex-direction: column-reverse;
-
-  @media screen and (min-width: $medium-screen) {
-    flex-direction: row;
-  }
+  flex-direction: row;
 }
 
 .sidebar {
-    flex-basis: 22%;
-    margin-left: 5px;
+  flex: 0 0 350px;
+  margin-left: 15px;
+
+  @media screen and (max-width: $medium-screen) {
+    display: none;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+
+    overflow: scroll;
+    height: 100vh;
+    padding: 10px 40px;
+    margin-left: 0;
+    background: white;
+    border-right: 2px solid #70aad0;
+    box-shadow: 0 0 20px black;
+
+    &.mobile-show {
+      display: block;
+    }
+  }
 }
 
 .sidebar-list {

@@ -12,6 +12,16 @@
 <!-- make them an array -->
 {% assign sections = sections | split: ',' | uniq %}
 
+
+<h4>
+  {% if page.url == '/docs/' %}
+    Docs
+  {% else %}
+    <a href="/docs">Docs</a>
+  {% endif %}
+</h4>
+
+
 <!-- spit them out as a list of lists -->
 {% for section in sections %}
   {% if section != '' %}
