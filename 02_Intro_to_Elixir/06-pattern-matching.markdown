@@ -136,7 +136,7 @@ We'll also use pattern matching to match on specific values of a tuple. Try the 
 ```elixir
 iex> {:ok, msg} = {:ok, "hello"}
 iex> msg
-"Hello world"
+"hello"
 ```
 
 This is incredibly useful for checking results of functions; many libraries allow you to deal with errors this way. In this example, we use a case statement to match the result of a web request. We'll talk more about `case` when we talk about control structures.
