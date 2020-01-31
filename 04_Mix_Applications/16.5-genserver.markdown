@@ -121,7 +121,7 @@ defmodule MyApp.ApiHandler do
 end
 ```
 
-So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_poke_request/1` method.
+So now we have completed our GenServer callback implementation. Let's complete the functionality by implementing the `get_character_request/1` method.
 
 But first let's add the required dependencies to our `mix.exs` file.
 
@@ -163,52 +163,10 @@ defmodule MyApp.ApiHandler do
 end
 ```
 
+
 We'll start the GenServer process with out supervisor we implemented previously.
 
-The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree.
-
-Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiHandler as a child in our supervision tree.
-
-Add the following line to our list of children:
-
-Our list of children should now look like this now:
-
-```elixir
-def start(_type, _args) do
-  children = [
-    {MyApp.Router, []},
-    {MyApp.ApiHandler, []}
-  ]
-
-  opts = [strategy: :one_for_one, name: MyApp.Supervisor]
-  Supervisor.start_link(children, opts)
-end
-```
-
-When our app is started it will start our ApiHandler as a child process.
-
-Now we can call our `get_character_request/1` function from our router.
-
-```elixir
-defmodule MyApp.Router do
-  use Plug.Router
-
-  get("/:name") do
-    query_params = Plug.Conn.fetch_query_params(conn)
-    name =  query_params.params["name"] || 1
-    character = MyApp.ApiHandler.get_character(name)
-    conn
-      |> put_resp_content_type("application/json")
-      |> send_resp(200, character)
-  end
-end
-```
-
-Now we have a non-blocking GenServer that calls an external api in an efficient way.
-
-The last thing we want to call out is that we want to register our GenServer with the Erlang name server.
-
-We will do this with the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.
+The `GenServer.start_link/3` function starts a process linked to the current process. Often times this is used in a Supervision tree. We'll implement the `start_link/2` function by calling `GenServer.start_link/3` with the name we want to register the GenServer under. Below we are registering the GenServer with the name of the module.
 
 ```elixir
 defmodule MyApp.ApiHandler do
@@ -218,6 +176,13 @@ defmodule MyApp.ApiHandler do
     GenServer.start_link(__MODULE__, [], name: __MODULE__)
   end
 end
+```
+
+Now that we have our completed ApiHandler, we can call it from the console:
+
+```elixir
+iex(2)> MyApp.ApiHandler.get_character(1)
+"{\"url\":\"https://anapioficeandfire.com/api/characters/1\",\"name\":\"\",\"gender\":\"Female\",\"culture\":\"Braavosi\",\"born\":\"\",\"died\":\"\",\"titles\":[\"\"],\"aliases\":[\"The Daughter of the Dusk\"],\"father\":\"\",\"mother\":\"\",\"spouse\":\"\",\"allegiances\":[],\"books\":[\"https://anapioficeandfire.com/api/books/5\"],\"povBooks\":[],\"tvSeries\":[\"\"],\"playedBy\":[\"\"]}"
 ```
 
 The complete `ApiHandler` module looks like this:
@@ -264,3 +229,42 @@ defmodule MyApp.ApiHandler do
   end
 end
 ```
+
+Let's add our `ApiHandler` module to our supervision tree. Open up our `myapp.ex` file. We will add our ApiHandler as a child in our supervision tree.
+
+Add the following line to our list of children:
+
+Our list of children should now look like this now:
+
+```elixir
+def start(_type, _args) do
+  children = [
+    {MyApp.Router, []},
+    {MyApp.ApiHandler, []}
+  ]
+
+  opts = [strategy: :one_for_one, name: MyApp.Supervisor]
+  Supervisor.start_link(children, opts)
+end
+```
+
+When our app is started it will start our ApiHandler as a child process.
+
+Now we can call our `get_character_request/1` function from our router.
+
+```elixir
+defmodule MyApp.Router do
+  use Plug.Router
+
+  get("/:name") do
+    query_params = Plug.Conn.fetch_query_params(conn)
+    name =  query_params.params["name"] || 1
+    character = MyApp.ApiHandler.get_character(name)
+    conn
+      |> put_resp_content_type("application/json")
+      |> send_resp(200, character)
+  end
+end
+```
+
+Now we have a non-blocking GenServer that calls an external api in an efficient way.
